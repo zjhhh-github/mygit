@@ -25,6 +25,8 @@ import requests
 
 
 FEISHU_BASE_URL = "https://open.feishu.cn"
+DEFAULT_APP_ID = "cli_a96f36ed1538dbcf"
+DEFAULT_APP_SECRET = "0XiTHVpP9zbnXJWPSwM8DdxXpPwxlQRB"
 DEFAULT_APP_TOKEN = "Zk05bwki2abD8XsBBOccaFsPn8e"
 DEFAULT_TARGET_TABLE_ID = "tblxePMrI4Aot32D"
 DEFAULT_MAPPING_TABLE_ID = "tblxAECIL3MnGkKr"
@@ -38,7 +40,13 @@ RETRY_DELAY_SECONDS = 1
 DISABLE_PROXY = True
 
 # 这些散件无论是否重复，都单独拆成独立新增行（但不按编号逐条再拆）。
-FORCE_SEPARATE_ITEM_NAMES = {"西游记绘本套装【100元】"}
+FORCE_SEPARATE_ITEM_NAMES = {
+    "西游记绘本-套装【100元】",
+    "动物街-L系列-台词书(2本)【100元】",
+    "小猪佩奇-L系列-台词书(3本)【150元】",
+    "小四件(蓝)【200元】",
+    "小四件(粉)【200元】"
+}
 
 def build_headers(tenant_access_token: str) -> Dict[str, str]:
     """构造飞书 API 请求头。"""
@@ -313,10 +321,14 @@ def should_expand_to_unit_rows(split_item_name: str) -> bool:
     """
     normalized_name = split_item_name.strip()
     expand_item_names = {
-        "牛津树 绘本（套装）【300元】",
-        "蛋壳阅读练习册套装（1-12）【350元】",
+        "牛津树-L系列-绘本-套装【300元】",
+        "蛋壳阅读练习册-套装（1-12）【350元】",
         "读写工具包-套装【900元】",
-        "西游记绘本套装【100元】",
+        "西游记绘本-套装【100元】",
+        "动物街-L系列-台词书(2本)【100元】",
+        "小猪佩奇-L系列-台词书(3本)【150元】",
+        "小四件(蓝)【200元】",
+        "小四件(粉)【200元】"
     }
     return normalized_name in expand_item_names
 
@@ -662,8 +674,18 @@ def print_debug_payload(payload: Dict[str, Any]) -> None:
 def parse_args() -> argparse.Namespace:
     """解析命令行参数。"""
     parser = argparse.ArgumentParser(description="回填飞书多维表格散件编号与金额")
-    parser.add_argument("--app-id", required=True, help="飞书应用 App ID")
-    parser.add_argument("--app-secret", required=True, help="飞书应用 App Secret")
+    # 为了支持“双击 exe 或直接运行不传参”，这里提供默认凭证。
+    # 如需切换环境，仍可通过命令行参数覆盖默认值。
+    parser.add_argument(
+        "--app-id",
+        default=DEFAULT_APP_ID,
+        help="飞书应用 App ID（默认使用脚本内置值）",
+    )
+    parser.add_argument(
+        "--app-secret",
+        default=DEFAULT_APP_SECRET,
+        help="飞书应用 App Secret（默认使用脚本内置值）",
+    )
     parser.add_argument("--app-token", default=DEFAULT_APP_TOKEN, help="飞书多维表格 App Token")
     parser.add_argument(
         "--target-table-id",
@@ -698,8 +720,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--split-flag-field",
-        default="文本5",
-        help="拆分标记字段名（默认 文本5，可按实际表头传入）",
+        default="数据类型",
+        help="拆分标记字段名（默认 数据类型，可按实际表头传入）",
     )
     return parser.parse_args()
 
@@ -846,7 +868,7 @@ def main() -> int:
 
                     if args.dry_run:
                         print(
-                            f"[拆分预览][{record_id}] 新增1行 -> 散件名称={split_item_name}，散件编号(最终)={current_code}，散件总金额={current_amount}，文本5=拆分"
+                            f"[拆分预览][{record_id}] 新增1行 -> 散件名称={split_item_name}，散件编号(最终)={current_code}，散件总金额={current_amount}，数据类型=拆分"
                         )
                     else:
                         create_record(
