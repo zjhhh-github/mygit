@@ -1,0 +1,29 @@
+{
+  "app_id": "cli_a96f36ed1538dbcf",
+  "app_secret": "0XiTHVpP9zbnXJWPSwM8DdxXpPwxlQRB",
+  "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+  "table_id": "tblKa8wryhV4d7F4",
+  "page_size": 100,
+  "output_file": "feishu-users.json",
+  "fields": [
+    "编号",
+    "密码",
+    "合伙宝妈总微信号",
+    "孩子中文全名",
+    "合伙宝妈微信原始ID"
+  ],
+  "flatten": true,
+  "output_mapping": {
+    "账号": "编号",
+    "密码": "密码",
+    "微信号": "合伙宝妈总微信号",
+    "称呼": "孩子中文全名",
+    "微信原始ID": "合伙宝妈微信原始ID"
+  },
+  "output_templates": {
+    "内部备注": "¿¿¿{编号}-{孩子中文全名}"
+  },
+  "output_constants": {
+    "角色": "普通用户"
+  }
+}

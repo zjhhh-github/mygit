@@ -1,0 +1,36 @@
+{
+  "_说明": "同步意向学员到飞书.py 主配置。修改后重新运行脚本即可生效；飞书凭证也可用环境变量 FEISHU_APP_ID 等覆盖。",
+  "飞书": {
+    "_说明": "多维表格应用凭证；app_token 为 Base 的 app_token，table_id 为目标数据表。",
+    "app_id": "cli_a96f36ed1538dbcf",
+    "app_secret": "0XiTHVpP9zbnXJWPSwM8DdxXpPwxlQRB",
+    "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+    "table_id": "tblNIWZ1EsDyZ1ug",
+    "api_base": "https://open.feishu.cn/open-apis"
+  },
+  "数据源": {
+    "_说明": "mode: local_json | manjike。local_json_file 可与 export_prospect.config.json 的 json_filename 一致；manjike 账号缺省从 export 的「服务端」补齐。",
+    "mode": "local_json",
+    "local_json_file": "意向学员数据导出.json",
+    "manjike_config_file": "export_prospect.config.json",
+    "auto_export_before_sync": false,
+    "manjike": {
+      "timeout_seconds": 600
+    }
+  },
+  "同步": {
+    "_说明": "dry_run=true 仅统计不写飞书；真实执行可用 --execute 或改 dry_run 为 false。",
+    "dry_run": true,
+    "require_confirm": true,
+    "batch_sizes": [1000, 500, 200],
+    "max_retry": 5,
+    "base_backoff_seconds": 1
+  },
+  "路径": {
+    "_说明": "相对路径均相对于脚本目录 manjike-tools/prospect/",
+    "field_mapping_file": "field_mapping.json",
+    "failed_file": "logs/sync_feishu_failed.json",
+    "backup_dir": "logs",
+    "backup_filename_prefix": "同步意向学员到飞书"
+  }
+}

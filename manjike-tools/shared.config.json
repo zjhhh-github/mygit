@@ -1,0 +1,4 @@
+{
+  "_说明": "manjike-tools 公共配置。三个上传脚本（users / internal / prospect）都会读这里的 host，无需每个配置文件单独改一遍。各脚本自己的 config 里如果也写了 host，以各脚本自身配置为准（优先级：脚本配置 > 本文件 > 默认值 http://localhost:8080）。local环境接口地址:http://localhost:8080,dev环境接口地址:https://dev.manjikeabc.com",
+  "host": "http://localhost:8080"
+}

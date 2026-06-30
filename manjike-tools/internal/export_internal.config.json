@@ -1,0 +1,19 @@
+{
+  "_说明": "配置 export_internal_contacts.py。db_paths 优先；db_path 支持分号分隔多库。路径含「最新日期」时会在 chatlog_backup 下自动选取最新备份目录。",
+  "数据源": {
+    "_说明": "桌面双库示例；也可改回网络备份 contact.db 单库路径。",
+    "db_paths": [
+      "C:\\Users\\LENOVO\\Desktop\\contact_内部专用.db",
+      "C:\\Users\\LENOVO\\Desktop\\contact_内部专用2.db"
+    ],
+    "db_path": "C:\\Users\\LENOVO\\Desktop\\contact_内部专用.db;C:\\Users\\LENOVO\\Desktop\\contact_内部专用2.db",
+    "backup_root": "X:\\chatlog_backup",
+    "folder_prefix": "wxid_42272spv9uq522_6ded_"
+  },
+  "导出": {
+    "_说明": "output_file 支持绝对/相对路径；相对路径以脚本目录为基准。clean_remark_suffix 会去掉备注末尾的 (非)/（非）。",
+    "output_file": "内部通讯录.json",
+    "clean_remark_suffix": true,
+    "indent": 2
+  }
+}

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script charset="utf-8">
+      window._init_time_ = Date.now()
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="baidu-site-verification" content="codeva-suRZcdC9SH" />
+    <link rel="shortcut icon"
+      href="https://assets.weibanzhushou.com/web/we-work-webapp/favicon_favicon.badc5f26342c.ico" />
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="https://assets.weibanzhushou.com/web/we-work-webapp/favicon_favicon-32x32.7ec7bb6cf728.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="https://assets.weibanzhushou.com/web/we-work-webapp/favicon_favicon-16x16.a271410f51c5.png">
+    <meta name="renderer" content="webkit">
+
+    <title>企业微信营销_企业微信会话存档_私域流量运营-微伴助手官网</title>
+    <meta name="keywords" content="企业微信营销,企业微信服务商,企业微信SCRM,企业微信会话存档,微信聊天记录保存,私有化部署,私域流量,私域流量运营,微信营销软件,移动办公,微伴助手,微伴">
+    <meta name="description" content="微伴助手-企业微信服务商，我们开发了更多高级功能，为企业微信营销,私域流量运营管理提供：聊天存档,渠道活码,会话存档,私有化部署，移动办公，无需下载在线营销">
+    <meta name="timestamp" content="1781576628.426703">
+    <!-- bing webmaster tools -->
+    <meta name="msvalidate.01" content="FC7C441CBC70B77016561EF406E4DEB0" />
+
+    
+
+    
+
+    
+    
+    <link href="https://assets.weibanzhushou.com/web/we-work-webapp/dist/index.1f004881d1f5128be5e8.css" rel="stylesheet">
+    
+    
+
+    
+<style type="text/css">
+  body .index-page,
+  body .website-landing-page {
+    visibility: hidden;
+  }
+
+  body.winged__loaded .index-page,
+  body.winged__loaded .website-landing-page {
+    visibility: visible;
+  }
+</style>
+
+
+    
+<script type='text/javascript'>
+  window.weibanPageData = {
+    
+  }
+</script>
+
+
+    
+
+    
+    <script type="text/javascript" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/runtime.0bc7fc4d2fecbe45a6f7.js"></script>
+    
+    <script type="text/javascript" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/vendors.b39884ab8c0ee3a1a2b3.js"></script>
+    
+    <script type="text/javascript" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/index.1f004881d1f5128be5e8.js"></script>
+
+    
+    <script charset="utf-8">
+      window._sentry_date = {
+        dsn: 'https://baeaeb563572435f82cdb5d2abe1d581@sentry-prod.wb0.tech/4',
+        beforeSend(event, hint) {
+          if (!hint) {
+            return null
+          }
+          const error = hint.originalException;
+          if (
+            typeof error === 'object' &&
+            error &&
+            error.message &&
+            (
+              // 登录态接口报错
+              error.message.match(/"statusCode":/i)
+            )
+          ) {
+            return null
+          }
+          return event;
+        },
+      }
+    </script>
+    <script src="https://assets.weibanzhushou.com/web/we-work-webapp/sentry_init.cdce79d58bc4.js"></script>
+    
+
+    <script charset="utf-8">
+      window.weWorkWebappConfig = {
+        AMAP_KEY: '',
+        LTC_DISABLE: 'false',
+      }
+    </script>
+
+    
+    <script type="text/javascript">
+      window._AMapSecurityConfig = { serviceHost: '/_AMapService' }
+    </script>
+    
+
+    
+
+    <script charset="utf-8">
+      window._base_script_load_time_ = Date.now() - window._init_time_
+    </script>
+
+    
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" referrerpolicy="origin"></script>
+<!-- <script src="https://wwcdn.weixin.qq.com/node/wwopen/wwopenmng/js/jsapi/wecomtest$433252bc.js" referrerpolicy="origin" ></script> -->
+<script src="https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js" referrerpolicy="origin"></script>
+<script src="https://cdn.weibanzhushou.com/weiban-prod/wecom-jssdk-1.5.0-beta.js" charset="utf-8"></script>
+
+
+
+    
+    <script>
+        (function (a, e, f, g, b, c, d) {
+          a.ClickiTrackerName = b;
+          a[b] = a[b] || function () {
+            (a[b].queue = a[b].queue || []).push(arguments)
+          };
+          a[b].start = +new Date;
+          c = e.createElement(f);
+          d = e.getElementsByTagName(f)[0];
+          c.async = 1;
+          c.src = g;
+          d.parentNode.insertBefore(c, d)
+        })(window, document, 'script', '//stm-cdn.cn.miaozhen.com/clicki.min.js?v=' + Math.round(new Date().getTime() / 1000 / 300), 'stm_clicki');
+      stm_clicki('create', 'dc-2000169', 'auto');
+      
+      stm_clicki('send', 'pageview');
+    </script>
+    
+
+    
+
+
+  </head>
+
+  <body>
+    
+
+<div class="page-wrap website-landing-page" style=""><span style="display: none;"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/weiban-logo_logo-no-word-3.45d3d34536da.png"></span>
+  <div class="preload hide"><span class="icon-wrap " style="margin-left: 4px;"><i class="anticon icon "><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+          <use xlink:href="#arrow-down"></use>
+        </svg></i></span></div>
+  <div id="layout" class="ant-layout">
+    <header id="index-header" class="ant-layout-header flex-row white-top ">
+      <div class="inner-box">
+        <div class="flex-row">
+          <div class="main-logo  __logo__" style=""><a href="/">
+              <h1 class="logo-box"><img class="logo1 __logoImg__" style="" src="https://assets.weibanzhushou.com/web/we-work-webapp/logo.3a9dd818c443.png" alt=""> </h1>
+            </a> </div>
+          <div class="we-work-service-icon"><span class="icon-wrap " style=""><i class="anticon icon "><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+                  <use xlink:href="#wework-color"></use>
+                </svg></i></span> 企业微信服务商 <div class="popup">
+              <div class="flex-row">
+                <div class="col-1 flex-row header"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/weiban-logo_yykj-logo.826e871646cf.png" class="logo">
+                  <div class="flex-col align-left col-1">
+                    <h4>夜莺科技</h4>
+                    <div class="full-name flex-row align-side full-w"><span>武汉夜莺科技有限公司 <span class="icon-wrap " style=""><i class="anticon icon "><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+                              <use xlink:href="#renzheng"></use>
+                            </svg></i></span></span> <a href="https://open.work.weixin.qq.com/" target="_blank" rel="nofollow" class="flex-row">详情<span class="icon-wrap " style="font-size:11px;color:#1890ff;"><i class="anticon icon "><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+                              <use xlink:href="#arrow-right"></use>
+                            </svg></i></span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="intro">夜莺科技于2015年成⽴，专注于为企业提供私域流量运营⼯具。旗下核心产品微伴助⼿是基于企业微信的 SCRM 解决⽅案。 夜莺科技已获得省高新技术企业、信息系统安全等级保护三级、ISO27001、ISO27701、ISO9001等多项认证。</div>
+            </div>
+          </div>
+          <div class="move-to-left">
+            <div class="link-btn-box solution-box"><a class="link black"> 解决方案 <span class="icon-wrap " style="margin-left: 4px;"><i class="anticon icon link-arrow-icon"><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+                      <use xlink:href="#arrow-down"></use>
+                    </svg></i></span></a>
+              <div class="full-dropdown ">
+                <div class="full-dropdown-content">
+                  <p class="full-dropdown-title"> 通用解决方案 </p>
+                  <div class="full-dropdown-menu-list has-border-list-item"><a href="/message" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_huihuacundang.48a5c17607ad.svg">
+                      <div><span class="menu-item-name">会话内容存档</span> <span class="menu-item-desc">助力企业合规有序地向客户提供服务</span></div>
+                    </a> <a href="/mixCloud" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_hunheyun.8b8c354132fc.svg">
+                      <div><span class="menu-item-name">混合云部署</span> <span class="menu-item-desc">会话数据私有云，数据安全可自控</span></div>
+                    </a> <a href="/privatization" class="index-header-menu-a index-header-menu-api" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_siyouhua.b4eceefa08bc.svg">
+                      <div><span class="menu-item-name">私有化部署</span> <span class="menu-item-desc">专业服务器，加密数据更安全</span></div>
+                    </a> <a href="/marketing_landing_page" class="index-header-menu-a index-header-menu-api" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_qiweiyingxiaowanfa.61806152840f.svg">
+                      <div><span class="menu-item-name">企微营销玩法</span> <span class="menu-item-desc">裂变、活跃、转化</span></div>
+                    </a> <a href="/wx_service" class="index-header-menu-a index-header-menu-api" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_weixinkefu.e6084219e6f7.svg">
+                      <div><span class="menu-item-name">微信客服</span> <span class="menu-item-desc">让咨询更简单</span></div>
+                    </a> <a href="/bi_hengshi_landing_page" class="index-header-menu-a index-header-menu-api" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_weibanshujufenxi.301c9e49732e.svg">
+                      <div><span class="menu-item-name">微伴数据分析</span> <span class="menu-item-desc">打通数据分析全链路，反哺私域业绩</span></div>
+                    </a></div>
+                  <p class="full-dropdown-title mt-20"> 行业解决方案 </p>
+                  <div class="full-dropdown-menu-list"><a href="/reatil_solutions" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_lingshouhangye.5011e38684c9.svg">
+                      <div><span class="menu-item-name">零售行业解决方案</span></div>
+                    </a> <a href="/teach_solutions" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_jiaoyuhangye.fabc32dea0c7.svg">
+                      <div><span class="menu-item-name">教育行业解决方案</span></div>
+                    </a> <span class="index-header-menu-a padding-left-a"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_jinronghangye.3ad844d80fae.svg">
+                      <div><span class="menu-item-name">金融行业解决方案</span></div>
+                    </span> <span class="index-header-menu-a"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_muyinghangye.c744a15fb939.svg">
+                      <div><span class="menu-item-name">母婴行业解决方案</span></div>
+                    </span> <span class="index-header-menu-a padding-left-a"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_rihuahangye.3971b9da7ed2.svg">
+                      <div><span class="menu-item-name">日化行业解决方案</span></div>
+                    </span> <a href="/cosmetics_landing_page" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_meizhuanghangye.834fb2521e49.svg">
+                      <div><span class="menu-item-name">美妆行业解决方案</span></div>
+                    </a> <span class="index-header-menu-a"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_canyinghangye.8c8e31b7edaf.svg">
+                      <div><span class="menu-item-name">餐饮行业解决方案</span></div>
+                    </span></div>
+                </div>
+              </div>
+            </div>
+            <div class="link-btn-box qw-box"><a class="link black"> 企业微信学院 <span class="icon-wrap " style="margin-left: 4px;"><i class="anticon icon link-arrow-icon"><svg width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+                      <use xlink:href="#arrow-down"></use>
+                    </svg></i></span></a>
+              <div class="full-dropdown ">
+                <div class="full-dropdown-content">
+                  <div class="full-dropdown-menu-list has-border-list-item"><a href="https://weibanzhushou.com/blog" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_qiweizhinan.5733e4a4b2e3.svg">
+                      <div><span class="menu-item-name">企业微信指南</span> <span class="menu-item-desc">玩转企业微信</span></div>
+                    </a> <a href="https://appgiukerfp7630.h5.xiaoeknow.com" class="index-header-menu-a" target="_blank"><img src="https://assets.weibanzhushou.com/web/we-work-webapp/index-layout_qiweixueyuan.7bb9f790cf06.svg">
+                      <div><span class="menu-item-name">企业微信学院</span> <span class="menu-item-desc">微伴私域流量新手入门必修课</span></div>
+                    </a></div>
+                </div>
+              </div>
+            </div> <a class="link black" href="/official_website_agent" target="_blank"> 渠道合作招募 </a> <a href="/app_program_interface_landing_page" class="link black" target="_blank">开放平台</a>
+          </div>
+        </div>
+        <div class="actions col-1 flex-row align-right " id="index-header-menu"><a class="link black " href="https://weibanzhushou.com/help/">帮助</a> <a class=" link black " href="/pricing">定价</a> <a class="link black"> 登录 </a> <span id="header-start" class="black" href="/register"><button id="" type="button" class="ant-btn radius-small start-btn ant-btn-primary ant-btn-background-ghost pc button __button__" style="" ant-click-animating-without-extra-node="false"> 立即免费使用 </button></span> </div>
+      </div>
+    </header>
+    <main class="ant-layout-content ">
+      <section class="fix-bottom-bar clickable __fixBottomBar__" style="">
+        <div class="bar"><img class="lingdang" src="https://assets.weibanzhushou.com/web/we-work-webapp/lingdang.3bfa61db5e19.png"> <span>重要通知：自5月16日起，根据企微接口最新收费政策，需购买后方能正常使用微伴！</span> <img class="fangdajing" src="https://assets.weibanzhushou.com/web/we-work-webapp/fangdajing.fda343e7cbf9.png"> <span class="click-detail">点击了解详情</span></div>
+      </section>
+      <div class="swiper-container swiper-no-swiping swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+        <div class="swiper-wrapper" style="transition-duration: 300ms;">
+          <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 1306px; opacity: 0; transform: translate3d(0px, 0px, 0px); transition-duration: 300ms;">
+            <section class="web-header">
+              <div class="bg-box">
+                <div class="bg-left"></div>
+                <div class="nav-img-box"><img class="nav-bg" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_new-banner4.fa274b0aa90d.png"></div>
+                <div class="bg-right"></div>
+              </div>
+              <div class="web-content">
+                <div class="header-text">
+                  <div class="text-title">微伴助手</div>
+                  <div class="text-title">城市合作计划</div>
+                  <div class="text-desc">专业产品支撑，真实政策扶持，共拓私域千亿市场</div>
+                  <div class="text-btn"> 一键启动 </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 1306px; opacity: 0; transform: translate3d(-1306px, 0px, 0px); transition-duration: 300ms;">
+            <section class="web-header">
+              <div class="bg-box">
+                <div class="bg-left"></div>
+                <div class="nav-img-box"><img class="nav-bg" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_new-banner1.4afc44b44733.png"></div>
+                <div class="bg-right"></div>
+              </div>
+              <div class="web-content">
+                <div class="header-text">
+                  <div class="text-title">基于企业微信的数字化运营管理平台</div>
+                  <div class="text-title">更快速的连接 更高效的增长</div>
+                  <div class="text-desc">腾讯、明略生态企业</div>
+                  <div class="text-btn swiperBtn">立即免费使用 </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 1306px; opacity: 1; transform: translate3d(-2612px, 0px, 0px); transition-duration: 300ms;">
+            <section class="web-header">
+              <div class="bg-box new-bg-box">
+                <div class="bg-left"></div>
+                <div class="nav-img-box"><img class="nav-bg" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_banner-bi-v1.494ffacd302e.jpg"></div>
+                <div class="bg-right"></div>
+              </div>
+              <div class="web-content">
+                <div class="header-text">
+                  <div class="text-title">能帮到业务的私域数据解决方案</div>
+                  <div class="text-desc mb-56" style="margin-bottom:58px;">帮助企业打通在营销活动、销售流转、服务沟通等场景里数据分析全链路，真正反哺业务增长</div>
+                  <div class="text-btn"> 立即体验 </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 1306px; opacity: 0; transform: translate3d(-3918px, 0px, 0px); transition-duration: 300ms;">
+            <section class="web-header">
+              <div class="bg-box">
+                <div class="bg-left"></div>
+                <div class="nav-img-box"><img class="nav-bg" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_new-banner4.fa274b0aa90d.png"></div>
+                <div class="bg-right"></div>
+              </div>
+              <div class="web-content">
+                <div class="header-text">
+                  <div class="text-title">微伴助手</div>
+                  <div class="text-title">城市合作计划</div>
+                  <div class="text-desc">专业产品支撑，真实政策扶持，共拓私域千亿市场</div>
+                  <div class="text-btn"> 一键启动 </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 1306px; opacity: 0; transform: translate3d(-5224px, 0px, 0px); transition-duration: 300ms;">
+            <section class="web-header">
+              <div class="bg-box">
+                <div class="bg-left"></div>
+                <div class="nav-img-box"><img class="nav-bg" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_new-banner1.4afc44b44733.png"></div>
+                <div class="bg-right"></div>
+              </div>
+              <div class="web-content">
+                <div class="header-text">
+                  <div class="text-title">基于企业微信的数字化运营管理平台</div>
+                  <div class="text-title">更快速的连接 更高效的增长</div>
+                  <div class="text-desc">腾讯、明略生态企业</div>
+                  <div class="text-btn swiperBtn">立即免费使用 </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
+        <div class="header-bottom0">
+          <div class="bottom-item"><img class="item-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_first-nav-bottom-three-v1.917227b3efde.png" alt="">
+            <div class="bottom-item-desc">
+              <div class="item-number"><img class="num-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/res/imgs/website-landing-page/20.png"> <span class="item-unit">万+</span></div>
+              <div class="item-desc">企业授权客户</div>
+            </div>
+          </div>
+          <div class="bottom-item"><img class="item-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_first-nav-bottom-one.94fb0026bc79.png" alt="">
+            <div class="bottom-item-desc">
+              <div class="item-number"><img class="num-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/res/imgs/website-landing-page/50.png"> <span class="item-unit">万+</span></div>
+              <div class="item-desc">服务企业用户</div>
+            </div>
+          </div>
+          <div class="bottom-item"><img class="item-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_first-nav-bottom-two.82f1bc840525.png" alt="">
+            <div class="bottom-item-desc">
+              <div class="item-number"><img class="num-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/res/imgs/website-landing-page/3.png"> <span class="item-unit">亿+</span></div>
+              <div class="item-desc">协助引流微信客户</div>
+            </div>
+          </div>
+          <div class="bottom-item"><img class="item-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/website-landing-page_first-nav-bottom-four-v1.ca172582d823.png" alt="">
+            <div class="bottom-item-desc">
+              <div class="item-number"><img class="num-img" src="https://assets.weibanzhushou.com/web/we-work-webapp/dist/res/imgs/website-landing-page/70.png"> <span class="item-unit">%</span></div>
+              <div class="item-desc">用户口碑推荐</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="web-tab">
+        <div class="tab-container-title"> 构建营销获客、销售管理和客户服务为一体的数字营销闭环 </div>
+        <div class="tab-content">
+          <div class="tab-title tab-title-5 cur0"><span class="active">智能营销</span><span class="">智能销售</span><span class="">智能服务</span><span class="">企微运营</span><span class="">AI实验室</span></div>
+          <div class="tab-list">
+            <img class="tab-left-bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            <img class="tab-right-bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            <div class="left-eg-box now-eg">
+              <div class="now-eg duochangjingyinliu">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img">
+              </div>
+              <div class="hide-tab liebianhuoke">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img">
+              </div>
+              <div class="hide-tab kehuhudong">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img">
+              </div>
+              <div class="hide-tab yingxiaojihua">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img">
+              </div>
+              <div class="hide-tab quanyuanyingxiao">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img">
+              </div>
+            </div>
+            <div class="right-list">
+              <div class="child-list-item active">
+                <div class="child-item-title">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  <span class="active">多场景引流</span>
+                </div>
+                <div class="desc">渠道活码、门店活码、外部渠道引流、批量加好友</div>
+              </div>
+              <div class="child-list-item">
+                <div class="child-item-title">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  <span class="">裂变获客</span>
+                </div>
+                <div class="desc hide">群活动、企微任务宝、群裂变、一客一码</div>
+              </div>
+              <div class="child-list-item">
+                <div class="child-item-title">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  <span class="">客户互动</span>
+                </div>
+                <div class="desc hide">群打卡、自定义表单、抽奖活动、小红包</div>
+              </div>
+              <div class="child-list-item">
+                <div class="child-item-title">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  <span class="">营销计划</span>
+                </div>
+                <div class="desc hide">群SOP、个人SOP、活动管理、群日历</div>
+              </div>
+              <div class="child-list-item">
+                <div class="child-item-title">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  <span class="">全员营销</span>
+                </div>
+                <div class="desc hide">拉新排行榜、拉新激励、自助推广码</div>
+              </div>
+            </div>
+            <div class="left-eg-box hide-tab">
+              <div class="hide-tab xiansuoshujuguanli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab xiaoshouguochengguanli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab xiaoshoushujufenxi"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+            </div>
+            <div class="right-list hide">
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">线索数据管理</span></div>
+                <div class="desc hide">客户数据全程加密、闭环管理，企业客户资产不外流</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">销售过程管理</span></div>
+                <div class="desc hide">线索公海、客户管理、产品管理、商机管理、订单管理、回款管理、发票管理</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">销售数据分析</span></div>
+                <div class="desc hide">线索与商机看板、销售漏斗分析、销售转化分析</div>
+              </div>
+            </div>
+            <div class="left-eg-box hide-tab">
+              <div class="hide-tab weixinkefu"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab xiangmuguanli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab qiweigongdan"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab kehuzhisheng"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+            </div>
+            <div class="right-list hide">
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">在线客服</span></div>
+                <div class="desc hide">网页客服、微信客服、会话分析</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">项目管理</span></div>
+                <div class="desc hide">项目信息同步、项目阶段管理、项目动态通知</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">企微工单</span></div>
+                <div class="desc hide">智能工单、预警工单、投诉工单</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">客户之声</span></div>
+                <div class="desc hide">词云&amp;词频分析、评论识别、需求分类、关键词索引</div>
+              </div>
+            </div>
+            <div class="left-eg-box hide-tab">
+              <div class="hide-tab duoqudaochuda"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab neirongyingxiao"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab kehushuxingguanli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab kehuzichanguanli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab shujutongji"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+            </div>
+            <div class="right-list hide">
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">多渠道触达</span></div>
+                <div class="desc hide">客户群发、客户群群发、朋友圈</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">内容营销库</span></div>
+                <div class="desc hide">素材库、话术库、互动雷达</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">客户属性管理</span></div>
+                <div class="desc hide">预打标签、自动标签、预设属性、客户画像</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">客户资产管理</span></div>
+                <div class="desc hide">客户管理、客户迁移、流失提醒</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">多维度数据统计</span></div>
+                <div class="desc hide">客户统计、客户群统计、成员统计、直播统计、数据订阅</div>
+              </div>
+            </div>
+            <div class="left-eg-box hide-tab">
+              <div class="hide-tab shuxingshibie"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab huiyishibie"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab aizhuli"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+              <div class="hide-tab cipingfenxi"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="eg-img"></div>
+            </div>
+            <div class="right-list hide">
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">属性识别</span></div>
+                <div class="desc hide">AI识别分析客户对话内容，提取客户信息，构建客户画像</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">会议识别</span></div>
+                <div class="desc hide">AI识别客户对话中与会议相关信息内容，自动生成会议识别弹窗</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">AI助理</span></div>
+                <div class="desc hide">通过向AI助手发送语音或文字消息，调取所需的数据信息</div>
+              </div>
+              <div class="child-list-item ">
+                <div class="child-item-title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"> <span class="">词频分析</span></div>
+                <div class="desc hide">统计高频词汇，设置过滤词，帮助企业洞察客户需求与反馈</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="web-plan">
+        <div class="plan-title"> 多行业、全场景一体化解决方案 </div>
+        <div class="plan-tabs-container">
+          <div class="plan-tabs">
+            <div class="plan-tabs-item active">零售行业</div>
+            <div class="plan-tabs-item ">教育行业</div>
+            <div class="plan-tabs-item ">金融行业</div>
+            <div class="plan-tabs-item ">母婴行业</div>
+            <div class="plan-tabs-item ">日化行业</div>
+            <div class="plan-tabs-item ">美妆行业</div>
+            <div class="plan-tabs-item ">餐饮行业</div>
+          </div>
+        </div>
+        <div class="plan-swiper-wrapper">
+          <div class="plan-swiper swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="swiper-wrapper" style="transition-duration: 0ms;">
+              <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="6">
+                <div class="plan-content">
+                  <div class="plan-content-top">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">餐饮行业解决方案</div>
+                      <p>传统的餐饮门店广泛存在获客、转化、服务、管理等难题，微伴助手基于私域运营的多种工具，可帮助实现对顾客的高频触达和高效互动， 推动门店客户管理和服务能力提升，牢牢掌握客户流量，提升门店业绩</p>
+                      <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1274px; transition-duration: 0ms; opacity: 1; transform: translate3d(-1274px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">零售门店解决方案</div>
+                      <p>布局私域并实现对用户的精细化运营，已成为零售商的必备能力，借助微伴助手，零售品牌可快速构建自有用户池，通过有效的互动、运营方式，以提升消费者留存率、活跃度、客户黏性，实现对客户的精细化运营管理</p> <a class="to-more" href="/reatil_solutions" target="_blank"><span>点击了解更多</span> <span class="to-more-img"></span></a>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-2548px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">教育行业解决方案</div>
+                      <p>微伴助手可帮助教育行业快速搭建私域运营体系，通过多渠道招生、学员留存、业绩转化的一体化方案，实现了教培机构引流、互动、转化、裂变的私域运营闭环，提高教育行业机构的招生转化率与续费率</p> <a class="to-more" href="/teach_solutions" target="_blank"><span>点击了解更多</span> <span class="to-more-img"></span></a>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-swiper-slide-index="2" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-3822px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">金融行业解决方案</div>
+                      <p>金融产品具有低频次、高客单价、高决策成本等特点，个性化、精准性及信任度成为客户运营关键。微伴助手私域运营工具，有效提升了金融行业客户筛选、关系维系、销售转化等精细化客户运营水平，构建金融企业用户资产</p> <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-swiper-slide-index="3" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-5096px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">母婴行业解决方案</div>
+                      <p>私域运营能帮助母婴品牌建立长久且忠诚的客群关系,而非只是单次交易。在实际运营的过程中，微伴助手提供了丰富的内容营销与运营功能，帮助品牌方构建长期用户运营阵地，实现了品牌与用户的深度连接</p> <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-swiper-slide-index="4" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-6370px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">日化行业解决方案</div>
+                      <p>日化零售行业面临的业务痛点，品牌商更需构建完善的客户精细化运营管理机制。使用微伴助手SCRM，通过与消费者保持高频、高效的沟通互动，升级客户消费体验，实现了忠诚用户培养和用户复购转化</p> <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-swiper-slide-index="5" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-7644px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">美妆行业解决方案</div>
+                      <p>私域模式成为美妆行业发展的新增长点，美妆品牌通过微伴助手SCRM，可实现快速打造个性化IP，积累品牌私有客户群体，通过社群运营，加强与用户实现双向交流，打造美妆品牌用户培育与增长闭环</p> <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="6">
+                <div class="plan-content">
+                  <div class="plan-content-top">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">餐饮行业解决方案</div>
+                      <p>传统的餐饮门店广泛存在获客、转化、服务、管理等难题，微伴助手基于私域运营的多种工具，可帮助实现对顾客的高频触达和高效互动， 推动门店客户管理和服务能力提升，牢牢掌握客户流量，提升门店业绩</p>
+                      <span class="to-more"><span>立即免费使用</span> <span class="to-more-img"></span></span>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1274px; transition-duration: 0ms; opacity: 0; transform: translate3d(-10192px, 0px, 0px);">
+                <div class="plan-content">
+                  <div class="plan-content-top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="plan-right">
+                      <div class="right-title">零售门店解决方案</div>
+                      <p>布局私域并实现对用户的精细化运营，已成为零售商的必备能力，借助微伴助手，零售品牌可快速构建自有用户池，通过有效的互动、运营方式，以提升消费者留存率、活跃度、客户黏性，实现对客户的精细化运营管理</p> <a class="to-more" href="/reatil_solutions" target="_blank"><span>点击了解更多</span> <span class="to-more-img"></span></a>
+                    </div>
+                  </div>
+                  <div class="plan-content-bottom"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+      <section class="web-api">
+        <div class="api-content">
+          <div class="api-top-box">
+            <div class="api-title">微伴API开放平台</div>
+            <div class="api-img">
+              <span class="desc-top">系统数据打通</span>
+              <span class="desc-left">数据查看与分析</span>
+              <span class="desc-right">多平台订单接入</span>
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            </div>
+          </div>
+          <div class="api-bottom-list">
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>标签管理</span>
+            </div>
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>客户管理</span>
+            </div>
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>自定义订单</span>
+            </div>
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>批量导入</span>
+            </div>
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>素材内容</span>
+            </div>
+            <div class="api-list-item">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <span>数据中台</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="web-news-and-partner">
+        <section class="web-news">
+          <div class="news-title">新闻动态</div>
+          <div class="news-list">
+            <div class="news-item">
+              <div class="news-img-box">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              </div>
+              <div class="news-item-title">微伴助手荣获腾讯SaaS加速器"最受VC关注企业"</div>
+              <div class="news-item-desc">11月16日，腾讯云公布腾讯SaaS加速器三期总决选"最受VC关注企业"名单，微伴助手凭借优质的产品和服务，成功入选本期"最受VC关注企业"。</div>
+              <div class="news-item-time">2021-11-16</div>
+            </div>
+            <div class="news-item">
+              <div class="news-img-box">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              </div>
+              <div class="news-item-title">微伴助手荣获金瑞奖"最佳成长力企业奖"</div>
+              <div class="news-item-desc">8月6日，由艾瑞咨询主办的2021"iResearch Awards金瑞奖"云颁奖典礼盛大举行，微伴助手从百余位候选企业中脱颖而出，荣获"最佳成长力企业奖"。</div>
+              <div class="news-item-time">2021-8-6</div>
+            </div>
+            <div class="news-item">
+              <div class="news-img-box">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              </div>
+              <div class="news-item-title">微伴助手荣获2021天弓开悟-第三届中国营销数字化大会2项大奖</div>
+              <div class="news-item-desc">7月30日，微伴助手在2021天弓开悟-第三届中国营销数字化大会上，荣获"2021年度营销技术TOP100最具潜力榜"以及"十大最佳私域技术应用工具"两项大奖。</div>
+              <div class="news-item-time">2021-7-30</div>
+            </div>
+          </div>
+        </section>
+        <section class="web-partner">
+          <div class="partner-title">他们都在用微伴助手</div>
+          <div class="partner-content flex-row align-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+          </div>
+        </section>
+      </section>
+      <section class="web-to-use">
+        <div class="use-title">基于企业微信的数字化运营管理平台</div>
+        <div class="use-btn">立即免费使用</div>
+      </section>
+    </main>
+    <footer id="index-footer" class="ant-layout-footer new-index-footer">
+      <section class="footer-top-container">
+        <div class="product-and-servers">
+          <div class="footer-top-title">产品与服务</div>
+          <div class="footer-top-item"><a href="/marketing_landing_page">了解产品</a></div>
+          <div class="footer-top-item"><a href="/reatil_solutions">解决方案</a></div>
+          <div class="footer-top-item"><a href="https://weibanzhushou.com/blog/" target="_blank">企微指南</a></div>
+        </div>
+        <div class="about-us">
+          <div class="footer-top-title">关于我们</div>
+          <div class="footer-top-item"><a href="https://weibanzhushou.com/blog/20322" target="_blank">公司简介</a></div>
+          <div class="footer-top-item"><a target="_blank" href="https://appgiukerfp7630.h5.xiaoeknow.com">微伴商学院</a></div>
+        </div>
+        <div class="contact-us">
+          <div class="footer-top-title">联系我们</div>
+          <div class="footer-top-item">商务合作：<br>yexiumin@nightingales.cn</div>
+          <div class="footer-top-item">意见反馈：<br>chenzhuoma@nightingales.cn</div>
+          <div class="footer-top-item">联系电话：<br> 027-59764996</div>
+          <div class="footer-top-item">公司地址：<br> 武汉东湖新技术开发区关山大道355号 <br> 光谷新世界中心A地块写字楼A栋29层办公6号</div>
+        </div>
+        <div class="partner-link">
+          <div class="footer-top-title">友情链接</div>
+          <div class="footer-top-item"><a href="https://www.mininglamp.com/" target="_blank" rel="nofollow">明略科技</a></div>
+          <div class="footer-top-item"><a href="https://yiban.io" target="_blank">微信编辑器</a></div>
+          <div class="footer-top-item"><a href="https://huiyiai.net/" target="_blank">会译·对照式翻译</a></div>
+          <div class="footer-top-item"><a href="http://www.8manage.cn/" target="_blank">企业管理软件</a></div>
+          <div class="footer-top-item"><a href="https://www.polyv.net/?f=weiban" target="_blank">企业直播服务</a></div>
+          <div class="footer-top-item"><a href="https://vika.cn/" target="_blank">维格表</a></div>
+          <div class="footer-top-item"><a href="https://caixuan.cc/" target="_blank">彩漩PPT</a></div>
+        </div>
+        <div class="look-us">
+          <div class="footer-top-title">关注我们</div>
+          <div class="look-us-content">
+            <div class="footer-top-item">
+              <p>微伴助手</p>
+              <div class="code-img">
+                <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+              </div>
+            </div>
+            <div class="footer-top-item">
+              <p>微伴说</p>
+              <div class="code-img">
+                <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer-bottom-container">
+        <div class="footer-logo">
+          <div>
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+          </div>
+          <div>
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+          </div>
+        </div>
+        
+        <div class="footer-author-intro"><span>Copyright © 2016-2024 武汉夜莺科技有限公司</span> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">鄂ICP备15002531号-12</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42018502005160">鄂公网安备 42018502005160号</a></div>
+        
+        <div class="footer-bootom-last">
+          <div class="footer-bootom-left"><a href="https://weibanzhushou.com">企业微信营销</a> <a href="https://weibanzhushou.com">私域流量运营</a> <a href="https://weibanzhushou.com">微信会话存档</a> <a href="https://weibanzhushou.com">移动办公</a></div>
+          <div class="footer-bootom-right"><a href="https://assets.weibanzhushou.com/web/we-work-webapp/%E5%BE%AE%E4%BC%B4%E5%8A%A9%E6%89%8B-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-JH_20221125.54583b9d4065.pdf">使用条款</a> <a href="https://assets.weibanzhushou.com/weiban-prod/%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96-%20JH20220516.pdf">隐私政策</a></div>
+        </div>
+      </section>
+    </footer>
+  </div>
+</div>
+
+  </body>
+
+  
+  
+  
+
+</html>

@@ -1,0 +1,13 @@
+{
+  "_comment": "manjike 用户批量上传工具配置示例。复制为 upload-users.config.json 后按需修改即可。配置文件含明文密码，请控制访问权限（chmod 600 / Windows ACL）。",
+  "host": "http://localhost:8080",
+  "account": "admin",
+  "password": "你的真实密码",
+  "file": "./feishu-users.json",
+  "dry_run": true,
+  "no_create_missing": false,
+  "allow_clear": false,
+  "max_wait": 600,
+  "poll_interval": 1,
+  "log_file": "./upload-users.log"
+}

@@ -1,0 +1,30 @@
+=== 补充飞书推送3 对比报告 ===
+数据库路径: C:\Users\LENOVO\Documents\chatlog\wxid_7u0rihcbbpbz12_ec5a\db_storage\contact\contact.db
+数据库 max_no: 010118
+飞书 app_token: QggBwb85cid8Opk6eywcEFsrn6b
+飞书 table_id: tblgWQUZZ5lgp9V7
+飞书 view_id: vewLS7j77H
+飞书读取模式: 快速查询(search)
+飞书统计值: 10104
+飞书编号最大值: 010103
+飞书记录导出: D:\桌面文件\新建文件夹\小工具\补充飞书推送3\feishu_records.json（500 条，含全部字段）
+
+结论: 数据库 max(010118) > 飞书 max(010103)，需补充 15 条。
+模式: DRY_RUN（仅预览）
+
+--- 待新增编号（15 条）---
+010104
+010105
+010106
+010107
+010108
+010109
+010110
+010111
+010112
+010113
+010114
+010115
+010116
+010117
+010118

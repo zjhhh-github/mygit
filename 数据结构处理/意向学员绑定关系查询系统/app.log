@@ -1,0 +1,10 @@
+2026-04-22 18:05:38,672 [ERROR] [export] 失败：无 env USER_JWT_TOKEN、无可用 token 缓存、也未配置 SUPABASE_EMAIL/SUPABASE_PASSWORD，无法获取 access_token
+2026-04-22 18:07:11,019 [ERROR] [login] 失败 HTTP=400 body={"code":400,"error_code":"invalid_credentials","msg":"Invalid login credentials"}
+2026-04-22 18:07:11,020 [ERROR] [export] 失败：登录失败(HTTP 400)：{"code":400,"error_code":"invalid_credentials","msg":"Invalid login credentials"}
+2026-04-22 18:09:41,394 [ERROR] [export] 失败：未授权(401)：USER_JWT_TOKEN 无效或已过期。响应：{"error":"未授权访问"}
+2026-04-22 18:14:58,218 [ERROR] [config] 失败：缺少环境变量：FEISHU_ACCESS_TOKEN, FEISHU_APP_TOKEN, FEISHU_TABLE_ID。请在当前终端先设置后再运行（PowerShell：`$env:KEY = "..."`）。
+2026-04-22 18:23:26,839 [ERROR] [config] 失败：缺少环境变量：FEISHU_ACCESS_TOKEN, FEISHU_APP_TOKEN, FEISHU_TABLE_ID。请在当前终端先设置后再运行（PowerShell：`$env:KEY = "..."`）。
+2026-04-22 18:28:05,967 [INFO] [feishu-token] 获取成功 app_id=cli_a96f36ed1538dbcf expire_in=5582s
+2026-04-22 18:33:52,209 [ERROR] [config] 失败：飞书鉴权缺失：请设置 FEISHU_ACCESS_TOKEN（手填 tenant_access_token），或同时设置 FEISHU_APP_ID + FEISHU_APP_SECRET 让脚本自动换取。
+2026-04-22 18:35:52,278 [ERROR] [config] 失败：缺少环境变量：FEISHU_APP_TOKEN, FEISHU_TABLE_ID。请在当前终端先设置后再运行（PowerShell：`$env:KEY = "..."`）。
+2026-04-25 22:49:18,019 [ERROR] [config] 失败：缺少环境变量：FEISHU_APP_TOKEN, FEISHU_TABLE_ID。请在当前终端先设置后再运行（PowerShell：`$env:KEY = "..."`）。

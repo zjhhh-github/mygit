@@ -1,0 +1,14 @@
+{
+  "_说明": "导入控制台内置飞书同步脚本配置。建议与导入控制台.exe 放在同一目录。",
+  "飞书": {
+    "app_id": "cli_a96f36ed1538dbcf",
+    "app_secret": "0XiTHVpP9zbnXJWPSwM8DdxXpPwxlQRB",
+    "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+    "table_id": "tblNIWZ1EsDyZ1ug",
+    "api_base": "https://open.feishu.cn/open-apis"
+  },
+  "同步": {
+    "dry_run": true,
+    "require_confirm": false
+  }
+}

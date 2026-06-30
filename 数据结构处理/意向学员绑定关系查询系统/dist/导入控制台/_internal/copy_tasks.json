@@ -1,0 +1,28 @@
+[
+  {
+    "id": "66d4845d-1215-4daf-aed9-9b4f7125f0f9",
+    "name": "contact.db 同步",
+    "src": "X:\\chatlog_backup",
+    "dst": "C:/Users/LENOVO/Desktop/contact_内部专用.db",
+    "interval_min": 30,
+    "enabled": true,
+    "find_contact_db": true,
+    "contact_prefixes": "wxid_42272spv9uq522_6ded",
+    "start_time": "",
+    "last_run_ts": 1782305169.6806254,
+    "last_result": "成功 20:46:09"
+  },
+  {
+    "id": "af13eefe-f008-4707-aae7-8c3fbf4c1ef3",
+    "name": "22",
+    "src": "X:/chatlog_backup2",
+    "dst": "C:/Users/LENOVO/Desktop/contact_内部专用2.db",
+    "interval_min": 60,
+    "enabled": true,
+    "find_contact_db": true,
+    "contact_prefixes": "wxid_7u0rihcbbpbz12_ec5a",
+    "start_time": "",
+    "last_run_ts": 1782306096.7641022,
+    "last_result": "成功 21:01:36"
+  }
+]

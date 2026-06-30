@@ -1,0 +1,57 @@
+{
+  "亦庄": {
+    "province": "直辖市",
+    "city": "北京市",
+    "district": "大兴区"
+  },
+  "北京经济技术开发区": {
+    "province": "直辖市",
+    "city": "北京市",
+    "district": "大兴区"
+  },
+  "中关村": {
+    "province": "直辖市",
+    "city": "北京市",
+    "district": "海淀区"
+  },
+  "望京": {
+    "province": "直辖市",
+    "city": "北京市",
+    "district": "朝阳区"
+  },
+  "CBD": {
+    "province": "直辖市",
+    "city": "北京市",
+    "district": "朝阳区"
+  },
+  "陆家嘴": {
+    "province": "直辖市",
+    "city": "上海市",
+    "district": "浦东新区"
+  },
+  "外滩": {
+    "province": "直辖市",
+    "city": "上海市",
+    "district": "黄浦区"
+  },
+  "深圳湾": {
+    "province": "广东省",
+    "city": "深圳市",
+    "district": "南山区"
+  },
+  "前海": {
+    "province": "广东省",
+    "city": "深圳市",
+    "district": "南山区"
+  },
+  "横琴": {
+    "province": "广东省",
+    "city": "珠海市",
+    "district": "香洲区"
+  },
+  "两江新区": {
+    "province": "直辖市",
+    "city": "重庆市",
+    "district": "渝北区"
+  }
+}

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式世界地图</title>
+    <!-- 引入Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <!-- 引入TopoJSON处理库 -->
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        #map {
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+        
+        .control-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 200px;
+        }
+        
+        .control-panel h3 {
+            margin: 0 0 15px 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .control-panel button {
+            display: block;
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px 12px;
+            cursor: pointer;
+            background: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .control-panel button:hover {
+            background: #1565c0;
+        }
+        
+        .control-panel button.active {
+            background: #f57c00;
+        }
+        
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 350px;
+            z-index: 1000;
+            max-height: 80vh;
+            overflow-y: auto;
+            min-width: 300px;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .panel-header h3 {
+            margin: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .close-btn:hover {
+            background: #f5f5f5;
+            color: #666;
+        }
+        
+        .region-details h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .region-info p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .inner-mongolia-structure {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        
+        .inner-mongolia-structure h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+        
+        .inner-mongolia-structure p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .markers-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .marker-item {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .marker-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .marker-item p {
+            margin: 5px 0;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="control-panel">
+        <h3 id="viewTitle">中国省级地图</h3>
+        <button id="backToChina" style="display:none;">返回省级地图</button>
+        <button id="addMarkerBtn">添加标记</button>
+        <div style="margin-top: 10px;">
+            <label for="excelUpload" style="display: inline-block; padding: 8px 12px; background: #2196f3; color: white; border-radius: 4px; cursor: pointer; font-size: 14px; margin-right: 5px;">
+                批量导入Excel
+            </label>
+            <a href="/api/download_template" style="display: inline-block; padding: 8px 12px; background: #4caf50; color: white; border-radius: 4px; text-decoration: none; font-size: 14px;">
+                下载模板
+            </a>
+            <input type="file" id="excelUpload" accept=".xlsx,.xls" style="display: none;">
+        </div>
+        <div id="selectedRegionInfo" class="selected-region-info" style="display:none;">
+            <p><strong>当前选中:</strong> <span id="selectedRegionName"></span></p>
+        </div>
+    </div>
+    
+    <div id="infoPanel" class="info-panel" style="display:none;">
+        <div class="panel-header">
+            <h3>区域详情</h3>
+            <button class="close-btn" id="closeInfoPanel">×</button>
+        </div>
+        <div id="regionDetails"></div>
+    </div>
+    
+    <!-- 引入Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script>
+        // ==================== 全局状态 ====================
+        let map;
+        let markers = [];
+        let addingMarkerMode = false;
+        let currentViewLevel = 'china-province';
+        let currentChinaProvince = null;
+        let selectedRegion = null;
+        let geoJsonLayer = null;
+        let markerClusterGroup = null;
+        // 坐标所属省/市/区（用于悬停显示数量）
+        let markerProvinces = {};
+        let markerCities = {};
+        let markerDistricts = {};
+        
+        // 分色用色板
+        const REGION_PALETTE = [
+            '#4caf50','#2196f3','#ff9800','#9c27b0','#f44336','#00bcd4','#8bc34a','#e91e63',
+            '#3f51b5','#ff5722','#009688','#673ab7','#cddc39','#795548','#607d8b','#ffeb3b',
+            '#03a9f4','#ffc107','#9e9e9e','#00acc1','#7e57c2','#689f38','#ef5350','#5c6bc0'
+        ];
+
+        // ==================== 公共工具函数 ====================
+        
+        /**
+         * 获取要素名称（优先使用 fullname）
+         */
+        function getFeatureName(feature) {
+            return feature.properties.fullname || feature.properties.name || '';
+        }
+        
+        /**
+         * 生成区域填充色的默认 GeoJSON 样式
+         */
+        function makeRegionStyle(colorIndex, opts) {
+            const defaults = { weight: 1, dashArray: '3', fillOpacity: 0.7 };
+            const merged = Object.assign({}, defaults, opts || {});
+            return {
+                fillColor: REGION_PALETTE[(colorIndex || 0) % REGION_PALETTE.length],
+                weight: merged.weight,
+                opacity: 1,
+                color: 'white',
+                dashArray: merged.dashArray,
+                fillOpacity: merged.fillOpacity
+            };
+        }
+        
+        /**
+         * 鼠标悬停高亮样式（通用）
+         */
+        var HOVER_STYLE = { weight: 3, color: '#333', dashArray: '', fillOpacity: 0.9 };
+        
+        /**
+         * 黑色轮廓 + 透明填充样式（用于"放大到单区域"视图）
+         */
+        var OUTLINE_STYLE = { fillColor: 'transparent', weight: 2, opacity: 1, color: '#000000', dashArray: '', fillOpacity: 0 };
+        var OUTLINE_HOVER = { weight: 3, color: '#666666', dashArray: '', fillOpacity: 0.1 };
+        
+        /**
+         * 移除当前 geoJsonLayer（如果存在）
+         */
+        function removeCurrentGeoLayer() {
+            if (geoJsonLayer) {
+                map.removeLayer(geoJsonLayer);
+                geoJsonLayer = null;
+            }
+        }
+        
+        /*
+         * 使用 turf.js 统计每个要素内包含的标记数量
+         * features: GeoJSON features 数组
+         * filterMap: 已有的归属映射（如 markerProvinces），用于预过滤
+         * filterValue: 预过滤值，仅处理 filterMap[m.id] === filterValue 的标记
+         * 返回: { counts: {名称: 数量}, belongMap: {markerId: 名称} }
+         */
+        function countMarkersInFeatures(features, filterMap, filterValue) {
+            var counts = {};
+            var belongMap = {};
+            markers.forEach(function(m) {
+                if (filterMap && filterValue && filterMap[m.id] !== filterValue) return;
+                var pt = [m.lng, m.lat];
+                for (var i = 0; i < features.length; i++) {
+                    var f = features[i];
+                    try {
+                        if (typeof turf !== 'undefined' && turf.booleanPointInPolygon && turf.booleanPointInPolygon(pt, f)) {
+                            var name = getFeatureName(f);
+                            belongMap[m.id] = name;
+                            counts[name] = (counts[name] || 0) + 1;
+                            break;
+                        }
+                    } catch (err) { /* 忽略无效几何 */ }
+                }
+            });
+            return { counts: counts, belongMap: belongMap };
+        }
+        
+        /**
+         * 为 features 分配颜色索引
+         */
+        function assignColorIndex(features) {
+            features.forEach(function(f, i) { f.properties._colorIndex = i; });
+        }
+        
+        /**
+         * 创建带有通用悬停/点击交互的 GeoJSON 图层并添加到地图
+         * @param {Object} geoJsonData - GeoJSON FeatureCollection
+         * @param {Object} opts - 配置项
+         * @param {Function} opts.onClick - 点击回调 (feature, layer, e)
+         * @param {Object} opts.regionCounts - 各区域标记数量映射
+         * @param {Object} opts.styleOpts - 传给 makeRegionStyle 的额外选项
+         */
+        function createInteractiveGeoLayer(geoJsonData, opts) {
+            opts = opts || {};
+            var regionCounts = opts.regionCounts || {};
+            var styleOpts = opts.styleOpts || {};
+            
+            removeCurrentGeoLayer();
+            
+            geoJsonLayer = L.geoJSON(geoJsonData, {
+                style: function(feature) {
+                    var idx = (feature.properties && feature.properties._colorIndex != null) ? feature.properties._colorIndex : 0;
+                    return makeRegionStyle(idx, styleOpts);
+                },
+                onEachFeature: function(feature, layer) {
+                    var name = getFeatureName(feature);
+                    var count = regionCounts[name] || 0;
+                    var idx = (feature.properties._colorIndex || 0);
+                    var defaultStyle = makeRegionStyle(idx, styleOpts);
+                    
+                    layer.on({
+                        mouseover: function(e) {
+                            e.target.setStyle(HOVER_STYLE);
+                            e.target.bringToFront();
+                        },
+                        mouseout: function(e) {
+                            e.target.setStyle(defaultStyle);
+                        },
+                        click: function(e) {
+                            if (opts.onClick) opts.onClick(feature, layer, e);
+                        }
+                    });
+                    layer.bindTooltip(name + '<br>坐标数量: ' + count, { permanent: false, direction: 'top' });
+                }
+            }).addTo(map);
+            
+            return geoJsonLayer;
+        }
+        
+        /**
+         * 「放大到单区域」—— 将地图聚焦到某个 feature，显示黑色轮廓并透明填充
+         * 此函数替代了之前在5处重复出现的大段代码
+         */
+        function zoomToSingleFeature(feature, bounds, onClickName) {
+            removeCurrentGeoLayer();
+            
+            var singleGeoJson = { type: 'FeatureCollection', features: [feature] };
+            
+            geoJsonLayer = L.geoJSON(singleGeoJson, {
+                style: OUTLINE_STYLE,
+                onEachFeature: function(feat, layer) {
+                    layer.on({
+                        mouseover: function(e) { e.target.setStyle(OUTLINE_HOVER); e.target.bringToFront(); },
+                        mouseout: function(e) { e.target.setStyle(OUTLINE_STYLE); },
+                        click: function(e) {
+                            var clickedName = getFeatureName(feat);
+                            handleCityClick(clickedName, feat.properties);
+                        }
+                    });
+                    var tooltipText = getFeatureName(feat);
+                    layer.bindTooltip(tooltipText, { permanent: false });
+                }
+            }).addTo(map);
+            
+            map.flyToBounds(bounds, { animate: true, duration: 0.8, padding: [50, 50] });
+            
+            if (onClickName) {
+                handleCityClick(onClickName, feature.properties);
+            }
+        }
+        
+        // ==================== 初始化 ====================
+        
+        function initMap() {
+            setTimeout(function() {
+                map = L.map('map').setView([30, 0], 2);
+                
+                L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+                    subdomains: ['1', '2', '3', '4'],
+                    attribution: '© 高德地图'
+                }).addTo(map);
+                
+                setTimeout(function() { map.invalidateSize(); }, 100);
+                
+                loadMarkers();
+                loadChinaProvinces();
+                bindEvents();
+            }, 100);
+        }
+
+        
+        // ==================== 地图数据加载函数 ====================
+        
+        // 加载中国省级地图
+        function loadChinaProvinces() {
+            fetch('/api/china_geo_data')
+            .then(function(response) { return response.json(); })
+            .then(function(topojsonData) {
+                var geojsonData = topojson.feature(topojsonData, topojsonData.objects.default);
+                if (!geojsonData.features) geojsonData.features = [];
+                
+                // 统计各省坐标数量
+                var result = countMarkersInFeatures(geojsonData.features, null, null);
+                markerProvinces = result.belongMap;
+                
+                assignColorIndex(geojsonData.features);
+                
+                createInteractiveGeoLayer(geojsonData, {
+                    regionCounts: result.counts,
+                    onClick: function(feature) {
+                        handleProvinceClick(getFeatureName(feature), feature.properties);
+                    }
+                });
+                
+                map.setView([35.8617, 104.1954], 4);
+            })
+            .catch(function(error) {
+                console.error('加载省份边界数据时出错:', error);
+                loadFallbackProvinces();
+            });
+        }
+        
+        // API 加载失败时的备选省份数据
+        function loadFallbackProvinces() {
+            var defaultProvinces = [
+                { name: '北京市', code: '110000', coordinates: [[[115.7, 40.4], [117.4, 40.4], [117.4, 41.6], [115.7, 41.6], [115.7, 40.4]]] },
+                { name: '天津市', code: '120000', coordinates: [[[116.7, 38.5], [118.0, 38.5], [118.0, 40.2], [117.2, 40.2], [117.2, 40.5], [116.7, 40.5], [116.7, 38.5]]] },
+                { name: '河北省', code: '130000', coordinates: [[[113.5, 36.0], [119.8, 36.0], [119.8, 40.5], [118.0, 40.5], [118.0, 42.5], [113.5, 42.5], [113.5, 36.0]]] },
+                { name: '山西省', code: '140000', coordinates: [[[110.5, 34.5], [113.5, 34.5], [113.5, 35.5], [114.0, 35.5], [114.0, 38.0], [112.0, 38.0], [112.0, 40.5], [110.5, 40.5], [110.5, 34.5]]] },
+                { name: '内蒙古自治区', code: '150000', coordinates: [[[97.0, 38.0], [126.0, 38.0], [126.0, 42.0], [123.0, 42.0], [123.0, 45.0], [120.0, 45.0], [120.0, 48.0], [115.0, 48.0], [115.0, 53.0], [97.0, 53.0], [97.0, 38.0]]] },
+                { name: '辽宁省', code: '210000', coordinates: [[[120.5, 38.5], [124.5, 38.5], [124.5, 41.0], [123.0, 41.0], [123.0, 43.0], [120.5, 43.0], [120.5, 38.5]]] },
+                { name: '吉林省', code: '220000', coordinates: [[[124.0, 40.5], [128.0, 40.5], [128.0, 42.0], [130.0, 42.0], [130.0, 44.0], [125.0, 44.0], [125.0, 46.5], [124.0, 46.5], [124.0, 40.5]]] },
+                { name: '黑龙江省', code: '230000', coordinates: [[[121.0, 44.5], [135.0, 44.5], [135.0, 46.0], [133.0, 46.0], [133.0, 48.0], [130.0, 48.0], [130.0, 50.0], [127.0, 50.0], [127.0, 53.5], [121.0, 53.5], [121.0, 44.5]]] },
+                { name: '上海市', code: '310000', coordinates: [[[120.8, 30.6], [122.1, 30.6], [122.1, 31.2], [121.8, 31.2], [121.8, 31.5], [121.2, 31.5], [121.2, 31.9], [120.8, 31.9], [120.8, 30.6]]] },
+                { name: '江苏省', code: '320000', coordinates: [[[118.1, 30.7], [121.9, 30.7], [121.9, 32.0], [121.5, 32.0], [121.5, 33.0], [120.5, 33.0], [120.5, 34.0], [119.5, 34.0], [119.5, 35.1], [118.1, 35.1], [118.1, 30.7]]] },
+                { name: '浙江省', code: '330000', coordinates: [[[118.0, 27.0], [121.0, 27.0], [121.0, 28.0], [122.0, 28.0], [122.0, 29.0], [121.5, 29.0], [121.5, 30.0], [120.0, 30.0], [120.0, 31.0], [118.0, 31.0], [118.0, 27.0]]] },
+                { name: '安徽省', code: '340000', coordinates: [[[114.9, 29.5], [119.5, 29.5], [119.5, 31.0], [118.5, 31.0], [118.5, 32.0], [117.5, 32.0], [117.5, 33.0], [116.5, 33.0], [116.5, 34.5], [114.9, 34.5], [114.9, 29.5]]] },
+                { name: '福建省', code: '350000', coordinates: [[[116.5, 23.5], [120.5, 23.5], [120.5, 25.0], [119.5, 25.0], [119.5, 26.0], [118.5, 26.0], [118.5, 27.0], [117.5, 27.0], [117.5, 28.5], [116.5, 28.5], [116.5, 23.5]]] },
+                { name: '江西省', code: '360000', coordinates: [[[113.5, 24.5], [118.5, 24.5], [118.5, 26.0], [117.5, 26.0], [117.5, 27.0], [116.5, 27.0], [116.5, 28.0], [115.5, 28.0], [115.5, 30.0], [113.5, 30.0], [113.5, 24.5]]] },
+                { name: '山东省', code: '370000', coordinates: [[[114.8, 34.4], [120.0, 34.4], [120.0, 35.5], [121.5, 35.5], [121.5, 36.5], [120.5, 36.5], [120.5, 37.0], [122.7, 37.0], [122.7, 38.4], [114.8, 38.4], [114.8, 34.4]]] },
+                { name: '河南省', code: '410000', coordinates: [[[110.5, 31.8], [114.0, 31.8], [114.0, 33.0], [115.0, 33.0], [115.0, 34.5], [116.6, 34.5], [116.6, 36.5], [110.5, 36.5], [110.5, 31.8]]] },
+                { name: '湖北省', code: '420000', coordinates: [[[108.5, 29.5], [113.0, 29.5], [113.0, 30.5], [114.5, 30.5], [114.5, 31.5], [116.0, 31.5], [116.0, 33.5], [108.5, 33.5], [108.5, 29.5]]] },
+                { name: '湖南省', code: '430000', coordinates: [[[108.5, 24.5], [112.0, 24.5], [112.0, 26.0], [113.0, 26.0], [113.0, 27.5], [114.2, 27.5], [114.2, 29.0], [113.5, 29.0], [113.5, 30.5], [108.5, 30.5], [108.5, 24.5]]] },
+                { name: '广东省', code: '440000', coordinates: [[[112.1, 20.1], [114.3, 20.1], [114.3, 21.5], [113.5, 21.5], [113.5, 22.5], [114.0, 22.5], [114.0, 23.5], [113.0, 23.5], [113.0, 24.5], [112.5, 24.5], [112.5, 25.5], [112.1, 25.5], [112.1, 20.1]]] },
+                { name: '广西壮族自治区', code: '450000', coordinates: [[[104.5, 20.5], [110.0, 20.5], [110.0, 21.5], [111.0, 21.5], [111.0, 22.5], [112.0, 22.5], [112.0, 23.5], [111.5, 23.5], [111.5, 24.5], [110.5, 24.5], [110.5, 25.5], [109.5, 25.5], [109.5, 26.5], [104.5, 26.5], [104.5, 20.5]]] },
+                { name: '海南省', code: '460000', coordinates: [[[108.5, 18.0], [111.0, 18.0], [111.0, 19.0], [110.5, 19.0], [110.5, 20.0], [109.0, 20.0], [109.0, 19.5], [108.5, 19.5], [108.5, 18.0]]] },
+                { name: '重庆市', code: '500000', coordinates: [[[105.5, 28.5], [109.0, 28.5], [109.0, 30.0], [108.0, 30.0], [108.0, 31.0], [107.0, 31.0], [107.0, 32.0], [106.0, 32.0], [106.0, 32.5], [105.5, 32.5], [105.5, 28.5]]] },
+                { name: '四川省', code: '510000', coordinates: [[[102.0, 26.0], [106.0, 26.0], [106.0, 28.0], [107.0, 28.0], [107.0, 30.0], [108.0, 30.0], [108.0, 32.0], [106.5, 32.0], [106.5, 34.0], [102.0, 34.0], [102.0, 26.0]]] },
+                { name: '贵州省', code: '520000', coordinates: [[[103.5, 24.5], [108.0, 24.5], [108.0, 26.0], [109.0, 26.0], [109.0, 27.5], [108.5, 27.5], [108.5, 29.0], [106.5, 29.0], [106.5, 29.5], [103.5, 29.5], [103.5, 24.5]]] },
+                { name: '云南省', code: '530000', coordinates: [[[97.5, 21.0], [101.0, 21.0], [101.0, 23.0], [102.0, 23.0], [102.0, 25.0], [103.0, 25.0], [103.0, 26.5], [104.0, 26.5], [104.0, 28.0], [105.0, 28.0], [105.0, 29.2], [97.5, 29.2], [97.5, 21.0]]] },
+                { name: '西藏自治区', code: '540000', coordinates: [[[78.0, 28.0], [85.0, 28.0], [85.0, 32.0], [88.0, 32.0], [88.0, 35.0], [92.0, 35.0], [92.0, 40.0], [95.0, 40.0], [95.0, 45.0], [78.0, 45.0], [78.0, 28.0]]] },
+                { name: '陕西省', code: '610000', coordinates: [[[105.5, 31.5], [108.0, 31.5], [108.0, 33.0], [109.0, 33.0], [109.0, 35.0], [110.0, 35.0], [110.0, 37.0], [111.2, 37.0], [111.2, 39.5], [105.5, 39.5], [105.5, 31.5]]] },
+                { name: '甘肃省', code: '620000', coordinates: [[[92.5, 32.5], [100.0, 32.5], [100.0, 35.0], [102.0, 35.0], [102.0, 38.0], [104.0, 38.0], [104.0, 40.0], [106.0, 40.0], [106.0, 42.5], [92.5, 42.5], [92.5, 32.5]]] },
+                { name: '青海省', code: '630000', coordinates: [[[89.5, 32.0], [100.0, 32.0], [100.0, 35.0], [101.0, 35.0], [101.0, 38.0], [103.0, 38.0], [103.0, 40.0], [98.0, 40.0], [98.0, 42.0], [89.5, 42.0], [89.5, 32.0]]] },
+                { name: '宁夏回族自治区', code: '640000', coordinates: [[[104.5, 35.5], [107.0, 35.5], [107.0, 36.5], [107.5, 36.5], [107.5, 38.0], [106.5, 38.0], [106.5, 39.0], [104.5, 39.0], [104.5, 35.5]]] },
+                { name: '新疆维吾尔自治区', code: '650000', coordinates: [[[73.0, 34.0], [80.0, 34.0], [80.0, 37.0], [85.0, 37.0], [85.0, 40.0], [87.0, 40.0], [87.0, 43.0], [90.0, 43.0], [90.0, 45.0], [92.0, 45.0], [92.0, 47.0], [95.0, 47.0], [95.0, 49.5], [73.0, 49.5], [73.0, 34.0]]] },
+                { name: '台湾省', code: '710000', coordinates: [[[120.0, 22.0], [121.0, 22.0], [121.0, 23.0], [121.5, 23.0], [121.5, 24.0], [122.0, 24.0], [122.0, 25.0], [121.8, 25.0], [121.8, 25.2], [120.0, 25.2], [120.0, 22.0]]] },
+                { name: '香港特别行政区', code: '810000', coordinates: [[[113.8, 22.1], [114.4, 22.1], [114.4, 22.3], [114.2, 22.3], [114.2, 22.5], [113.8, 22.5], [113.8, 22.1]]] },
+                { name: '澳门特别行政区', code: '820000', coordinates: [[[113.5, 22.1], [113.6, 22.1], [113.6, 22.2], [113.7, 22.2], [113.7, 22.3], [113.5, 22.3], [113.5, 22.1]]] }
+            ];
+
+            var geoJsonFeatures = defaultProvinces.map(function(p, i) {
+                return { type: 'Feature', properties: { name: p.name, code: p.code, _colorIndex: i }, geometry: { type: 'Polygon', coordinates: p.coordinates } };
+            });
+            var geoJsonData = { type: 'FeatureCollection', features: geoJsonFeatures };
+
+            createInteractiveGeoLayer(geoJsonData, {
+                regionCounts: {},
+                onClick: function(feature) {
+                    handleProvinceClick(getFeatureName(feature), feature.properties);
+                }
+            });
+            
+            map.setView([35.8617, 104.1954], 4);
+        }
+        
+        // 加载市级地图（通用，非内蒙古省份使用）
+        function loadChinaCities(provinceName) {
+            var cities = [
+                { name: '北京市', coordinates: [[[116.0, 39.8], [116.8, 39.8], [116.8, 40.2], [116.0, 40.2], [116.0, 39.8]]] },
+                { name: '天津市', coordinates: [[[117.0, 38.8], [117.8, 38.8], [117.8, 39.4], [117.0, 39.4], [117.0, 38.8]]] },
+                { name: '广州市', coordinates: [[[113.1, 22.8], [113.5, 22.8], [113.5, 23.4], [113.1, 23.4], [113.1, 22.8]]] },
+                { name: '深圳市', coordinates: [[[113.7, 22.4], [114.6, 22.4], [114.6, 22.8], [113.7, 22.8], [113.7, 22.4]]] },
+                { name: '南京市', coordinates: [[[118.5, 31.8], [119.0, 31.8], [119.0, 32.2], [118.5, 32.2], [118.5, 31.8]]] },
+                { name: '苏州市', coordinates: [[[120.4, 31.0], [121.2, 31.0], [121.2, 31.4], [120.4, 31.4], [120.4, 31.0]]] }
+            ];
+            
+            var geoJsonFeatures = cities.map(function(city, i) {
+                return { type: 'Feature', properties: { name: city.name, province: provinceName, _colorIndex: i }, geometry: { type: 'Polygon', coordinates: city.coordinates } };
+            });
+            var geoJsonData = { type: 'FeatureCollection', features: geoJsonFeatures };
+            
+            createInteractiveGeoLayer(geoJsonData, {
+                regionCounts: {},
+                onClick: function(feature, layer, e) {
+                    var name = getFeatureName(feature);
+                    zoomToSingleFeature(feature, e.target.getBounds(), name);
+                }
+            });
+            
+            map.setView([35.8617, 104.1954], 6);
+        }
+        
+        // 加载内蒙古自治区的市和盟
+        function loadInnerMongoliaCities() {
+            fetch('/api/inner_mongolia_geo_data')
+            .then(function(response) { return response.json(); })
+            .then(function(topojsonData) {
+                var convertedGeoJson = topojson.feature(topojsonData, topojsonData.objects.default);
+                if (!convertedGeoJson.features) convertedGeoJson.features = [];
+                
+                // 统计内蒙古各盟市的坐标数量
+                var result = countMarkersInFeatures(convertedGeoJson.features, markerProvinces, '内蒙古自治区');
+                markerCities = result.belongMap;
+                
+                assignColorIndex(convertedGeoJson.features);
+                
+                createInteractiveGeoLayer(convertedGeoJson, {
+                    regionCounts: result.counts,
+                    onClick: function(feature, layer, e) {
+                        var cityName = getFeatureName(feature);
+                        if (cityName.includes('呼和浩特')) {
+                            loadHuHeHaoTeDistricts();
+                        } else {
+                            zoomToSingleFeature(feature, e.target.getBounds(), cityName);
+                        }
+                    }
+                });
+                
+                map.setView([44.0935, 111.7639], 6);
+                map.fitBounds(geoJsonLayer.getBounds());
+            })
+            .catch(function(error) {
+                console.error('加载内蒙古市盟边界数据时出错:', error);
+                loadFallbackInnerMongolia();
+            });
+        }
+        
+        // 内蒙古备选数据
+        function loadFallbackInnerMongolia() {
+            var units = [
+                { name: '呼和浩特市', coordinates: [[[111.4124, 40.4901], [111.8946, 40.4901], [111.8946, 40.9459], [111.4124, 40.9459], [111.4124, 40.4901]]] },
+                { name: '包头市', coordinates: [[[109.5005, 40.3375], [110.2467, 40.3375], [110.2467, 41.1783], [109.5005, 41.1783], [109.5005, 40.3375]]] },
+                { name: '乌海市', coordinates: [[[106.6586, 39.4794], [106.9867, 39.4794], [106.9867, 39.8257], [106.6586, 39.8257], [106.6586, 39.4794]]] },
+                { name: '赤峰市', coordinates: [[[117.5489, 41.2254], [120.4371, 41.2254], [120.4371, 44.1503], [117.5489, 44.1503], [117.5489, 41.2254]]] },
+                { name: '通辽市', coordinates: [[[120.4371, 42.7647], [123.4844, 42.7647], [123.4844, 45.5128], [120.4371, 45.5128], [120.4371, 42.7647]]] },
+                { name: '鄂尔多斯市', coordinates: [[[106.9116, 38.9836], [111.4028, 38.9836], [111.4028, 40.4017], [106.9116, 40.4017], [106.9116, 38.9836]]] },
+                { name: '呼伦贝尔市', coordinates: [[[118.5355, 47.5559], [126.0844, 47.5559], [126.0844, 53.4961], [118.5355, 53.4961], [118.5355, 47.5559]]] },
+                { name: '巴彦淖尔市', coordinates: [[[105.5664, 40.3864], [109.3457, 40.3864], [109.3457, 42.0533], [105.5664, 42.0533], [105.5664, 40.3864]]] },
+                { name: '乌兰察布市', coordinates: [[[112.5732, 40.0787], [114.8608, 40.0787], [114.8608, 43.6609], [112.5732, 43.6609], [112.5732, 40.0787]]] },
+                { name: '兴安盟', coordinates: [[[119.9458, 45.0445], [123.4717, 45.0445], [123.4717, 48.4082], [119.9458, 48.4082], [119.9458, 45.0445]]] },
+                { name: '锡林郭勒盟', coordinates: [[[111.9727, 42.5000], [119.9302, 42.5000], [119.9302, 49.5433], [111.9727, 49.5433], [111.9727, 42.5000]]] },
+                { name: '阿拉善盟', coordinates: [[[97.0900, 37.0600], [106.8400, 37.0600], [106.8400, 42.3300], [97.0900, 42.3300], [97.0900, 37.0600]]] }
+            ];
+            
+            var geoJsonFeatures = units.map(function(u, i) {
+                return { type: 'Feature', properties: { name: u.name, province: '内蒙古自治区', _colorIndex: i }, geometry: { type: 'Polygon', coordinates: u.coordinates } };
+            });
+            var geoJsonData = { type: 'FeatureCollection', features: geoJsonFeatures };
+            
+            createInteractiveGeoLayer(geoJsonData, {
+                regionCounts: {},
+                onClick: function(feature, layer, e) {
+                    var cityName = getFeatureName(feature);
+                    zoomToSingleFeature(feature, e.target.getBounds(), cityName);
+                }
+            });
+            
+            map.setView([44.0935, 111.7639], 5);
+        }
+        // 加载呼和浩特市区级数据
+        function loadHuHeHaoTeDistricts() {
+            fetch('/api/huhehaote_districts_geo_data')
+            .then(function(response) { return response.json(); })
+            .then(function(topojsonData) {
+                var objects = topojsonData.objects || {};
+                var firstKey = Object.keys(objects)[0];
+                if (!firstKey) throw new Error('TopoJSON 中没有 objects');
+                
+                var geoJsonFromTopo = topojson.feature(topojsonData, objects[firstKey]);
+                var districtFeatures = geoJsonFromTopo.features || [];
+                
+                // 统计呼和浩特各区县的坐标数量
+                var result = countMarkersInFeatures(districtFeatures, markerCities, '呼和浩特市');
+                markerDistricts = result.belongMap;
+                
+                assignColorIndex(districtFeatures);
+                
+                createInteractiveGeoLayer(geoJsonFromTopo, {
+                    regionCounts: result.counts,
+                    styleOpts: { weight: 2, dashArray: '1', fillOpacity: 0.6 },
+                    onClick: function(feature, layer, e) {
+                        var name = getFeatureName(feature);
+                        zoomToSingleFeature(feature, e.target.getBounds(), name);
+                    }
+                });
+                
+                map.setView([40.8415, 111.7447], 10);
+            })
+            .catch(function(error) {
+                console.error('加载呼和浩特区县边界数据时出错:', error);
+                loadFallbackHuHeHaoTe();
+            });
+        }
+        
+        // 呼和浩特备选数据
+        function loadFallbackHuHeHaoTe() {
+            var districts = [
+                { name: '新城区', coordinates: [[[111.55, 40.78], [111.70, 40.78], [111.70, 40.90], [111.55, 40.90], [111.55, 40.78]]] },
+                { name: '回民区', coordinates: [[[111.50, 40.75], [111.65, 40.75], [111.65, 40.85], [111.50, 40.85], [111.50, 40.75]]] },
+                { name: '玉泉区', coordinates: [[[111.52, 40.72], [111.62, 40.72], [111.62, 40.82], [111.52, 40.82], [111.52, 40.72]]] },
+                { name: '赛罕区', coordinates: [[[111.65, 40.72], [111.80, 40.72], [111.80, 40.85], [111.65, 40.85], [111.65, 40.72]]] },
+                { name: '土默特左旗', coordinates: [[[110.70, 40.40], [111.50, 40.40], [111.50, 41.10], [110.70, 41.10], [110.70, 40.40]]] },
+                { name: '托克托县', coordinates: [[[110.80, 39.90], [111.50, 39.90], [111.50, 40.50], [110.80, 40.50], [110.80, 39.90]]] },
+                { name: '和林格尔县', coordinates: [[[111.40, 40.00], [112.20, 40.00], [112.20, 40.70], [111.40, 40.70], [111.40, 40.00]]] },
+                { name: '武川县', coordinates: [[[110.90, 40.70], [111.90, 40.70], [111.90, 41.50], [110.90, 41.50], [110.90, 40.70]]] },
+                { name: '清水河县', coordinates: [[[110.60, 39.60], [111.40, 39.60], [111.40, 40.20], [110.60, 40.20], [110.60, 39.60]]] }
+            ];
+            
+            var geoJsonFeatures = districts.map(function(d, i) {
+                return { type: 'Feature', properties: { name: d.name, city: '呼和浩特市', _colorIndex: i }, geometry: { type: 'Polygon', coordinates: d.coordinates } };
+            });
+            var geoJsonData = { type: 'FeatureCollection', features: geoJsonFeatures };
+            
+            createInteractiveGeoLayer(geoJsonData, {
+                regionCounts: {},
+                onClick: function(feature, layer, e) {
+                    var name = getFeatureName(feature);
+                    zoomToSingleFeature(feature, e.target.getBounds(), name);
+                }
+            });
+            
+            map.setView([40.8415, 111.7447], 10);
+        }
+        
+        // 处理省份点击事件
+        function handleProvinceClick(provinceName, provinceProps) {
+            // 点击省份，进入市级视图
+            currentViewLevel = 'china-city';
+            
+            // 处理内蒙古自治区的特殊情况，确保同时支持"内蒙古"和"内蒙古自治区"
+            const isInnerMongolia = provinceName === '内蒙古自治区' || provinceName === '内蒙古';
+            currentChinaProvince = isInnerMongolia ? '内蒙古自治区' : provinceName;
+            document.getElementById('viewTitle').textContent = `${isInnerMongolia ? '内蒙古自治区' : provinceName}市级地图`;
+            document.getElementById('backToChina').style.display = 'block';
+            
+            // 特别处理内蒙古自治区，加载其下属的市和盟
+            if (isInnerMongolia) {
+                console.log('检测到内蒙古自治区，加载盟市数据');
+                loadInnerMongoliaCities();
+            } else {
+                // 加载该省份的城市数据
+                loadChinaCities(provinceName);
+            }
+            
+            // 获取省份详情并显示
+            fetch(`/api/get_province_info/${encodeURIComponent(provinceName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    selectedRegion = data;
+                    showRegionInfo(data);
+                })
+                .catch(error => {
+                    // 如果API调用失败，使用基本数据
+                    selectedRegion = { name: provinceName, ...provinceProps };
+                    showRegionInfo({ name: provinceName, population: '未知', area: '未知' });
+                });
+        }
+        
+        // 处理城市/盟市/区县点击事件
+        function handleCityClick(cityName, cityProps) {
+            fetch('/api/get_city_info/' + encodeURIComponent(cityName))
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    selectedRegion = data;
+                    showRegionInfo(data);
+                })
+                .catch(function() {
+                    selectedRegion = Object.assign({ name: cityName }, cityProps);
+                    showRegionInfo({ name: cityName, population: '未知', area: '未知' });
+                });
+        }
+        
+        // 检查是否为内蒙古的城市
+        function isInnerMongoliaCity(cityName) {
+            // API返回的可能是简称（如"呼和浩特"）或全称（如"呼和浩特市"）
+            const innerMongoliaCitiesShort = [
+                '呼和浩特', '包头', '乌海', '赤峰', '通辽', 
+                '鄂尔多斯', '呼伦贝尔', '巴彦淖尔', '乌兰察布',
+                '兴安', '锡林郭勒', '阿拉善'
+            ];
+            const innerMongoliaCitiesFull = [
+                '呼和浩特市', '包头市', '乌海市', '赤峰市', '通辽市', 
+                '鄂尔多斯市', '呼伦贝尔市', '巴彦淖尔市', '乌兰察布市',
+                '兴安盟', '锡林郭勒盟', '阿拉善盟'
+            ];
+            return innerMongoliaCitiesShort.includes(cityName) || innerMongoliaCitiesFull.includes(cityName);
+        }
+        
+        // 显示区域信息
+        function showRegionInfo(regionData) {
+            let detailsHtml = `
+                <div class="region-details">
+                    <h3>${regionData.name}</h3>
+                    <div class="region-info">
+                        <p><strong>名称:</strong> ${regionData.name}</p>
+            `;
+            
+            // 显示行政区划代码
+            if (regionData.code) {
+                detailsHtml += `<p><strong>区划代码:</strong> ${regionData.code}</p>`;
+            }
+            
+            // 显示行政层级
+            if (regionData.level) {
+                const levelNames = {
+                    1: '省级',
+                    2: '地级',
+                    3: '县级',
+                    4: '乡级'
+                };
+                detailsHtml += `<p><strong>行政层级:</strong> ${levelNames[regionData.level] || regionData.level}</p>`;
+            }
+            
+            if (regionData.population) {
+                detailsHtml += `<p><strong>人数:</strong> ${regionData.population}</p>`;
+            }
+            
+            if (regionData.area) {
+                detailsHtml += `<p><strong>面积:</strong> ${regionData.area}</p>`;
+            }
+            
+            if (regionData.capital) {
+                detailsHtml += `<p><strong>首都/首府:</strong> ${regionData.capital}</p>`;
+            }
+            
+            // 如果是内蒙古自治区，显示特殊的行政结构信息
+            if (regionData.name === '内蒙古自治区') {
+                detailsHtml += `
+                    <div class="inner-mongolia-structure">
+                        <h4>内蒙古自治区行政结构</h4>
+                        <p><strong>地级市 (9个):</strong> 呼和浩特市、包头市、乌海市、赤峰市、通辽市、鄂尔多斯市、呼伦贝尔市、巴彦淖尔市、乌兰察布市</p>
+                        <p><strong>盟 (3个):</strong> 兴安盟、锡林郭勒盟、阿拉善盟</p>
+                        <p><strong>区划代码:</strong> ${regionData.code || '150000'}</p>
+                    </div>
+                `;
+            } else if (isInnerMongoliaCity(regionData.name)) {
+                // 如果是内蒙古自治区的盟市，显示详细信息
+                detailsHtml += `
+                    <div class="inner-mongolia-city-info">
+                        <h4>内蒙古盟市详细信息</h4>
+                        <p><strong>所属省份:</strong> 内蒙古自治区</p>
+                        <p><strong>行政类型:</strong> ${regionData.name.endsWith('盟') ? '盟' : '地级市'}</p>
+                    </div>
+                `;
+            }
+            
+            // 如果是当前选中区域且有相关标记，显示标记信息
+            if (selectedRegion && markers) {
+                const regionMarkers = markers.filter(m => m.region === regionData.name);
+                if (regionMarkers.length > 0) {
+                    detailsHtml += `<div class="markers-section"><h4>标注信息</h4>`;
+                    regionMarkers.forEach((marker, index) => {
+                        detailsHtml += `
+                            <div class="marker-item">
+                                <p><strong>人员 ${index + 1}:</strong> ${marker.personName}</p>
+                                <p><strong>地址:</strong> ${marker.address}</p>
+                                <p><strong>坐标:</strong> [${marker.lat.toFixed(6)}, ${marker.lng.toFixed(6)}]</p>
+                            </div>
+                        `;
+                    });
+                    detailsHtml += `</div>`;
+                }
+            }
+            
+            detailsHtml += `
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('regionDetails').innerHTML = detailsHtml;
+            document.getElementById('infoPanel').style.display = 'block';
+            
+            // 更新选中区域显示
+            document.getElementById('selectedRegionName').textContent = regionData.name;
+            document.getElementById('selectedRegionInfo').style.display = 'block';
+        }
+        
+        // 加载标记数据
+        function loadMarkers() {
+            fetch('/api/get_markers')
+                .then(response => response.json())
+                .then(data => {
+                    markers = data;
+                    renderMarkers();
+                })
+                .catch(error => console.error('加载标记数据失败:', error));
+        }
+        
+        // 渲染标记（相同坐标会聚类显示）
+        function renderMarkers() {
+            if (markerClusterGroup) {
+                map.removeLayer(markerClusterGroup);
+                markerClusterGroup = null;
+            }
+            markerClusterGroup = L.markerClusterGroup({ chunkedLoading: true });
+            
+            markers.forEach(marker => {
+                const markerIcon = L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div style="
+                        background: red; 
+                        color: white; 
+                        border-radius: 50%; 
+                        width: 24px; 
+                        height: 24px; 
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center; 
+                        font-size: 12px; 
+                        font-weight: bold;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                        cursor: pointer;
+                    ">${marker.id}</div>`,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+                
+                const leafletMarker = L.marker([marker.lat, marker.lng], { icon: markerIcon });
+                leafletMarker.on('click', () => { showMarkerInfo(marker); });
+                leafletMarker.bindPopup(`
+                    <div>
+                        <p><strong>${marker.personName}</strong></p>
+                        <p>${marker.address}</p>
+                        <button onclick="deleteMarker(${marker.id})" style="
+                            background-color: #f44336;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            padding: 4px 8px;
+                            cursor: pointer;
+                            font-size: 12px;
+                        ">删除</button>
+                    </div>
+                `);
+                markerClusterGroup.addLayer(leafletMarker);
+            });
+            if (map) map.addLayer(markerClusterGroup);
+        }
+        
+        // 显示标记信息
+        function showMarkerInfo(marker) {
+            selectedRegion = marker;
+            document.getElementById('regionDetails').innerHTML = `
+                <div class="region-details">
+                    <h3>${marker.personName}</h3>
+                    <div class="region-info">
+                        <p><strong>姓名:</strong> ${marker.personName}</p>
+                        <p><strong>地址:</strong> ${marker.address}</p>
+                        <p><strong>坐标:</strong> [${marker.lat.toFixed(6)}, ${marker.lng.toFixed(6)}]</p>
+                        <p><strong>区域:</strong> ${marker.region}</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('infoPanel').style.display = 'block';
+            
+            // 更新选中区域显示
+            document.getElementById('selectedRegionName').textContent = marker.personName;
+            document.getElementById('selectedRegionInfo').style.display = 'block';
+        }
+        
+        // 添加标记
+        function addMarker(lat, lng) {
+            // 弹出对话框让用户输入人员信息
+            const personName = prompt('请输入人员姓名:', '新人员');
+            if (personName === null) return; // 用户取消
+            
+            const newMarker = {
+                lat: lat,
+                lng: lng,
+                personName: personName,
+                address: `${lat.toFixed(6)}, ${lng.toFixed(6)}`,
+                region: selectedRegion ? selectedRegion.name : 'Unknown'
+            };
+            
+            fetch('/api/add_marker', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newMarker)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    markers.push(data.marker);
+                    renderMarkers();
+                }
+            })
+            .catch(error => console.error('添加标记失败:', error));
+        }
+        
+        // 删除标记
+        function deleteMarker(markerId) {
+            fetch(`/api/delete_marker/${markerId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    markers = markers.filter(marker => marker.id !== markerId);
+                    renderMarkers();
+                    
+                    // 关闭信息面板（如果正在显示此标记的信息）
+                    if (selectedRegion && selectedRegion.id === markerId) {
+                        closeInfoPanel();
+                    }
+                }
+            })
+            .catch(error => console.error('删除标记失败:', error));
+        }
+        
+        // 绑定事件
+        function bindEvents() {
+            // 添加标记按钮事件
+            document.getElementById('addMarkerBtn').addEventListener('click', function() {
+                addingMarkerMode = !addingMarkerMode;
+                
+                if (addingMarkerMode) {
+                    this.classList.add('active');
+                    this.textContent = '取消添加标记';
+                    alert('点击地图任意位置添加标记');
+                } else {
+                    this.classList.remove('active');
+                    this.textContent = '添加标记';
+                }
+            });
+            
+            // Excel上传事件
+            document.getElementById('excelUpload').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                // 显示上传进度
+                alert('正在上传Excel文件，请稍候...');
+                
+                fetch('/api/upload_excel', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        // 重新加载标记
+                        loadMarkers();
+                    } else {
+                        alert('上传失败: ' + data.message);
+                    }
+                    // 清空文件输入，以便可以重复上传相同文件
+                    event.target.value = '';
+                })
+                .catch(error => {
+                    console.error('上传错误:', error);
+                    alert('上传失败: ' + error.message);
+                    event.target.value = '';
+                });
+            });
+            
+            // 返回中国省级地图按钮事件
+            document.getElementById('backToChina').addEventListener('click', function() {
+                currentViewLevel = 'china-province';
+                document.getElementById('viewTitle').textContent = '中国省级地图';
+                document.getElementById('backToChina').style.display = 'none';
+                
+                // 重新加载中国省级地图
+                loadChinaProvinces();
+                
+                // 隐藏选中区域信息
+                document.getElementById('selectedRegionInfo').style.display = 'none';
+            });
+            
+            // 地图点击事件
+            map.on('click', function(e) {
+                if (addingMarkerMode) {
+                    addMarker(e.latlng.lat, e.latlng.lng);
+                    addingMarkerMode = false;
+                    document.getElementById('addMarkerBtn').classList.remove('active');
+                    document.getElementById('addMarkerBtn').textContent = '添加标记';
+                }
+            });
+            
+            // 关闭信息面板事件
+            document.getElementById('closeInfoPanel').addEventListener('click', closeInfoPanel);
+        }
+        
+        // 关闭信息面板
+        function closeInfoPanel() {
+            document.getElementById('infoPanel').style.display = 'none';
+            selectedRegion = null;
+        }
+        
+        // 页面加载完成后初始化地图
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>

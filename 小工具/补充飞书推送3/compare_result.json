@@ -1,0 +1,9 @@
+{
+  "成功": true,
+  "消息": "对比完成，无需补充编号",
+  "数据库最大编号": "010118",
+  "飞书最大编号": "010118",
+  "待新增编号": [],
+  "读取模式": "search_numbers",
+  "报告": "=== 补充飞书推送3 对比报告 ===\n数据库路径: C:\\Users\\LENOVO\\Documents\\chatlog\\wxid_7u0rihcbbpbz12_ec5a\\db_storage\\contact\\contact.db\n数据库 max_no: 010118\n飞书 app_token: QggBwb85cid8Opk6eywcEFsrn6b\n飞书 table_id: tblgWQUZZ5lgp9V7\n飞书 view_id: vewLS7j77H\n飞书读取模式: 快速编号\n飞书统计值: 10118\n飞书编号最大值: 010118\n飞书记录变量: 拉专属带领群_全部_所有记录（0 条，快速编号）\n\n结论: 数据库 max(010118) <= 飞书 max(010118)，无需补充。"
+}

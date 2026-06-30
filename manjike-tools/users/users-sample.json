@@ -1,0 +1,26 @@
+[
+  {
+    "code": "990001",
+    "username": "990001-Sample甲",
+    "password": "Smpl0001",
+    "role": "user",
+    "wechat": "",
+    "internal_remark": "990001-Sample甲"
+  },
+  {
+    "code": "990002",
+    "username": "990002-Sample乙",
+    "password": "Smpl0002",
+    "role": "user",
+    "wechat": "",
+    "internal_remark": "990002-Sample乙"
+  },
+  {
+    "code": "990003",
+    "username": "990003-Sample丙",
+    "password": "Smpl0003",
+    "role": "admin",
+    "wechat": "",
+    "internal_remark": "990003-Sample丙"
+  }
+]

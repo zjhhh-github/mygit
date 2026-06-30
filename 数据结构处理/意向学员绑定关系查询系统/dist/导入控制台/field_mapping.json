@@ -1,0 +1,27 @@
+{
+  "student_id_field": "意向学员总微信号",
+  "fields": [
+    {
+      "feishu": "意向学员总微信号",
+      "source": "student.意向学员微信号"
+    },
+    {
+      "feishu": "推荐人总微信号",
+      "source": "source.来源微信号"
+    },
+    {
+      "feishu": "绑定日期",
+      "source": "source.绑定日期",
+      "type_hint": "date"
+    },
+    {
+      "feishu": "解绑日期",
+      "source": "source.解绑日期",
+      "type_hint": "date"
+    },
+    {
+      "feishu": "绑定状态",
+      "source": "source.绑定状态"
+    }
+  ]
+}

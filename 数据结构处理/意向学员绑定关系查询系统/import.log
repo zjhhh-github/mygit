@@ -1,0 +1,787 @@
+[2026-04-17 15:57:25] INFO ============================================================
+[2026-04-17 15:57:25] INFO 增量导入一体化流水线启动
+[2026-04-17 15:57:25] INFO ============================================================
+[2026-04-17 15:57:25] INFO 正在获取 Supabase Token ...
+[2026-04-17 15:57:26] INFO Token 获取成功。
+[2026-04-17 15:57:26] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 15:57:27] INFO 读取完成：17656 行，12 列。
+[2026-04-17 15:57:27] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 15:57:27] INFO 报名备注集合大小：8693。
+[2026-04-17 15:57:32] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 15:57:32] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 15:57:32] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 15:57:32] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 15:57:32] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 15:57:32] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 15:57:32] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 15:57:33] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 15:57:33] INFO 开始导入：共 16678 条，分 17 批，每批最多 1000 条。
+[2026-04-17 15:57:35] WARNING [批次 1] 第 1 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，将重试...
+[2026-04-17 15:57:38] WARNING [批次 1] 第 2 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，将重试...
+[2026-04-17 15:57:41] WARNING [批次 1] 第 3 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，已达最大重试次数，跳过。
+[2026-04-17 15:57:41] ERROR [批次 1] 最终失败，错误：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\
+[2026-04-17 15:57:44] WARNING [批次 2] 第 1 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，将重试...
+[2026-04-17 15:57:47] WARNING [批次 2] 第 2 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，将重试...
+[2026-04-17 15:57:50] WARNING [批次 2] 第 3 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，已达最大重试次数，跳过。
+[2026-04-17 15:57:50] ERROR [批次 2] 最终失败，错误：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\
+[2026-04-17 15:57:52] WARNING [批次 3] 第 1 次请求失败：服务端错误 500: {"msg":"InvalidWorkerCreation: worker boot error: failed to bootstrap runtime: failed to create the graph: Module not found \"file:///home/deno/functions/supabase293970823448936448/_shared/cors.ts\".\，将重试...
+[2026-04-17 16:00:47] INFO ============================================================
+[2026-04-17 16:00:47] INFO 增量导入一体化流水线启动
+[2026-04-17 16:00:47] INFO ============================================================
+[2026-04-17 16:00:47] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:00:47] INFO Token 获取成功。
+[2026-04-17 16:00:47] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:00:49] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:00:49] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:00:49] INFO 报名备注集合大小：8693。
+[2026-04-17 16:00:53] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:00:54] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:00:54] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:00:54] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:00:54] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:00:54] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:00:54] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:00:54] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:00:54] INFO 开始导入：共 16678 条，分 17 批，每批最多 1000 条。
+[2026-04-17 16:01:24] WARNING [批次 1] 第 1 次请求失败：HTTPSConnectionPool(host='backend.appmiaoda.com', port=443): Read timed out. (read timeout=30)，将重试...
+[2026-04-17 16:06:14] INFO ============================================================
+[2026-04-17 16:06:14] INFO 增量导入一体化流水线启动
+[2026-04-17 16:06:14] INFO ============================================================
+[2026-04-17 16:06:14] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:06:15] INFO Token 获取成功。
+[2026-04-17 16:06:15] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:06:16] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:06:16] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:06:16] INFO 报名备注集合大小：8693。
+[2026-04-17 16:06:21] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:06:21] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:06:21] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:06:21] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:06:21] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:06:21] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:06:21] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:06:21] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:06:21] INFO 开始导入：共 16678 条，分 17 批，每批最多 1000 条。
+[2026-04-17 16:06:52] WARNING [批次 1] 第 1 次请求失败：HTTPSConnectionPool(host='backend.appmiaoda.com', port=443): Read timed out. (read timeout=30)，将重试...
+[2026-04-17 16:07:24] WARNING [批次 1] 第 2 次请求失败：HTTPSConnectionPool(host='backend.appmiaoda.com', port=443): Read timed out. (read timeout=30)，将重试...
+[2026-04-17 16:08:33] INFO ============================================================
+[2026-04-17 16:08:33] INFO 增量导入一体化流水线启动
+[2026-04-17 16:08:33] INFO ============================================================
+[2026-04-17 16:08:33] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:08:34] INFO Token 获取成功。
+[2026-04-17 16:08:34] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:08:35] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:08:35] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:08:35] INFO 报名备注集合大小：8693。
+[2026-04-17 16:08:40] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:08:40] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:08:40] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:08:40] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:08:40] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:08:40] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:08:40] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:08:40] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:08:40] INFO 开始导入：共 16678 条，分 17 批，每批最多 1000 条。
+[2026-04-17 16:09:10] WARNING [批次 1] 第 1 次请求失败：HTTPSConnectionPool(host='backend.appmiaoda.com', port=443): Read timed out. (read timeout=30)，将重试...
+[2026-04-17 16:10:12] INFO ============================================================
+[2026-04-17 16:10:12] INFO 增量导入一体化流水线启动
+[2026-04-17 16:10:12] INFO ============================================================
+[2026-04-17 16:10:12] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:10:13] INFO Token 获取成功。
+[2026-04-17 16:10:13] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:10:14] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:10:14] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:10:14] INFO 报名备注集合大小：8693。
+[2026-04-17 16:10:19] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:10:19] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:10:19] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:10:19] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:10:19] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:10:19] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:10:19] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:10:19] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:10:19] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 16:10:49] WARNING [批次 1] 第 1 次请求失败：HTTPSConnectionPool(host='backend.appmiaoda.com', port=443): Read timed out. (read timeout=30)，将重试...
+[2026-04-17 16:11:19] INFO ============================================================
+[2026-04-17 16:11:19] INFO 增量导入一体化流水线启动
+[2026-04-17 16:11:19] INFO ============================================================
+[2026-04-17 16:11:19] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:11:19] INFO Token 获取成功。
+[2026-04-17 16:11:19] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:11:21] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:11:21] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:11:21] INFO 报名备注集合大小：8693。
+[2026-04-17 16:11:26] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:11:26] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:11:26] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:11:26] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:11:26] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:11:26] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:11:26] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:11:26] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:11:26] INFO 开始导入：共 16678 条，分 167 批，每批最多 100 条。
+[2026-04-17 16:11:51] INFO [批次 1/167] total=100 added=0 ignored=100 errors=0 耗时: 24.80s
+[2026-04-17 16:12:18] INFO [批次 2/167] total=100 added=0 ignored=100 errors=0 耗时: 26.17s
+[2026-04-17 16:12:43] INFO [批次 3/167] total=100 added=0 ignored=100 errors=0 耗时: 24.38s
+[2026-04-17 16:12:59] INFO [批次 4/167] total=100 added=0 ignored=100 errors=0 耗时: 15.14s
+[2026-04-17 16:13:16] INFO [批次 5/167] total=100 added=0 ignored=100 errors=0 耗时: 15.65s
+[2026-04-17 16:22:02] INFO ============================================================
+[2026-04-17 16:22:02] INFO 增量导入一体化流水线启动
+[2026-04-17 16:22:02] INFO ============================================================
+[2026-04-17 16:22:02] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:22:02] INFO Token 获取成功。
+[2026-04-17 16:22:02] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:22:03] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:22:03] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:22:03] INFO 报名备注集合大小：8693。
+[2026-04-17 16:22:08] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:22:08] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:22:08] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:22:08] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:22:08] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:22:08] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:22:08] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:22:08] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:22:08] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 16:22:39] INFO [批次 1/84] total=200 added=0 ignored=200 errors=0 耗时: 30.90s
+[2026-04-17 16:23:11] INFO [批次 2/84] total=200 added=0 ignored=200 errors=0 耗时: 30.99s
+[2026-04-17 16:23:42] INFO [批次 3/84] total=200 added=0 ignored=200 errors=0 耗时: 29.91s
+[2026-04-17 16:38:09] INFO ============================================================
+[2026-04-17 16:38:09] INFO 增量导入一体化流水线启动
+[2026-04-17 16:38:09] INFO ============================================================
+[2026-04-17 16:38:09] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:38:10] INFO Token 获取成功。
+[2026-04-17 16:38:10] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:38:11] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:38:11] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:38:11] INFO 报名备注集合大小：8693。
+[2026-04-17 16:38:16] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:38:16] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:38:16] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:38:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:38:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:38:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:38:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:38:16] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:38:16] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 16:38:18] WARNING [批次 1] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:38:21] WARNING [批次 1] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:38:24] WARNING [批次 1] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:38:24] ERROR [批次 1] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:38:27] WARNING [批次 2] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:49:38] INFO ============================================================
+[2026-04-17 16:49:38] INFO 增量导入一体化流水线启动
+[2026-04-17 16:49:38] INFO ============================================================
+[2026-04-17 16:49:38] INFO 正在获取 Supabase Token ...
+[2026-04-17 16:49:39] INFO Token 获取成功。
+[2026-04-17 16:49:39] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 16:49:40] INFO 读取完成：17656 行，12 列。
+[2026-04-17 16:49:40] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 16:49:40] INFO 报名备注集合大小：8693。
+[2026-04-17 16:49:45] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 16:49:45] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 16:49:45] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 16:49:45] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 16:49:45] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 16:49:45] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 16:49:45] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 16:49:45] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 16:49:45] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 16:49:47] WARNING [批次 1] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:49:50] WARNING [批次 1] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:49:53] WARNING [批次 1] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:49:53] ERROR [批次 1] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:49:55] WARNING [批次 2] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:49:58] WARNING [批次 2] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:01] WARNING [批次 2] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:01] ERROR [批次 2] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:03] WARNING [批次 3] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:06] WARNING [批次 3] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:10] WARNING [批次 3] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:10] ERROR [批次 3] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:12] WARNING [批次 4] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:15] WARNING [批次 4] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:18] WARNING [批次 4] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:18] ERROR [批次 4] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:20] WARNING [批次 5] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:22] WARNING [批次 5] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:26] WARNING [批次 5] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:26] ERROR [批次 5] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:28] WARNING [批次 6] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:31] WARNING [批次 6] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:34] WARNING [批次 6] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:34] ERROR [批次 6] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:36] WARNING [批次 7] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:39] WARNING [批次 7] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:42] WARNING [批次 7] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:42] ERROR [批次 7] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:44] WARNING [批次 8] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:47] WARNING [批次 8] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:50] WARNING [批次 8] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:50] ERROR [批次 8] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:50:52] WARNING [批次 9] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:55] WARNING [批次 9] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:50:58] WARNING [批次 9] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:50:58] ERROR [批次 9] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:00] WARNING [批次 10] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:03] WARNING [批次 10] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:06] WARNING [批次 10] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:51:06] ERROR [批次 10] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:08] WARNING [批次 11] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:11] WARNING [批次 11] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:14] WARNING [批次 11] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:51:14] ERROR [批次 11] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:16] WARNING [批次 12] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:19] WARNING [批次 12] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:22] WARNING [批次 12] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:51:22] ERROR [批次 12] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:24] WARNING [批次 13] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:27] WARNING [批次 13] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:30] WARNING [批次 13] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:51:30] ERROR [批次 13] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:32] WARNING [批次 14] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:35] WARNING [批次 14] 第 2 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:51:38] WARNING [批次 14] 第 3 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，已达最大重试次数，跳过。
+[2026-04-17 16:51:38] ERROR [批次 14] 最终失败，错误：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 16:51:40] WARNING [批次 15] 第 1 次请求失败：服务端错误 500: {"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}，将重试...
+[2026-04-17 16:58:07] INFO Payload 去重完成：学员 2 → 2，来源 4 → 3，去重 1 条。
+[2026-04-17 17:02:58] INFO ============================================================
+[2026-04-17 17:02:58] INFO 增量导入一体化流水线启动
+[2026-04-17 17:02:58] INFO ============================================================
+[2026-04-17 17:02:58] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:02:58] INFO Token 获取成功。
+[2026-04-17 17:02:58] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 17:02:59] INFO 读取完成：17656 行，12 列。
+[2026-04-17 17:02:59] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:02:59] INFO 报名备注集合大小：8693。
+[2026-04-17 17:03:04] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 17:03:04] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 17:03:05] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 17:03:05] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 17:03:05] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 17:03:05] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 17:03:05] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 17:03:05] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 17:03:05] INFO Payload 去重完成：学员 16678 → 16678，来源 16696 → 16696，去重 0 条。
+[2026-04-17 17:03:05] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 17:03:06] WARNING [批次 1] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:09] WARNING [批次 1/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:11] WARNING [批次 2/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:13] WARNING [批次 3/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:16] WARNING [批次 4/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:18] WARNING [批次 5/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:21] WARNING [批次 6] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:24] WARNING [批次 6/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:26] WARNING [批次 7] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:29] WARNING [批次 7/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:31] WARNING [批次 8/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:33] WARNING [批次 9] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:37] WARNING [批次 9] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:40] WARNING [批次 9/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:42] WARNING [批次 10/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:44] WARNING [批次 11/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:46] WARNING [批次 12/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:48] WARNING [批次 13/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:50] WARNING [批次 14/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:52] WARNING [批次 15/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:03:55] WARNING [批次 16] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:03:58] WARNING [批次 16/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:00] WARNING [批次 17] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:03] WARNING [批次 17/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:06] WARNING [批次 18/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:08] WARNING [批次 19/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:11] WARNING [批次 20] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:14] WARNING [批次 20/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:16] WARNING [批次 21/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:18] WARNING [批次 22/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:20] WARNING [批次 23] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:23] WARNING [批次 23/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:26] WARNING [批次 24] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:29] WARNING [批次 24/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:31] WARNING [批次 25] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:35] WARNING [批次 25] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:38] WARNING [批次 25/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:40] WARNING [批次 26] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:44] WARNING [批次 26/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:46] WARNING [批次 27/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:48] WARNING [批次 28/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:50] WARNING [批次 29] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:54] WARNING [批次 29] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:04:57] WARNING [批次 29/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:04:59] WARNING [批次 30/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:02] WARNING [批次 31/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:04] WARNING [批次 32] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:14] WARNING [批次 32/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:16] WARNING [批次 33/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:18] WARNING [批次 34/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:20] WARNING [批次 35] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:23] WARNING [批次 35] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:26] WARNING [批次 35] 第 3 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，已达最大重试次数，跳过。
+[2026-04-17 17:05:26] ERROR [批次 35] 最终失败，错误：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}
+[2026-04-17 17:05:28] WARNING [批次 36] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:32] WARNING [批次 36] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:35] WARNING [批次 36] 第 3 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，已达最大重试次数，跳过。
+[2026-04-17 17:05:35] ERROR [批次 36] 最终失败，错误：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}
+[2026-04-17 17:05:37] WARNING [批次 37] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:40] WARNING [批次 37] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:44] WARNING [批次 37/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:46] WARNING [批次 38] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:49] WARNING [批次 38] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:05:52] WARNING [批次 38/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:54] WARNING [批次 39/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:57] WARNING [批次 40/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:05:59] WARNING [批次 41] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:02] WARNING [批次 41/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:04] WARNING [批次 42/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:06] WARNING [批次 43] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:10] WARNING [批次 43] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:13] WARNING [批次 43/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:16] WARNING [批次 44/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:18] WARNING [批次 45/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:20] WARNING [批次 46] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:23] WARNING [批次 46/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:26] WARNING [批次 47] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:29] WARNING [批次 47] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:32] WARNING [批次 47] 第 3 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，已达最大重试次数，跳过。
+[2026-04-17 17:06:32] ERROR [批次 47] 最终失败，错误：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}
+[2026-04-17 17:06:35] WARNING [批次 48] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:38] WARNING [批次 48/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:40] WARNING [批次 49] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:43] WARNING [批次 49] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:46] WARNING [批次 49] 第 3 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，已达最大重试次数，跳过。
+[2026-04-17 17:06:46] ERROR [批次 49] 最终失败，错误：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}
+[2026-04-17 17:06:49] WARNING [批次 50/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:51] WARNING [批次 51/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:53] WARNING [批次 52] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:06:56] WARNING [批次 52/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:06:59] WARNING [批次 53/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:01] WARNING [批次 54] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:04] WARNING [批次 54/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:06] WARNING [批次 55/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:09] WARNING [批次 56] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:12] WARNING [批次 56/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:14] WARNING [批次 57/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:17] WARNING [批次 58/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:18] WARNING [批次 59/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:20] WARNING [批次 60/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:23] WARNING [批次 61] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:26] WARNING [批次 61/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:28] WARNING [批次 62/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:30] WARNING [批次 63/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:32] WARNING [批次 64] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:35] WARNING [批次 64] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:38] WARNING [批次 64/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:41] WARNING [批次 65] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:44] WARNING [批次 65/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:46] WARNING [批次 66/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:49] WARNING [批次 67] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:52] WARNING [批次 67] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:07:55] WARNING [批次 67/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:07:57] WARNING [批次 68] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:01] WARNING [批次 68] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:04] WARNING [批次 68/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:06] WARNING [批次 69/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:09] WARNING [批次 70] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:12] WARNING [批次 70/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:14] WARNING [批次 71/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:17] WARNING [批次 72/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:19] WARNING [批次 73] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:23] WARNING [批次 73/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:26] WARNING [批次 74/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:28] WARNING [批次 75/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:30] WARNING [批次 76/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:32] WARNING [批次 77/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:34] WARNING [批次 78/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:36] WARNING [批次 79] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:39] WARNING [批次 79] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:43] WARNING [批次 79/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:45] WARNING [批次 80] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:48] WARNING [批次 80/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:50] WARNING [批次 81/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:08:52] WARNING [批次 82] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:56] WARNING [批次 82] 第 2 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:08:59] WARNING [批次 82] 第 3 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，已达最大重试次数，跳过。
+[2026-04-17 17:08:59] ERROR [批次 82] 最终失败，错误：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}
+[2026-04-17 17:09:01] WARNING [批次 83] 第 1 次请求失败：服务端错误 500: {"error":"there is no unique or exclusion constraint matching the ON CONFLICT specification"}，将重试...
+[2026-04-17 17:09:04] WARNING [批次 83/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:09:06] INFO [批次 84/84] total=78 added=0 ignored=78 errors=0 耗时: 0.86s
+[2026-04-17 17:09:06] INFO 导入完成 | 成功批次: 1 | 失败批次: 5 | 重复跳过批次: 78 | 累计 added=0 ignored=78 errors=0 | 总耗时: 361.66s
+[2026-04-17 17:09:06] INFO ============================================================
+[2026-04-17 17:09:06] INFO 流水线执行完毕。
+[2026-04-17 17:09:06] INFO ============================================================
+[2026-04-17 17:17:28] INFO ============================================================
+[2026-04-17 17:17:28] INFO 增量导入一体化流水线启动
+[2026-04-17 17:17:28] INFO ============================================================
+[2026-04-17 17:17:28] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:17:29] INFO Token 获取成功。
+[2026-04-17 17:17:29] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 17:17:30] INFO 读取完成：17656 行，12 列。
+[2026-04-17 17:17:30] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:17:30] INFO 报名备注集合大小：8693。
+[2026-04-17 17:17:35] INFO 数据转换完成：共 17144 条意向学员记录。
+[2026-04-17 17:17:35] INFO 查重清洗完成：删除"晚8小时"来源 414 条，绑定日期格式化 17242 条。
+[2026-04-17 17:17:35] INFO 报告统计：明细 16696 条，重复来源 925 种，三字段重复 45 种，删除明细 414 条。
+[2026-04-17 17:17:35] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16696 行）
+[2026-04-17 17:17:35] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（925 行）
+[2026-04-17 17:17:35] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 17:17:35] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（414 行）
+[2026-04-17 17:17:35] INFO API Payload 构建完成：16678 条有效学员记录。
+[2026-04-17 17:17:35] INFO Payload 去重完成：学员 16678 → 16678，来源 16696 → 16696，去重 0 条。
+[2026-04-17 17:17:35] INFO 开始导入：共 16678 条，分 84 批，每批最多 200 条。
+[2026-04-17 17:17:36] INFO [批次 1/84] total=200 added=200 ignored=0 errors=0 耗时: 1.11s
+[2026-04-17 17:17:39] INFO [批次 2/84] total=200 added=200 ignored=0 errors=0 耗时: 1.67s
+[2026-04-17 17:17:42] INFO [批次 3/84] total=200 added=200 ignored=0 errors=0 耗时: 1.66s
+[2026-04-17 17:17:44] INFO [批次 4/84] total=200 added=200 ignored=0 errors=0 耗时: 1.46s
+[2026-04-17 17:17:46] WARNING [批次 5/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:17:48] INFO [批次 6/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:17:50] WARNING [批次 7/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:17:52] WARNING [批次 8/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:17:54] WARNING [批次 9/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:17:56] INFO [批次 10/84] total=200 added=201 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:17:58] INFO [批次 11/84] total=200 added=201 ignored=0 errors=0 耗时: 1.16s
+[2026-04-17 17:18:00] INFO [批次 12/84] total=200 added=201 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:18:02] WARNING [批次 13/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:18:04] INFO [批次 14/84] total=200 added=202 ignored=0 errors=0 耗时: 1.05s
+[2026-04-17 17:18:06] INFO [批次 15/84] total=200 added=204 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:18:09] INFO [批次 16/84] total=200 added=200 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:18:11] INFO [批次 17/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:18:13] INFO [批次 18/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:18:15] INFO [批次 19/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:18:17] INFO [批次 20/84] total=200 added=200 ignored=0 errors=0 耗时: 1.18s
+[2026-04-17 17:18:19] INFO [批次 21/84] total=200 added=200 ignored=0 errors=0 耗时: 1.05s
+[2026-04-17 17:18:21] INFO [批次 22/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:18:23] INFO [批次 23/84] total=200 added=200 ignored=0 errors=0 耗时: 0.96s
+[2026-04-17 17:18:25] INFO [批次 24/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:18:27] INFO [批次 25/84] total=200 added=200 ignored=0 errors=0 耗时: 1.34s
+[2026-04-17 17:18:30] INFO [批次 26/84] total=200 added=200 ignored=0 errors=0 耗时: 1.42s
+[2026-04-17 17:18:32] INFO [批次 27/84] total=200 added=200 ignored=0 errors=0 耗时: 1.40s
+[2026-04-17 17:18:34] INFO [批次 28/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:18:36] INFO [批次 29/84] total=200 added=200 ignored=0 errors=0 耗时: 1.12s
+[2026-04-17 17:18:38] INFO [批次 30/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:18:40] INFO [批次 31/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:18:42] INFO [批次 32/84] total=200 added=201 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:18:45] INFO [批次 33/84] total=200 added=200 ignored=0 errors=0 耗时: 1.33s
+[2026-04-17 17:18:47] INFO [批次 34/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:18:49] INFO [批次 35/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:18:51] INFO [批次 36/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:18:53] INFO [批次 37/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:18:55] INFO [批次 38/84] total=200 added=200 ignored=0 errors=0 耗时: 1.36s
+[2026-04-17 17:18:57] INFO [批次 39/84] total=200 added=200 ignored=0 errors=0 耗时: 1.43s
+[2026-04-17 17:19:00] INFO [批次 40/84] total=200 added=201 ignored=0 errors=0 耗时: 1.18s
+[2026-04-17 17:19:02] INFO [批次 41/84] total=200 added=200 ignored=0 errors=0 耗时: 1.13s
+[2026-04-17 17:19:04] INFO [批次 42/84] total=200 added=200 ignored=0 errors=0 耗时: 1.07s
+[2026-04-17 17:19:06] INFO [批次 43/84] total=200 added=201 ignored=0 errors=0 耗时: 1.17s
+[2026-04-17 17:19:08] INFO [批次 44/84] total=200 added=200 ignored=0 errors=0 耗时: 1.33s
+[2026-04-17 17:19:10] WARNING [批次 45/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:14] INFO [批次 46/84] total=200 added=200 ignored=0 errors=0 耗时: 2.94s
+[2026-04-17 17:19:18] WARNING [批次 47/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:20] INFO [批次 48/84] total=200 added=200 ignored=0 errors=0 耗时: 1.34s
+[2026-04-17 17:19:22] INFO [批次 49/84] total=200 added=202 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:19:25] INFO [批次 50/84] total=200 added=200 ignored=0 errors=0 耗时: 1.30s
+[2026-04-17 17:19:27] INFO [批次 51/84] total=200 added=200 ignored=0 errors=0 耗时: 1.31s
+[2026-04-17 17:19:29] WARNING [批次 52/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:31] INFO [批次 53/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:19:33] INFO [批次 54/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:19:35] WARNING [批次 55/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:37] INFO [批次 56/84] total=200 added=200 ignored=0 errors=0 耗时: 1.03s
+[2026-04-17 17:19:39] WARNING [批次 57/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:41] INFO [批次 58/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:19:43] INFO [批次 59/84] total=200 added=200 ignored=0 errors=0 耗时: 1.04s
+[2026-04-17 17:19:45] INFO [批次 60/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:19:47] INFO [批次 61/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:19:49] WARNING [批次 62/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:51] INFO [批次 63/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:19:53] INFO [批次 64/84] total=200 added=200 ignored=0 errors=0 耗时: 1.48s
+[2026-04-17 17:19:55] WARNING [批次 65/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:19:58] INFO [批次 66/84] total=200 added=200 ignored=0 errors=0 耗时: 1.92s
+[2026-04-17 17:20:01] WARNING [批次 67/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:04] WARNING [批次 68/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:06] INFO [批次 69/84] total=200 added=200 ignored=0 errors=0 耗时: 1.07s
+[2026-04-17 17:20:08] INFO [批次 70/84] total=200 added=200 ignored=0 errors=0 耗时: 0.97s
+[2026-04-17 17:20:10] WARNING [批次 71/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:12] INFO [批次 72/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:20:14] INFO [批次 73/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:20:16] INFO [批次 74/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:20:18] INFO [批次 75/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:20:20] WARNING [批次 76/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:22] INFO [批次 77/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:20:24] INFO [批次 78/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:20:26] INFO [批次 79/84] total=200 added=200 ignored=0 errors=0 耗时: 1.31s
+[2026-04-17 17:20:28] WARNING [批次 80/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:31] INFO [批次 81/84] total=200 added=200 ignored=0 errors=0 耗时: 1.34s
+[2026-04-17 17:20:32] WARNING [批次 82/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:20:35] INFO [批次 83/84] total=200 added=200 ignored=0 errors=0 耗时: 1.36s
+[2026-04-17 17:20:37] INFO [批次 84/84] total=78 added=0 ignored=78 errors=0 耗时: 0.82s
+[2026-04-17 17:20:37] INFO 导入完成 | 成功批次: 66 | 失败批次: 0 | 重复跳过批次: 18 | 累计 added=13014 ignored=78 errors=0 | 总耗时: 181.45s
+[2026-04-17 17:20:37] INFO ============================================================
+[2026-04-17 17:20:37] INFO 流水线执行完毕。
+[2026-04-17 17:20:37] INFO ============================================================
+[2026-04-17 17:22:14] INFO ============================================================
+[2026-04-17 17:22:14] INFO 增量导入一体化流水线启动
+[2026-04-17 17:22:14] INFO ============================================================
+[2026-04-17 17:22:14] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:22:14] INFO Token 获取成功。
+[2026-04-17 17:22:14] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 17:22:15] INFO 读取完成：17715 行，12 列。
+[2026-04-17 17:22:15] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:22:15] INFO 报名备注集合大小：8693。
+[2026-04-17 17:22:16] INFO 数据转换完成：共 17715 条意向学员记录。
+[2026-04-17 17:22:16] INFO 查重清洗完成：删除"晚8小时"来源 0 条，绑定日期格式化 0 条。
+[2026-04-17 17:22:16] INFO 报告统计：明细 17162 条，重复来源 932 种，三字段重复 0 种，删除明细 0 条。
+[2026-04-17 17:22:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（17162 行）
+[2026-04-17 17:22:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（932 行）
+[2026-04-17 17:22:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（0 行）
+[2026-04-17 17:22:16] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（0 行）
+[2026-04-17 17:22:16] INFO API Payload 构建完成：0 条有效学员记录。
+[2026-04-17 17:22:16] INFO Payload 去重完成：学员 0 → 0，来源 0 → 0，去重 0 条。
+[2026-04-17 17:22:16] WARNING 有效导入数据为空，跳过 API 调用。
+[2026-04-17 17:22:39] INFO ============================================================
+[2026-04-17 17:22:39] INFO 增量导入一体化流水线启动
+[2026-04-17 17:22:39] INFO ============================================================
+[2026-04-17 17:22:39] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:22:40] INFO Token 获取成功。
+[2026-04-17 17:22:40] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 17:22:41] INFO 读取完成：17715 行，12 列。
+[2026-04-17 17:22:41] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:22:41] INFO 报名备注集合大小：8693。
+[2026-04-17 17:22:42] INFO 数据转换完成：共 17715 条意向学员记录。
+[2026-04-17 17:22:42] INFO 查重清洗完成：删除"晚8小时"来源 0 条，绑定日期格式化 0 条。
+[2026-04-17 17:22:42] INFO 报告统计：明细 17162 条，重复来源 932 种，三字段重复 0 种，删除明细 0 条。
+[2026-04-17 17:22:42] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（17162 行）
+[2026-04-17 17:22:42] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（932 行）
+[2026-04-17 17:22:42] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（0 行）
+[2026-04-17 17:22:42] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（0 行）
+[2026-04-17 17:22:42] INFO API Payload 构建完成：0 条有效学员记录。
+[2026-04-17 17:22:42] INFO Payload 去重完成：学员 0 → 0，来源 0 → 0，去重 0 条。
+[2026-04-17 17:22:42] WARNING 有效导入数据为空，跳过 API 调用。
+[2026-04-17 17:27:41] INFO ============================================================
+[2026-04-17 17:27:41] INFO 增量导入一体化流水线启动
+[2026-04-17 17:27:41] INFO ============================================================
+[2026-04-17 17:27:41] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:27:41] INFO Token 获取成功。
+[2026-04-17 17:27:41] INFO 读取原始 Excel：C:\Users\LENOVO\Desktop\售前通讯录.xlsx
+[2026-04-17 17:27:42] INFO 读取完成：17715 行，12 列。
+[2026-04-17 17:27:42] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:27:42] INFO 报名备注集合大小：8693。
+[2026-04-17 17:27:47] INFO 数据转换完成：共 17196 条意向学员记录。
+[2026-04-17 17:27:48] INFO 查重清洗完成：删除"晚8小时"来源 420 条，绑定日期格式化 17295 条。
+[2026-04-17 17:27:48] INFO 报告统计：明细 16742 条，重复来源 927 种，三字段重复 45 种，删除明细 420 条。
+[2026-04-17 17:27:48] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16742 行）
+[2026-04-17 17:27:48] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（927 行）
+[2026-04-17 17:27:48] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 17:27:48] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（420 行）
+[2026-04-17 17:27:48] INFO API Payload 构建完成：16724 条有效学员记录。
+[2026-04-17 17:27:48] INFO Payload 去重完成：学员 16724 → 16724，来源 16742 → 16742，去重 0 条。
+[2026-04-17 17:27:48] INFO 开始导入：共 16724 条，分 84 批，每批最多 200 条。
+[2026-04-17 17:27:49] WARNING [批次 1/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:27:51] WARNING [批次 2/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:27:54] WARNING [批次 3/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:27:56] INFO [批次 4/84] total=200 added=200 ignored=0 errors=0 耗时: 1.67s
+[2026-04-17 17:27:59] WARNING [批次 5/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:01] INFO [批次 6/84] total=200 added=200 ignored=0 errors=0 耗时: 1.63s
+[2026-04-17 17:28:04] WARNING [批次 7/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:06] INFO [批次 8/84] total=200 added=201 ignored=0 errors=0 耗时: 1.56s
+[2026-04-17 17:28:08] INFO [批次 9/84] total=200 added=203 ignored=0 errors=0 耗时: 1.12s
+[2026-04-17 17:28:10] WARNING [批次 10/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:13] WARNING [批次 11/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:15] INFO [批次 12/84] total=200 added=201 ignored=0 errors=0 耗时: 1.75s
+[2026-04-17 17:28:18] WARNING [批次 13/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:20] INFO [批次 14/84] total=200 added=202 ignored=0 errors=0 耗时: 1.52s
+[2026-04-17 17:28:23] INFO [批次 15/84] total=200 added=204 ignored=0 errors=0 耗时: 1.51s
+[2026-04-17 17:28:25] INFO [批次 16/84] total=200 added=200 ignored=0 errors=0 耗时: 1.38s
+[2026-04-17 17:28:28] INFO [批次 17/84] total=200 added=200 ignored=0 errors=0 耗时: 1.58s
+[2026-04-17 17:28:30] INFO [批次 18/84] total=200 added=200 ignored=0 errors=0 耗时: 1.03s
+[2026-04-17 17:28:32] INFO [批次 19/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:28:34] INFO [批次 20/84] total=200 added=200 ignored=0 errors=0 耗时: 1.37s
+[2026-04-17 17:28:36] INFO [批次 21/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:28:38] WARNING [批次 22/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:40] INFO [批次 23/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:28:42] INFO [批次 24/84] total=200 added=200 ignored=0 errors=0 耗时: 0.97s
+[2026-04-17 17:28:44] INFO [批次 25/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:28:47] INFO [批次 26/84] total=200 added=200 ignored=0 errors=0 耗时: 1.91s
+[2026-04-17 17:28:50] INFO [批次 27/84] total=200 added=200 ignored=0 errors=0 耗时: 1.42s
+[2026-04-17 17:28:52] INFO [批次 28/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:28:54] WARNING [批次 29/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:28:56] INFO [批次 30/84] total=200 added=200 ignored=0 errors=0 耗时: 1.41s
+[2026-04-17 17:28:58] INFO [批次 31/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:29:01] INFO [批次 32/84] total=200 added=201 ignored=0 errors=0 耗时: 1.53s
+[2026-04-17 17:29:03] WARNING [批次 33/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:29:05] INFO [批次 34/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:29:08] INFO [批次 35/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:29:10] INFO [批次 36/84] total=200 added=200 ignored=0 errors=0 耗时: 0.96s
+[2026-04-17 17:29:12] INFO [批次 37/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:29:14] INFO [批次 38/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:29:16] WARNING [批次 39/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:29:18] WARNING [批次 40/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:29:20] INFO [批次 41/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:29:22] INFO [批次 42/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:29:25] INFO [批次 43/84] total=200 added=201 ignored=0 errors=0 耗时: 1.56s
+[2026-04-17 17:29:27] INFO [批次 44/84] total=200 added=200 ignored=0 errors=0 耗时: 1.41s
+[2026-04-17 17:29:30] INFO [批次 45/84] total=200 added=200 ignored=0 errors=0 耗时: 1.38s
+[2026-04-17 17:29:32] INFO [批次 46/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:29:34] INFO [批次 47/84] total=200 added=200 ignored=0 errors=0 耗时: 1.07s
+[2026-04-17 17:29:36] INFO [批次 48/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:29:38] INFO [批次 49/84] total=200 added=202 ignored=0 errors=0 耗时: 1.10s
+[2026-04-17 17:29:40] INFO [批次 50/84] total=200 added=200 ignored=0 errors=0 耗时: 1.37s
+[2026-04-17 17:29:42] INFO [批次 51/84] total=200 added=200 ignored=0 errors=0 耗时: 1.15s
+[2026-04-17 17:29:45] INFO [批次 52/84] total=200 added=200 ignored=0 errors=0 耗时: 1.41s
+[2026-04-17 17:29:47] INFO [批次 53/84] total=200 added=200 ignored=0 errors=0 耗时: 1.17s
+[2026-04-17 17:29:49] INFO [批次 54/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:29:51] INFO [批次 55/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:29:53] WARNING [批次 56/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:29:55] INFO [批次 57/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:29:58] INFO [批次 58/84] total=200 added=200 ignored=0 errors=0 耗时: 1.37s
+[2026-04-17 17:30:01] INFO [批次 59/84] total=200 added=200 ignored=0 errors=0 耗时: 2.11s
+[2026-04-17 17:30:03] WARNING [批次 60/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:30:06] INFO [批次 61/84] total=200 added=200 ignored=0 errors=0 耗时: 1.51s
+[2026-04-17 17:30:08] INFO [批次 62/84] total=200 added=200 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:30:10] INFO [批次 63/84] total=200 added=200 ignored=0 errors=0 耗时: 1.34s
+[2026-04-17 17:30:13] INFO [批次 64/84] total=200 added=200 ignored=0 errors=0 耗时: 1.51s
+[2026-04-17 17:30:16] INFO [批次 65/84] total=200 added=200 ignored=0 errors=0 耗时: 2.22s
+[2026-04-17 17:30:18] WARNING [批次 66/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:30:20] INFO [批次 67/84] total=200 added=200 ignored=0 errors=0 耗时: 0.97s
+[2026-04-17 17:30:23] INFO [批次 68/84] total=200 added=200 ignored=0 errors=0 耗时: 1.50s
+[2026-04-17 17:30:25] INFO [批次 69/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:30:27] INFO [批次 70/84] total=200 added=200 ignored=0 errors=0 耗时: 1.33s
+[2026-04-17 17:30:29] INFO [批次 71/84] total=200 added=200 ignored=0 errors=0 耗时: 1.50s
+[2026-04-17 17:30:31] INFO [批次 72/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:30:34] INFO [批次 73/84] total=200 added=200 ignored=0 errors=0 耗时: 1.39s
+[2026-04-17 17:30:36] INFO [批次 74/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:30:38] INFO [批次 75/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:30:40] INFO [批次 76/84] total=200 added=200 ignored=0 errors=0 耗时: 1.31s
+[2026-04-17 17:30:43] INFO [批次 77/84] total=200 added=200 ignored=0 errors=0 耗时: 1.38s
+[2026-04-17 17:30:45] INFO [批次 78/84] total=200 added=200 ignored=0 errors=0 耗时: 1.68s
+[2026-04-17 17:30:48] INFO [批次 79/84] total=200 added=200 ignored=0 errors=0 耗时: 1.43s
+[2026-04-17 17:30:50] INFO [批次 80/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:30:52] WARNING [批次 81/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:30:54] WARNING [批次 82/84] 检测到 duplicate key，跳过该批次不重试。 响应片段：{"error":"duplicate key value violates unique constraint \"idx_sources_unique_all_fields\""}
+[2026-04-17 17:30:56] INFO [批次 83/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:30:58] INFO [批次 84/84] total=124 added=124 ignored=0 errors=0 耗时: 1.37s
+[2026-04-17 17:30:58] INFO 导入完成 | 成功批次: 66 | 失败批次: 0 | 重复跳过批次: 18 | 累计 added=13139 ignored=0 errors=0 | 总耗时: 190.76s
+[2026-04-17 17:30:58] INFO ============================================================
+[2026-04-17 17:30:58] INFO 流水线执行完毕。
+[2026-04-17 17:30:58] INFO ============================================================
+[2026-04-17 17:52:45] INFO ============================================================
+[2026-04-17 17:52:45] INFO 增量导入一体化流水线启动
+[2026-04-17 17:52:45] INFO ============================================================
+[2026-04-17 17:52:45] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:52:45] INFO Token 获取成功。
+[2026-04-17 17:52:46] ERROR 流水线执行异常：目录 X:\backup\ProspectiveContacts 下未找到以 "售前通讯录" 开头的 .xlsx 文件
+Traceback (most recent call last):
+  File "d:\桌面文件\新建文件夹\数据结构处理\意向学员绑定关系查询系统\增量导入.py", line 812, in main
+    excel_path = 解析最新Excel路径(
+        CONFIG["EXCEL_DIR"], CONFIG["EXCEL_PREFIX"], CONFIG["EXCEL_EXT"]
+    )
+  File "d:\桌面文件\新建文件夹\数据结构处理\意向学员绑定关系查询系统\增量导入.py", line 228, in 解析最新Excel路径
+    raise FileNotFoundError(
+        f'目录 {目录} 下未找到以 "{前缀}" 开头的 {扩展名} 文件'
+    )
+FileNotFoundError: 目录 X:\backup\ProspectiveContacts 下未找到以 "售前通讯录" 开头的 .xlsx 文件
+[2026-04-17 17:53:11] INFO ============================================================
+[2026-04-17 17:53:11] INFO 增量导入一体化流水线启动
+[2026-04-17 17:53:11] INFO ============================================================
+[2026-04-17 17:53:11] INFO 正在获取 Supabase Token ...
+[2026-04-17 17:53:11] INFO Token 获取成功。
+[2026-04-17 17:53:11] INFO 扫描到 2 个候选 Excel，自动选择（文件名最大）：意向专用通讯录导出_20260417_174748.xlsx
+[2026-04-17 17:53:11] INFO 读取原始 Excel：X:\backup\ProspectiveContacts\意向专用通讯录导出_20260417_174748.xlsx
+[2026-04-17 17:53:13] INFO 读取完成：17715 行，12 列。
+[2026-04-17 17:53:13] INFO 读取报名备注集合：C:\Users\LENOVO\Desktop\contact.db
+[2026-04-17 17:53:13] INFO 报名备注集合大小：8712。
+[2026-04-17 17:53:18] INFO 数据转换完成：共 17196 条意向学员记录。
+[2026-04-17 17:53:18] INFO 查重清洗完成：删除"晚8小时"来源 420 条，绑定日期格式化 17295 条。
+[2026-04-17 17:53:18] INFO 报告统计：明细 16742 条，重复来源 927 种，三字段重复 45 种，删除明细 420 条。
+[2026-04-17 17:53:18] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\意向学员_来源微信号明细.csv（16742 行）
+[2026-04-17 17:53:18] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\来源微信号重复统计.csv（927 行）
+[2026-04-17 17:53:18] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\三字段重复统计.csv（45 行）
+[2026-04-17 17:53:18] INFO 已导出：D:\桌面文件\新建文件夹\数据结构处理\售前通讯录\删除_晚8小时_明细.csv（420 行）
+[2026-04-17 17:53:18] INFO API Payload 构建完成：16724 条有效学员记录。
+[2026-04-17 17:53:18] INFO Payload 去重完成：学员 16724 → 16724，来源 16742 → 16742，去重 0 条。
+[2026-04-17 17:53:18] INFO 开始导入：共 16724 条，分 84 批，每批最多 200 条。
+[2026-04-17 17:53:20] INFO [批次 1/84] total=200 added=200 ignored=0 errors=0 耗时: 1.25s
+[2026-04-17 17:53:22] INFO [批次 2/84] total=200 added=200 ignored=0 errors=0 耗时: 1.57s
+[2026-04-17 17:53:25] INFO [批次 3/84] total=200 added=200 ignored=0 errors=0 耗时: 1.71s
+[2026-04-17 17:53:27] INFO [批次 4/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:53:29] INFO [批次 5/84] total=200 added=200 ignored=0 errors=0 耗时: 1.28s
+[2026-04-17 17:53:32] INFO [批次 6/84] total=200 added=200 ignored=0 errors=0 耗时: 1.71s
+[2026-04-17 17:53:34] INFO [批次 7/84] total=200 added=200 ignored=0 errors=0 耗时: 1.01s
+[2026-04-17 17:53:36] INFO [批次 8/84] total=200 added=201 ignored=0 errors=0 耗时: 1.09s
+[2026-04-17 17:53:38] INFO [批次 9/84] total=200 added=203 ignored=0 errors=0 耗时: 1.15s
+[2026-04-17 17:53:41] INFO [批次 10/84] total=200 added=201 ignored=0 errors=0 耗时: 1.61s
+[2026-04-17 17:53:43] INFO [批次 11/84] total=200 added=201 ignored=0 errors=0 耗时: 1.60s
+[2026-04-17 17:53:46] INFO [批次 12/84] total=200 added=201 ignored=0 errors=0 耗时: 1.57s
+[2026-04-17 17:53:48] INFO [批次 13/84] total=200 added=200 ignored=0 errors=0 耗时: 1.57s
+[2026-04-17 17:53:51] INFO [批次 14/84] total=200 added=202 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:53:53] INFO [批次 15/84] total=200 added=204 ignored=0 errors=0 耗时: 1.27s
+[2026-04-17 17:53:55] INFO [批次 16/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:53:57] INFO [批次 17/84] total=200 added=200 ignored=0 errors=0 耗时: 1.09s
+[2026-04-17 17:53:59] INFO [批次 18/84] total=200 added=200 ignored=0 errors=0 耗时: 0.97s
+[2026-04-17 17:54:02] INFO [批次 19/84] total=200 added=200 ignored=0 errors=0 耗时: 1.68s
+[2026-04-17 17:54:05] INFO [批次 20/84] total=200 added=200 ignored=0 errors=0 耗时: 1.63s
+[2026-04-17 17:54:07] INFO [批次 21/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:54:09] INFO [批次 22/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:54:11] INFO [批次 23/84] total=200 added=200 ignored=0 errors=0 耗时: 1.09s
+[2026-04-17 17:54:13] INFO [批次 24/84] total=200 added=200 ignored=0 errors=0 耗时: 1.42s
+[2026-04-17 17:54:16] INFO [批次 25/84] total=200 added=200 ignored=0 errors=0 耗时: 1.56s
+[2026-04-17 17:54:18] INFO [批次 26/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:54:20] INFO [批次 27/84] total=200 added=200 ignored=0 errors=0 耗时: 1.52s
+[2026-04-17 17:54:22] INFO [批次 28/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:54:25] INFO [批次 29/84] total=200 added=200 ignored=0 errors=0 耗时: 1.50s
+[2026-04-17 17:54:27] INFO [批次 30/84] total=200 added=200 ignored=0 errors=0 耗时: 1.54s
+[2026-04-17 17:54:29] INFO [批次 31/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:54:32] INFO [批次 32/84] total=200 added=201 ignored=0 errors=0 耗时: 1.57s
+[2026-04-17 17:54:34] INFO [批次 33/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:54:37] INFO [批次 34/84] total=200 added=200 ignored=0 errors=0 耗时: 1.42s
+[2026-04-17 17:54:39] INFO [批次 35/84] total=200 added=200 ignored=0 errors=0 耗时: 1.36s
+[2026-04-17 17:54:42] INFO [批次 36/84] total=200 added=200 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:54:44] INFO [批次 37/84] total=200 added=200 ignored=0 errors=0 耗时: 1.48s
+[2026-04-17 17:54:47] INFO [批次 38/84] total=200 added=200 ignored=0 errors=0 耗时: 1.68s
+[2026-04-17 17:54:49] INFO [批次 39/84] total=200 added=200 ignored=0 errors=0 耗时: 1.58s
+[2026-04-17 17:54:52] INFO [批次 40/84] total=200 added=201 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:54:54] INFO [批次 41/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:54:56] INFO [批次 42/84] total=200 added=200 ignored=0 errors=0 耗时: 0.98s
+[2026-04-17 17:54:58] INFO [批次 43/84] total=200 added=201 ignored=0 errors=0 耗时: 1.33s
+[2026-04-17 17:55:01] INFO [批次 44/84] total=200 added=200 ignored=0 errors=0 耗时: 1.57s
+[2026-04-17 17:55:03] INFO [批次 45/84] total=200 added=200 ignored=0 errors=0 耗时: 1.38s
+[2026-04-17 17:55:05] INFO [批次 46/84] total=200 added=200 ignored=0 errors=0 耗时: 1.03s
+[2026-04-17 17:55:07] INFO [批次 47/84] total=200 added=200 ignored=0 errors=0 耗时: 1.00s
+[2026-04-17 17:55:09] INFO [批次 48/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:55:11] INFO [批次 49/84] total=200 added=202 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:55:14] INFO [批次 50/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:55:16] INFO [批次 51/84] total=200 added=200 ignored=0 errors=0 耗时: 1.40s
+[2026-04-17 17:55:19] INFO [批次 52/84] total=200 added=200 ignored=0 errors=0 耗时: 1.94s
+[2026-04-17 17:55:22] INFO [批次 53/84] total=200 added=200 ignored=0 errors=0 耗时: 1.63s
+[2026-04-17 17:55:24] INFO [批次 54/84] total=200 added=200 ignored=0 errors=0 耗时: 1.31s
+[2026-04-17 17:55:26] INFO [批次 55/84] total=200 added=200 ignored=0 errors=0 耗时: 1.46s
+[2026-04-17 17:55:29] INFO [批次 56/84] total=200 added=200 ignored=0 errors=0 耗时: 1.40s
+[2026-04-17 17:55:31] INFO [批次 57/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:55:33] INFO [批次 58/84] total=200 added=200 ignored=0 errors=0 耗时: 1.46s
+[2026-04-17 17:55:36] INFO [批次 59/84] total=200 added=200 ignored=0 errors=0 耗时: 1.91s
+[2026-04-17 17:55:38] INFO [批次 60/84] total=200 added=200 ignored=0 errors=0 耗时: 0.99s
+[2026-04-17 17:55:41] INFO [批次 61/84] total=200 added=200 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:55:43] INFO [批次 62/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:55:45] INFO [批次 63/84] total=200 added=200 ignored=0 errors=0 耗时: 1.36s
+[2026-04-17 17:55:48] INFO [批次 64/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:55:51] INFO [批次 65/84] total=200 added=200 ignored=0 errors=0 耗时: 1.58s
+[2026-04-17 17:55:53] INFO [批次 66/84] total=200 added=200 ignored=0 errors=0 耗时: 1.43s
+[2026-04-17 17:55:55] INFO [批次 67/84] total=200 added=200 ignored=0 errors=0 耗时: 1.02s
+[2026-04-17 17:55:57] INFO [批次 68/84] total=200 added=200 ignored=0 errors=0 耗时: 1.49s
+[2026-04-17 17:56:00] INFO [批次 69/84] total=200 added=200 ignored=0 errors=0 耗时: 1.56s
+[2026-04-17 17:56:02] INFO [批次 70/84] total=200 added=200 ignored=0 errors=0 耗时: 1.26s
+[2026-04-17 17:56:05] INFO [批次 71/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:56:07] INFO [批次 72/84] total=200 added=200 ignored=0 errors=0 耗时: 1.44s
+[2026-04-17 17:56:09] INFO [批次 73/84] total=200 added=200 ignored=0 errors=0 耗时: 1.33s
+[2026-04-17 17:56:12] INFO [批次 74/84] total=200 added=200 ignored=0 errors=0 耗时: 1.06s
+[2026-04-17 17:56:14] INFO [批次 75/84] total=200 added=200 ignored=0 errors=0 耗时: 1.08s
+[2026-04-17 17:56:16] INFO [批次 76/84] total=200 added=200 ignored=0 errors=0 耗时: 1.43s
+[2026-04-17 17:56:18] INFO [批次 77/84] total=200 added=200 ignored=0 errors=0 耗时: 1.42s
+[2026-04-17 17:56:21] INFO [批次 78/84] total=200 added=200 ignored=0 errors=0 耗时: 1.03s
+[2026-04-17 17:56:23] INFO [批次 79/84] total=200 added=200 ignored=0 errors=0 耗时: 1.53s
+[2026-04-17 17:56:25] INFO [批次 80/84] total=200 added=200 ignored=0 errors=0 耗时: 1.05s
+[2026-04-17 17:56:28] INFO [批次 81/84] total=200 added=200 ignored=0 errors=0 耗时: 1.45s
+[2026-04-17 17:56:30] INFO [批次 82/84] total=200 added=200 ignored=0 errors=0 耗时: 1.20s
+[2026-04-17 17:56:32] INFO [批次 83/84] total=200 added=200 ignored=0 errors=0 耗时: 1.39s
+[2026-04-17 17:56:34] INFO [批次 84/84] total=124 added=124 ignored=0 errors=0 耗时: 1.14s
+[2026-04-17 17:56:34] INFO 导入完成 | 成功批次: 84 | 失败批次: 0 | 重复跳过批次: 0 | 累计 added=16742 ignored=0 errors=0 | 总耗时: 196.04s
+[2026-04-17 17:56:34] INFO ============================================================
+[2026-04-17 17:56:34] INFO 流水线执行完毕。
+[2026-04-17 17:56:34] INFO ============================================================

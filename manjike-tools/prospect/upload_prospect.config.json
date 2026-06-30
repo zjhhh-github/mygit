@@ -1,0 +1,27 @@
+{
+  "_说明": "本文件用于配置 upload_prospect.py 的服务端、上传参数与日志选项。修改后无需改代码即可生效。所有路径支持绝对路径；相对路径以脚本所在目录为基准。带 _ 开头的 key 都是注释字段，运行时会被忽略。local环境接口地址:http://localhost:8080,dev环境接口地址:https://dev.manjikeabc.com",
+  "服务端": {
+    "_说明": "host 是 manjike 后端 base url；account 是登录账号（user_code 或 user_name 任一）；password 是登录密码。本接口需要 ADMIN 角色。",
+    "host": "http://localhost:8080",
+    "account": "admin",
+    "password": "admin123"
+  },
+  "上传": {
+    "_说明": "source_file 是待上传的意向通讯录 JSON。mode 三种取值：FULL=全量覆盖（先清旧数据再导）、INCREMENTAL=增量（已存在的不动，只补差异，最常用）、APPEND=追加（不去重）。batch_size 控制每批提交的学员数，设为 0 则一次性提交所有学员；后端同类型任务同时只能跑一个，因此批次之间串行执行（提交→轮询完成→再下一批）。缩小 batch_size 可让每批更快完成，从而加快整体速度。abort_on_batch_failure=true 时任一批失败立刻跳过后续批次。",
+    "source_file": "意向通讯录.json",
+    "type": "STUDENTS_IMPORT",
+    "mode": "INCREMENTAL",
+    "dry_run": false,
+    "batch_size": 1000,
+    "concurrent_batches": 3,
+    "abort_on_batch_failure": false,
+    "max_wait_seconds": 1800,
+    "poll_interval_seconds": 2
+  },
+  "日志": {
+    "_说明": "日志双写：屏幕 + 文件。save_skipped 控制是否把跳过明细落到独立 JSON。{timestamp} 占位符会被替换成 YYYYMMDD_HHMMSS。",
+    "log_file": "logs/upload_prospect.log",
+    "save_skipped": true,
+    "skipped_filename": "logs/upload_prospect_skipped_{timestamp}.json"
+  }
+}

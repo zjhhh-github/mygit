@@ -1,0 +1,20 @@
+{
+  "_说明": "配置 export_prospect_students.py。输出规则与 xlsx_to_prospect_json.py 一致：主文件 + logs 下时间戳快照。",
+  "服务端": {
+    "host": "https://dev.manjikeabc.com",
+    "account": "admin",
+    "password": "admin123"
+  },
+  "导出": {
+    "_说明": "output_dir 相对脚本目录。json_filename 为固定主文件；save_timestamped_copy 为 true 时在 logs 再留一份 意向学员数据导出_YYYYMMDD_HHMMSS.json。",
+    "output_dir": ".",
+    "json_filename": "意向学员数据导出.json",
+    "save_timestamped_copy": true,
+    "timestamped_filename_template": "logs/意向学员数据导出_{timestamp}.json",
+    "validate_json": true,
+    "timeout_seconds": 600
+  },
+  "日志": {
+    "log_file": "logs/export_prospect.log"
+  }
+}

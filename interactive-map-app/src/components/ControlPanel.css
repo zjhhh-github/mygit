@@ -1,0 +1,50 @@
+.navigation {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 200px;
+}
+
+.navigation h3 {
+  margin: 0 0 15px 0;
+  color: #1976d2;
+  font-size: 1.2em;
+}
+
+.navigation button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px 12px;
+  cursor: pointer;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.navigation button:hover {
+  background: #1565c0;
+}
+
+.navigation button:disabled {
+  background: #bbdefb;
+  cursor: not-allowed;
+}
+
+.selected-region-info {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.selected-region-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}

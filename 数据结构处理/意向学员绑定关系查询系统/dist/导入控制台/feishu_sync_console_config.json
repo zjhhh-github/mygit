@@ -1,0 +1,6 @@
+{
+  "SCRIPT_PATH": ".\\意向学员关系导入到飞书多维表格.py",
+  "DRY_RUN": false,
+  "INTERVAL_MIN": 60,
+  "START_TIME": ""
+}

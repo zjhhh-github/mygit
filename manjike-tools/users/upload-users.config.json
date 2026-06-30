@@ -1,0 +1,12 @@
+{
+  "host": "http://localhost:8080",
+  "account": "admin",
+  "password": "admin123",
+  "file": "./feishu-users.json",
+  "dry_run": false,
+  "no_create_missing": false,
+  "allow_clear": false,
+  "max_wait": 600,
+  "poll_interval": 1,
+  "log_file": "./upload-users.log"
+}

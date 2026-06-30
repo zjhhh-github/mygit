@@ -1,0 +1,7 @@
+{
+  "_说明": "已弃用本地旧版同步脚本。请使用 manjike-tools/prospect/同步意向学员到飞书.py 与同目录 sync_to_feishu.config.json。",
+  "数据源": {
+    "mode": "local_json",
+    "local_json_file": "../manjike-tools/prospect/意向学员数据导出.json"
+  }
+}

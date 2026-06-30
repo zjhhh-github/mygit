@@ -1,0 +1,4 @@
+user_name	password
+990001-Sample甲	Smpl0001
+990002-Sample乙	Smpl0002
+990003-Sample丙	Smpl0003

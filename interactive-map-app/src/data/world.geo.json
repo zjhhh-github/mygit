@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "China",
+        "POP_EST": 1403500365,
+        "REGION_UN": "Asia",
+        "SUBREGION": "Eastern Asia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "United States of America",
+        "POP_EST": 331002651,
+        "REGION_UN": "Americas",
+        "SUBREGION": "Northern America"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "India",
+        "POP_EST": 1380004385,
+        "REGION_UN": "Asia",
+        "SUBREGION": "Southern Asia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Brazil",
+        "POP_EST": 212559417,
+        "REGION_UN": "Americas",
+        "SUBREGION": "South America"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Russia",
+        "POP_EST": 145934462,
+        "REGION_UN": "Europe",
+        "SUBREGION": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      }
+    }
+  ]
+}

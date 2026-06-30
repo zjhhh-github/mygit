@@ -1,0 +1,35 @@
+{
+  "_说明": "复制为 sync_to_feishu.config.json 后填写真实凭证。字段映射见 field_mapping.json。",
+  "飞书": {
+    "app_id": "cli_xxxxxxxx",
+    "app_secret": "xxxxxxxx",
+    "app_token": "xxxxxxxx",
+    "table_id": "tblxxxxxxxx",
+    "api_base": "https://open.feishu.cn/open-apis"
+  },
+  "数据源": {
+    "mode": "local_json",
+    "local_json_file": "意向学员数据导出.json",
+    "manjike_config_file": "export_prospect.config.json",
+    "auto_export_before_sync": false,
+    "manjike": {
+      "host": "https://dev.manjikeabc.com",
+      "account": "",
+      "password": "",
+      "timeout_seconds": 600
+    }
+  },
+  "同步": {
+    "dry_run": true,
+    "require_confirm": true,
+    "batch_sizes": [1000, 500, 200],
+    "max_retry": 5,
+    "base_backoff_seconds": 1
+  },
+  "路径": {
+    "field_mapping_file": "field_mapping.json",
+    "failed_file": "logs/sync_feishu_failed.json",
+    "backup_dir": "logs",
+    "backup_filename_prefix": "同步意向学员到飞书"
+  }
+}

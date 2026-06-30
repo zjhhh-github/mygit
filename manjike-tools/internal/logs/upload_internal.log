@@ -1,0 +1,129 @@
+2026-06-03 14:25:27 [INFO] ============================================================
+2026-06-03 14:25:27 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 14:25:27 [INFO] host=http://localhost:8080, account=admin
+2026-06-03 14:25:27 [INFO] source_file=C:\Users\LENOVO\Desktop\内部通讯录.json, 条数=9087, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=True
+2026-06-03 14:25:27 [INFO] ============================================================
+2026-06-03 14:25:27 [INFO] dry-run 模式：跳过登录 / 提交 / 轮询
+2026-06-03 14:25:55 [INFO] ============================================================
+2026-06-03 14:25:55 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 14:25:55 [INFO] host=http://localhost:8080, account=admin
+2026-06-03 14:25:55 [INFO] source_file=C:\Users\LENOVO\Desktop\内部通讯录.json, 条数=9087, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=True
+2026-06-03 14:25:55 [INFO] ============================================================
+2026-06-03 14:25:55 [INFO] dry-run 模式：跳过登录 / 提交 / 轮询
+2026-06-03 14:25:55 [INFO] 前 3 条示例：[{"内部备注": "¿¿¿002682-王皓则", "微信号": "", "微信ID": "lxiuyuan", "总微信号": "lxiuyuan"}, {"内部备注": "¿¿¿002683-王睿 王雪峰", "微信号": "dx15242", "微信ID": "wxid_3n18ev5loffn21", "总微信号": "dx15242"}, {"内部备注": "¿¿¿002684-王睿", "微信号": "", "微信ID": "xiaoxiao8226", "总微信号": "xiaoxiao8226"}]
+2026-06-03 14:27:50 [INFO] ============================================================
+2026-06-03 14:27:50 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 14:27:50 [INFO] host=http://localhost:8080, account=admin
+2026-06-03 14:27:50 [INFO] source_file=C:\Users\LENOVO\Desktop\内部通讯录.json, 条数=9087, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-03 14:27:50 [INFO] ============================================================
+2026-06-03 14:27:50 [INFO] 登录目标后端：http://localhost:8080
+2026-06-03 14:27:50 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-03 14:27:50 [INFO] [批次 1/1] 提交：通讯录 9087 条，payload=887549B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-03 14:27:55 [INFO] [批次 1/1] taskId = 7d7e65a0-5ec8-492c-8b25-e35ddc2e1c2c
+2026-06-03 14:27:55 [INFO] [批次 1/1] 轮询进度：taskId=7d7e65a0-5ec8-492c-8b25-e35ddc2e1c2c（最长 3600s）
+2026-06-03 14:27:55 [INFO] [批次 1/1] 进度：status=success processed=9087/9087 stage=完成 inserted=0 updated=0 skipped=0 msg=导入完成
+2026-06-03 14:27:55 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=0 skipped=0 failed=0 taskId=7d7e65a0-5ec8-492c-8b25-e35ddc2e1c2c
+2026-06-03 14:27:55 [INFO] ============================================================
+2026-06-03 14:27:55 [INFO] 全部完成：耗时 5.0s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-06-03 14:27:55 [INFO]   - 批次 1/1：size=9087 status=success inserted=0 updated=0 skipped=0 taskId=7d7e65a0-5ec8-492c-8b25-e35ddc2e1c2c
+2026-06-03 14:27:55 [INFO] ============================================================
+2026-06-03 14:27:55 [INFO] === 内部通讯录上传成功 ===
+2026-06-03 14:42:01 [INFO] ============================================================
+2026-06-03 14:42:01 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 14:42:01 [INFO] host=http://localhost:8080, account=admin
+2026-06-03 14:42:01 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9526, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-03 14:42:01 [INFO] ============================================================
+2026-06-03 14:42:01 [INFO] 登录目标后端：http://localhost:8080
+2026-06-03 14:42:01 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-03 14:42:01 [INFO] [批次 1/1] 提交：通讯录 9526 条，payload=930671B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-03 14:42:06 [INFO] [批次 1/1] taskId = fe687b97-b2fa-4b90-97c8-eab158cb7325
+2026-06-03 14:42:06 [INFO] [批次 1/1] 轮询进度：taskId=fe687b97-b2fa-4b90-97c8-eab158cb7325（最长 3600s）
+2026-06-03 14:42:06 [INFO] [批次 1/1] 进度：status=success processed=9526/9526 stage=完成 inserted=0 updated=0 skipped=0 msg=导入完成
+2026-06-03 14:42:06 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=0 skipped=0 failed=0 taskId=fe687b97-b2fa-4b90-97c8-eab158cb7325
+2026-06-03 14:42:06 [INFO] ============================================================
+2026-06-03 14:42:06 [INFO] 全部完成：耗时 4.5s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-06-03 14:42:06 [INFO]   - 批次 1/1：size=9526 status=success inserted=0 updated=0 skipped=0 taskId=fe687b97-b2fa-4b90-97c8-eab158cb7325
+2026-06-03 14:42:06 [INFO] ============================================================
+2026-06-03 14:42:06 [INFO] === 内部通讯录上传成功 ===
+2026-06-03 14:42:53 [INFO] ============================================================
+2026-06-03 14:42:53 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 14:42:53 [INFO] host=http://localhost:8080, account=admin
+2026-06-03 14:42:53 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9526, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-03 14:42:53 [INFO] ============================================================
+2026-06-03 14:42:53 [INFO] 登录目标后端：http://localhost:8080
+2026-06-03 14:42:53 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-03 14:42:53 [INFO] [批次 1/1] 提交：通讯录 9526 条，payload=930671B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-03 14:42:57 [INFO] [批次 1/1] taskId = cb0d3c73-90cf-43f9-8eb1-410416a27c7d
+2026-06-03 14:42:57 [INFO] [批次 1/1] 轮询进度：taskId=cb0d3c73-90cf-43f9-8eb1-410416a27c7d（最长 3600s）
+2026-06-03 14:42:57 [INFO] [批次 1/1] 进度：status=success processed=9526/9526 stage=完成 inserted=0 updated=9526 skipped=0 msg=导入完成
+2026-06-03 14:42:57 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=9526 skipped=0 failed=0 taskId=cb0d3c73-90cf-43f9-8eb1-410416a27c7d
+2026-06-03 14:42:57 [INFO] ============================================================
+2026-06-03 14:42:57 [INFO] 全部完成：耗时 4.6s，批次=1/1，累计 inserted=0 updated=9526 skipped=0 failed=0
+2026-06-03 14:42:57 [INFO]   - 批次 1/1：size=9526 status=success inserted=0 updated=9526 skipped=0 taskId=cb0d3c73-90cf-43f9-8eb1-410416a27c7d
+2026-06-03 14:42:57 [INFO] ============================================================
+2026-06-03 14:42:57 [INFO] === 内部通讯录上传成功 ===
+2026-06-03 15:47:06 [INFO] ============================================================
+2026-06-03 15:47:06 [INFO] 查询系统：内部通讯录上传开始
+2026-06-03 15:47:06 [INFO] host=https://dev.manjikeabc.com, account=admin
+2026-06-03 15:47:06 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9526, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-03 15:47:06 [INFO] ============================================================
+2026-06-03 15:47:06 [INFO] 登录目标后端：https://dev.manjikeabc.com
+2026-06-03 15:47:06 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-03 15:47:06 [INFO] [批次 1/1] 提交：通讯录 9526 条，payload=930671B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-03 15:47:11 [INFO] [批次 1/1] taskId = 908006b5-c0c8-4c27-9105-49e30d32ae70
+2026-06-03 15:47:11 [INFO] [批次 1/1] 轮询进度：taskId=908006b5-c0c8-4c27-9105-49e30d32ae70（最长 3600s）
+2026-06-03 15:47:11 [INFO] [批次 1/1] 进度：status=success processed=9526/9526 stage=历史任务 inserted=0 updated=0 skipped=0 msg=
+2026-06-03 15:47:11 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=0 skipped=0 failed=0 taskId=908006b5-c0c8-4c27-9105-49e30d32ae70
+2026-06-03 15:47:11 [INFO] ============================================================
+2026-06-03 15:47:11 [INFO] 全部完成：耗时 4.6s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-06-03 15:47:11 [INFO]   - 批次 1/1：size=9526 status=success inserted=0 updated=0 skipped=0 taskId=908006b5-c0c8-4c27-9105-49e30d32ae70
+2026-06-03 15:47:11 [INFO] ============================================================
+2026-06-03 15:47:11 [INFO] === 内部通讯录上传成功 ===
+2026-06-10 12:22:14 [INFO] ============================================================
+2026-06-10 12:22:14 [INFO] 查询系统：内部通讯录上传开始
+2026-06-10 12:22:14 [INFO] host=https://dev.manjikeabc.com, account=admin
+2026-06-10 12:22:14 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9673, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=True
+2026-06-10 12:22:14 [INFO] ============================================================
+2026-06-10 12:22:14 [INFO] dry-run 模式：跳过登录 / 提交 / 轮询
+2026-06-10 12:22:14 [INFO] 前 3 条示例：[{"内部备注": "!!!000164-刘奕桐", "微信ID": "wxid_s6m7xrteggk321", "微信号": "yyllysys", "总微信号": "yyllysys"}, {"内部备注": "!!!000317-仝墨涵", "微信ID": "wxid_6ck9wxtlcln422", "微信号": "zynzm7026", "总微信号": "zynzm7026"}, {"内部备注": "!!!003793-陈梓骞", "微信ID": "wxid_b6i8ae1ppl0022", "微信号": "", "总微信号": "wxid_b6i8ae1ppl0022"}]
+2026-06-10 12:26:58 [INFO] ============================================================
+2026-06-10 12:26:58 [INFO] 查询系统：内部通讯录上传开始
+2026-06-10 12:26:58 [INFO] host=https://dev.manjikeabc.com, account=admin
+2026-06-10 12:26:58 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9673, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=True
+2026-06-10 12:26:58 [INFO] ============================================================
+2026-06-10 12:26:58 [INFO] dry-run 模式：跳过登录 / 提交 / 轮询
+2026-06-10 12:26:58 [INFO] 前 3 条示例：[{"内部备注": "!!!000164-刘奕桐", "微信ID": "wxid_s6m7xrteggk321", "微信号": "yyllysys", "总微信号": "yyllysys"}, {"内部备注": "!!!000317-仝墨涵", "微信ID": "wxid_6ck9wxtlcln422", "微信号": "zynzm7026", "总微信号": "zynzm7026"}, {"内部备注": "!!!003793-陈梓骞", "微信ID": "wxid_b6i8ae1ppl0022", "微信号": "", "总微信号": "wxid_b6i8ae1ppl0022"}]
+2026-06-10 15:17:00 [INFO] ============================================================
+2026-06-10 15:17:00 [INFO] 查询系统：内部通讯录上传开始
+2026-06-10 15:17:00 [INFO] host=https://dev.manjikeabc.com, account=admin
+2026-06-10 15:17:00 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9755, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-10 15:17:00 [INFO] ============================================================
+2026-06-10 15:17:00 [INFO] 登录目标后端：https://dev.manjikeabc.com
+2026-06-10 15:17:00 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-10 15:17:00 [INFO] [批次 1/1] 提交：通讯录 9755 条，payload=953000B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-10 15:17:05 [INFO] [批次 1/1] taskId = 6434dfc9-5176-4ee1-9f93-3a6570ac78ea
+2026-06-10 15:17:05 [INFO] [批次 1/1] 轮询进度：taskId=6434dfc9-5176-4ee1-9f93-3a6570ac78ea（最长 3600s）
+2026-06-10 15:17:05 [INFO] [批次 1/1] 进度：status=success processed=9755/9755 stage=历史任务 inserted=0 updated=9524 skipped=0 msg=
+2026-06-10 15:17:05 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=9524 skipped=0 failed=0 taskId=6434dfc9-5176-4ee1-9f93-3a6570ac78ea
+2026-06-10 15:17:05 [INFO] ============================================================
+2026-06-10 15:17:05 [INFO] 全部完成：耗时 4.8s，批次=1/1，累计 inserted=0 updated=9524 skipped=0 failed=0
+2026-06-10 15:17:05 [INFO]   - 批次 1/1：size=9755 status=success inserted=0 updated=9524 skipped=0 taskId=6434dfc9-5176-4ee1-9f93-3a6570ac78ea
+2026-06-10 15:17:05 [INFO] ============================================================
+2026-06-10 15:17:05 [INFO] === 内部通讯录上传成功 ===
+2026-06-10 15:18:05 [INFO] ============================================================
+2026-06-10 15:18:05 [INFO] 查询系统：内部通讯录上传开始
+2026-06-10 15:18:05 [INFO] host=http://localhost:8080, account=admin
+2026-06-10 15:18:05 [INFO] source_file=D:\桌面文件\新建文件夹\manjike-tools\internal\内部通讯录.json, 条数=9755, 客户端批次=1（batch_size=一次提交）, type=INTERNAL_IMPORT, mode=INCREMENTAL, dry_run=False
+2026-06-10 15:18:05 [INFO] ============================================================
+2026-06-10 15:18:05 [INFO] 登录目标后端：http://localhost:8080
+2026-06-10 15:18:05 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-06-10 15:18:05 [INFO] [批次 1/1] 提交：通讯录 9755 条，payload=953000B，type=INTERNAL_IMPORT mode=INCREMENTAL
+2026-06-10 15:18:10 [INFO] [批次 1/1] taskId = 5d958e86-e8fa-4cf4-9a50-67eabd77b977
+2026-06-10 15:18:10 [INFO] [批次 1/1] 轮询进度：taskId=5d958e86-e8fa-4cf4-9a50-67eabd77b977（最长 3600s）
+2026-06-10 15:18:10 [INFO] [批次 1/1] 进度：status=success processed=9755/9755 stage=完成 inserted=0 updated=0 skipped=0 msg=导入完成
+2026-06-10 15:18:10 [INFO] [批次 1/1] 完成 status=success inserted=0 updated=0 skipped=0 failed=0 taskId=5d958e86-e8fa-4cf4-9a50-67eabd77b977
+2026-06-10 15:18:10 [INFO] ============================================================
+2026-06-10 15:18:10 [INFO] 全部完成：耗时 4.8s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-06-10 15:18:10 [INFO]   - 批次 1/1：size=9755 status=success inserted=0 updated=0 skipped=0 taskId=5d958e86-e8fa-4cf4-9a50-67eabd77b977
+2026-06-10 15:18:10 [INFO] ============================================================
+2026-06-10 15:18:10 [INFO] === 内部通讯录上传成功 ===
