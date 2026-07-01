@@ -9,6 +9,11 @@
 
 同时，脚本会基于回填结果自动新增“拆分行”（并写入拆分标记），用于后续发货处理。
 
+如果你只需要“读表 -> 计算散件总金额 -> 写入散件总金额”，可使用独立脚本：
+
+- `read_feishu_bitable_amount_only.py`
+- 该脚本仅写回 `散件总金额`，不会写 `散件编号(最终)`，也不会做拆分新增。
+
 ---
 
 ## 2. 默认数据源配置
@@ -129,6 +134,21 @@ python .\read_feishu_bitable.py
 python .\read_feishu_bitable.py --app-id "cli_xxx" --app-secret "xxx"
 ```
 
+### 6.4 仅回填散件总金额（独立脚本）
+
+Windows（PowerShell）预览：
+
+```powershell
+cd D:\git\mygit\小工具\散件发货回填
+python .\read_feishu_bitable_amount_only.py --dry-run --print-debug
+```
+
+Windows（PowerShell）正式写回：
+
+```powershell
+python .\read_feishu_bitable_amount_only.py
+```
+
 ---
 
 ## 7. 输出结果说明
@@ -186,5 +206,5 @@ python .\read_feishu_bitable.py --app-id "cli_xxx" --app-secret "xxx"
 ## 10. 文件清单
 
 - 脚本：`read_feishu_bitable.py`
+- 脚本（仅金额回填）：`read_feishu_bitable_amount_only.py`
 - 说明文档：`README.md`
-
