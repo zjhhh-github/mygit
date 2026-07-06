@@ -47,12 +47,22 @@ SUPABASE_BASE_URL = (
 SUPABASE_EMAIL = os.getenv("SUPABASE_EMAIL", "15648230994@miaoda.com")
 SUPABASE_PASSWORD = os.getenv("SUPABASE_PASSWORD", "028056hQ@")
 REQUEST_TIMEOUT = 30
+# 秒哒导出重试参数（可通过环境变量覆盖，便于现场快速调参）
+EXPORT_MAX_RETRY = max(1, int(os.getenv("EXPORT_MAX_RETRY", "4")))
+EXPORT_RETRY_BACKOFF_SEC = max(0.5, float(os.getenv("EXPORT_RETRY_BACKOFF_SEC", "2")))
+# 导入控制台直连模式下，默认开启导出失败回退，避免流程被上游超时完全阻断。
+EXPORT_FALLBACK_TO_RAW = str(os.getenv("EXPORT_FALLBACK_TO_RAW", "true")).strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
 
 
 # ==============================
 # 二、运行时变量（导入控制台会覆盖）
 # ==============================
-DRY_RUN = True
+DRY_RUN = False
 log = print
 # 你要求“先不写入，先看结果”，这里先固定为预览模式。
 PREVIEW_REWRITE_ONLY = False
@@ -60,6 +70,7 @@ PREVIEW_REWRITE_ONLY = False
 SCRIPT_DIR = Path(__file__).resolve().parent
 TOKEN_CACHE_PATH = SCRIPT_DIR / "token.json"
 RAW_EXPORT_PATH = SCRIPT_DIR / "export_raw.json"
+EXPORT_BACKUP_DIR = Path(os.getenv("EXPORT_BACKUP_DIR", r"X:\backup\秒哒导出意向通讯录"))
 SYNC_CONFIG_FILE = SCRIPT_DIR / "sync_to_feishu.config.json"
 REWRITE_PREVIEW_PATH = SCRIPT_DIR / "rewrite_preview.json"
 REWRITE_RESULT_PATH = SCRIPT_DIR / "rewrite_result.json"
@@ -96,6 +107,33 @@ def _emit(msg: str) -> None:
     except Exception:
         pass
     print(msg)
+
+
+def _persist_export_payload(payload: Any, source: str) -> None:
+    """
+    持久化导出结果：
+    1) 覆盖同目录 export_raw.json（作为下次回退缓存）
+    2) 额外按日期后缀写入 X:\\backup\\秒哒导出意向通讯录（保留历史）
+    """
+    RAW_EXPORT_PATH.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    # 你要求按 yymmdd 命名；同名文件直接覆盖，便于按天归档。
+    date_suffix = time.strftime("%y%m%d")
+    backup_name = f"秒哒导出意向通讯录_{date_suffix}.json"
+    backup_file = EXPORT_BACKUP_DIR / backup_name
+    try:
+        EXPORT_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+        backup_file.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        _emit(f"[秒哒导出] 已保存{source}记录：{backup_file}")
+    except Exception as exc:
+        # 备份目录不可写时不阻塞主流程，避免影响飞书同步。
+        _emit(f"[秒哒导出] 备份目录写入失败（不影响本次同步）：{exc}")
 
 
 def _jwt_expiry(token: str) -> int | None:
@@ -228,26 +266,93 @@ def export_students() -> Any:
     """
     导出秒哒意向学员数据（核心测试入口）。
     """
+    def _fallback_or_raise(exc: Exception) -> Any:
+        """按开关决定：抛错退出，或回退读取上次导出缓存。"""
+        if not EXPORT_FALLBACK_TO_RAW:
+            raise exc
+        if not RAW_EXPORT_PATH.exists():
+            raise RuntimeError(
+                f"{exc}；且回退文件不存在：{RAW_EXPORT_PATH}。"
+                "请先成功导出一次，或关闭回退开关后重试。"
+            )
+        try:
+            cached = json.loads(RAW_EXPORT_PATH.read_text(encoding="utf-8"))
+        except Exception as read_exc:
+            raise RuntimeError(f"{exc}；读取回退文件失败：{read_exc}")
+        cached_list = _coerce_to_list(cached)
+        _persist_export_payload(cached, source="回退缓存")
+        _emit(
+            f"[秒哒导出] 导出失败，已回退使用本地缓存：{RAW_EXPORT_PATH}；"
+            f"缓存学员数：{len(cached_list)}"
+        )
+        _emit(f"[秒哒导出] 成功，学员数：{len(cached_list)}")
+        _emit(f"[秒哒导出] 原始结果已写入：{RAW_EXPORT_PATH}")
+        return cached
+
     token = get_user_token()
-    resp = requests.post(
-        EXPORT_URL,
-        headers={
-            "Authorization": f"Bearer {token}",
-            "apikey": EXPORT_API_KEY,
-            "Content-Type": "application/json",
-        },
-        json={},
-        timeout=REQUEST_TIMEOUT,
-    )
-    if not (200 <= resp.status_code < 300):
+    last_error: Exception | None = None
+    backoff = EXPORT_RETRY_BACKOFF_SEC
+
+    # 仅对“网络抖动 / 5xx / statement timeout”做重试，避免误吞真实业务错误。
+    for attempt in range(1, EXPORT_MAX_RETRY + 1):
+        try:
+            resp = requests.post(
+                EXPORT_URL,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "apikey": EXPORT_API_KEY,
+                    "Content-Type": "application/json",
+                },
+                json={},
+                timeout=REQUEST_TIMEOUT,
+            )
+        except requests.RequestException as exc:
+            last_error = RuntimeError(f"秒哒导出网络异常：{exc}")
+            if attempt >= EXPORT_MAX_RETRY:
+                return _fallback_or_raise(last_error)
+            _emit(f"[秒哒导出] 网络异常，第 {attempt}/{EXPORT_MAX_RETRY} 次失败，{backoff:.1f}s 后重试。")
+            time.sleep(backoff)
+            backoff *= 2
+            continue
+
+        if 200 <= resp.status_code < 300:
+            try:
+                payload = resp.json()
+                students_list = _coerce_to_list(payload)
+                _persist_export_payload(payload, source="导出")
+                _emit(f"[秒哒导出] 成功，学员数：{len(students_list)}")
+                _emit(f"[秒哒导出] 原始结果已写入：{RAW_EXPORT_PATH}")
+                return payload
+            except ValueError:
+                raise RuntimeError("秒哒导出响应不是合法 JSON")
+
         text = (resp.text or "")[:600]
+        is_statement_timeout = "statement timeout" in text.lower()
+        retryable_status = resp.status_code in (408, 429, 500, 502, 503, 504)
+        can_retry = is_statement_timeout or retryable_status
+
         if resp.status_code == 401:
-            raise RuntimeError(f"秒哒导出未授权(401)：{text}")
-        raise RuntimeError(f"秒哒导出失败 HTTP {resp.status_code}：{text}")
-    try:
-        return resp.json()
-    except ValueError:
-        raise RuntimeError("秒哒导出响应不是合法 JSON")
+            # 401 属于鉴权问题，直接失败并提示，不做盲目重试。
+            return _fallback_or_raise(RuntimeError(f"秒哒导出未授权(401)：{text}"))
+
+        if can_retry and attempt < EXPORT_MAX_RETRY:
+            reason = "statement timeout" if is_statement_timeout else f"HTTP {resp.status_code}"
+            _emit(f"[秒哒导出] {reason}，第 {attempt}/{EXPORT_MAX_RETRY} 次失败，{backoff:.1f}s 后重试。")
+            time.sleep(backoff)
+            backoff *= 2
+            continue
+
+        if is_statement_timeout:
+            return _fallback_or_raise(RuntimeError(
+                "秒哒导出失败：后端查询超时（statement timeout）。"
+                f"已重试 {attempt}/{EXPORT_MAX_RETRY} 次仍失败。"
+                "可稍后重试，或在后端放宽查询超时后再执行。"
+            ))
+        return _fallback_or_raise(RuntimeError(f"秒哒导出失败 HTTP {resp.status_code}：{text}"))
+
+    if last_error is not None:
+        return _fallback_or_raise(last_error)
+    return _fallback_or_raise(RuntimeError("秒哒导出失败：未知错误"))
 
 
 def _coerce_to_list(data: Any) -> list[dict[str, Any]]:
@@ -706,12 +811,20 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--only-export", action="store_true", help="只测试秒哒导出，不写飞书")
     parser.add_argument("--dry-run", action="store_true", help="同步阶段只走 dry-run")
     parser.add_argument("--execute", action="store_true", help="同步阶段真实执行")
+    parser.add_argument(
+        "--fallback-raw",
+        action="store_true",
+        help="秒哒导出失败时回退到同目录 export_raw.json（谨慎使用，可能是旧数据）",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
-    global DRY_RUN
+    global DRY_RUN, EXPORT_FALLBACK_TO_RAW
     args = _parse_args(argv if argv is not None else sys.argv[1:])
+    if args.fallback_raw:
+        EXPORT_FALLBACK_TO_RAW = True
+        _emit(f"[秒哒导出] 已开启失败回退：{RAW_EXPORT_PATH}")
     if args.execute:
         DRY_RUN = False
     elif args.dry_run:
@@ -719,13 +832,6 @@ def main(argv: list[str] | None = None) -> int:
 
     # 第一步：先导出（满足“先测试从秒哒导出的结果”）
     students = export_students()
-    students_list = _coerce_to_list(students)
-    RAW_EXPORT_PATH.write_text(
-        json.dumps(students, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    _emit(f"[秒哒导出] 成功，学员数：{len(students_list)}")
-    _emit(f"[秒哒导出] 原始结果已写入：{RAW_EXPORT_PATH}")
 
     if args.only_export:
         return 0

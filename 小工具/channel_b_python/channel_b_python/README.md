@@ -59,8 +59,8 @@ python main.py
 如果你只想先把飞书业务表拉到本地缓存，可单独运行：
 
 ```powershell
-cd "D:\桌面文件\新建文件夹\小工具\channel_b_python\channel_b_python"
-& "d:/桌面文件/新建文件夹/.venv/Scripts/python.exe" ".\download_feishu_tables.py"
+cd "D:\git\mygit\小工具\channel_b_python\channel_b_python"
+python ".\download_feishu_tables.py"
 ```
 
 可选参数：
@@ -81,16 +81,16 @@ Windows（PowerShell）示例（推荐在项目目录 `channel_b_python/channel_
 
 ```powershell
 # 测试模式（仅本地输出）
-cd "D:\桌面文件\新建文件夹\小工具\channel_b_python\channel_b_python"
-& "d:/桌面文件/新建文件夹/.venv/Scripts/python.exe" ".\main.py" --test
+cd "D:\git\mygit\小工具\channel_b_python\channel_b_python"
+python ".\main.py" --test
 
 # 测试模式 + 启用飞书缓存复用（会优先复用新鲜缓存）
-cd "D:\桌面文件\新建文件夹\小工具\channel_b_python\channel_b_python"
-& "d:/桌面文件/新建文件夹/.venv/Scripts/python.exe" ".\main.py" --test --use-cache
+cd "D:\git\mygit\小工具\channel_b_python\channel_b_python"
+python ".\main.py" --test --use-cache
 
 # 正式模式（写回飞书）
-cd "D:\桌面文件\新建文件夹\小工具\channel_b_python\channel_b_python"
-& "d:/桌面文件/新建文件夹/.venv/Scripts/python.exe" ".\main.py" --prod
+cd "D:\git\mygit\小工具\channel_b_python\channel_b_python"
+python ".\main.py" --prod
 ```
 
 ## 4. 输出

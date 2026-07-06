@@ -213,8 +213,23 @@ def to_text(value: Any) -> str:
     return str(value).strip()
 
 
-def parse_quantity(value: Any) -> float:
-    """把数量字段解析为数字，空值/非法值按 0 处理。"""
+def parse_quantity_with_default_one(value: Any) -> float:
+    """把数量字段解析为数字：空值按 1，非法值按 0。"""
+    if value is None:
+        return 1.0
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = to_text(value)
+    if not text:
+        return 1.0
+    try:
+        return float(text)
+    except ValueError:
+        return 0.0
+
+
+def parse_quantity_strict(value: Any) -> float:
+    """把数量字段解析为数字：空值按 0，非法值按 0。"""
     if value is None:
         return 0.0
     if isinstance(value, (int, float)):
@@ -255,9 +270,25 @@ def split_item_names(raw_name: str) -> List[str]:
     return [part.strip() for part in parts if part and part.strip()]
 
 
+def build_target_item_entries(fields: Dict[str, Any]) -> List[Tuple[str, str]]:
+    """
+    拆分并保留散件来源字段。
+    - 散件名称：数量字段缺失时不再默认 1
+    - 手动特殊处理：数量字段缺失时默认 1
+    """
+    entries: List[Tuple[str, str]] = []
+
+    normal_names = split_item_names(to_text(fields.get("散件名称")))
+    entries.extend([(item_name, "散件名称") for item_name in normal_names])
+
+    manual_names = split_item_names(to_text(fields.get("手动特殊处理")))
+    entries.extend([(item_name, "手动特殊处理") for item_name in manual_names])
+    return entries
+
+
 def build_item_name_to_prices(mapping_records: List[Dict[str, Any]]) -> Dict[str, List[float]]:
     """
-    构建“散件名称 -> 单价列表”映射。
+    构建“散件名称(全部) -> 单价列表”映射。
     说明：允许同名命中多条，金额会累计。
     """
     name_to_prices: Dict[str, List[float]] = {}
@@ -265,7 +296,8 @@ def build_item_name_to_prices(mapping_records: List[Dict[str, Any]]) -> Dict[str
     for record in mapping_records:
         fields = record.get("fields", {})
         item_name_text = (
-            to_text(fields.get("散件名称"))
+            to_text(fields.get("散件名称(全部)"))
+            or to_text(fields.get("散件名称"))
             or to_text(fields.get("物品名称"))
             or to_text(fields.get("商品名称"))
             or to_text(fields.get("名称"))
@@ -304,17 +336,22 @@ def calculate_total_amount(
 ) -> Tuple[float, List[str]]:
     """计算单条记录的散件总金额，并返回警告信息。"""
     warnings: List[str] = []
-    raw_names = to_text(fields.get("散件名称"))
-    if not raw_names:
+    item_entries = build_target_item_entries(fields)
+    if not item_entries:
         return 0.0, warnings
 
     total_amount = 0.0
-    item_names = split_item_names(raw_names)
-    for item_name in item_names:
+    for item_name, source_field in item_entries:
         quantity_field_name = build_quantity_field_name(item_name)
-        quantity = parse_quantity(fields.get(quantity_field_name))
+        quantity_raw_value = fields.get(quantity_field_name)
+        if source_field == "手动特殊处理":
+            quantity = parse_quantity_with_default_one(quantity_raw_value)
+        else:
+            quantity = parse_quantity_strict(quantity_raw_value)
         if quantity <= 0:
-            warnings.append(f"物品[{item_name}]数量字段[{quantity_field_name}]为空或<=0，已跳过")
+            warnings.append(
+                f"{source_field}物品[{item_name}]数量字段[{quantity_field_name}]为空或<=0，已跳过"
+            )
             continue
 
         prices = [price for price in name_to_prices.get(item_name, []) if price > 0]
@@ -435,7 +472,10 @@ def main() -> int:
             if args.print_debug:
                 debug_payload = {
                     "record_id": record_id,
-                    "读取数据": {"散件名称": fields.get("散件名称")},
+                    "读取数据": {
+                        "散件名称": fields.get("散件名称"),
+                        "手动特殊处理": fields.get("手动特殊处理"),
+                    },
                     "待写入数据": update_fields,
                 }
                 print_debug_payload(debug_payload)

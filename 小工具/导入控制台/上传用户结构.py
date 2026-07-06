@@ -25,7 +25,7 @@
     pip install requests
 
 运行（PowerShell，从脚本所在目录）：
-    cd D:\\桌面文件\\新建文件夹\\数据结构处理\\意向学员绑定关系查询系统
+    cd D:\\git\\mygit\\小工具\\导入控制台
 
     # 全流程：拉取 → 写 JSON → 上传秒哒（默认）
     python .\\上传用户结构.py
@@ -81,12 +81,12 @@ FIELD_WECHAT   = "合伙宝妈总微信号"   # → 微信号（飞书实际字�
 
 # 输出文件
 OUTPUT_JSON_PATH = Path(
-    r"D:\桌面文件\新建文件夹\数据结构处理\意向学员绑定关系查询系统\上传用户结构.json"
+    r"D:\git\mygit\小工具\导入控制台\上传用户结构.json"
 )
 # 本地密码缓存（账号 -> 最近一次成功上传的密码）。
 # 用于“密码相同则不更新，密码不同才更新”。
 PASSWORD_CACHE_PATH = Path(
-    r"D:\桌面文件\新建文件夹\数据结构处理\意向学员绑定关系查询系统\upload_password_cache.json"
+    r"D:\git\mygit\小工具\导入控制台\upload_password_cache.json"
 )
 
 # 角色固定值

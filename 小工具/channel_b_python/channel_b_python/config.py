@@ -42,7 +42,7 @@ TABLES = {
     "通用带领B指定": {"table_id": "tblWCSOwwmykQrbp", "view_id": "vew3hqlwua"},
 
     # 汇总通讯录：写入 微信原始ID / 微信号 / 备注解析结果
-    "汇总通讯录": {"table_id": "tblqm4mkL4OgrMzO", "view_id": "全部", "view_type": "NAME"},
+    "汇总通讯录": {"table_id": "tblqm4mkL4OgrMzO", "view_id": "vew6yK1ONR", "view_type": "NAME"},
 }
 
 # =========================

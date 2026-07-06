@@ -42,8 +42,8 @@ DISABLE_PROXY = True
 # 这些散件无论是否重复，都单独拆成独立新增行（但不按编号逐条再拆）。
 FORCE_SEPARATE_ITEM_NAMES = {
     "西游记绘本-套装【100元】",
-    "动物街-L系列-台词书(2本)【100元】",
-    "小猪佩奇-L系列-台词书(3本)【150元】",
+    "动物街-L系列-台词书-套装【100元】",
+    "小猪佩奇-L系列-台词书-套装【150元】",
     "小四件(蓝)【200元】",
     "小四件(粉)【200元】"
 }
@@ -303,15 +303,16 @@ def build_split_item_name_field_value(original_value: Any, split_item_name: str)
     """
     根据原字段类型构造拆分后的“散件名称”字段值。
     - 若原字段是多选：仅使用原记录已有选项（不新增新选项）
-    - 若原字段不是多选：按字符串写入
+    - 若原字段为空或不是多选：按“字符串列表”写入，兼容飞书多选列格式要求
     """
+    desired_names = [name.strip() for name in split_item_name.split(",") if name.strip()]
+
     if isinstance(original_value, list):
         existing_options = extract_existing_multiselect_options(original_value)
-        desired_names = [name.strip() for name in split_item_name.split(",") if name.strip()]
         matched_names = [name for name in desired_names if name in existing_options]
         # 若未匹配到，返回空数组，避免写入新选项。
         return matched_names
-    return split_item_name
+    return desired_names
 
 
 def should_expand_to_unit_rows(split_item_name: str) -> bool:
@@ -325,8 +326,8 @@ def should_expand_to_unit_rows(split_item_name: str) -> bool:
         "蛋壳阅读练习册-套装（1-12）【350元】",
         "读写工具包-套装【900元】",
         "西游记绘本-套装【100元】",
-        "动物街-L系列-台词书(2本)【100元】",
-        "小猪佩奇-L系列-台词书(3本)【150元】",
+        "小猪佩奇-L系列-台词书-套装【150元】",
+        "动物街-L系列-台词书-套装【100元】",
         "小四件(蓝)【200元】",
         "小四件(粉)【200元】"
     }
@@ -413,9 +414,26 @@ def to_text(value: Any) -> str:
     return str(value).strip()
 
 
-def parse_quantity(value: Any) -> float:
+def parse_quantity_with_default_one(value: Any) -> float:
     """
-    把数量字段解析为数字，空值/非法值按 0 处理。
+    把数量字段解析为数字：空值按 1，非法值按 0。
+    """
+    if value is None:
+        return 1.0
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = to_text(value)
+    if not text:
+        return 1.0
+    try:
+        return float(text)
+    except ValueError:
+        return 0.0
+
+
+def parse_quantity_strict(value: Any) -> float:
+    """
+    把数量字段解析为数字：空值按 0，非法值按 0。
     """
     if value is None:
         return 0.0
@@ -474,7 +492,7 @@ def build_exact_text_to_mapping_map(
     mapping_records: List[Dict[str, Any]]
 ) -> Dict[str, List[Dict[str, Any]]]:
     """
-    从映射表构建：散件名称文本 -> 映射行信息列表。
+    从映射表构建：散件名称(全部)文本 -> 映射行信息列表。
     说明：这里按文本做“完全匹配”，不做归一化处理。
     """
     text_to_rows: Dict[str, List[Dict[str, Any]]] = {}
@@ -482,7 +500,8 @@ def build_exact_text_to_mapping_map(
     for record in mapping_records:
         fields = record.get("fields", {})
         item_name_text = (
-            to_text(fields.get("散件名称"))
+            to_text(fields.get("散件名称(全部)"))
+            or to_text(fields.get("散件名称"))
             or to_text(fields.get("物品名称"))
             or to_text(fields.get("商品名称"))
             or to_text(fields.get("名称"))
@@ -530,6 +549,21 @@ def format_number(value: float) -> str:
     return str(value)
 
 
+def build_target_item_entries(fields: Dict[str, Any]) -> List[Tuple[str, str]]:
+    """
+    拆分并保留散件来源字段。
+    - 散件名称：数量字段缺失时不再默认 1
+    - 手动特殊处理：数量字段缺失时默认 1
+    """
+    entries: List[Tuple[str, str]] = []
+    normal_names = split_item_names(to_text(fields.get("散件名称")))
+    entries.extend([(item_name, "散件名称") for item_name in normal_names])
+
+    manual_names = split_item_names(to_text(fields.get("手动特殊处理")))
+    entries.extend([(item_name, "手动特殊处理") for item_name in manual_names])
+    return entries
+
+
 def calculate_row_result(
     fields: Dict[str, Any],
     text_to_rows: Dict[str, List[Dict[str, Any]]],
@@ -542,11 +576,10 @@ def calculate_row_result(
     - 警告信息列表（如找不到映射）
     - 拆分新增用的编号/散件名称单元列表
     """
-    raw_names = to_text(fields.get("散件名称"))
-    if not raw_names:
+    item_entries = build_target_item_entries(fields)
+    if not item_entries:
         return "", 0.0, [], []
 
-    item_names = split_item_names(raw_names)
     final_code_parts: List[str] = []
     split_entries: List[Dict[str, str]] = []
     unsplit_item_parts: List[str] = []
@@ -555,14 +588,20 @@ def calculate_row_result(
     total_amount = 0.0
     warnings: List[str] = []
 
-    for item_name in item_names:
+    for item_name, source_field in item_entries:
         quantity_field_name = build_quantity_field_name(item_name)
-        quantity = parse_quantity(fields.get(quantity_field_name))
+        quantity_raw_value = fields.get(quantity_field_name)
+        if source_field == "手动特殊处理":
+            quantity = parse_quantity_with_default_one(quantity_raw_value)
+        else:
+            quantity = parse_quantity_strict(quantity_raw_value)
         if quantity <= 0:
-            warnings.append(f"物品[{item_name}]数量字段[{quantity_field_name}]为空或<=0，已跳过")
+            warnings.append(
+                f"{source_field}物品[{item_name}]数量字段[{quantity_field_name}]为空或<=0，已跳过"
+            )
             continue
 
-        # 按“完全匹配”查映射：散件发货客户自填.散件名称 子项 == 散件信息表.散件名称。
+        # 按“完全匹配”查映射：目标表（散件名称/手动特殊处理）子项 == 散件信息表.散件名称(全部)。
         matched_rows = text_to_rows.get(item_name, [])
         if len(matched_rows) == 1:
             row_info = matched_rows[0]
@@ -653,12 +692,12 @@ def calculate_row_result(
     return ",".join(final_code_parts), total_amount, warnings, split_entries
 
 
-def extract_quantity_snapshot(fields: Dict[str, Any], item_names: List[str]) -> Dict[str, Any]:
+def extract_quantity_snapshot(fields: Dict[str, Any], item_entries: List[Tuple[str, str]]) -> Dict[str, Any]:
     """
     提取本行涉及到的数量字段快照，便于打印核对。
     """
     quantity_data: Dict[str, Any] = {}
-    for item_name in item_names:
+    for item_name, _ in item_entries:
         quantity_field_name = build_quantity_field_name(item_name)
         quantity_data[quantity_field_name] = fields.get(quantity_field_name)
     return quantity_data
@@ -794,13 +833,13 @@ def main() -> int:
             }
 
             if args.print_debug:
-                raw_names = to_text(fields.get("散件名称"))
-                item_names = split_item_names(raw_names)
+                item_entries = build_target_item_entries(fields)
                 debug_payload = {
                     "record_id": record_id,
                     "读取数据": {
                         "散件名称": fields.get("散件名称"),
-                        "数量字段快照": extract_quantity_snapshot(fields, item_names),
+                        "手动特殊处理": fields.get("手动特殊处理"),
+                        "数量字段快照": extract_quantity_snapshot(fields, item_entries),
                     },
                     "待写入数据": update_fields,
                 }
@@ -855,10 +894,8 @@ def main() -> int:
                     split_fields = build_fields_for_split_create(fields)
                     split_fields["散件编号(最终)"] = current_code
                     split_fields["散件总金额"] = current_amount
-                    split_fields["散件名称"] = build_split_item_name_field_value(
-                        fields.get("散件名称"),
-                        split_item_name,
-                    )
+                    # 拆分后的散件名称写入“散件名称(脚本)”列，避免改动原始“散件名称”列。
+                    split_fields["散件名称(脚本)"] = split_item_name
                     if split_flag_field_name:
                         split_fields[split_flag_field_name] = "拆分"
                     else:
