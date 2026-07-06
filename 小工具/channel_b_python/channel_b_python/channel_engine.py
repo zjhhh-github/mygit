@@ -450,12 +450,36 @@ def 获取学员当前带领B(ctx: ChannelContext, 学员编号: Any, 渠道B编
     """
     获取学员当前带领B：
     - 特殊指定表命中时，按表内真实带领B（允许为空）；
-    - 未命中时，按现有带领B计算规则推导。
+    - 未命中时，按“与渠道B解耦”的优先级推导：
+      1) 内部固定带领B
+      2) 个性带领B指定
+      3) 通用带领B指定（依赖渠道B）
+      4) 渠道B兜底
     """
     指定渠道B编号, 指定带领B编号 = 获取特殊指定渠道B带领B(ctx, 学员编号)
     if 指定渠道B编号 is not None:
         return "" if 指定带领B编号 is None else str(指定带领B编号).strip()
-    return 计算带领B编号(ctx, 学员编号, 渠道B编号)
+
+    键 = "" if 学员编号 is None else str(学员编号).strip()
+    if not 是合法编号(键):
+        return ""
+
+    固定渠道B, 固定带领B = 获取固定渠道B带领B(ctx, 键)
+    if 是合法编号(固定带领B):
+        return str(固定带领B).strip()
+
+    个性指定带领B编号 = ctx.个性带领B指定映射表.get(键, "")
+    if 是合法编号(个性指定带领B编号):
+        return str(个性指定带领B编号).strip()
+
+    if 是合法编号(渠道B编号):
+        渠道B编号 = str(渠道B编号).strip()
+        通用指定带领B编号 = ctx.通用带领B指定映射表.get(渠道B编号, "")
+        if 是合法编号(通用指定带领B编号):
+            return str(通用指定带领B编号).strip()
+        return 渠道B编号
+
+    return ""
 
 
 def 尝试动态晋升合伙宝妈(ctx: ChannelContext, 报名学员编号: Any):
