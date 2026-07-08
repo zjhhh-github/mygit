@@ -90,6 +90,88 @@ def 复制文件任务(复制任务列表: list):
         print("【目标文件信息】大小：", 目标文件信息["size"], "修改时间：", 格式化时间戳(目标文件信息["mtime"]))
 
 
+def _查找最新备份数据库(备份根目录: str, 目录前缀: str) -> str:
+    """
+    在备份根目录下查找形如 "{目录前缀}yyyymmdd" 的备份目录：
+    - 用正则匹配目录名末尾的 8 位日期
+    - 按 yyyymmdd 字符串排序，取日期最大（最新）的一个
+    - 返回该目录下 db_storage\\contact\\contact.db 的完整路径
+    - 找不到任何合法备份目录或数据库文件，返回空字符串
+    """
+    if not 备份根目录 or not os.path.isdir(备份根目录):
+        return ""
+
+    目录日期匹配 = re.compile(r"^" + re.escape(目录前缀) + r"(\d{8})$")
+    候选列表: List[tuple] = []
+    for 子目录名 in os.listdir(备份根目录):
+        子目录路径 = os.path.join(备份根目录, 子目录名)
+        if not os.path.isdir(子目录路径):
+            continue
+        匹配结果 = 目录日期匹配.match(子目录名)
+        if not 匹配结果:
+            continue
+        候选列表.append((匹配结果.group(1), 子目录路径))
+
+    if not 候选列表:
+        return ""
+
+    候选列表.sort(key=lambda item: item[0])
+    _最新日期, 最新目录路径 = 候选列表[-1]
+
+    候选数据库路径 = os.path.join(最新目录路径, "db_storage", "contact", "contact.db")
+    if os.path.isfile(候选数据库路径):
+        return 候选数据库路径
+    return ""
+
+
+def 准备数据库(任务列表: list):
+    """
+    程序启动时的“数据库准备步骤”，在连接 SQLite 之前调用。
+
+    每个任务按优先级依次尝试：
+    1) 实时来源路径存在 -> 直接复制为最新数据
+    2) 实时来源不存在 -> 去备份根目录找“目录前缀 + yyyymmdd”里日期最新的备份
+    3) 备份也找不到 -> 若桌面目标文件已存在，则沿用现有文件（不报错）
+    4) 桌面文件也不存在 -> 只打印提示，不中断程序（后续 SQLite 连接逻辑不变，
+       该逻辑本身会在真正查询时按原有方式报错）
+
+    任务字典字段：
+    - 目标文件路径：最终提供给业务逻辑读取的 contact.db 路径
+    - 实时来源路径：映射盘在线时的原始 contact.db
+    - 备份根目录：存放按日期命名备份目录的根目录
+    - 备份目录前缀：备份目录名中日期前面的固定前缀
+    """
+    for 任务 in 任务列表:
+        目标文件路径 = 任务["目标文件路径"]
+        实时来源路径 = 任务.get("实时来源路径", "")
+        备份根目录 = 任务.get("备份根目录", "")
+        备份目录前缀 = 任务.get("备份目录前缀", "")
+
+        print("[数据库准备]")
+
+        if 实时来源路径 and os.path.isfile(实时来源路径):
+            os.makedirs(os.path.dirname(目标文件路径), exist_ok=True)
+            shutil.copy2(实时来源路径, 目标文件路径)
+            print("使用实时数据库：")
+            print(实时来源路径)
+            continue
+
+        print("实时数据库不存在")
+        备份数据库路径 = _查找最新备份数据库(备份根目录, 备份目录前缀)
+        if 备份数据库路径:
+            os.makedirs(os.path.dirname(目标文件路径), exist_ok=True)
+            shutil.copy2(备份数据库路径, 目标文件路径)
+            print("使用最新备份：")
+            print(备份数据库路径)
+            continue
+
+        if os.path.isfile(目标文件路径):
+            print("没有找到新的数据库，使用桌面已有文件。")
+            continue
+
+        print("数据库不存在：", 目标文件路径)
+
+
 def 备份_json(backup_dir: str, prefix: str, data: Any):
     if not backup_dir or not os.path.isdir(backup_dir):
         return None

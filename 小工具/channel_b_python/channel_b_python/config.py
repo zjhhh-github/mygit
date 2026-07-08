@@ -66,6 +66,29 @@ COPY_TASKS = [
 ]
 
 # =========================
+# 数据库准备任务（程序启动时自动执行，见 utils.准备数据库）
+# =========================
+# 每一项按优先级尝试：
+# 1) 实时来源路径（映射盘在线时的原始 contact.db）
+# 2) 备份根目录下按“备份目录前缀 + yyyymmdd”命名、日期最新的备份
+# 3) 兜底：目标文件（桌面）已存在则直接沿用
+# 4) 都找不到：仅打印提示，不报错中断
+DATABASE_PREPARE_TASKS = [
+    {
+        "目标文件路径": r"C:\Users\LENOVO\Desktop\contact_内部专用.db",
+        "实时来源路径": r"Z:\Documents\chatlog\wxid_42272spv9uq522_6ded\db_storage\contact\contact.db",
+        "备份根目录": r"X:\chatlog_backup",
+        "备份目录前缀": "wxid_42272spv9uq522_6ded_",
+    },
+    {
+        "目标文件路径": r"C:\Users\LENOVO\Desktop\contact_内部专用2.db",
+        "实时来源路径": r"Z:\Documents\chatlog\wxid_7u0rihcbbpbz12_ec5a\db_storage\contact\contact.db",
+        "备份根目录": r"X:\chatlog_backup",
+        "备份目录前缀": "wxid_7u0rihcbbpbz12_ec5a_",
+    },
+]
+
+# =========================
 # 输出配置
 # =========================
 # False = 只读飞书、不写回；结果保存到 LOCAL_OUTPUT_DIR 供人工检查

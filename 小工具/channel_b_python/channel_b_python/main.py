@@ -43,7 +43,7 @@ from output_writer import (
     构造汇总通讯录数据,
     重写飞书表,
 )
-from utils import 复制文件任务
+from utils import 复制文件任务, 准备数据库
 from wechat_db import (
     收集渠道计算学员编号,
     读取内部微信通讯录,
@@ -151,6 +151,9 @@ def main():
     写飞书开关 = config.WRITE_TO_FEISHU if 模式覆盖值 is None else 模式覆盖值
     运行模式 = "正式模式（写回飞书）" if 写飞书开关 else "测试模式（仅本地输出）"
     print("当前运行模式：", 运行模式)
+
+    print("开始准备数据库...")
+    准备数据库(config.DATABASE_PREPARE_TASKS)
 
     if config.COPY_TASKS:
         复制文件任务(config.COPY_TASKS)
