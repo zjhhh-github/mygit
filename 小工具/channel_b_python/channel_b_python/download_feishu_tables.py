@@ -25,6 +25,7 @@ from typing import Dict, List, Optional
 
 import config
 from feishu_client import FeishuBitableClient
+from utils import 打印日志 as print
 
 飞书业务字段白名单 = {
     "意向通讯录": ["意向学员编号", "推荐人编号", "绑定状态"],

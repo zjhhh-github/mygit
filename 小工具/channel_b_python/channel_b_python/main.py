@@ -43,7 +43,7 @@ from output_writer import (
     构造汇总通讯录数据,
     重写飞书表,
 )
-from utils import 复制文件任务, 准备数据库
+from utils import 复制文件任务, 准备数据库, 打印日志 as print
 from wechat_db import (
     收集渠道计算学员编号,
     读取内部微信通讯录,

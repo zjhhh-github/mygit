@@ -44,6 +44,19 @@ def 格式化时间戳(时间戳):
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(时间戳))
 
 
+def 打印日志(*args, **kwargs):
+    """
+    统一的日志打印函数：在原有打印内容前加上“当前时间”，方便排查每条日志
+    具体发生在什么时间点。用法和内置 print 完全一样，只是自动多了时间前缀。
+
+    项目里其他文件只需要在导入时写：
+        from utils import 打印日志 as print
+    之后该文件里所有 print(...) 调用都会自动带上时间，不需要逐行修改。
+    """
+    时间字符串 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{时间字符串}]", *args, **kwargs)
+
+
 def 获取文件信息(文件路径: str):
     stat = os.stat(文件路径)
     return {"size": stat.st_size, "mtime": stat.st_mtime, "ctime": stat.st_ctime}
@@ -63,10 +76,10 @@ def 复制文件任务(复制任务列表: list):
     for 序号, 任务 in enumerate(复制任务列表, start=1):
         源文件路径 = 任务["源文件路径"]
         目标文件路径 = 任务["目标文件路径"]
-        print("=" * 80)
-        print(f"开始处理第 {序号} 个文件")
-        print("源文件：", 源文件路径)
-        print("目标文件：", 目标文件路径)
+        打印日志("=" * 80)
+        打印日志(f"开始处理第 {序号} 个文件")
+        打印日志("源文件：", 源文件路径)
+        打印日志("目标文件：", 目标文件路径)
 
         if not os.path.exists(源文件路径):
             raise FileNotFoundError("源文件不存在：" + 源文件路径)
@@ -85,9 +98,9 @@ def 复制文件任务(复制任务列表: list):
                 + f"源文件={源文件信息['size']}字节，目标文件={目标文件信息['size']}字节"
             )
 
-        print("拷贝完成")
-        print("【源文件信息】大小：", 源文件信息["size"], "修改时间：", 格式化时间戳(源文件信息["mtime"]))
-        print("【目标文件信息】大小：", 目标文件信息["size"], "修改时间：", 格式化时间戳(目标文件信息["mtime"]))
+        打印日志("拷贝完成")
+        打印日志("【源文件信息】大小：", 源文件信息["size"], "修改时间：", 格式化时间戳(源文件信息["mtime"]))
+        打印日志("【目标文件信息】大小：", 目标文件信息["size"], "修改时间：", 格式化时间戳(目标文件信息["mtime"]))
 
 
 def _查找最新备份数据库(备份根目录: str, 目录前缀: str) -> str:
@@ -147,29 +160,29 @@ def 准备数据库(任务列表: list):
         备份根目录 = 任务.get("备份根目录", "")
         备份目录前缀 = 任务.get("备份目录前缀", "")
 
-        print("[数据库准备]")
+        打印日志("[数据库准备]")
 
         if 实时来源路径 and os.path.isfile(实时来源路径):
             os.makedirs(os.path.dirname(目标文件路径), exist_ok=True)
             shutil.copy2(实时来源路径, 目标文件路径)
-            print("使用实时数据库：")
-            print(实时来源路径)
+            打印日志("使用实时数据库：")
+            打印日志(实时来源路径)
             continue
 
-        print("实时数据库不存在")
+        打印日志("实时数据库不存在")
         备份数据库路径 = _查找最新备份数据库(备份根目录, 备份目录前缀)
         if 备份数据库路径:
             os.makedirs(os.path.dirname(目标文件路径), exist_ok=True)
             shutil.copy2(备份数据库路径, 目标文件路径)
-            print("使用最新备份：")
-            print(备份数据库路径)
+            打印日志("使用最新备份：")
+            打印日志(备份数据库路径)
             continue
 
         if os.path.isfile(目标文件路径):
-            print("没有找到新的数据库，使用桌面已有文件。")
+            打印日志("没有找到新的数据库，使用桌面已有文件。")
             continue
 
-        print("数据库不存在：", 目标文件路径)
+        打印日志("数据库不存在：", 目标文件路径)
 
 
 def 备份_json(backup_dir: str, prefix: str, data: Any):

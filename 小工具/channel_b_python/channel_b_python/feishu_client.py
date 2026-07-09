@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
-from utils import 分批
+from utils import 分批, 打印日志 as print
 
 
 class FeishuError(RuntimeError):

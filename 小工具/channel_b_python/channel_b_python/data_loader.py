@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Dict, List
 
 from feishu_client import FeishuBitableClient, 字段文本
-from utils import 是合法编号
+from utils import 是合法编号, 打印日志 as print
 
 
 飞书业务字段白名单 = {

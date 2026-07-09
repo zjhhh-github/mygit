@@ -9,7 +9,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from feishu_client import FeishuBitableClient
-from utils import 备份_json
+from utils import 备份_json, 打印日志 as print
 from wechat_db import 是大号备注, 是小号备注, 是内部业务备注, 解析内部备注
 
 

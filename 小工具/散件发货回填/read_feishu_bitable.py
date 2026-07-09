@@ -5,8 +5,13 @@
 按规则回填飞书多维表格中的“散件编号(最终)”与“散件总金额”。
 
 默认读取/写回的表：
-- 业务表（回填目标）: tblxePMrI4Aot32D
-- 映射表（散件名称 -> 编号/金额）: tblxAECIL3MnGkKr
+- 业务表（回填目标，即“散件发货客户自填”表）: tblxePMrI4Aot32D
+- 映射表（散件信息表，散件名称 -> 编号/金额/发货仓）: tblxAECIL3MnGkKr
+
+映射表的“发货仓”是公式字段（根据同表内编号内容自动判定属于
+深圳云仓/王师傅下单/非快递订单/呼市云仓），作为唯一数据来源，脚本只读取不修改。
+目标表的“发货仓”已改为普通文本字段，脚本会在“拆分新增”时，把每条拆分行对应编号
+在映射表里的真实发货仓显式写进去；原始记录（未拆分的那一行）不写此字段。
 
 示例：
 python read_feishu_bitable.py ^
@@ -46,6 +51,14 @@ FORCE_SEPARATE_ITEM_NAMES = {
     "小猪佩奇-L系列-台词书-套装【150元】",
     "小四件(蓝)【200元】",
     "小四件(粉)【200元】"
+}
+
+# 编号替换表：散件信息表“编号(对外展示)”里的部分编号，只是套装内某一本书的展示标签，
+# 实际填到飞书“散件编号(最终)”里要用真实的 SKU 编号（可能是多个，写入时用逗号拼接）。
+# key：散件信息表里的展示编号（原样，不带 *数量）
+# value：要写入飞书的真实编号列表（顺序即写入顺序）
+CODE_DISPLAY_TO_REAL_CODES: Dict[str, List[str]] = {
+    "读写工具包-25本装-[1/6]": ["MJKD3P0136", "MJKD3P3772", "MJKD3P73108"],
 }
 
 def build_headers(tenant_access_token: str) -> Dict[str, str]:
@@ -301,11 +314,17 @@ def extract_existing_multiselect_options(original_value: Any) -> List[str]:
 
 def build_split_item_name_field_value(original_value: Any, split_item_name: str) -> Any:
     """
-    根据原字段类型构造拆分后的“散件名称”字段值。
-    - 若原字段是多选：仅使用原记录已有选项（不新增新选项）
-    - 若原字段为空或不是多选：按“字符串列表”写入，兼容飞书多选列格式要求
+    根据原字段（多选，如“散件名称”“手动特殊处理”）构造拆分后的字段值。
+    - 若原字段本身为空（None）：说明这条拆分行的散件根本不是从这个字段选出来的
+      （比如这条拆分行的散件其实来自另一个字段），直接返回空，不会把不相关的名称
+      写进这个字段、也不会新增选项。
+    - 若原字段是多选（列表）：仅使用原记录已有选项做匹配（不新增新选项）。
+    - 其他情况（原字段不是列表也不是 None，数据异常兜底）：按“字符串列表”写入。
     """
     desired_names = [name.strip() for name in split_item_name.split(",") if name.strip()]
+
+    if original_value is None:
+        return []
 
     if isinstance(original_value, list):
         existing_options = extract_existing_multiselect_options(original_value)
@@ -403,6 +422,11 @@ def to_text(value: Any) -> str:
         text = value.get("text")
         if text is not None:
             return str(text).strip()
+        # 公式字段常见结构：{"type": 1, "value": [{"type": "text", "text": "..."}]}
+        # “发货仓”就是这种公式字段，这里补充解析，否则会读成整个字典的字符串。
+        formula_value = value.get("value")
+        if isinstance(formula_value, list):
+            return to_text(formula_value)
         return str(value).strip()
     if isinstance(value, list):
         parts: List[str] = []
@@ -488,12 +512,25 @@ def split_codes(raw_code: str) -> List[str]:
     return [part.strip() for part in parts if part and part.strip()]
 
 
+def resolve_real_codes(display_code: str) -> List[str]:
+    """
+    把散件信息表里的“展示编号”翻译成真正要写入飞书的编号列表。
+    - 命中 CODE_DISPLAY_TO_REAL_CODES 的，返回替换后的多个真实编号。
+    - 没命中的，原样返回（保持原有行为不变）。
+    """
+    return CODE_DISPLAY_TO_REAL_CODES.get(display_code, [display_code])
+
+
 def build_exact_text_to_mapping_map(
     mapping_records: List[Dict[str, Any]]
 ) -> Dict[str, List[Dict[str, Any]]]:
     """
-    从映射表构建：散件名称(全部)文本 -> 映射行信息列表。
+    从映射表（散件信息表）构建：散件名称(全部)文本 -> 映射行信息列表。
     说明：这里按文本做“完全匹配”，不做归一化处理。
+
+    新增：读取映射表的“发货仓”列（该列是公式字段，由编号内容自动判定
+    深圳云仓/王师傅下单/非快递订单/呼市云仓），记录到每条映射行信息里，
+    供后续按发货仓类别拆分使用。
     """
     text_to_rows: Dict[str, List[Dict[str, Any]]] = {}
 
@@ -510,6 +547,7 @@ def build_exact_text_to_mapping_map(
             to_text(fields.get("金额(对外展示)")) or to_text(fields.get("金额")) or to_text(fields.get("价格"))
         )
         code_text = to_text(fields.get("编号(对外展示)"))
+        warehouse_text = to_text(fields.get("发货仓"))
         if not item_name_text or not code_text:
             continue
 
@@ -520,6 +558,8 @@ def build_exact_text_to_mapping_map(
                 # 金额用于最终金额汇总，优先取映射行金额列；没有则回退散件名称里的【xx元】。
                 "unit_price": parse_unit_price(amount_display_text) if amount_display_text else 0.0,
                 "amount_display_text": amount_display_text,
+                # 发货仓类别：来自映射表同一行的公式结果，用于按仓拆分。
+                "warehouse": warehouse_text,
             }
             # 金额列没解析到数字时，回退使用散件名称里的金额信息。
             if float(row_info["unit_price"]) <= 0:
@@ -582,9 +622,10 @@ def calculate_row_result(
 
     final_code_parts: List[str] = []
     split_entries: List[Dict[str, str]] = []
-    unsplit_item_parts: List[str] = []
-    unsplit_item_names: List[str] = []
-    unsplit_item_amount = 0.0
+    # 按“发货仓”类别分桶存放未强制拆分、未重复的散件，
+    # key 为发货仓类别文本（如“深圳云仓”“呼市云仓”），value 为该仓下累计的编号/名称/金额。
+    # 用 dict 而不是单一列表，是为了让不同发货仓的散件各自合并成一条拆分行，不再混在一起。
+    unsplit_by_warehouse: Dict[str, Dict[str, Any]] = {}
     total_amount = 0.0
     warnings: List[str] = []
 
@@ -602,29 +643,51 @@ def calculate_row_result(
             continue
 
         # 按“完全匹配”查映射：目标表（散件名称/手动特殊处理）子项 == 散件信息表.散件名称(全部)。
+        # code_to_warehouse：记录每个编号真实来自哪条映射行、对应哪个发货仓，
+        # 这样按编号逐条拆分时，每条编号才能读取散件信息表“发货仓”列的实际内容，
+        # 而不是整个散件笼统取一个发货仓。
         matched_rows = text_to_rows.get(item_name, [])
+        code_to_warehouse: Dict[str, str] = {}
         if len(matched_rows) == 1:
             row_info = matched_rows[0]
             codes = row_info.get("codes", [])
             unit_prices = [float(row_info.get("unit_price", 0.0))]
+            item_warehouse = to_text(row_info.get("warehouse"))
+            for code in codes:
+                code_to_warehouse[code] = item_warehouse
         elif len(matched_rows) > 1:
             # 用户要求：多条命中不跳过，合并所有命中行的编号并继续计算。
             merged_codes: List[str] = []
             seen_codes = set()
             unit_prices: List[float] = []
+            warehouse_candidates: List[str] = []
             for row_info in matched_rows:
+                row_warehouse = to_text(row_info.get("warehouse"))
                 for code in row_info.get("codes", []):
                     if code not in seen_codes:
                         merged_codes.append(code)
                         seen_codes.add(code)
+                        # 每个编号各自记录来源映射行的发货仓，保留“实际内容”，不做归一化。
+                        code_to_warehouse[code] = row_warehouse
                 price = float(row_info.get("unit_price", 0.0))
                 if price > 0:
                     unit_prices.append(price)
+                if row_warehouse and row_warehouse not in warehouse_candidates:
+                    warehouse_candidates.append(row_warehouse)
 
             codes = merged_codes
             warnings.append(
                 f"映射表散件名称[{item_name}]命中 {len(matched_rows)} 条，已合并编号后继续"
             )
+            # 注意：这里的“不一致”仅用于强制单独拆分项等无法按编号拆开的场景兜底提示；
+            # 按编号逐条拆分时，每条编号会用 code_to_warehouse 里各自的真实发货仓，不受此影响。
+            if len(warehouse_candidates) > 1:
+                warnings.append(
+                    f"映射表散件名称[{item_name}]命中的多条记录发货仓不一致：{warehouse_candidates}，"
+                    f"按编号逐条拆分时会各自使用真实发货仓；若该散件是强制单独拆分项（无法按编号拆开），"
+                    f"则按[{warehouse_candidates[0]}]处理"
+                )
+            item_warehouse = warehouse_candidates[0] if warehouse_candidates else ""
         else:
             warnings.append(f"映射表散件名称未找到完全匹配项：[{item_name}]")
             continue
@@ -643,51 +706,88 @@ def calculate_row_result(
         total_amount += item_amount
 
         # 无论是否套装，统一按“每个编号 * 数量”输出，多个编号用逗号分隔。
+        # 部分展示编号（如“读写工具包-25本装-[1/6]”）会先按 CODE_DISPLAY_TO_REAL_CODES
+        # 翻译成真实的多个 SKU 编号，再各自拼上“*数量”，用逗号拼接成同一条编号文本。
         quantity_text = format_number(quantity)
         item_code_parts: List[str] = []
+        # 与 item_code_parts 一一对应，记录每个编号自己的真实发货仓（来自散件信息表）。
+        item_code_warehouses: List[str] = []
         for code in codes:
-            item_code_parts.append(f"{code}*{quantity_text}")
+            real_codes = resolve_real_codes(code)
+            item_code_parts.append(
+                ",".join(f"{real_code}*{quantity_text}" for real_code in real_codes)
+            )
+            item_code_warehouses.append(code_to_warehouse.get(code, item_warehouse))
 
         final_code_parts.extend(item_code_parts)
 
-        # 规则：
-        # 1) 散件信息表里“同名重复”的才需要拆分（按编号逐条拆）。
-        # 2) 西游记绘本套装【100元】强制单独拆成一行（但不按编号逐条拆）。
-        # 3) 其他散件都不拆，合并在同一条拆分记录里。
+        # 规则（优先级从上到下）：
+        # 1) 强制单独拆分项：始终独立成一行，且不按编号逐条拆（编号合并在一行里）。
+        # 2) 散件信息表里“同名重复”的：按编号逐条拆分（这条规则要保留，优先级高于第 3 条）。
+        #    例如“读写工具包-套装【900元】”在映射表里对应 6 个不同编号（6 本书各一个编号），
+        #    重复命中会按编号拆成 6 行，再叠加下面的“*N 展开”规则，逐编号按数量展开成多行。
+        # 3) 不属于第 1/2 条、但仍需要展开成单件多行的散件（见 should_expand_to_unit_rows），
+        #    独立成一行，不与其他不同散件合并，避免合并后名称对不上导致后面展开失效。
+        # 4) 其他散件默认合并，但会按“发货仓”类别再分组：
+        #    不同发货仓的散件不会合并到同一条拆分行里，避免公式判断的发货仓被搞混。
         if item_name in FORCE_SEPARATE_ITEM_NAMES:
             split_entries.append(
                 {
                     "codes": ",".join(item_code_parts),
                     "item_name": item_name,
                     "amount": format_number(item_amount),
+                    "warehouse": item_warehouse,
                 }
             )
         elif item_name in duplicated_item_names:
-            # 恢复规则：重复项按编号逐条拆分，金额按拆分条数均摊。
+            # “判断该拆分项是否需要把 *N 展开成 N 条 *1”的规则保留：
+            # 这里先按编号逐条拆分，每条编号各自的 *N 会在下面按 should_expand_to_unit_rows 展开。
+            # 发货仓按编号各自的真实值（item_code_warehouses），而不是整个散件笼统取一个值；
+            # 展开成 N 条 *1 时都是同一个编号复制出来的，天然会带着同一个正确的发货仓。
             split_count = len(item_code_parts) if item_code_parts else 1
             per_split_amount = item_amount / split_count
-            for item_code in item_code_parts:
+            for item_code, item_code_warehouse in zip(item_code_parts, item_code_warehouses):
                 split_entries.append(
                     {
                         "codes": item_code,
                         "item_name": item_name,
                         "amount": format_number(per_split_amount),
+                        "warehouse": item_code_warehouse,
                     }
                 )
+        elif should_expand_to_unit_rows(item_name):
+            split_entries.append(
+                {
+                    "codes": ",".join(item_code_parts),
+                    "item_name": item_name,
+                    "amount": format_number(item_amount),
+                    "warehouse": item_warehouse,
+                }
+            )
         else:
-            unsplit_item_parts.extend(item_code_parts)
-            unsplit_item_names.append(item_name)
-            unsplit_item_amount += item_amount
+            warehouse_bucket = unsplit_by_warehouse.setdefault(
+                item_warehouse,
+                {"parts": [], "names": [], "amount": 0.0},
+            )
+            warehouse_bucket["parts"].extend(item_code_parts)
+            warehouse_bucket["names"].append(item_name)
+            warehouse_bucket["amount"] += item_amount
 
-    if unsplit_item_parts:
-        split_entries.insert(
-            0,
+    # 按发货仓分组后的默认合并拆分行：每个发货仓类别单独一条，插入到最前面，
+    # 使用 dict 的插入顺序（即散件在原始记录中出现的先后顺序）。
+    warehouse_split_entries: List[Dict[str, str]] = []
+    for warehouse_key, bucket in unsplit_by_warehouse.items():
+        if not bucket["parts"]:
+            continue
+        warehouse_split_entries.append(
             {
-                "codes": ",".join(unsplit_item_parts),
-                "item_name": ",".join(unsplit_item_names),
-                "amount": format_number(unsplit_item_amount),
-            },
+                "codes": ",".join(bucket["parts"]),
+                "item_name": ",".join(bucket["names"]),
+                "amount": format_number(bucket["amount"]),
+                "warehouse": warehouse_key,
+            }
         )
+    split_entries = warehouse_split_entries + split_entries
 
     return ",".join(final_code_parts), total_amount, warnings, split_entries
 
@@ -874,6 +974,7 @@ def main() -> int:
                 split_code = to_text(split_entry.get("codes"))
                 split_item_name = to_text(split_entry.get("item_name"))
                 split_amount = to_text(split_entry.get("amount")) or amount_to_write
+                split_warehouse = to_text(split_entry.get("warehouse"))
 
                 expanded_codes = [split_code]
                 if should_expand_to_unit_rows(split_item_name):
@@ -894,8 +995,23 @@ def main() -> int:
                     split_fields = build_fields_for_split_create(fields)
                     split_fields["散件编号(最终)"] = current_code
                     split_fields["散件总金额"] = current_amount
-                    # 拆分后的散件名称写入“散件名称(脚本)”列，避免改动原始“散件名称”列。
+                    # 拆分后的散件名称同时写入多处：
+                    # 1) “散件名称(脚本)”：始终是当前拆分行对应的散件名称（原样文本，便于核对）。
+                    # 2) “散件名称”（原字段，多选）：按本条拆分只保留匹配上的选项，
+                    #    不是这条拆分行涉及的散件会被去掉；只用原记录已有的选项，不新增新选项。
+                    # 3) “手动特殊处理”（原字段，多选）：规则同上，两个字段各自独立按拆分过滤——
+                    #    如果这条拆分行的散件来自“散件名称”，“手动特殊处理”会被过滤成空；
+                    #    反过来如果来自“手动特殊处理”，“散件名称”会被过滤成空。
                     split_fields["散件名称(脚本)"] = split_item_name
+                    split_fields["散件名称"] = build_split_item_name_field_value(
+                        fields.get("散件名称"), split_item_name
+                    )
+                    split_fields["手动特殊处理"] = build_split_item_name_field_value(
+                        fields.get("手动特殊处理"), split_item_name
+                    )
+                    # “发货仓”列现在是普通文本字段（不再是公式），由脚本按散件信息表读到的
+                    # 真实发货仓显式写入；同一条拆分行内的编号已保证属于同一个发货仓。
+                    split_fields["发货仓"] = split_warehouse
                     if split_flag_field_name:
                         split_fields[split_flag_field_name] = "拆分"
                     else:
@@ -905,7 +1021,8 @@ def main() -> int:
 
                     if args.dry_run:
                         print(
-                            f"[拆分预览][{record_id}] 新增1行 -> 散件名称={split_item_name}，散件编号(最终)={current_code}，散件总金额={current_amount}，数据类型=拆分"
+                            f"[拆分预览][{record_id}] 新增1行 -> 散件名称={split_item_name}，散件编号(最终)={current_code}，"
+                            f"散件总金额={current_amount}，数据类型=拆分，发货仓(预计)={split_warehouse or '未知'}"
                         )
                     else:
                         create_record(
