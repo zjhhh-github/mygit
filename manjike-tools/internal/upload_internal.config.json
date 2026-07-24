@@ -7,7 +7,7 @@
     "password": "admin123"
   },
   "上传": {
-    "_说明": "source_file 为内部通讯录 JSON 数组，字段支持中文列名：内部备注、微信号、微信ID、推荐人编号、孩子中文全名 等（与 Excel 导出一致）。mode：FULL=全量覆盖、INCREMENTAL=增量（推荐）、APPEND=追加。batch_size 建议 0：后端 INTERNAL_IMPORT 会按 200 条/批写库并做全量关联同步，客户端再拆多任务会触发「同类型任务正在执行」。全量约 9000 条时 max_wait_seconds 建议 ≥3600。",
+    "_说明": "source_file 为内部通讯录 JSON 数组，字段支持中文列名：内部备注、微信号、微信原始ID、推荐人编号、孩子中文全名 等（与 Excel 导出一致，注意字段名必须是「微信原始ID」而不是「微信ID」，否则后端读不到值会导致导入失败）。mode：FULL=全量覆盖、INCREMENTAL=增量（推荐）、APPEND=追加。batch_size 建议 0：后端 INTERNAL_IMPORT 会按 200 条/批写库并做全量关联同步，客户端再拆多任务会触发「同类型任务正在执行」。全量约 9000 条时 max_wait_seconds 建议 ≥3600。",
     "source_file": "内部通讯录.json",
     "mode": "INCREMENTAL",
     "dry_run": false,

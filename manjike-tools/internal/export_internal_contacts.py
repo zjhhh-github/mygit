@@ -8,7 +8,9 @@
 
 【字段映射】（与 SQL 列一致）
     remark   → 内部备注
-    username → 微信ID
+    username → 微信原始ID（本次修复：字段名必须叫"微信原始ID"，不能叫"微信ID"——
+                manjike 后端 JSON 导入解析器只认"微信原始ID"这个字段名，叫"微信ID"
+                的话后端根本读不到值，等于这个人的微信原始ID凭空丢了）
     alias    → 微信号
     另生成「总微信号」：alias 非空用 alias，否则用 username（供 upload_internal 使用）
 
@@ -237,7 +239,12 @@ def fetch_internal_contacts(db_file: Path, clean_suffix: bool) -> List[Dict[str,
         total_wechat = alias_val if alias_val else username_val
         records.append({
             "内部备注": remark_val,
-            "微信ID": username_val,
+            # 本次修复：这里必须叫"微信原始ID"，不能叫"微信ID"——manjike 后端 JSON
+            # 导入解析器（ProspectImportFileServiceImpl#readJsonContactRows）只认
+            # "微信原始ID"这个键名。之前叫"微信ID"，后端读不到这个字段，等于永远是空值；
+            # 遇到"微信号"（alias）也是空的联系人（只有微信原始ID、没有自定义微信号），
+            # 两个身份字段同时为空，会被后端判定为 INVALID_CONTACT_DATA 直接导入失败。
+            "微信原始ID": username_val,
             "微信号": alias_val,
             "总微信号": total_wechat,
         })
@@ -251,7 +258,7 @@ def merge_internal_contact_records(
     merged: Dict[str, Dict[str, str]] = {}
     for records in record_lists:
         for record in records:
-            key = record.get("总微信号") or record.get("微信ID") or record.get("微信号")
+            key = record.get("总微信号") or record.get("微信原始ID") or record.get("微信号")
             if not key:
                 continue
             existing = merged.get(key)
