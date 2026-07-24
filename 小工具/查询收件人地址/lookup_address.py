@@ -46,7 +46,7 @@ _ADDRESS_PARSER = AddressParser(
     enable_llm=False,
 )
 
-CSV_FIELDS = ["编号", "状态", "匹配列", "省", "市", "区县", "原地址"]
+CSV_FIELDS = ["编号", "孩子中文全名", "手机号", "状态", "匹配列", "省", "市", "区县", "原地址"]
 
 # ── 飞书配置（编号来源表 + 地址查询表）──
 APP_ID = os.environ.get("FEISHU_APP_ID", "cli_a96f36ed1538dbcf")
@@ -71,6 +71,11 @@ REQUEST_TIMEOUT = 60
 FIELD_NUMBER = "编号"
 FIELD_NUMBER_PAST = "编号_往月"
 FIELD_ADDRESS = "收件人地址"
+# 「地址查询表」里与收件人地址同一条记录上的孩子姓名 / 手机号字段。
+# 注意：飞书里手机号字段的真实名字是「收件人手机号」，没有单独叫「手机号」的字段，
+# 这里只是把它读出来后，在我们自己的输出 CSV 里用更短的列名「手机号」展示。
+FIELD_CHILD_NAME = "孩子中文全名"
+FIELD_PHONE = "收件人手机号"
 
 # 默认要查的编号（6 位）
 DEFAULT_NUMBERS = """
@@ -501,6 +506,8 @@ def empty_result_row(num, status="", match_field=""):
     # type: (str, str, str) -> dict
     return {
         "编号": num,
+        "孩子中文全名": "",
+        "手机号": "",
         "状态": status,
         "匹配列": match_field,
         "省": "",
@@ -687,9 +694,12 @@ def lookup_addresses(target_numbers, index):
     rows = []
     for num in target_numbers:
         if num in index:
-            match_field, address, _fields = index[num]
+            match_field, address, fields = index[num]
             province, city, district = parse_region_columns(address)
             row = empty_result_row(num, "已找到", match_field)
+            # 孩子中文全名 / 手机号 与「收件人地址」来自同一条飞书记录，直接一起读取。
+            row["孩子中文全名"] = extract_text(fields.get(FIELD_CHILD_NAME))
+            row["手机号"] = extract_text(fields.get(FIELD_PHONE))
             row["省"] = province
             row["市"] = city
             row["区县"] = district
@@ -725,8 +735,10 @@ def print_table(rows):
         if row["状态"] == "已找到":
             raw_address = (row["原地址"] or "").replace("\xa0", " ").strip()
             print(
-                "{} [{}] {} / {} / {} | {}".format(
+                "{} {} {} [{}] {} / {} / {} | {}".format(
                     row["编号"],
+                    row["孩子中文全名"] or "(姓名空)",
+                    row["手机号"] or "(手机号空)",
                     row["匹配列"],
                     row["省"] or "(省空)",
                     row["市"] or "(市空)",
