@@ -1,0 +1,13 @@
+{
+  "_说明": "复制为 config.json 后填写账号密码。Prospect 独立部署默认 http://localhost；主系统 users 上传默认 http://localhost:8080。",
+  "prospect": {
+    "host": "http://localhost",
+    "account": "",
+    "password": ""
+  },
+  "commission": {
+    "host": "http://localhost:8080",
+    "account": "",
+    "password": ""
+  }
+}

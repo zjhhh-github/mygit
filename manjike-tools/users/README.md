@@ -1,67 +1,159 @@
-# manjike 用户批量上传工具
+# 意向通讯录 · 用户管理批量上传
 
-外部独立运维工具：通过 manjike 后端 HTTP API 批量导入用户。
-脱离 manjike 项目源码，可拷贝到任意能访问后端的机器使用。
+外部独立运维工具：把本地用户 JSON/Excel 上传到 **Prospect 意向通讯录 · 用户管理**（`USERS_IMPORT`）。
 
-仅依赖 Python 标准库，无需 `pip install`。
+**默认不会** 操作佣金查询主系统（`http://localhost:8080`）。只有显式加 `--target commission` 才会写主系统。
+
+仅依赖 Python 标准库 + 系统 `curl`，无需 `pip install`。
+
+> 其它 Prospect 脚本见 [../README.md](../README.md)。
 
 ## 目录结构
 
 ```text
 manjike-tools/
-├─ upload-users.py                       主脚本
-├─ upload-users.config.example.json      配置模板（复制成 upload-users.config.json 用）
-├─ users-sample.txt                      数据样例
-└─ README.md                             本文件
+├── config.json                         # 统一配置（prospect 段供本工具默认读取）
+├── users/
+│   ├── upload-users.py                 # 主脚本（默认 Prospect USERS_IMPORT）
+│   ├── feishu-users.json               # 飞书导出示例
+│   ├── upload-users.config.json
+│   └── README.md
 ```
 
 ## 准备工作
 
-1. 把 `upload-users.config.example.json` 复制为 `upload-users.config.json`，按需修改。
-2. 把 `users-sample.txt` 替换成你的真实用户列表文件，或通过 `--file` 指定。
-3. 确保运行机能访问后端（`host` 字段对应的地址）。
+路径说明：以下命令在 `manjike-tools/users/` 目录执行。
+
+**Windows（PowerShell）：**
+
+```powershell
+cd D:\git\mygit\manjike-tools\users
+copy upload-users.config.example.json upload-users.config.json
+```
+
+**macOS / Linux：**
+
+```bash
+cd /path/to/manjike-tools/users
+cp upload-users.config.example.json upload-users.config.json
+```
+
+然后：
+
+1. 在上级 `../config.json` 的 **`prospect`** 段填写 `host` / `account` / `password`（本地默认 `http://localhost` + Prospect 管理员账号）。
+2. `upload-users.config.json` 里 `host/account/password` 可留空，自动读 `prospect` 段。
+3. ⚠️ **禁止** 把 `host` 写成 `http://localhost:8080`（那是佣金主系统，不是意向通讯录）。
+4. 把 `--file` 指向你的用户 JSON（如 `./feishu-users.json`）。
 
 ## 运行步骤（推荐顺序）
 
-### 第一步：dry-run 预览（不写库）
+### 第一步：dry-run（不上传）
+
+**Windows（PowerShell）：**
 
 ```powershell
-# Windows
+cd D:\git\mygit\manjike-tools\users
 python upload-users.py --config upload-users.config.json --dry-run
 ```
 
+**macOS / Linux：**
+
 ```bash
-# macOS / Linux
+cd /path/to/manjike-tools/users
 python3 upload-users.py --config upload-users.config.json --dry-run
 ```
 
-输出会显示后端解析到的 `total` 和将要执行的创建 / 更新数量。
-确认数量符合预期后，再做下一步。
+会本地校验 JSON 条数并打印前 3 条样例，不登录、不写库。
 
-### 第二步：实际导入
+### 第二步：实际上传到 Prospect 用户管理
+
+**Windows（PowerShell）：**
 
 ```powershell
+cd D:\git\mygit\manjike-tools\users
 python upload-users.py --config upload-users.config.json
+```
+
+**macOS / Linux：**
+
+```bash
+cd /path/to/manjike-tools/users
+python3 upload-users.py --config upload-users.config.json
 ```
 
 脚本会：
 
-1. 登录后端 → 拿 JWT token
-2. 调用 `POST /api/users/batch/import-async` 提交异步任务
-3. 每秒轮询 `GET /api/users/batch/import-tasks/{taskId}`
-4. 任务进入终态后调用 `/result` 拿成功 / 失败明细
-5. 写完整日志到 `upload-users.log`
+1. 登录 Prospect → `POST /api/prospect/auth/login`
+2. 上传文件 → `POST /api/prospect/import/tasks/upload`（`type=USERS_IMPORT`, `mode=USER_INCREMENTAL`）
+3. 轮询 → `GET /api/prospect/import/tasks/{taskId}`
+4. 日志写入 `./upload-users.log`
 
-### 第三步：查看日志
+### 第三步：后台验证
 
-`upload-users.log` 含所有请求摘要 + 错误明细 JSON。
+打开 **意向通讯录 → 用户管理**：
+
+```text
+http://localhost/presale/admin/users
+```
+
+或 **导入任务管理** 查看本次任务摘要：
+
+```text
+http://localhost/presale/admin/import-tasks
+```
+
+成功日志示例：`[IMPORT] 合计 inserted=... updated=... skipped=...`
+
+### 第四步：查看日志
+
+**Windows（PowerShell）：**
+
+```powershell
+cd D:\git\mygit\manjike-tools\users
+Get-Content .\upload-users.log -Tail 50 -Encoding UTF8
+```
+
+**macOS / Linux：**
+
+```bash
+cd /path/to/manjike-tools/users
+tail -n 50 upload-users.log
+```
+
+## 可选：写入佣金主系统（8080）
+
+**仅当你明确需要同步到佣金查询全局用户时** 才使用：
+
+```powershell
+cd D:\git\mygit\manjike-tools\users
+python upload-users.py --target commission --config upload-users.config.json
+```
+
+此时会读 `config.json` 的 **`commission`** 段（`admin` / `admin123`），并调用主系统 `/api/users/batch/import-*`。
 
 ## 文件格式说明（重点）
 
-> **核心约束：每个用户必须有一个 6 位数字编号 `user_code`**（项目内部工号体系）。
-> 不带编号或编号不是 6 位数字 → 后端会以 "编号格式错误" 跳过该行。
+### 飞书导出 JSON（推荐，`feishu-users.json`）
 
-### 1. users.txt（推荐运维批量同步）
+与 Prospect `USERS_IMPORT` 模板一致，使用中文字段名：
+
+```json
+[
+  {
+    "账号": "000024",
+    "密码": "j4ogqour",
+    "微信号": "Kema88818",
+    "称呼": "孙一可",
+    "微信原始ID": "labixiaoxin1302411",
+    "内部备注": "¿¿¿000024-孙一可",
+    "角色": "普通用户"
+  }
+]
+```
+
+也支持 `.xlsx` / `.csv`，表头见 Prospect 后台「用户批量导入」模板下载。
+
+### 1. users.txt（仅 --target commission 或历史兼容）
 
 第一行表头固定 `user_name<TAB>password`，后续每行严格匹配格式：
 
@@ -133,28 +225,57 @@ JSON_A 不携带密码，新建用户走后端默认密码逻辑，已存在用�
 
 ## 常见问题
 
-### 1. `登录失败：HTTP 200 / body={"code": 2000, "message": "编号不能为空"}`
+### 1. `登录失败` / `403 意向通讯录功能已下线`
 
-`account` 字段填错了。后端登录接口接收 `code`（user_code）或 `username`（user_name），脚本会同时塞这两个字段。
-请确保 `account` 是后端 `sys_user` 表里的 `user_code` **或** `user_name`。
+- 默认应连 **`http://localhost`**（Prospect），不是 `8080`。
+- 账号必须是 **Prospect `prospect_user` 表** 的管理员（见 `config.json` → `prospect`），不是主系统 `admin`。
 
-### 2. `403 仅超级管理员可执行此操作`
+### 2. `登录失败：HTTP 200 / body={"code": 1001...}`（仅 --target commission）
 
-登录账号必须是超级管理员（super_admin），普通用户 / 售前管理员都不行。
+commission 模式才用主系统 `admin` / `admin123`；默认 prospect 模式勿用 admin 账号。
 
-### 3. `401 未登录，请先登录`
+### 3. 导入成功但后台看不到
 
-token 异常或后端实际没拿到 token。
-检查脚本 `login()` 函数解析的 token 字段（默认按 `data.token` / `data.access_token` 兼容）。
+请到 **意向通讯录用户管理** 查看：`http://localhost/presale/admin/users`  
+不要到佣金主系统「全局用户管理」（`/admin/commission/users`）找。
 
-### 4. `网络错误：[Errno 11001]`
+### 4. `account` 填错 / 登录 401
 
-`host` 配置错或防火墙拦了，先用 `curl` 或浏览器直接访问 `{host}/api/auth/login` 验证连通性。
+Prospect 模式用 `config.json` → `prospect.account`（Prospect 管理员手机号账号）。
 
-### 5. 中文日志在 PowerShell 里乱码
+### 5. `网络错误：[Errno 11001]`
+
+`host` 配置错或 Prospect 未启动。验证 Prospect 登录：
+
+**Windows（PowerShell）：**
 
 ```powershell
+cd D:\git\mygit\manjike-tools\users
+curl -X POST "http://localhost/api/prospect/auth/login" -H "Content-Type: application/json" -d "{\"username\":\"你的Prospect账号\",\"password\":\"你的密码\"}"
+```
+
+**macOS / Linux：**
+
+```bash
+cd /path/to/manjike-tools/users
+curl -X POST "http://localhost/api/prospect/auth/login" -H "Content-Type: application/json" -d '{"username":"你的Prospect账号","password":"你的密码"}'
+```
+
+### 6. 中文日志在 PowerShell 里乱码
+
+**Windows（PowerShell）：**
+
+```powershell
+cd D:\git\mygit\manjike-tools\users
 chcp 65001
+python upload-users.py --config upload-users.config.json
+```
+
+**macOS / Linux：** 终端默认 UTF-8，直接进入目录执行即可：
+
+```bash
+cd /path/to/manjike-tools/users
+python3 upload-users.py --config upload-users.config.json
 ```
 
 或者直接看 `upload-users.log`（始终是 UTF-8 编码）。

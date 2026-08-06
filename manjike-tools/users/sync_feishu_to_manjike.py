@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """查询系统上传用户：飞书多维表格 → manjike 后端 一键流水线。
 
-整体功能名称：查询系统上传用户
-脚本职责：把飞书多维表格里维护的用户数据，按顺序同步到 manjike 查询系统。
+【脚本功能说明】
+一键流水线：先调用 feishu-read-bitable.py 拉取飞书多维表格用户数据，
+再调用 upload-users.py 批量导入 manjike 查询系统；任一步失败即停止后续步骤。
 
 执行顺序：
     1) feishu-read-bitable.py  → 拉取飞书最新数据，写入 feishu-users.json

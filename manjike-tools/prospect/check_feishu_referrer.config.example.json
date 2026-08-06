@@ -1,0 +1,45 @@
+{
+  "_说明": "复制为 check_feishu_referrer.config.json 后填写真实凭证。也可复用 sync_to_feishu.config.json 中的飞书 app_id/app_secret/app_token。",
+  "飞书": {
+    "app_id": "cli_xxxxxxxx",
+    "app_secret": "xxxxxxxx",
+    "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e"
+  },
+  "表1_意向学员绑定": {
+    "_说明": "对应 wiki 中 tblNIWZ1EsDyZ1ug，检查意向学员总微信号 + 推荐人总微信号",
+    "table_id": "tblNIWZ1EsDyZ1ug",
+    "student_wechat_field": "意向学员总微信号",
+    "referrer_wechat_field": "推荐人总微信号"
+  },
+  "表2_推荐人变更对照": {
+    "_说明": "对应 wiki 中 tblzUayWLgynug56，以学员微信号 -> 新推荐人微信号 作为标准；同一学员多条记录时取最后一条",
+    "table_id": "tblzUayWLgynug56",
+    "student_wechat_field": "学员微信号",
+    "new_referrer_wechat_field": "新推荐人微信号"
+  },
+  "检查": {
+    "_说明": "ignore_empty_referrer=true 时，表1推荐人总微信号为空且表2新推荐人也为空，视为一致",
+    "ignore_empty_referrer": false,
+    "preview_mismatch_limit": 20,
+    "过滤": {
+      "_说明": "忽略未报名或无绑定的表1记录，不参与一致性比对",
+      "enabled": true,
+      "enrollment_status_field": "报名状态",
+      "bind_status_field": "绑定状态",
+      "skip_enrollment_values": ["未报名"],
+      "skip_bind_values": ["无绑定"]
+    },
+    "推荐人比对": {
+      "_说明": "表2新推荐人可与表1推荐人微信号/原始ID匹配；双方均为自定义微信号时也视为一致",
+      "alternate_fields": ["推荐人微信号", "推荐人微信原始ID"],
+      "ignore_custom_alias_mismatch": true,
+      "ignore_student_wechats": []
+    }
+  },
+  "路径": {
+    "report_file": "logs/check_feishu_referrer_report.json",
+    "log_file": "logs/check_feishu_referrer.log",
+    "mismatch_file": "logs/check_feishu_referrer_mismatched.json",
+    "mismatch_txt_file": "logs/check_feishu_referrer_mismatched.txt"
+  }
+}

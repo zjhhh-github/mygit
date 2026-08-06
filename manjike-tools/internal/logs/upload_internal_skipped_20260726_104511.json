@@ -1,0 +1,17 @@
+{
+  "exported_at": "2026-07-26 10:45:11",
+  "source_file": "D:\\git\\mygit\\manjike-tools\\internal\\内部通讯录.json",
+  "task_status": "AGGREGATED",
+  "count": 1,
+  "errors": [
+    {
+      "reason": "上传 HTTP 200",
+      "body": {
+        "code": 403,
+        "message": "意向通讯录功能已下线",
+        "data": null
+      },
+      "_batch_index": 1
+    }
+  ]
+}

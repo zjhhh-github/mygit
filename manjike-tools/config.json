@@ -1,0 +1,13 @@
+{
+  "_说明": "manjike-tools 统一配置。Prospect 脚本读 prospect 段；users 脚本读 commission 段。环境变量 PROSPECT_HOST / PROSPECT_ACCOUNT / PROSPECT_PASSWORD 可覆盖 prospect 段。",
+  "prospect": {
+    "host": "http://localhost",
+    "account": "15648230994",
+    "password": "028056hQ@"
+  },
+  "commission": {
+    "host": "http://localhost:8080",
+    "account": "admin",
+    "password": "admin123"
+  }
+}

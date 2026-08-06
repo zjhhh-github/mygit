@@ -1,0 +1,578 @@
+{
+  "new_pure": [
+    {
+      "idx": 1,
+      "oid": "test_phase3_oid_001",
+      "wechat": "test_phase3_wx_001"
+    },
+    {
+      "idx": 2,
+      "oid": "test_phase3_oid_002",
+      "wechat": "test_phase3_wx_002"
+    },
+    {
+      "idx": 3,
+      "oid": "test_phase3_oid_003",
+      "wechat": "test_phase3_wx_003"
+    },
+    {
+      "idx": 4,
+      "oid": "test_phase3_oid_004",
+      "wechat": "test_phase3_wx_004"
+    },
+    {
+      "idx": 5,
+      "oid": "test_phase3_oid_005",
+      "wechat": "test_phase3_wx_005"
+    },
+    {
+      "idx": 6,
+      "oid": "test_phase3_oid_006",
+      "wechat": "test_phase3_wx_006"
+    },
+    {
+      "idx": 7,
+      "oid": "test_phase3_oid_007",
+      "wechat": "test_phase3_wx_007"
+    },
+    {
+      "idx": 8,
+      "oid": "test_phase3_oid_008",
+      "wechat": "test_phase3_wx_008"
+    },
+    {
+      "idx": 9,
+      "oid": "test_phase3_oid_009",
+      "wechat": "test_phase3_wx_009"
+    },
+    {
+      "idx": 10,
+      "oid": "test_phase3_oid_010",
+      "wechat": "test_phase3_wx_010"
+    },
+    {
+      "idx": 11,
+      "oid": "test_phase3_oid_011",
+      "wechat": "test_phase3_wx_011"
+    },
+    {
+      "idx": 12,
+      "oid": "test_phase3_oid_012",
+      "wechat": "test_phase3_wx_012"
+    },
+    {
+      "idx": 13,
+      "oid": "test_phase3_oid_013",
+      "wechat": "test_phase3_wx_013"
+    },
+    {
+      "idx": 14,
+      "oid": "test_phase3_oid_014",
+      "wechat": "test_phase3_wx_014"
+    },
+    {
+      "idx": 15,
+      "oid": "test_phase3_oid_015",
+      "wechat": "test_phase3_wx_015"
+    },
+    {
+      "idx": 16,
+      "oid": "test_phase3_oid_016",
+      "wechat": "test_phase3_wx_016"
+    },
+    {
+      "idx": 17,
+      "oid": "test_phase3_oid_017",
+      "wechat": "test_phase3_wx_017"
+    },
+    {
+      "idx": 18,
+      "oid": "test_phase3_oid_018",
+      "wechat": "test_phase3_wx_018"
+    },
+    {
+      "idx": 19,
+      "oid": "test_phase3_oid_019",
+      "wechat": "test_phase3_wx_019"
+    },
+    {
+      "idx": 20,
+      "oid": "test_phase3_oid_020",
+      "wechat": "test_phase3_wx_020"
+    },
+    {
+      "idx": 21,
+      "oid": "test_phase3_oid_021",
+      "wechat": "test_phase3_wx_021"
+    },
+    {
+      "idx": 22,
+      "oid": "test_phase3_oid_022",
+      "wechat": "test_phase3_wx_022"
+    },
+    {
+      "idx": 23,
+      "oid": "test_phase3_oid_023",
+      "wechat": "test_phase3_wx_023"
+    },
+    {
+      "idx": 24,
+      "oid": "test_phase3_oid_024",
+      "wechat": "test_phase3_wx_024"
+    },
+    {
+      "idx": 25,
+      "oid": "test_phase3_oid_025",
+      "wechat": "test_phase3_wx_025"
+    },
+    {
+      "idx": 26,
+      "oid": "test_phase3_oid_026",
+      "wechat": "test_phase3_wx_026"
+    },
+    {
+      "idx": 27,
+      "oid": "test_phase3_oid_027",
+      "wechat": "test_phase3_wx_027"
+    },
+    {
+      "idx": 28,
+      "oid": "test_phase3_oid_028",
+      "wechat": "test_phase3_wx_028"
+    },
+    {
+      "idx": 29,
+      "oid": "test_phase3_oid_029",
+      "wechat": "test_phase3_wx_029"
+    },
+    {
+      "idx": 30,
+      "oid": "test_phase3_oid_030",
+      "wechat": "test_phase3_wx_030"
+    },
+    {
+      "idx": 31,
+      "oid": "test_phase3_oid_031",
+      "wechat": "test_phase3_wx_031"
+    },
+    {
+      "idx": 32,
+      "oid": "test_phase3_oid_032",
+      "wechat": "test_phase3_wx_032"
+    },
+    {
+      "idx": 33,
+      "oid": "test_phase3_oid_033",
+      "wechat": "test_phase3_wx_033"
+    },
+    {
+      "idx": 34,
+      "oid": "test_phase3_oid_034",
+      "wechat": "test_phase3_wx_034"
+    },
+    {
+      "idx": 35,
+      "oid": "test_phase3_oid_035",
+      "wechat": "test_phase3_wx_035"
+    },
+    {
+      "idx": 36,
+      "oid": "test_phase3_oid_036",
+      "wechat": "test_phase3_wx_036"
+    },
+    {
+      "idx": 37,
+      "oid": "test_phase3_oid_037",
+      "wechat": "test_phase3_wx_037"
+    },
+    {
+      "idx": 38,
+      "oid": "test_phase3_oid_038",
+      "wechat": "test_phase3_wx_038"
+    },
+    {
+      "idx": 39,
+      "oid": "test_phase3_oid_039",
+      "wechat": "test_phase3_wx_039"
+    },
+    {
+      "idx": 40,
+      "oid": "test_phase3_oid_040",
+      "wechat": "test_phase3_wx_040"
+    },
+    {
+      "idx": 41,
+      "oid": "test_phase3_oid_041",
+      "wechat": "test_phase3_wx_041"
+    },
+    {
+      "idx": 42,
+      "oid": "test_phase3_oid_042",
+      "wechat": "test_phase3_wx_042"
+    },
+    {
+      "idx": 43,
+      "oid": "test_phase3_oid_043",
+      "wechat": "test_phase3_wx_043"
+    },
+    {
+      "idx": 44,
+      "oid": "test_phase3_oid_044",
+      "wechat": "test_phase3_wx_044"
+    },
+    {
+      "idx": 45,
+      "oid": "test_phase3_oid_045",
+      "wechat": "test_phase3_wx_045"
+    },
+    {
+      "idx": 46,
+      "oid": "test_phase3_oid_046",
+      "wechat": "test_phase3_wx_046"
+    },
+    {
+      "idx": 47,
+      "oid": "test_phase3_oid_047",
+      "wechat": "test_phase3_wx_047"
+    },
+    {
+      "idx": 48,
+      "oid": "test_phase3_oid_048",
+      "wechat": "test_phase3_wx_048"
+    },
+    {
+      "idx": 49,
+      "oid": "test_phase3_oid_049",
+      "wechat": "test_phase3_wx_049"
+    },
+    {
+      "idx": 50,
+      "oid": "test_phase3_oid_050",
+      "wechat": "test_phase3_wx_050"
+    },
+    {
+      "idx": 51,
+      "oid": "test_phase3_oid_051",
+      "wechat": "test_phase3_wx_051"
+    },
+    {
+      "idx": 52,
+      "oid": "test_phase3_oid_052",
+      "wechat": "test_phase3_wx_052"
+    },
+    {
+      "idx": 53,
+      "oid": "test_phase3_oid_053",
+      "wechat": "test_phase3_wx_053"
+    },
+    {
+      "idx": 54,
+      "oid": "test_phase3_oid_054",
+      "wechat": "test_phase3_wx_054"
+    },
+    {
+      "idx": 55,
+      "oid": "test_phase3_oid_055",
+      "wechat": "test_phase3_wx_055"
+    },
+    {
+      "idx": 56,
+      "oid": "test_phase3_oid_056",
+      "wechat": "test_phase3_wx_056"
+    },
+    {
+      "idx": 57,
+      "oid": "test_phase3_oid_057",
+      "wechat": "test_phase3_wx_057"
+    },
+    {
+      "idx": 58,
+      "oid": "test_phase3_oid_058",
+      "wechat": "test_phase3_wx_058"
+    },
+    {
+      "idx": 59,
+      "oid": "test_phase3_oid_059",
+      "wechat": "test_phase3_wx_059"
+    },
+    {
+      "idx": 60,
+      "oid": "test_phase3_oid_060",
+      "wechat": "test_phase3_wx_060"
+    },
+    {
+      "idx": 61,
+      "oid": "test_phase3_oid_061",
+      "wechat": "test_phase3_wx_061"
+    },
+    {
+      "idx": 62,
+      "oid": "test_phase3_oid_062",
+      "wechat": "test_phase3_wx_062"
+    },
+    {
+      "idx": 63,
+      "oid": "test_phase3_oid_063",
+      "wechat": "test_phase3_wx_063"
+    },
+    {
+      "idx": 64,
+      "oid": "test_phase3_oid_064",
+      "wechat": "test_phase3_wx_064"
+    },
+    {
+      "idx": 65,
+      "oid": "test_phase3_oid_065",
+      "wechat": "test_phase3_wx_065"
+    },
+    {
+      "idx": 66,
+      "oid": "test_phase3_oid_066",
+      "wechat": "test_phase3_wx_066"
+    },
+    {
+      "idx": 67,
+      "oid": "test_phase3_oid_067",
+      "wechat": "test_phase3_wx_067"
+    },
+    {
+      "idx": 68,
+      "oid": "test_phase3_oid_068",
+      "wechat": "test_phase3_wx_068"
+    },
+    {
+      "idx": 69,
+      "oid": "test_phase3_oid_069",
+      "wechat": "test_phase3_wx_069"
+    },
+    {
+      "idx": 70,
+      "oid": "test_phase3_oid_070",
+      "wechat": "test_phase3_wx_070"
+    }
+  ],
+  "oid_match": [
+    {
+      "idx": 71,
+      "oid": "yangzhaofei1114",
+      "code": "000025",
+      "name": "杨晓玥",
+      "total": "tj89art"
+    },
+    {
+      "idx": 72,
+      "oid": "daling915",
+      "code": "000031",
+      "name": "吕泽",
+      "total": "daling915"
+    },
+    {
+      "idx": 73,
+      "oid": "AOXUE_001",
+      "code": "000082",
+      "name": "陈琛",
+      "total": "AOXUE_001"
+    },
+    {
+      "idx": 74,
+      "oid": "wxid_rhyp9r58ty8k22",
+      "code": "000098",
+      "name": "朱梓彤",
+      "total": "H7999R"
+    },
+    {
+      "idx": 75,
+      "oid": "aggieglisten",
+      "code": "000153",
+      "name": "王赫阳",
+      "total": "aggieleo"
+    },
+    {
+      "idx": 76,
+      "oid": "wxid_s6m7xrteggk321",
+      "code": "000164",
+      "name": "刘奕桐",
+      "total": "yyllysys"
+    },
+    {
+      "idx": 77,
+      "oid": "wxid_3tupklttswmy12",
+      "code": "000166",
+      "name": "相秋歌",
+      "total": "Qiugema521"
+    },
+    {
+      "idx": 78,
+      "oid": "wangaamao",
+      "code": "000175",
+      "name": "王博冉",
+      "total": "wangaamao"
+    },
+    {
+      "idx": 79,
+      "oid": "wxid_hmeao7mb0h8r11",
+      "code": "000246",
+      "name": "于子涵",
+      "total": "LJN768"
+    },
+    {
+      "idx": 80,
+      "oid": "wxid_6ck9wxtlcln422",
+      "code": "000317",
+      "name": "仝墨涵",
+      "total": "zynzm7026"
+    },
+    {
+      "idx": 81,
+      "oid": "wxid_8mj02tgbkdde21",
+      "code": "000385",
+      "name": "余梓扬",
+      "total": "_Capriciously"
+    },
+    {
+      "idx": 82,
+      "oid": "vlongsl",
+      "code": "000824",
+      "name": "吕承泽",
+      "total": "vlongsl"
+    },
+    {
+      "idx": 83,
+      "oid": "wumingshuai",
+      "code": "000849",
+      "name": "吴孖睿",
+      "total": "wumingshuai"
+    },
+    {
+      "idx": 84,
+      "oid": "wxid_yyejtxwnvffd22",
+      "code": "001363",
+      "name": "张宸",
+      "total": "wxid_yyejtxwnvffd22"
+    },
+    {
+      "idx": 85,
+      "oid": "abc6111812",
+      "code": "001690",
+      "name": "智予彤",
+      "total": "zw13238431501"
+    },
+    {
+      "idx": 86,
+      "oid": "wxid_2oxpwwd2ei5j31",
+      "code": "001955",
+      "name": "李梦瑶",
+      "total": "xiaoxue1446164"
+    },
+    {
+      "idx": 87,
+      "oid": "linhaiwang001",
+      "code": "002202",
+      "name": "林曼",
+      "total": "zcxf96119"
+    },
+    {
+      "idx": 88,
+      "oid": "wjl1113677543",
+      "code": "002372",
+      "name": "温宸赫",
+      "total": "junlong_wen2025"
+    },
+    {
+      "idx": 89,
+      "oid": "wxid_4wmaboxykwrl22",
+      "code": "002398",
+      "name": "潘语昕",
+      "total": "patrickyiyan"
+    },
+    {
+      "idx": 90,
+      "oid": "wxid_4xrztzop0mp622",
+      "code": "002500",
+      "name": "王婉蓉",
+      "total": "babin009"
+    }
+  ],
+  "wechat_match": [
+    {
+      "idx": 91,
+      "student_oid": "test_wxonly_001",
+      "wechat": "tj89art",
+      "contact_oid": "yangzhaofei1114",
+      "code": "000025",
+      "name": "杨晓玥"
+    },
+    {
+      "idx": 92,
+      "student_oid": "test_wxonly_002",
+      "wechat": "H7999R",
+      "contact_oid": "wxid_rhyp9r58ty8k22",
+      "code": "000098",
+      "name": "朱梓彤"
+    },
+    {
+      "idx": 93,
+      "student_oid": "test_wxonly_003",
+      "wechat": "aggieleo",
+      "contact_oid": "aggieglisten",
+      "code": "000153",
+      "name": "王赫阳"
+    },
+    {
+      "idx": 94,
+      "student_oid": "test_wxonly_004",
+      "wechat": "yyllysys",
+      "contact_oid": "wxid_s6m7xrteggk321",
+      "code": "000164",
+      "name": "刘奕桐"
+    },
+    {
+      "idx": 95,
+      "student_oid": "test_wxonly_005",
+      "wechat": "Qiugema521",
+      "contact_oid": "wxid_3tupklttswmy12",
+      "code": "000166",
+      "name": "相秋歌"
+    },
+    {
+      "idx": 96,
+      "student_oid": "test_wxonly_006",
+      "wechat": "LJN768",
+      "contact_oid": "wxid_hmeao7mb0h8r11",
+      "code": "000246",
+      "name": "于子涵"
+    },
+    {
+      "idx": 97,
+      "student_oid": "test_wxonly_007",
+      "wechat": "zynzm7026",
+      "contact_oid": "wxid_6ck9wxtlcln422",
+      "code": "000317",
+      "name": "仝墨涵"
+    },
+    {
+      "idx": 98,
+      "student_oid": "test_wxonly_008",
+      "wechat": "_Capriciously",
+      "contact_oid": "wxid_8mj02tgbkdde21",
+      "code": "000385",
+      "name": "余梓扬"
+    },
+    {
+      "idx": 99,
+      "student_oid": "test_wxonly_009",
+      "wechat": "zw13238431501",
+      "contact_oid": "abc6111812",
+      "code": "001690",
+      "name": "智予彤"
+    },
+    {
+      "idx": 100,
+      "student_oid": "test_wxonly_010",
+      "wechat": "xiaoxue1446164",
+      "contact_oid": "wxid_2oxpwwd2ei5j31",
+      "code": "001955",
+      "name": "李梦瑶"
+    }
+  ]
+}

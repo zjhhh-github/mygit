@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 """从一个或多个微信 contact.db 导出内部通讯录 JSON。
 
+【脚本功能说明】
+读取微信本地 contact.db，按内部备注规则筛选有效联系人，合并去重后导出为
+INTERNAL_IMPORT 可用的 JSON 文件，供 upload_internal.py 上传到 Prospect 系统。
+
 【数据来源】
     contact 表，筛选内部备注格式（¿¿¿ / !!! + 6 位数字 + - + 尾段），
     排除尾段为「空」「删除」的记录。支持多库读取并按「总微信号」去重合并。

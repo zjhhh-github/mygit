@@ -41,3 +41,1654 @@
 2026-06-03 17:56:17 [INFO] 校验通过：共 18790 条意向学员
 2026-06-03 17:56:17 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
 2026-06-03 17:56:17 [INFO] === 导出完成 ===
+2026-07-27 10:02:55 [INFO] ============================================================
+2026-07-27 10:02:55 [INFO] 意向学员导出开始
+2026-07-27 10:02:55 [INFO] host=http://localhost, account=15648230994
+2026-07-27 10:02:55 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 10:02:55 [INFO] ============================================================
+2026-07-27 10:02:55 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 10:02:55 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:02:55 [INFO] 请求导出：http://localhost/api/prospect/prospective-students/export
+2026-07-27 10:02:55 [ERROR] 导出失败：HTTP 405 / b'{"timestamp":"2026-07-27T02:02:55.697+00:00","status":405,"error":"Method Not Allowed","path":"/api/prospect/prospective-students/export"}'
+2026-07-27 10:05:46 [INFO] ============================================================
+2026-07-27 10:05:46 [INFO] 意向学员导出开始
+2026-07-27 10:05:46 [INFO] host=http://localhost, account=15648230994
+2026-07-27 10:05:46 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 10:05:46 [INFO] ============================================================
+2026-07-27 10:05:46 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 10:05:46 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:05:46 [INFO] 拉取方式：分页列表 + 逐条推荐记录（后端暂无 /export 流式接口）
+2026-07-27 10:05:46 [INFO] 意向学员总数：0，每页 200 条
+2026-07-27 10:05:46 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（0.00 MB）
+2026-07-27 10:05:46 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_100546.json（4 B）
+2026-07-27 10:05:46 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 10:05:46 [INFO] 校验通过：共 0 条意向学员
+2026-07-27 10:05:46 [INFO] === 导出完成 ===
+2026-07-27 10:11:54 [INFO] ============================================================
+2026-07-27 10:11:54 [INFO] 意向学员导出开始
+2026-07-27 10:11:54 [INFO] host=http://localhost, account=15648230994
+2026-07-27 10:11:54 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 10:11:54 [INFO] ============================================================
+2026-07-27 10:11:54 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 10:11:54 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:11:54 [INFO] 拉取方式：分页列表 + 逐条推荐记录（后端暂无 /export 流式接口）
+2026-07-27 10:11:54 [INFO] 意向学员总数：0，每页 200 条
+2026-07-27 10:11:54 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（0.00 MB）
+2026-07-27 10:11:54 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_101154.json（4 B）
+2026-07-27 10:11:54 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 10:11:54 [INFO] 校验通过：共 0 条意向学员
+2026-07-27 10:11:54 [INFO] === 导出完成 ===
+2026-07-27 11:16:39 [INFO] ============================================================
+2026-07-27 11:16:39 [INFO] 意向学员导出开始
+2026-07-27 11:16:39 [INFO] host=http://localhost, account=15648230994
+2026-07-27 11:16:39 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 11:16:39 [INFO] ============================================================
+2026-07-27 11:16:39 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 11:16:40 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 11:16:40 [INFO] 拉取方式：分页列表 + 逐条推荐记录（后端暂无 /export 流式接口）
+2026-07-27 11:16:40 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 11:16:47 [INFO] 已拉取 200/23906 条学员
+2026-07-27 11:16:54 [INFO] 已拉取 400/23906 条学员
+2026-07-27 11:17:02 [INFO] 已拉取 600/23906 条学员
+2026-07-27 11:17:10 [INFO] 已拉取 800/23906 条学员
+2026-07-27 11:17:17 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 11:17:24 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 11:17:32 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 11:17:39 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 11:17:46 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 11:17:53 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 11:18:00 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 11:18:07 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 11:18:14 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 11:18:21 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 11:18:29 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 11:18:36 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 11:18:43 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 11:18:51 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 11:18:58 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 11:19:06 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 11:19:14 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 11:19:21 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 11:19:28 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 11:19:35 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 11:19:43 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 11:19:50 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 11:19:58 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 11:20:05 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 11:20:13 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 11:20:20 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 11:20:28 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 11:20:35 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 11:20:43 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 11:20:50 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 11:20:58 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 11:21:05 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 11:21:13 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 11:21:20 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 11:21:27 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 11:21:35 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 11:21:43 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 11:21:50 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 11:21:58 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 11:22:05 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 11:22:12 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 11:22:20 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 11:22:27 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 11:22:35 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 11:22:43 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 11:22:50 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 11:22:58 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 11:23:05 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 11:23:13 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 11:23:20 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 11:23:27 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 11:23:35 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 11:23:42 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 11:23:50 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 11:23:57 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 11:24:04 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 11:24:12 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 11:24:19 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 11:24:27 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 11:24:34 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 11:24:41 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 11:24:49 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 11:24:56 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 11:25:04 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 11:25:11 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 11:25:18 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 11:25:26 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 11:25:34 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 11:25:41 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 11:25:49 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 11:25:56 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 11:26:04 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 11:26:11 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 11:26:19 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 11:26:26 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 11:26:34 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 11:26:41 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 11:26:49 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 11:26:56 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 11:27:03 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 11:27:10 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 11:27:18 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 11:27:25 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 11:27:33 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 11:27:40 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 11:27:48 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 11:27:54 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 11:27:54 [ERROR] 查询推荐记录 studentId=247691 失败：HTTP 502 / {'_raw': '<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.31.2</center>\r\n</body>\r\n</html>\r\n'}
+2026-07-27 11:31:53 [INFO] ============================================================
+2026-07-27 11:31:53 [INFO] 意向学员导出开始
+2026-07-27 11:31:53 [INFO] host=http://localhost, account=15648230994
+2026-07-27 11:31:53 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 11:31:53 [INFO] ============================================================
+2026-07-27 11:31:53 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 11:31:53 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 11:31:53 [INFO] 拉取方式：分页列表 + 逐条推荐记录（后端暂无 /export 流式接口）
+2026-07-27 11:31:53 [INFO] 提示：若频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 11:31:53 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 11:32:05 [INFO] 已拉取 200/23906 条学员
+2026-07-27 11:32:15 [INFO] 已拉取 400/23906 条学员
+2026-07-27 11:32:21 [INFO] 已保存断点：500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:32:26 [INFO] 已拉取 600/23906 条学员
+2026-07-27 11:32:37 [INFO] 已拉取 800/23906 条学员
+2026-07-27 11:32:48 [INFO] 已保存断点：1000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:32:48 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 11:32:59 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 11:33:10 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 11:33:16 [INFO] 已保存断点：1500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:33:22 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 11:33:33 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 11:33:44 [INFO] 已保存断点：2000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:33:44 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 11:33:55 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 11:34:06 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 11:34:11 [INFO] 已保存断点：2500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:34:17 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 11:34:28 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 11:34:39 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:34:39 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 11:34:49 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 11:35:00 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 11:35:05 [INFO] 已保存断点：3500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:35:11 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 11:35:22 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 11:35:33 [INFO] 已保存断点：4000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:35:33 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 11:35:44 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 11:35:55 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 11:36:00 [INFO] 已保存断点：4500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:36:06 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 11:36:17 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 11:36:28 [INFO] 已保存断点：5000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:36:28 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 11:36:38 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 11:36:50 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 11:36:56 [INFO] 已保存断点：5500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:37:02 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 11:37:13 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 11:37:24 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:37:24 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 11:37:36 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 11:37:47 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 11:37:53 [INFO] 已保存断点：6500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:37:58 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 11:38:10 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 11:38:21 [INFO] 已保存断点：7000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:38:21 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 11:38:33 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 11:38:45 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 11:38:51 [INFO] 已保存断点：7500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:38:57 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 11:39:09 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 11:39:20 [INFO] 已保存断点：8000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:39:20 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 11:39:33 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 11:39:44 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 11:39:50 [INFO] 已保存断点：8500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:39:56 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 11:40:07 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 11:40:19 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:40:19 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 11:40:30 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 11:40:42 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 11:40:47 [INFO] 已保存断点：9500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:40:53 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 11:41:04 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 11:41:16 [INFO] 已保存断点：10000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:41:16 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 11:41:27 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 11:41:39 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 11:41:45 [INFO] 已保存断点：10500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:41:51 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 11:42:02 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 11:42:14 [INFO] 已保存断点：11000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:42:14 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 11:42:26 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 11:42:38 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 11:42:44 [INFO] 已保存断点：11500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:42:50 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 11:43:04 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 11:43:18 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:43:18 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 11:43:30 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 11:43:42 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 11:43:48 [INFO] 已保存断点：12500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:43:54 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 11:44:06 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 11:44:18 [INFO] 已保存断点：13000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:44:18 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 11:44:30 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 11:44:42 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 11:44:48 [INFO] 已保存断点：13500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:44:54 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 11:45:06 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 11:45:18 [INFO] 已保存断点：14000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:45:18 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 11:45:30 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 11:45:43 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 11:45:51 [INFO] 已保存断点：14500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:45:58 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 11:46:10 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 11:46:22 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:46:22 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 11:46:33 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 11:46:46 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 11:46:53 [INFO] 已保存断点：15500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:46:59 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 11:47:11 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 11:47:23 [INFO] 已保存断点：16000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:47:23 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 11:47:34 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 11:47:46 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 11:47:51 [INFO] 已保存断点：16500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:47:57 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 11:48:08 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 11:48:19 [INFO] 已保存断点：17000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:48:19 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 11:48:31 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 11:48:42 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 11:48:48 [INFO] 已保存断点：17500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:48:54 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 11:49:05 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 11:49:17 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:49:17 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 11:49:28 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 11:49:40 [INFO] 已拉取 18400/23906 条学员
+2026-07-27 11:49:46 [INFO] 已保存断点：18500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:49:52 [INFO] 已拉取 18600/23906 条学员
+2026-07-27 11:50:03 [INFO] 已拉取 18800/23906 条学员
+2026-07-27 11:50:14 [INFO] 已保存断点：19000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:50:14 [INFO] 已拉取 19000/23906 条学员
+2026-07-27 11:50:27 [INFO] 已拉取 19200/23906 条学员
+2026-07-27 11:50:39 [INFO] 已拉取 19400/23906 条学员
+2026-07-27 11:50:45 [INFO] 已保存断点：19500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:50:51 [INFO] 已拉取 19600/23906 条学员
+2026-07-27 11:51:02 [INFO] 已拉取 19800/23906 条学员
+2026-07-27 11:51:15 [INFO] 已保存断点：20000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:51:15 [INFO] 已拉取 20000/23906 条学员
+2026-07-27 11:51:27 [INFO] 已拉取 20200/23906 条学员
+2026-07-27 11:51:39 [INFO] 已拉取 20400/23906 条学员
+2026-07-27 11:51:45 [INFO] 已保存断点：20500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:51:51 [INFO] 已拉取 20600/23906 条学员
+2026-07-27 11:52:03 [INFO] 已拉取 20800/23906 条学员
+2026-07-27 11:52:16 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:52:16 [INFO] 已拉取 21000/23906 条学员
+2026-07-27 11:52:28 [INFO] 已拉取 21200/23906 条学员
+2026-07-27 11:52:40 [INFO] 已拉取 21400/23906 条学员
+2026-07-27 11:52:46 [INFO] 已保存断点：21500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:52:52 [INFO] 已拉取 21600/23906 条学员
+2026-07-27 11:53:04 [INFO] 已拉取 21800/23906 条学员
+2026-07-27 11:53:16 [INFO] 已保存断点：22000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:53:16 [INFO] 已拉取 22000/23906 条学员
+2026-07-27 11:53:28 [INFO] 已拉取 22200/23906 条学员
+2026-07-27 11:53:40 [INFO] 已拉取 22400/23906 条学员
+2026-07-27 11:53:47 [INFO] 已保存断点：22500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:53:53 [INFO] 已拉取 22600/23906 条学员
+2026-07-27 11:54:05 [INFO] 已拉取 22800/23906 条学员
+2026-07-27 11:54:17 [INFO] 已保存断点：23000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:54:17 [INFO] 已拉取 23000/23906 条学员
+2026-07-27 11:54:30 [INFO] 已拉取 23200/23906 条学员
+2026-07-27 11:54:42 [INFO] 已拉取 23400/23906 条学员
+2026-07-27 11:54:48 [INFO] 已保存断点：23500 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:54:54 [INFO] 已拉取 23600/23906 条学员
+2026-07-27 11:55:06 [INFO] 已拉取 23800/23906 条学员
+2026-07-27 11:55:13 [INFO] 已拉取 23906/23906 条学员
+2026-07-27 11:55:14 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-27 11:55:14 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_115514.json（9621659 B）
+2026-07-27 11:55:14 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 11:55:14 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 11:55:14 [INFO] 校验通过：共 23906 条意向学员
+2026-07-27 11:55:14 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-27 11:55:14 [INFO] === 导出完成 ===
+2026-07-27 12:14:10 [INFO] ============================================================
+2026-07-27 12:14:10 [INFO] 意向学员导出开始
+2026-07-27 12:14:10 [INFO] host=http://localhost:18081, account=15648230994
+2026-07-27 12:14:10 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:14:10 [INFO] ============================================================
+2026-07-27 12:14:10 [INFO] 登录 Prospect 独立后端：http://localhost:18081
+2026-07-27 12:14:12 [ERROR] Prospect 登录失败：业务失败 code=-1 message=网络错误：<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+2026-07-27 12:14:12 [ERROR] 请确认 host 指向 Prospect（http://localhost 或 http://localhost:18081），并使用 prospect_user 账号。
+2026-07-27 12:14:36 [INFO] ============================================================
+2026-07-27 12:14:36 [INFO] 意向学员导出开始
+2026-07-27 12:14:36 [INFO] host=http://localhost, account=15648230994
+2026-07-27 12:14:36 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:14:36 [INFO] ============================================================
+2026-07-27 12:14:36 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 12:14:37 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 12:14:37 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-27 12:14:37 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 12:14:37 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 12:14:37 [INFO] 已拉取 200/23906 条学员
+2026-07-27 12:14:37 [INFO] 已保存断点：200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:37 [INFO] 已拉取 400/23906 条学员
+2026-07-27 12:14:37 [INFO] 已保存断点：400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:37 [INFO] 已拉取 600/23906 条学员
+2026-07-27 12:14:37 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:37 [INFO] 已拉取 800/23906 条学员
+2026-07-27 12:14:37 [INFO] 已保存断点：800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：1000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：1400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：1600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:38 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 12:14:38 [INFO] 已保存断点：2000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:39 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 12:14:39 [INFO] 已保存断点：2200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:39 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 12:14:39 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:39 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 12:14:39 [INFO] 已保存断点：2600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:39 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 12:14:39 [INFO] 已保存断点：2800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:39 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 12:14:39 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:40 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 12:14:40 [INFO] 已保存断点：3200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:40 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 12:14:40 [INFO] 已保存断点：3400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:40 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 12:14:40 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:40 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 12:14:40 [INFO] 已保存断点：3800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:40 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 12:14:40 [INFO] 已保存断点：4000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:41 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 12:14:41 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:41 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 12:14:41 [INFO] 已保存断点：4400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:41 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 12:14:41 [INFO] 已保存断点：4600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:41 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 12:14:41 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:41 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 12:14:41 [INFO] 已保存断点：5000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：5200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：5600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：5800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：6200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:42 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 12:14:42 [INFO] 已保存断点：6400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:43 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 12:14:43 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:43 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 12:14:43 [INFO] 已保存断点：6800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:43 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 12:14:43 [INFO] 已保存断点：7000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:43 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 12:14:43 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:43 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 12:14:43 [INFO] 已保存断点：7400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:44 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 12:14:44 [INFO] 已保存断点：7600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:44 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 12:14:44 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:44 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 12:14:44 [INFO] 已保存断点：8000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:44 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 12:14:44 [INFO] 已保存断点：8200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:44 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 12:14:44 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:45 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 12:14:45 [INFO] 已保存断点：8600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:45 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 12:14:45 [INFO] 已保存断点：8800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:45 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 12:14:45 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:45 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 12:14:45 [INFO] 已保存断点：9200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:45 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 12:14:45 [INFO] 已保存断点：9400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 12:14:46 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 12:14:46 [INFO] 已保存断点：9800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 12:14:46 [INFO] 已保存断点：10000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 12:14:46 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 12:14:46 [INFO] 已保存断点：10400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:46 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：10600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:47 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:47 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：11000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:47 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：11200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:47 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:47 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 12:14:47 [INFO] 已保存断点：11600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:48 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 12:14:48 [INFO] 已保存断点：11800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:48 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 12:14:48 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:48 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 12:14:48 [INFO] 已保存断点：12200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:48 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 12:14:48 [INFO] 已保存断点：12400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:48 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 12:14:48 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:49 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 12:14:49 [INFO] 已保存断点：12800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:49 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 12:14:49 [INFO] 已保存断点：13000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:49 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 12:14:49 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:49 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 12:14:49 [INFO] 已保存断点：13400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:50 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 12:14:50 [INFO] 已保存断点：13600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:50 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 12:14:50 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:50 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 12:14:50 [INFO] 已保存断点：14000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:50 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 12:14:50 [INFO] 已保存断点：14200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:50 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 12:14:50 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:51 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 12:14:51 [INFO] 已保存断点：14600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:51 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 12:14:51 [INFO] 已保存断点：14800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:51 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 12:14:51 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:51 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 12:14:51 [INFO] 已保存断点：15200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:52 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 12:14:52 [INFO] 已保存断点：15400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:52 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 12:14:52 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:52 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 12:14:52 [INFO] 已保存断点：15800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:52 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 12:14:52 [INFO] 已保存断点：16000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:52 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 12:14:52 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:53 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 12:14:53 [INFO] 已保存断点：16400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:53 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 12:14:53 [INFO] 已保存断点：16600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:53 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 12:14:53 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:53 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 12:14:53 [INFO] 已保存断点：17000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:53 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 12:14:54 [INFO] 已保存断点：17200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:54 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 12:14:54 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:54 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 12:14:54 [INFO] 已保存断点：17600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:54 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 12:14:54 [INFO] 已保存断点：17800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:54 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 12:14:55 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:55 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 12:14:55 [INFO] 已保存断点：18200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:55 [INFO] 已拉取 18400/23906 条学员
+2026-07-27 12:14:55 [INFO] 已保存断点：18400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:55 [INFO] 已拉取 18600/23906 条学员
+2026-07-27 12:14:55 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:55 [INFO] 已拉取 18800/23906 条学员
+2026-07-27 12:14:56 [INFO] 已保存断点：18800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:56 [INFO] 已拉取 19000/23906 条学员
+2026-07-27 12:14:56 [INFO] 已保存断点：19000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:56 [INFO] 已拉取 19200/23906 条学员
+2026-07-27 12:14:56 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:56 [INFO] 已拉取 19400/23906 条学员
+2026-07-27 12:14:56 [INFO] 已保存断点：19400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:56 [INFO] 已拉取 19600/23906 条学员
+2026-07-27 12:14:56 [INFO] 已保存断点：19600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:56 [INFO] 已拉取 19800/23906 条学员
+2026-07-27 12:14:57 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:57 [INFO] 已拉取 20000/23906 条学员
+2026-07-27 12:14:57 [INFO] 已保存断点：20000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:57 [INFO] 已拉取 20200/23906 条学员
+2026-07-27 12:14:57 [INFO] 已保存断点：20200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:57 [INFO] 已拉取 20400/23906 条学员
+2026-07-27 12:14:57 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:57 [INFO] 已拉取 20600/23906 条学员
+2026-07-27 12:14:57 [INFO] 已保存断点：20600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:58 [INFO] 已拉取 20800/23906 条学员
+2026-07-27 12:14:58 [INFO] 已保存断点：20800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:58 [INFO] 已拉取 21000/23906 条学员
+2026-07-27 12:14:58 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:58 [INFO] 已拉取 21200/23906 条学员
+2026-07-27 12:14:58 [INFO] 已保存断点：21200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:58 [INFO] 已拉取 21400/23906 条学员
+2026-07-27 12:14:58 [INFO] 已保存断点：21400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:59 [INFO] 已拉取 21600/23906 条学员
+2026-07-27 12:14:59 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:59 [INFO] 已拉取 21800/23906 条学员
+2026-07-27 12:14:59 [INFO] 已保存断点：21800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:59 [INFO] 已拉取 22000/23906 条学员
+2026-07-27 12:14:59 [INFO] 已保存断点：22000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:59 [INFO] 已拉取 22200/23906 条学员
+2026-07-27 12:14:59 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:14:59 [INFO] 已拉取 22400/23906 条学员
+2026-07-27 12:15:00 [INFO] 已保存断点：22400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:00 [INFO] 已拉取 22600/23906 条学员
+2026-07-27 12:15:00 [INFO] 已保存断点：22600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:00 [INFO] 已拉取 22800/23906 条学员
+2026-07-27 12:15:00 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:00 [INFO] 已拉取 23000/23906 条学员
+2026-07-27 12:15:00 [INFO] 已保存断点：23000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:00 [INFO] 已拉取 23200/23906 条学员
+2026-07-27 12:15:00 [INFO] 已保存断点：23200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:01 [INFO] 已拉取 23400/23906 条学员
+2026-07-27 12:15:01 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:01 [INFO] 已拉取 23600/23906 条学员
+2026-07-27 12:15:01 [INFO] 已保存断点：23600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:01 [INFO] 已拉取 23800/23906 条学员
+2026-07-27 12:15:01 [INFO] 已保存断点：23800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:01 [INFO] 已拉取 23906/23906 条学员
+2026-07-27 12:15:01 [INFO] 已保存断点：23906 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:02 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-27 12:15:02 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_121502.json（9621659 B）
+2026-07-27 12:15:02 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:02 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 12:15:02 [INFO] 校验通过：共 23906 条意向学员
+2026-07-27 12:15:02 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-27 12:15:02 [INFO] === 导出完成 ===
+2026-07-27 12:15:50 [INFO] ============================================================
+2026-07-27 12:15:50 [INFO] 意向学员导出开始
+2026-07-27 12:15:50 [INFO] host=http://localhost, account=15648230994
+2026-07-27 12:15:50 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:15:50 [INFO] ============================================================
+2026-07-27 12:15:50 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 12:15:50 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 12:15:50 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-27 12:15:50 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 12:15:50 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 12:15:50 [INFO] 已拉取 200/23906 条学员
+2026-07-27 12:15:50 [INFO] 已保存断点：200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:50 [INFO] 已拉取 400/23906 条学员
+2026-07-27 12:15:50 [INFO] 已保存断点：400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:50 [INFO] 已拉取 600/23906 条学员
+2026-07-27 12:15:50 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 800/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：1000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：1400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：1600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:51 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 12:15:51 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：2000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：2200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：2600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：2800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:52 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 12:15:52 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：3200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：3400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：3800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：4000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:53 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 12:15:53 [INFO] 已保存断点：4400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：4600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：5000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：5200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：5600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:54 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 12:15:54 [INFO] 已保存断点：5800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:55 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 12:15:55 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:55 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 12:15:55 [INFO] 已保存断点：6200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:55 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 12:15:55 [INFO] 已保存断点：6400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:55 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 12:15:55 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:55 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 12:15:55 [INFO] 已保存断点：6800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：7000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：7400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：7600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:56 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 12:15:56 [INFO] 已保存断点：8000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:57 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 12:15:57 [INFO] 已保存断点：8200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:57 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 12:15:57 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:57 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 12:15:57 [INFO] 已保存断点：8600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:57 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 12:15:57 [INFO] 已保存断点：8800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:57 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 12:15:57 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：9200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：9400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：9800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：10000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:58 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 12:15:58 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 12:15:59 [INFO] 已保存断点：10400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 12:15:59 [INFO] 已保存断点：10600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 12:15:59 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 12:15:59 [INFO] 已保存断点：11000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 12:15:59 [INFO] 已保存断点：11200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:15:59 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:00 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：11600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:00 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：11800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:00 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:00 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：12200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:00 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 12:16:00 [INFO] 已保存断点：12400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:01 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 12:16:01 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:01 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 12:16:01 [INFO] 已保存断点：12800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:01 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 12:16:01 [INFO] 已保存断点：13000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:01 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 12:16:01 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:01 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 12:16:01 [INFO] 已保存断点：13400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：13600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：14000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：14200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:02 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 12:16:02 [INFO] 已保存断点：14600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:03 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 12:16:03 [INFO] 已保存断点：14800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:03 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 12:16:03 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:03 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 12:16:03 [INFO] 已保存断点：15200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:03 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 12:16:03 [INFO] 已保存断点：15400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:03 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 12:16:03 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:04 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 12:16:04 [INFO] 已保存断点：15800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:04 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 12:16:04 [INFO] 已保存断点：16000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:04 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 12:16:04 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:04 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 12:16:04 [INFO] 已保存断点：16400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:04 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 12:16:04 [INFO] 已保存断点：16600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:05 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 12:16:05 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:05 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 12:16:58 [INFO] ============================================================
+2026-07-27 12:16:58 [INFO] 意向学员导出开始
+2026-07-27 12:16:58 [INFO] host=http://localhost, account=15648230994
+2026-07-27 12:16:58 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:16:58 [INFO] ============================================================
+2026-07-27 12:16:58 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 12:16:58 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 12:16:58 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-27 12:16:58 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 12:16:58 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 12:16:58 [INFO] 已拉取 200/23906 条学员
+2026-07-27 12:16:58 [INFO] 已拉取 400/23906 条学员
+2026-07-27 12:16:59 [INFO] 已拉取 600/23906 条学员
+2026-07-27 12:16:59 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:59 [INFO] 已拉取 800/23906 条学员
+2026-07-27 12:16:59 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 12:16:59 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 12:16:59 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:16:59 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 12:17:00 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 12:17:00 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 12:17:00 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:00 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 12:17:00 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 12:17:00 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 12:17:00 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:01 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 12:17:01 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 12:17:01 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 12:17:01 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:01 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 12:17:01 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 12:17:01 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 12:17:01 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:02 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 12:17:02 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 12:17:02 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 12:17:02 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:02 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 12:17:02 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 12:17:02 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 12:17:02 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:03 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 12:17:03 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 12:17:03 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 12:17:03 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:03 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 12:17:03 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 12:17:04 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 12:17:04 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:04 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 12:17:04 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 12:17:04 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 12:17:04 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:04 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 12:17:04 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 12:17:04 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 12:17:04 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:05 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 12:17:05 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 12:17:05 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 12:17:05 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:05 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 12:17:05 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 12:17:05 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 12:17:05 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:06 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 12:17:06 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 12:17:06 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 12:17:06 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:06 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 12:17:06 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 12:17:06 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 12:17:06 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:06 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 12:17:07 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:07 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 12:17:07 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:07 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 12:17:07 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 12:17:08 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:08 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 12:17:08 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 12:17:08 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 12:17:08 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:08 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 12:17:08 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 12:17:08 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 12:17:08 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:08 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 12:17:09 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 12:17:09 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 12:17:09 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:09 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 12:17:09 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 12:17:09 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 12:17:09 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:09 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 12:17:10 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 12:17:10 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 12:17:10 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:10 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 12:17:10 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 12:17:10 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 12:17:10 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:10 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 12:17:11 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 12:17:11 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 12:17:11 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:11 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 12:17:11 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 12:17:11 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 12:17:11 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:11 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 12:17:11 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 12:17:12 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 12:17:12 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:12 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 12:17:12 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 12:17:12 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 12:17:12 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:13 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 12:17:13 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 12:17:13 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 12:17:13 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:13 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 12:17:13 [INFO] 已拉取 18400/23906 条学员
+2026-07-27 12:17:13 [INFO] 已拉取 18600/23906 条学员
+2026-07-27 12:17:13 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:14 [INFO] 已拉取 18800/23906 条学员
+2026-07-27 12:17:14 [INFO] 已拉取 19000/23906 条学员
+2026-07-27 12:17:14 [INFO] 已拉取 19200/23906 条学员
+2026-07-27 12:17:14 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:14 [INFO] 已拉取 19400/23906 条学员
+2026-07-27 12:17:14 [INFO] 已拉取 19600/23906 条学员
+2026-07-27 12:17:15 [INFO] 已拉取 19800/23906 条学员
+2026-07-27 12:17:15 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:15 [INFO] 已拉取 20000/23906 条学员
+2026-07-27 12:17:15 [INFO] 已拉取 20200/23906 条学员
+2026-07-27 12:17:15 [INFO] 已拉取 20400/23906 条学员
+2026-07-27 12:17:15 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:15 [INFO] 已拉取 20600/23906 条学员
+2026-07-27 12:17:16 [INFO] 已拉取 20800/23906 条学员
+2026-07-27 12:17:16 [INFO] 已拉取 21000/23906 条学员
+2026-07-27 12:17:16 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:16 [INFO] 已拉取 21200/23906 条学员
+2026-07-27 12:17:16 [INFO] 已拉取 21400/23906 条学员
+2026-07-27 12:17:16 [INFO] 已拉取 21600/23906 条学员
+2026-07-27 12:17:17 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:17 [INFO] 已拉取 21800/23906 条学员
+2026-07-27 12:17:17 [INFO] 已拉取 22000/23906 条学员
+2026-07-27 12:17:17 [INFO] 已拉取 22200/23906 条学员
+2026-07-27 12:17:17 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:17 [INFO] 已拉取 22400/23906 条学员
+2026-07-27 12:17:17 [INFO] 已拉取 22600/23906 条学员
+2026-07-27 12:17:18 [INFO] 已拉取 22800/23906 条学员
+2026-07-27 12:17:18 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:18 [INFO] 已拉取 23000/23906 条学员
+2026-07-27 12:17:18 [INFO] 已拉取 23200/23906 条学员
+2026-07-27 12:17:18 [INFO] 已拉取 23400/23906 条学员
+2026-07-27 12:17:18 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:18 [INFO] 已拉取 23600/23906 条学员
+2026-07-27 12:17:19 [INFO] 已拉取 23800/23906 条学员
+2026-07-27 12:17:19 [INFO] 已拉取 23906/23906 条学员
+2026-07-27 12:17:19 [INFO] 已保存断点：23906 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:19 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-27 12:17:19 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_121719.json（9621659 B）
+2026-07-27 12:17:19 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:17:19 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 12:17:19 [INFO] 校验通过：共 23906 条意向学员
+2026-07-27 12:17:19 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-27 12:17:19 [INFO] === 导出完成 ===
+2026-07-27 12:22:38 [INFO] ============================================================
+2026-07-27 12:22:38 [INFO] 意向学员导出开始
+2026-07-27 12:22:38 [INFO] host=http://localhost, account=15648230994
+2026-07-27 12:22:38 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:22:38 [INFO] ============================================================
+2026-07-27 12:22:38 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 12:22:38 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 12:22:38 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-27 12:22:38 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 12:22:38 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 12:22:38 [INFO] 已拉取 200/23906 条学员
+2026-07-27 12:22:38 [INFO] 已拉取 400/23906 条学员
+2026-07-27 12:22:38 [INFO] 已拉取 600/23906 条学员
+2026-07-27 12:22:38 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:38 [INFO] 已拉取 800/23906 条学员
+2026-07-27 12:22:38 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 12:22:39 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 12:22:39 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:39 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 12:22:39 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 12:22:39 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 12:22:39 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:39 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 12:22:39 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 12:22:39 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 12:22:39 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:39 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 12:22:40 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:40 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 12:22:40 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:40 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 12:22:40 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 12:22:40 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:41 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 12:22:41 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 12:22:41 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 12:22:41 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:41 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 12:22:41 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 12:22:41 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 12:22:41 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:41 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 12:22:41 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 12:22:42 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 12:22:42 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:42 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 12:22:42 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 12:22:42 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 12:22:42 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:42 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 12:22:42 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 12:22:42 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 12:22:42 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:42 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 12:22:43 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:43 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 12:22:43 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:43 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 12:22:43 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 12:22:43 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:44 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 12:22:44 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 12:22:44 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 12:22:44 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:44 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 12:22:44 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 12:22:44 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 12:22:44 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:44 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 12:22:45 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 12:22:45 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 12:22:45 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:45 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 12:22:45 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 12:22:45 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 12:22:45 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:45 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 12:22:45 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 12:22:46 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 12:22:46 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:46 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 12:22:46 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 12:22:46 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 12:22:46 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:46 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 12:22:46 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 12:22:46 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 12:22:46 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:47 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 12:22:47 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 12:22:47 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 12:22:47 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:47 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 12:22:47 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 12:22:47 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 12:22:47 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:47 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 12:22:48 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 12:22:48 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 12:22:48 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:48 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 12:22:48 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 12:22:48 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 12:22:48 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:48 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 12:22:49 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 12:22:49 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 12:22:49 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:49 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 12:22:49 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 12:22:49 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 12:22:49 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:49 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 12:22:49 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 12:22:50 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 12:22:50 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:50 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 12:22:50 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 12:22:50 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 12:22:50 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:50 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 12:22:50 [INFO] 已拉取 18400/23906 条学员
+2026-07-27 12:22:50 [INFO] 已拉取 18600/23906 条学员
+2026-07-27 12:22:51 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:51 [INFO] 已拉取 18800/23906 条学员
+2026-07-27 12:22:51 [INFO] 已拉取 19000/23906 条学员
+2026-07-27 12:22:51 [INFO] 已拉取 19200/23906 条学员
+2026-07-27 12:22:51 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:51 [INFO] 已拉取 19400/23906 条学员
+2026-07-27 12:22:51 [INFO] 已拉取 19600/23906 条学员
+2026-07-27 12:22:52 [INFO] 已拉取 19800/23906 条学员
+2026-07-27 12:22:52 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:52 [INFO] 已拉取 20000/23906 条学员
+2026-07-27 12:22:52 [INFO] 已拉取 20200/23906 条学员
+2026-07-27 12:22:52 [INFO] 已拉取 20400/23906 条学员
+2026-07-27 12:22:52 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:52 [INFO] 已拉取 20600/23906 条学员
+2026-07-27 12:22:53 [INFO] 已拉取 20800/23906 条学员
+2026-07-27 12:22:53 [INFO] 已拉取 21000/23906 条学员
+2026-07-27 12:22:53 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:53 [INFO] 已拉取 21200/23906 条学员
+2026-07-27 12:22:53 [INFO] 已拉取 21400/23906 条学员
+2026-07-27 12:22:53 [INFO] 已拉取 21600/23906 条学员
+2026-07-27 12:22:53 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:54 [INFO] 已拉取 21800/23906 条学员
+2026-07-27 12:22:54 [INFO] 已拉取 22000/23906 条学员
+2026-07-27 12:22:54 [INFO] 已拉取 22200/23906 条学员
+2026-07-27 12:22:54 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:54 [INFO] 已拉取 22400/23906 条学员
+2026-07-27 12:22:54 [INFO] 已拉取 22600/23906 条学员
+2026-07-27 12:22:54 [INFO] 已拉取 22800/23906 条学员
+2026-07-27 12:22:54 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:54 [INFO] 已拉取 23000/23906 条学员
+2026-07-27 12:22:55 [INFO] 已拉取 23200/23906 条学员
+2026-07-27 12:22:55 [INFO] 已拉取 23400/23906 条学员
+2026-07-27 12:22:55 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:55 [INFO] 已拉取 23600/23906 条学员
+2026-07-27 12:22:55 [INFO] 已拉取 23800/23906 条学员
+2026-07-27 12:22:55 [INFO] 已拉取 23906/23906 条学员
+2026-07-27 12:22:55 [INFO] 已保存断点：23906 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:56 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-27 12:22:56 [INFO] 已写入时间戳快照：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_122256.json（9621659 B）
+2026-07-27 12:22:56 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:22:56 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 12:22:56 [INFO] 校验通过：共 23906 条意向学员
+2026-07-27 12:22:56 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-27 12:22:56 [INFO] === 导出完成 ===
+2026-07-27 12:29:32 [INFO] ============================================================
+2026-07-27 12:29:32 [INFO] 意向学员导出开始
+2026-07-27 12:29:32 [INFO] host=http://localhost, account=15648230994
+2026-07-27 12:29:32 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-27 12:29:32 [INFO] ============================================================
+2026-07-27 12:29:32 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-27 12:29:32 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 12:29:32 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-27 12:29:32 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-27 12:29:32 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-27 12:29:32 [INFO] 已拉取 200/23906 条学员
+2026-07-27 12:29:32 [INFO] 已拉取 400/23906 条学员
+2026-07-27 12:29:32 [INFO] 已拉取 600/23906 条学员
+2026-07-27 12:29:32 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:32 [INFO] 已拉取 800/23906 条学员
+2026-07-27 12:29:32 [INFO] 已拉取 1000/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 1200/23906 条学员
+2026-07-27 12:29:33 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:33 [INFO] 已拉取 1400/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 1600/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 1800/23906 条学员
+2026-07-27 12:29:33 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:33 [INFO] 已拉取 2000/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 2200/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 2400/23906 条学员
+2026-07-27 12:29:33 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:33 [INFO] 已拉取 2600/23906 条学员
+2026-07-27 12:29:33 [INFO] 已拉取 2800/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 3000/23906 条学员
+2026-07-27 12:29:34 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:34 [INFO] 已拉取 3200/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 3400/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 3600/23906 条学员
+2026-07-27 12:29:34 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:34 [INFO] 已拉取 3800/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 4000/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 4200/23906 条学员
+2026-07-27 12:29:34 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:34 [INFO] 已拉取 4400/23906 条学员
+2026-07-27 12:29:34 [INFO] 已拉取 4600/23906 条学员
+2026-07-27 12:29:35 [INFO] 已拉取 4800/23906 条学员
+2026-07-27 12:29:35 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:35 [INFO] 已拉取 5000/23906 条学员
+2026-07-27 12:29:35 [INFO] 已拉取 5200/23906 条学员
+2026-07-27 12:29:35 [INFO] 已拉取 5400/23906 条学员
+2026-07-27 12:29:35 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:35 [INFO] 已拉取 5600/23906 条学员
+2026-07-27 12:29:35 [INFO] 已拉取 5800/23906 条学员
+2026-07-27 12:29:35 [INFO] 已拉取 6000/23906 条学员
+2026-07-27 12:29:35 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:35 [INFO] 已拉取 6200/23906 条学员
+2026-07-27 12:29:36 [INFO] 已拉取 6400/23906 条学员
+2026-07-27 12:29:36 [INFO] 已拉取 6600/23906 条学员
+2026-07-27 12:29:36 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:36 [INFO] 已拉取 6800/23906 条学员
+2026-07-27 12:29:36 [INFO] 已拉取 7000/23906 条学员
+2026-07-27 12:29:36 [INFO] 已拉取 7200/23906 条学员
+2026-07-27 12:29:36 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:36 [INFO] 已拉取 7400/23906 条学员
+2026-07-27 12:29:36 [INFO] 已拉取 7600/23906 条学员
+2026-07-27 12:29:37 [INFO] 已拉取 7800/23906 条学员
+2026-07-27 12:29:37 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:37 [INFO] 已拉取 8000/23906 条学员
+2026-07-27 12:29:37 [INFO] 已拉取 8200/23906 条学员
+2026-07-27 12:29:37 [INFO] 已拉取 8400/23906 条学员
+2026-07-27 12:29:37 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:37 [INFO] 已拉取 8600/23906 条学员
+2026-07-27 12:29:37 [INFO] 已拉取 8800/23906 条学员
+2026-07-27 12:29:37 [INFO] 已拉取 9000/23906 条学员
+2026-07-27 12:29:37 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:37 [INFO] 已拉取 9200/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 9400/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 9600/23906 条学员
+2026-07-27 12:29:38 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:38 [INFO] 已拉取 9800/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 10000/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 10200/23906 条学员
+2026-07-27 12:29:38 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:38 [INFO] 已拉取 10400/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 10600/23906 条学员
+2026-07-27 12:29:38 [INFO] 已拉取 10800/23906 条学员
+2026-07-27 12:29:38 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:39 [INFO] 已拉取 11000/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 11200/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 11400/23906 条学员
+2026-07-27 12:29:39 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:39 [INFO] 已拉取 11600/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 11800/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 12000/23906 条学员
+2026-07-27 12:29:39 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:39 [INFO] 已拉取 12200/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 12400/23906 条学员
+2026-07-27 12:29:39 [INFO] 已拉取 12600/23906 条学员
+2026-07-27 12:29:40 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:40 [INFO] 已拉取 12800/23906 条学员
+2026-07-27 12:29:40 [INFO] 已拉取 13000/23906 条学员
+2026-07-27 12:29:40 [INFO] 已拉取 13200/23906 条学员
+2026-07-27 12:29:40 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:40 [INFO] 已拉取 13400/23906 条学员
+2026-07-27 12:29:40 [INFO] 已拉取 13600/23906 条学员
+2026-07-27 12:29:40 [INFO] 已拉取 13800/23906 条学员
+2026-07-27 12:29:40 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:40 [INFO] 已拉取 14000/23906 条学员
+2026-07-27 12:29:41 [INFO] 已拉取 14200/23906 条学员
+2026-07-27 12:29:41 [INFO] 已拉取 14400/23906 条学员
+2026-07-27 12:29:41 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:41 [INFO] 已拉取 14600/23906 条学员
+2026-07-27 12:29:41 [INFO] 已拉取 14800/23906 条学员
+2026-07-27 12:29:41 [INFO] 已拉取 15000/23906 条学员
+2026-07-27 12:29:41 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:41 [INFO] 已拉取 15200/23906 条学员
+2026-07-27 12:29:41 [INFO] 已拉取 15400/23906 条学员
+2026-07-27 12:29:42 [INFO] 已拉取 15600/23906 条学员
+2026-07-27 12:29:42 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:42 [INFO] 已拉取 15800/23906 条学员
+2026-07-27 12:29:42 [INFO] 已拉取 16000/23906 条学员
+2026-07-27 12:29:42 [INFO] 已拉取 16200/23906 条学员
+2026-07-27 12:29:42 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:42 [INFO] 已拉取 16400/23906 条学员
+2026-07-27 12:29:42 [INFO] 已拉取 16600/23906 条学员
+2026-07-27 12:29:43 [INFO] 已拉取 16800/23906 条学员
+2026-07-27 12:29:43 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:43 [INFO] 已拉取 17000/23906 条学员
+2026-07-27 12:29:43 [INFO] 已拉取 17200/23906 条学员
+2026-07-27 12:29:43 [INFO] 已拉取 17400/23906 条学员
+2026-07-27 12:29:43 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:43 [INFO] 已拉取 17600/23906 条学员
+2026-07-27 12:29:43 [INFO] 已拉取 17800/23906 条学员
+2026-07-27 12:29:43 [INFO] 已拉取 18000/23906 条学员
+2026-07-27 12:29:43 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:43 [INFO] 已拉取 18200/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 18400/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 18600/23906 条学员
+2026-07-27 12:29:44 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:44 [INFO] 已拉取 18800/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 19000/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 19200/23906 条学员
+2026-07-27 12:29:44 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:44 [INFO] 已拉取 19400/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 19600/23906 条学员
+2026-07-27 12:29:44 [INFO] 已拉取 19800/23906 条学员
+2026-07-27 12:29:45 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:45 [INFO] 已拉取 20000/23906 条学员
+2026-07-27 12:29:45 [INFO] 已拉取 20200/23906 条学员
+2026-07-27 12:29:45 [INFO] 已拉取 20400/23906 条学员
+2026-07-27 12:29:45 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:45 [INFO] 已拉取 20600/23906 条学员
+2026-07-27 12:29:45 [INFO] 已拉取 20800/23906 条学员
+2026-07-27 12:29:45 [INFO] 已拉取 21000/23906 条学员
+2026-07-27 12:29:45 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:45 [INFO] 已拉取 21200/23906 条学员
+2026-07-27 12:29:46 [INFO] 已拉取 21400/23906 条学员
+2026-07-27 12:29:46 [INFO] 已拉取 21600/23906 条学员
+2026-07-27 12:29:46 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:46 [INFO] 已拉取 21800/23906 条学员
+2026-07-27 12:29:46 [INFO] 已拉取 22000/23906 条学员
+2026-07-27 12:29:46 [INFO] 已拉取 22200/23906 条学员
+2026-07-27 12:29:46 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:46 [INFO] 已拉取 22400/23906 条学员
+2026-07-27 12:29:46 [INFO] 已拉取 22600/23906 条学员
+2026-07-27 12:29:47 [INFO] 已拉取 22800/23906 条学员
+2026-07-27 12:29:47 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:47 [INFO] 已拉取 23000/23906 条学员
+2026-07-27 12:29:47 [INFO] 已拉取 23200/23906 条学员
+2026-07-27 12:29:47 [INFO] 已拉取 23400/23906 条学员
+2026-07-27 12:29:47 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:47 [INFO] 已拉取 23600/23906 条学员
+2026-07-27 12:29:47 [INFO] 已拉取 23800/23906 条学员
+2026-07-27 12:29:47 [INFO] 已拉取 23906/23906 条学员
+2026-07-27 12:29:47 [INFO] 已保存断点：23906 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:48 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-27 12:29:48 [INFO] 已写入时间戳 CSV 备份：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260727_122948.csv（2.27 MB）
+2026-07-27 12:29:48 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-27 12:29:48 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-27 12:29:48 [INFO] 校验通过：共 23906 条意向学员
+2026-07-27 12:29:48 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-27 12:29:48 [INFO] === 导出完成 ===
+2026-07-29 14:52:16 [INFO] ============================================================
+2026-07-29 14:52:16 [INFO] 意向学员导出开始
+2026-07-29 14:52:16 [INFO] host=http://localhost, account=15648230994
+2026-07-29 14:52:16 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-29 14:52:16 [INFO] ============================================================
+2026-07-29 14:52:16 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-29 14:52:16 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 14:52:16 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-29 14:52:16 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-29 14:52:16 [INFO] 意向学员总数：23906，每页 200 条
+2026-07-29 14:52:17 [INFO] 已拉取 200/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 400/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 600/23906 条学员
+2026-07-29 14:52:17 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:17 [INFO] 已拉取 800/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 1000/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 1200/23906 条学员
+2026-07-29 14:52:17 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:17 [INFO] 已拉取 1400/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 1600/23906 条学员
+2026-07-29 14:52:17 [INFO] 已拉取 1800/23906 条学员
+2026-07-29 14:52:17 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:17 [INFO] 已拉取 2000/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 2200/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 2400/23906 条学员
+2026-07-29 14:52:18 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:18 [INFO] 已拉取 2600/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 2800/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 3000/23906 条学员
+2026-07-29 14:52:18 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:18 [INFO] 已拉取 3200/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 3400/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 3600/23906 条学员
+2026-07-29 14:52:18 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:18 [INFO] 已拉取 3800/23906 条学员
+2026-07-29 14:52:18 [INFO] 已拉取 4000/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 4200/23906 条学员
+2026-07-29 14:52:19 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:19 [INFO] 已拉取 4400/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 4600/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 4800/23906 条学员
+2026-07-29 14:52:19 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:19 [INFO] 已拉取 5000/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 5200/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 5400/23906 条学员
+2026-07-29 14:52:19 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:19 [INFO] 已拉取 5600/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 5800/23906 条学员
+2026-07-29 14:52:19 [INFO] 已拉取 6000/23906 条学员
+2026-07-29 14:52:19 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:19 [INFO] 已拉取 6200/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 6400/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 6600/23906 条学员
+2026-07-29 14:52:20 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:20 [INFO] 已拉取 6800/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 7000/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 7200/23906 条学员
+2026-07-29 14:52:20 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:20 [INFO] 已拉取 7400/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 7600/23906 条学员
+2026-07-29 14:52:20 [INFO] 已拉取 7800/23906 条学员
+2026-07-29 14:52:20 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:20 [INFO] 已拉取 8000/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 8200/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 8400/23906 条学员
+2026-07-29 14:52:21 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:21 [INFO] 已拉取 8600/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 8800/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 9000/23906 条学员
+2026-07-29 14:52:21 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:21 [INFO] 已拉取 9200/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 9400/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 9600/23906 条学员
+2026-07-29 14:52:21 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:21 [INFO] 已拉取 9800/23906 条学员
+2026-07-29 14:52:21 [INFO] 已拉取 10000/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 10200/23906 条学员
+2026-07-29 14:52:22 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:22 [INFO] 已拉取 10400/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 10600/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 10800/23906 条学员
+2026-07-29 14:52:22 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:22 [INFO] 已拉取 11000/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 11200/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 11400/23906 条学员
+2026-07-29 14:52:22 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:22 [INFO] 已拉取 11600/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 11800/23906 条学员
+2026-07-29 14:52:22 [INFO] 已拉取 12000/23906 条学员
+2026-07-29 14:52:22 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:23 [INFO] 已拉取 12200/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 12400/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 12600/23906 条学员
+2026-07-29 14:52:23 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:23 [INFO] 已拉取 12800/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 13000/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 13200/23906 条学员
+2026-07-29 14:52:23 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:23 [INFO] 已拉取 13400/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 13600/23906 条学员
+2026-07-29 14:52:23 [INFO] 已拉取 13800/23906 条学员
+2026-07-29 14:52:23 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:23 [INFO] 已拉取 14000/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 14200/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 14400/23906 条学员
+2026-07-29 14:52:24 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:24 [INFO] 已拉取 14600/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 14800/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 15000/23906 条学员
+2026-07-29 14:52:24 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:24 [INFO] 已拉取 15200/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 15400/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 15600/23906 条学员
+2026-07-29 14:52:24 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:24 [INFO] 已拉取 15800/23906 条学员
+2026-07-29 14:52:24 [INFO] 已拉取 16000/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 16200/23906 条学员
+2026-07-29 14:52:25 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:25 [INFO] 已拉取 16400/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 16600/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 16800/23906 条学员
+2026-07-29 14:52:25 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:25 [INFO] 已拉取 17000/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 17200/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 17400/23906 条学员
+2026-07-29 14:52:25 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:25 [INFO] 已拉取 17600/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 17800/23906 条学员
+2026-07-29 14:52:25 [INFO] 已拉取 18000/23906 条学员
+2026-07-29 14:52:25 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:26 [INFO] 已拉取 18200/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 18400/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 18600/23906 条学员
+2026-07-29 14:52:26 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:26 [INFO] 已拉取 18800/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 19000/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 19200/23906 条学员
+2026-07-29 14:52:26 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:26 [INFO] 已拉取 19400/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 19600/23906 条学员
+2026-07-29 14:52:26 [INFO] 已拉取 19800/23906 条学员
+2026-07-29 14:52:26 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:27 [INFO] 已拉取 20000/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 20200/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 20400/23906 条学员
+2026-07-29 14:52:27 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:27 [INFO] 已拉取 20600/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 20800/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 21000/23906 条学员
+2026-07-29 14:52:27 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:27 [INFO] 已拉取 21200/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 21400/23906 条学员
+2026-07-29 14:52:27 [INFO] 已拉取 21600/23906 条学员
+2026-07-29 14:52:27 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:28 [INFO] 已拉取 21800/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 22000/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 22200/23906 条学员
+2026-07-29 14:52:28 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:28 [INFO] 已拉取 22400/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 22600/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 22800/23906 条学员
+2026-07-29 14:52:28 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:28 [INFO] 已拉取 23000/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 23200/23906 条学员
+2026-07-29 14:52:28 [INFO] 已拉取 23400/23906 条学员
+2026-07-29 14:52:28 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:28 [INFO] 已拉取 23600/23906 条学员
+2026-07-29 14:52:29 [INFO] 已拉取 23800/23906 条学员
+2026-07-29 14:52:29 [INFO] 已拉取 23906/23906 条学员
+2026-07-29 14:52:29 [INFO] 已保存断点：23906 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:29 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.18 MB）
+2026-07-29 14:52:29 [INFO] 已写入时间戳 CSV 备份：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260729_145229.csv（2.27 MB）
+2026-07-29 14:52:29 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 14:52:29 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-29 14:52:29 [INFO] 校验通过：共 23906 条意向学员
+2026-07-29 14:52:29 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-29 14:52:29 [INFO] === 导出完成 ===
+2026-07-29 15:56:40 [INFO] ============================================================
+2026-07-29 15:56:40 [INFO] 意向学员导出开始
+2026-07-29 15:56:40 [INFO] host=http://localhost, account=15648230994
+2026-07-29 15:56:40 [INFO] output=D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json, validate=True, timeout=600s
+2026-07-29 15:56:40 [INFO] ============================================================
+2026-07-29 15:56:40 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-29 15:56:40 [INFO] Prospect 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 15:56:40 [INFO] 拉取方式：分页列表 + 按页批量查询推荐记录（后端暂无 /export 流式接口，已改用批量推荐记录接口，不再逐个学员单独请求）
+2026-07-29 15:56:40 [INFO] 提示：若仍频繁 502，可在 config.json 改用 host=http://localhost:18081 绕过 nginx
+2026-07-29 15:56:40 [INFO] 意向学员总数：23907，每页 200 条
+2026-07-29 15:56:40 [INFO] 已拉取 200/23907 条学员
+2026-07-29 15:56:40 [INFO] 已拉取 400/23907 条学员
+2026-07-29 15:56:40 [INFO] 已拉取 600/23907 条学员
+2026-07-29 15:56:40 [INFO] 已保存断点：600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:40 [INFO] 已拉取 800/23907 条学员
+2026-07-29 15:56:40 [INFO] 已拉取 1000/23907 条学员
+2026-07-29 15:56:41 [INFO] 已拉取 1200/23907 条学员
+2026-07-29 15:56:41 [INFO] 已保存断点：1200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:41 [INFO] 已拉取 1400/23907 条学员
+2026-07-29 15:56:41 [INFO] 已拉取 1600/23907 条学员
+2026-07-29 15:56:41 [INFO] 已拉取 1800/23907 条学员
+2026-07-29 15:56:41 [INFO] 已保存断点：1800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:41 [INFO] 已拉取 2000/23907 条学员
+2026-07-29 15:56:41 [INFO] 已拉取 2200/23907 条学员
+2026-07-29 15:56:41 [INFO] 已拉取 2400/23907 条学员
+2026-07-29 15:56:41 [INFO] 已保存断点：2400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:42 [INFO] 已拉取 2600/23907 条学员
+2026-07-29 15:56:42 [INFO] 已拉取 2800/23907 条学员
+2026-07-29 15:56:42 [INFO] 已拉取 3000/23907 条学员
+2026-07-29 15:56:42 [INFO] 已保存断点：3000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:42 [INFO] 已拉取 3200/23907 条学员
+2026-07-29 15:56:42 [INFO] 已拉取 3400/23907 条学员
+2026-07-29 15:56:42 [INFO] 已拉取 3600/23907 条学员
+2026-07-29 15:56:42 [INFO] 已保存断点：3600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:42 [INFO] 已拉取 3800/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 4000/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 4200/23907 条学员
+2026-07-29 15:56:43 [INFO] 已保存断点：4200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:43 [INFO] 已拉取 4400/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 4600/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 4800/23907 条学员
+2026-07-29 15:56:43 [INFO] 已保存断点：4800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:43 [INFO] 已拉取 5000/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 5200/23907 条学员
+2026-07-29 15:56:43 [INFO] 已拉取 5400/23907 条学员
+2026-07-29 15:56:43 [INFO] 已保存断点：5400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:44 [INFO] 已拉取 5600/23907 条学员
+2026-07-29 15:56:44 [INFO] 已拉取 5800/23907 条学员
+2026-07-29 15:56:44 [INFO] 已拉取 6000/23907 条学员
+2026-07-29 15:56:44 [INFO] 已保存断点：6000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:44 [INFO] 已拉取 6200/23907 条学员
+2026-07-29 15:56:44 [INFO] 已拉取 6400/23907 条学员
+2026-07-29 15:56:44 [INFO] 已拉取 6600/23907 条学员
+2026-07-29 15:56:44 [INFO] 已保存断点：6600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:44 [INFO] 已拉取 6800/23907 条学员
+2026-07-29 15:56:44 [INFO] 已拉取 7000/23907 条学员
+2026-07-29 15:56:45 [INFO] 已拉取 7200/23907 条学员
+2026-07-29 15:56:45 [INFO] 已保存断点：7200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:45 [INFO] 已拉取 7400/23907 条学员
+2026-07-29 15:56:45 [INFO] 已拉取 7600/23907 条学员
+2026-07-29 15:56:45 [INFO] 已拉取 7800/23907 条学员
+2026-07-29 15:56:45 [INFO] 已保存断点：7800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:45 [INFO] 已拉取 8000/23907 条学员
+2026-07-29 15:56:45 [INFO] 已拉取 8200/23907 条学员
+2026-07-29 15:56:45 [INFO] 已拉取 8400/23907 条学员
+2026-07-29 15:56:45 [INFO] 已保存断点：8400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:46 [INFO] 已拉取 8600/23907 条学员
+2026-07-29 15:56:46 [INFO] 已拉取 8800/23907 条学员
+2026-07-29 15:56:46 [INFO] 已拉取 9000/23907 条学员
+2026-07-29 15:56:46 [INFO] 已保存断点：9000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:46 [INFO] 已拉取 9200/23907 条学员
+2026-07-29 15:56:46 [INFO] 已拉取 9400/23907 条学员
+2026-07-29 15:56:46 [INFO] 已拉取 9600/23907 条学员
+2026-07-29 15:56:46 [INFO] 已保存断点：9600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:46 [INFO] 已拉取 9800/23907 条学员
+2026-07-29 15:56:46 [INFO] 已拉取 10000/23907 条学员
+2026-07-29 15:56:47 [INFO] 已拉取 10200/23907 条学员
+2026-07-29 15:56:47 [INFO] 已保存断点：10200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:47 [INFO] 已拉取 10400/23907 条学员
+2026-07-29 15:56:47 [INFO] 已拉取 10600/23907 条学员
+2026-07-29 15:56:47 [INFO] 已拉取 10800/23907 条学员
+2026-07-29 15:56:47 [INFO] 已保存断点：10800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:47 [INFO] 已拉取 11000/23907 条学员
+2026-07-29 15:56:47 [INFO] 已拉取 11200/23907 条学员
+2026-07-29 15:56:47 [INFO] 已拉取 11400/23907 条学员
+2026-07-29 15:56:47 [INFO] 已保存断点：11400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:47 [INFO] 已拉取 11600/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 11800/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 12000/23907 条学员
+2026-07-29 15:56:48 [INFO] 已保存断点：12000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:48 [INFO] 已拉取 12200/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 12400/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 12600/23907 条学员
+2026-07-29 15:56:48 [INFO] 已保存断点：12600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:48 [INFO] 已拉取 12800/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 13000/23907 条学员
+2026-07-29 15:56:48 [INFO] 已拉取 13200/23907 条学员
+2026-07-29 15:56:48 [INFO] 已保存断点：13200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:49 [INFO] 已拉取 13400/23907 条学员
+2026-07-29 15:56:49 [INFO] 已拉取 13600/23907 条学员
+2026-07-29 15:56:49 [INFO] 已拉取 13800/23907 条学员
+2026-07-29 15:56:49 [INFO] 已保存断点：13800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:49 [INFO] 已拉取 14000/23907 条学员
+2026-07-29 15:56:49 [INFO] 已拉取 14200/23907 条学员
+2026-07-29 15:56:49 [INFO] 已拉取 14400/23907 条学员
+2026-07-29 15:56:49 [INFO] 已保存断点：14400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:49 [INFO] 已拉取 14600/23907 条学员
+2026-07-29 15:56:49 [INFO] 已拉取 14800/23907 条学员
+2026-07-29 15:56:50 [INFO] 已拉取 15000/23907 条学员
+2026-07-29 15:56:50 [INFO] 已保存断点：15000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:50 [INFO] 已拉取 15200/23907 条学员
+2026-07-29 15:56:50 [INFO] 已拉取 15400/23907 条学员
+2026-07-29 15:56:50 [INFO] 已拉取 15600/23907 条学员
+2026-07-29 15:56:50 [INFO] 已保存断点：15600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:50 [INFO] 已拉取 15800/23907 条学员
+2026-07-29 15:56:50 [INFO] 已拉取 16000/23907 条学员
+2026-07-29 15:56:50 [INFO] 已拉取 16200/23907 条学员
+2026-07-29 15:56:50 [INFO] 已保存断点：16200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:50 [INFO] 已拉取 16400/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 16600/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 16800/23907 条学员
+2026-07-29 15:56:51 [INFO] 已保存断点：16800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:51 [INFO] 已拉取 17000/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 17200/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 17400/23907 条学员
+2026-07-29 15:56:51 [INFO] 已保存断点：17400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:51 [INFO] 已拉取 17600/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 17800/23907 条学员
+2026-07-29 15:56:51 [INFO] 已拉取 18000/23907 条学员
+2026-07-29 15:56:52 [INFO] 已保存断点：18000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:52 [INFO] 已拉取 18200/23907 条学员
+2026-07-29 15:56:52 [INFO] 已拉取 18400/23907 条学员
+2026-07-29 15:56:52 [INFO] 已拉取 18600/23907 条学员
+2026-07-29 15:56:52 [INFO] 已保存断点：18600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:52 [INFO] 已拉取 18800/23907 条学员
+2026-07-29 15:56:52 [INFO] 已拉取 19000/23907 条学员
+2026-07-29 15:56:52 [INFO] 已拉取 19200/23907 条学员
+2026-07-29 15:56:52 [INFO] 已保存断点：19200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:52 [INFO] 已拉取 19400/23907 条学员
+2026-07-29 15:56:53 [INFO] 已拉取 19600/23907 条学员
+2026-07-29 15:56:53 [INFO] 已拉取 19800/23907 条学员
+2026-07-29 15:56:53 [INFO] 已保存断点：19800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:53 [INFO] 已拉取 20000/23907 条学员
+2026-07-29 15:56:53 [INFO] 已拉取 20200/23907 条学员
+2026-07-29 15:56:53 [INFO] 已拉取 20400/23907 条学员
+2026-07-29 15:56:53 [INFO] 已保存断点：20400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:53 [INFO] 已拉取 20600/23907 条学员
+2026-07-29 15:56:53 [INFO] 已拉取 20800/23907 条学员
+2026-07-29 15:56:54 [INFO] 已拉取 21000/23907 条学员
+2026-07-29 15:56:54 [INFO] 已保存断点：21000 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:54 [INFO] 已拉取 21200/23907 条学员
+2026-07-29 15:56:54 [INFO] 已拉取 21400/23907 条学员
+2026-07-29 15:56:54 [INFO] 已拉取 21600/23907 条学员
+2026-07-29 15:56:54 [INFO] 已保存断点：21600 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:54 [INFO] 已拉取 21800/23907 条学员
+2026-07-29 15:56:54 [INFO] 已拉取 22000/23907 条学员
+2026-07-29 15:56:54 [INFO] 已拉取 22200/23907 条学员
+2026-07-29 15:56:54 [INFO] 已保存断点：22200 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:55 [INFO] 已拉取 22400/23907 条学员
+2026-07-29 15:56:55 [INFO] 已拉取 22600/23907 条学员
+2026-07-29 15:56:55 [INFO] 已拉取 22800/23907 条学员
+2026-07-29 15:56:55 [INFO] 已保存断点：22800 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:55 [INFO] 已拉取 23000/23907 条学员
+2026-07-29 15:56:55 [INFO] 已拉取 23200/23907 条学员
+2026-07-29 15:56:55 [INFO] 已拉取 23400/23907 条学员
+2026-07-29 15:56:55 [INFO] 已保存断点：23400 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:55 [INFO] 已拉取 23600/23907 条学员
+2026-07-29 15:56:56 [INFO] 已拉取 23800/23907 条学员
+2026-07-29 15:56:56 [INFO] 已拉取 23907/23907 条学员
+2026-07-29 15:56:56 [INFO] 已保存断点：23907 条 -> D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:56 [INFO] 已写入主文件：D:\git\mygit\manjike-tools\prospect\意向学员数据导出.json（9.22 MB）
+2026-07-29 15:56:56 [INFO] 已写入时间戳 CSV 备份：D:\git\mygit\manjike-tools\prospect\logs\意向学员数据导出_20260729_155656.csv（2.29 MB）
+2026-07-29 15:56:56 [INFO] 已清除断点文件：D:\git\mygit\manjike-tools\prospect\logs\export_prospect.checkpoint.json
+2026-07-29 15:56:56 [INFO] 校验 JSON 结构（大文件可能需数十秒）...
+2026-07-29 15:56:56 [INFO] 校验通过：共 23907 条意向学员
+2026-07-29 15:56:56 [INFO] 首条字段示例：['意向学员微信号', '意向学员微信原始ID', '是否报名', '来源']
+2026-07-29 15:56:56 [INFO] === 导出完成 ===

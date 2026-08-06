@@ -1,6 +1,10 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-全量覆盖同步：意向学员 JSON -> 飞书多维表格
+"""全量覆盖同步：意向学员 JSON -> 飞书多维表格。
+
+【脚本功能说明】
+从本地 JSON 或 Prospect 后端拉取全量意向学员，拆平「学员 + 来源」后
+清空飞书多维表格内已有记录并重新全量导入，实现意向学员数据与飞书表同步。
 
 执行方式：清空表内记录 + 重新全量导入
 注意：只清空“记录内容”，不会删除数据表本身，也不会动表结构、字段、视图。
@@ -54,6 +58,8 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import requests
+
+from prospect_csv_backup import get_source_field, get_student_sources, SOURCE_FIELD_ALIASES  # noqa: E402
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 基础配置
@@ -129,7 +135,7 @@ DEFAULT_SYNC_CONFIG: Dict[str, Any] = {
     },
     "数据源": {
         "mode": "local_json",
-        "local_json_file": "意向学员数据导出.json",
+        "local_json_file": "意向通讯录.json",
         "manjike_config_file": "export_prospect.config.json",
         "auto_export_before_sync": False,
         "manjike": {
@@ -397,46 +403,52 @@ def load_students_from_local_json(path: Path) -> list:
 
 
 def load_students_from_manjike(manji_cfg: dict) -> list:
-    """登录 manjike 并调用 GET /api/prospect/prospective-students/export。"""
+    """登录 Prospect 并调用 GET /api/prospect/prospective-students/export。"""
     host = _normalize_manjike_host(str(manji_cfg.get("host", "")))
     account = str(manji_cfg.get("account", "")).strip()
     password = str(manji_cfg.get("password", "")).strip()
     timeout = int(manji_cfg.get("timeout_seconds", 600))
     if not host or not account or not password:
-        raise RuntimeError("manjike 配置缺少 host / account / password")
+        raise RuntimeError("Prospect 配置缺少 host / account / password")
 
-    log(f"登录 manjike：{host}")
-    login_url = f"{host}/api/auth/login"
+    if ":8080" in host and "18081" not in host:
+        raise RuntimeError(
+            "host={} 指向主系统 backend，Prospect 导出请用 http://localhost".format(host))
+
+    log("登录 Prospect：{}".format(host))
+    login_url = "{}/api/prospect/auth/login".format(host)
     resp = requests.post(
         login_url,
-        json={"code": account, "username": account, "password": password},
+        json={"username": account, "password": password},
         timeout=60,
     )
     if resp.status_code != 200:
-        raise RuntimeError(f"manjike 登录失败：HTTP {resp.status_code} -> {resp.text[:300]}")
+        raise RuntimeError("Prospect 登录失败：HTTP {} -> {}".format(
+            resp.status_code, resp.text[:300]))
     body = resp.json()
     if body.get("code") != 0:
-        raise RuntimeError(f"manjike 登录失败：{body}")
+        raise RuntimeError("Prospect 登录失败：{}".format(body))
     token = (body.get("data") or {}).get("token") or (body.get("data") or {}).get("access_token")
     if not token:
-        raise RuntimeError("manjike 登录响应无 token")
+        raise RuntimeError("Prospect 登录响应无 token")
 
-    export_url = f"{host}/api/prospect/prospective-students/export"
-    log(f"调用 manjike 导出接口：{export_url}")
+    export_url = "{}/api/prospect/prospective-students/export".format(host)
+    log("调用 Prospect 导出接口：{}".format(export_url))
     resp = requests.get(
         export_url,
         headers={"Authorization": f"Bearer {token}"},
         timeout=timeout,
     )
     if resp.status_code != 200:
-        raise RuntimeError(f"manjike 导出失败：HTTP {resp.status_code} -> {resp.text[:300]}")
+        raise RuntimeError("Prospect 导出失败：HTTP {} -> {}".format(
+            resp.status_code, resp.text[:300]))
     try:
         data = resp.json()
     except ValueError:
-        raise RuntimeError("manjike 导出响应不是合法 JSON")
+        raise RuntimeError("Prospect 导出响应不是合法 JSON")
     if not isinstance(data, list):
-        raise RuntimeError(f"manjike 导出顶层应为数组，实际为 {type(data).__name__}")
-    log(f"manjike 导出学员数：{len(data)}")
+        raise RuntimeError("Prospect 导出顶层应为数组，实际为 {}".format(type(data).__name__))
+    log("Prospect 导出学员数：{}".format(len(data)))
     return data
 
 
@@ -762,7 +774,7 @@ def transform_records(
             skipped_no_id += 1
             continue
 
-        sources = stu.get("来源") or []
+        sources = get_student_sources(stu)
         if not sources:
             out.append({"fields": dict(student_fields)})
             continue
@@ -772,7 +784,12 @@ def transform_records(
                 sample_sources.append(src)
             row = dict(student_fields)
             for feishu_name, export_key, type_hint in source_field_defs:
-                ok, val = _convert(feishu_name, src.get(export_key), type_hint)
+                raw_value = (
+                    get_source_field(src, export_key)
+                    if export_key in SOURCE_FIELD_ALIASES
+                    else src.get(export_key)
+                )
+                ok, val = _convert(feishu_name, raw_value, type_hint)
                 if ok:
                     row[feishu_name] = val
                     nonempty_count[feishu_name] = nonempty_count.get(feishu_name, 0) + 1
@@ -811,41 +828,36 @@ def backup_sync_payload(
     dry_run: bool,
 ) -> Optional[Path]:
     """
-    把本次同步的关键信息备份成一个 JSON 文件，便于事后排查。
+    把本次同步的关键信息备份为 CSV 文件，便于 Excel 打开与事后排查。
 
-    文件位置：脚本同目录下的 backups/ 子目录
-    文件名  ：同步意向学员到飞书_YYYYMMDD_HHMMSS.json
-
-    备份内容：
-      - meta      ：执行时间、是否 DRY_RUN、学员数 / 展平后记录数、所用字段映射
-      - students  ：原始意向学员 JSON（保留来源细节，便于回溯）
-      - records   ：本次准备写入飞书的展平记录（与实际写入飞书的数据一致）
+    文件位置：logs/ 目录
+    文件名  ：
+      - 同步意向学员到飞书_YYYYMMDD_HHMMSS.csv（学员 + 来源扁平化，与导出备份列一致）
+      - 同步意向学员到飞书_YYYYMMDD_HHMMSS_飞书记录.csv（准备写入飞书的展平记录）
 
     备份失败不会抛异常，只打印一条警告日志，避免影响主同步流程。
     """
     try:
+        from prospect_csv_backup import write_records_csv_backup, write_student_csv_backup
+
         SYNC_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_path = SYNC_BACKUP_DIR / f"{SYNC_BACKUP_FILENAME_PREFIX}_{ts}.json"
+        students_backup_path = SYNC_BACKUP_DIR / f"{SYNC_BACKUP_FILENAME_PREFIX}_{ts}.csv"
+        feishu_backup_path = SYNC_BACKUP_DIR / f"{SYNC_BACKUP_FILENAME_PREFIX}_{ts}_飞书记录.csv"
 
-        payload = {
-            "meta": {
-                "exported_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "dry_run": bool(dry_run),
-                "students_count": len(students or []),
-                "records_count": len(new_records or []),
-                "field_mapping": mapping,
-            },
-            "students": students or [],
-            "records": new_records or [],
-        }
+        write_student_csv_backup(students_backup_path, students or [])
+        write_records_csv_backup(feishu_backup_path, new_records or [])
 
-        backup_path.write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2),
-            encoding="utf-8",
+        log(
+            "本次同步数据已备份：{}（学员 {} 条） / {}（飞书记录 {} 条） dry_run={}".format(
+                students_backup_path,
+                len(students or []),
+                feishu_backup_path,
+                len(new_records or []),
+                bool(dry_run),
+            )
         )
-        log(f"本次同步数据已备份：{backup_path}")
-        return backup_path
+        return students_backup_path
     except Exception as exc:
         log(f"⚠ 备份本次同步数据失败（不影响主流程）：{exc}")
         return None

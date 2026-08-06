@@ -1,12 +1,12 @@
 {
-  "host": "http://localhost:8080",
-  "account": "admin",
-  "password": "admin123",
+  "_comment": "默认上传到 Prospect 意向通讯录「用户管理」（USERS_IMPORT）。host/account/password 留空时读 ../config.json 的 prospect 段。不要写 localhost:8080。",
+  "target": "prospect",
+  "host": "",
+  "account": "",
+  "password": "",
   "file": "./feishu-users.json",
-  "dry_run": false,
-  "no_create_missing": false,
-  "allow_clear": false,
-  "max_wait": 600,
-  "poll_interval": 1,
+  "mode": "USER_INCREMENTAL",
+  "max_wait": 3600,
+  "poll_interval": 2,
   "log_file": "./upload-users.log"
 }

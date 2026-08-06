@@ -11,7 +11,7 @@
   "数据源": {
     "_说明": "mode: local_json | manjike。local_json_file 可与 export_prospect.config.json 的 json_filename 一致；manjike 账号缺省从 export 的「服务端」补齐。",
     "mode": "local_json",
-    "local_json_file": "意向学员数据导出.json",
+    "local_json_file": "意向通讯录.json",
     "manjike_config_file": "export_prospect.config.json",
     "auto_export_before_sync": false,
     "manjike": {

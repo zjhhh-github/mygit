@@ -1,18 +1,23 @@
 {
-  "_说明": "配置 export_prospect_students.py。输出规则与 xlsx_to_prospect_json.py 一致：主文件 + logs 下时间戳快照。",
+  "_说明": "意向学员导出。host/account/password 留空时从 ../config.json 的 prospect 段读取。后端暂无 /export 接口，脚本分页拉取列表，并按页批量查询推荐记录（不再逐个学员单独查询）。",
   "服务端": {
-    "host": "https://dev.manjikeabc.com",
-    "account": "admin",
-    "password": "admin123"
+    "host": "",
+    "account": "",
+    "password": ""
   },
   "导出": {
-    "_说明": "output_dir 相对脚本目录。json_filename 为固定主文件；save_timestamped_copy 为 true 时在 logs 再留一份 意向学员数据导出_YYYYMMDD_HHMMSS.json。",
     "output_dir": ".",
     "json_filename": "意向学员数据导出.json",
     "save_timestamped_copy": true,
-    "timestamped_filename_template": "logs/意向学员数据导出_{timestamp}.json",
+    "timestamped_filename_template": "logs/意向学员数据导出_{timestamp}.csv",
     "validate_json": true,
-    "timeout_seconds": 600
+    "timeout_seconds": 600,
+    "page_size": 200,
+    "request_delay_ms": 20,
+    "retry_max": 8,
+    "retry_backoff_seconds": 3,
+    "checkpoint_interval": 500,
+    "checkpoint_file": "logs/export_prospect.checkpoint.json"
   },
   "日志": {
     "log_file": "logs/export_prospect.log"

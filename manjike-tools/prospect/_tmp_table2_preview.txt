@@ -1,0 +1,14 @@
+﻿============================================================
+飞书多维表格读取工具
+  app_id     : cli_a96f36ed1538dbcf
+  app_token  : Zk05bwki2abD8XsBBOccaFsPn8e
+  table_id   : tblzUayWLgynug56
+  page_size  : 100
+  fields     : ['编号', '意向通讯录密码', '密码', '合伙宝妈总微信号', '孩子中文全名', '合伙宝妈微信原始ID']
+  flatten    : False
+  output     : (不输出文件)
+============================================================
+[1/2] 获取 tenant_access_token ...
+      ok, token=***TVHDYK
+[2/2] 分页拉取记录 ...
+[error] 拉取记录失败：code=1254045, msg=FieldNameNotFound, raw={'code': 1254045, 'msg': 'FieldNameNotFound', 'error': {'message': "Invalid request parameter: 'fieldName.编号'. Correct format : field name not found. Please check and modify accordingly.", 'log_id': '2026080420242348E629395AB9F050F4F6', 'troubleshooter': '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=2026080420242348E629395AB9F050F4F6&code=1254045&method_id=6965347212289540098'}}

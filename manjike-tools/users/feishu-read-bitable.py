@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 """飞书多维表格读取工具（外部独立脚本）。
 
+【脚本功能说明】
+通过飞书自建应用凭据调用 OpenAPI，分页拉取指定多维表格数据表的全部记录，
+保存为本地 JSON 文件，供 sync_feishu_to_manjike.py 或 upload-users.py 后续消费。
+
 通过飞书「自建应用」凭据（app_id / app_secret），调用开放平台 OpenAPI，
 读取指定「多维表格 (Bitable)」中指定「数据表 (Table)」的全部记录，
 分页拉取后保存到本地 JSON 文件，便于后续与 manjike 后端做同步 / 比对。
@@ -169,12 +173,14 @@ def list_bitable_records(
     page_size: int = 100,
     max_retry: int = 3,
     field_names: Optional[List[str]] = None,
+    max_pages: Optional[int] = None,
 ) -> List[Dict[str, Any]]:
     """分页拉取一张数据表的全部记录。
 
     文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/list
 
     返回值：原样保留飞书返回的每条记录（含 record_id / fields 等字段）。
+    max_pages：最多拉取页数；调试列名时传 1，避免 page_size=1 时误拉全表。
     """
     base_url = FEISHU_HOST + URL_LIST_RECORDS_TPL.format(
         app_token=app_token, table_id=table_id
@@ -226,6 +232,8 @@ def list_bitable_records(
             f"  - 第 {page_index} 页：本页 {len(items)} 条，累计 {len(all_records)} 条，"
             f"has_more={has_more}"
         )
+        if max_pages is not None and page_index >= max_pages:
+            break
         if not has_more or not page_token:
             break
 
@@ -267,6 +275,8 @@ def build_args_parser() -> argparse.ArgumentParser:
                    help="只读取这些列，用英文逗号分隔，例如：编号,孩子中文全名,密码")
     p.add_argument("--no-flatten", action="store_true",
                    help="不拍平多行文本字段（默认会把 [{text,type}] 数组拼成字符串）")
+    p.add_argument("--list-field-names", action="store_true",
+                   help="只拉取 1 条记录并打印飞书返回的列名（不输出文件，不打印字段值）")
     return p
 
 
@@ -319,16 +329,39 @@ def render_template(template: str, fields: Dict[str, Any]) -> str:
     return template.format_map(safe)
 
 
+def resolve_source_value(
+    flat_fields: Dict[str, Any],
+    source_spec: Any,
+) -> Any:
+    """从拍平后的 fields 中按源列名取值。
+
+    source_spec 可以是：
+    - 字符串：单个飞书列名
+    - 字符串列表：按顺序尝试，取第一个「存在且非 None」的值（兼容列改名）
+    """
+    if isinstance(source_spec, list):
+        for key in source_spec:
+            if not isinstance(key, str):
+                continue
+            if key in flat_fields and flat_fields[key] is not None:
+                return flat_fields[key]
+        return None
+    if isinstance(source_spec, str):
+        return flat_fields.get(source_spec)
+    return None
+
+
 def map_records_to_shape(
     records: List[Dict[str, Any]],
-    output_mapping: Dict[str, str],
+    output_mapping: Dict[str, Any],
     output_constants: Optional[Dict[str, Any]] = None,
     output_templates: Optional[Dict[str, str]] = None,
 ) -> List[Dict[str, Any]]:
     """按 output_mapping / output_templates / output_constants 把记录转换为扁平结构。
 
     - output_mapping  : 目标字段名 -> 源 fields 字段名（一对一改名）
-        例如：{"账号": "编号", "微信号": "合伙宝妈总微信号"}
+        源字段名可以是字符串，也可以是字符串数组（按顺序回退，兼容列改名）。
+        例如：{"账号": "编号", "密码": ["意向通讯录密码", "密码"]}
     - output_templates: 目标字段名 -> 字符串模板，模板里用 {源字段名} 引用原列
         例如：{"内部备注": "¿¿¿{编号}-{孩子中文全名}"}
     - output_constants: 目标字段名 -> 固定值（每条都一样）
@@ -349,7 +382,7 @@ def map_records_to_shape(
 
         item: Dict[str, Any] = {}
         for target_key, source_key in output_mapping.items():
-            item[target_key] = flat_fields.get(source_key)
+            item[target_key] = resolve_source_value(flat_fields, source_key)
         for target_key, tpl in templates.items():
             item[target_key] = render_template(tpl, flat_fields)
         for k, v in constants.items():
@@ -432,12 +465,31 @@ def main() -> int:
     print(f"      ok, token=***{token[-6:]}")
 
     print("[2/2] 分页拉取记录 ...")
+    # 列名调试模式：不过滤列，只拉第一页，避免误拉全表
+    fetch_field_names = None if cli.list_field_names else cfg["fields"]
+    fetch_page_size = 100 if cli.list_field_names else page_size
+    fetch_max_pages = 1 if cli.list_field_names else None
     records = list_bitable_records(
         token, app_token, table_id,
-        page_size=page_size,
-        field_names=cfg["fields"],
+        page_size=fetch_page_size,
+        field_names=fetch_field_names,
+        max_pages=fetch_max_pages,
     )
     print(f"      总计拉取 {len(records)} 条记录")
+
+    # 调试：仅打印列名，便于核对 fields / output_mapping 是否与飞书一致
+    if cli.list_field_names:
+        if not records:
+            print("[list-field-names] 无记录")
+            return 0
+        sample = records[0].get("fields") or {}
+        print("\n--- 飞书返回的列名（第 1 条，不含值） ---")
+        for name in sample.keys():
+            marker = ""
+            if "密码" in name or "pass" in name.lower():
+                marker = "  <-- 含「密码」"
+            print(f"  - {name}{marker}")
+        return 0
 
     if cfg["flatten"]:
         records = flatten_record_fields(records)

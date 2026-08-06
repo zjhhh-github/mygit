@@ -127,3 +127,269 @@
 2026-06-10 15:18:10 [INFO]   - 批次 1/1：size=9755 status=success inserted=0 updated=0 skipped=0 taskId=5d958e86-e8fa-4cf4-9a50-67eabd77b977
 2026-06-10 15:18:10 [INFO] ============================================================
 2026-06-10 15:18:10 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 10:43:56 [INFO] ============================================================
+2026-07-26 10:43:56 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:43:56 [INFO] host=http://localhost:8080, account=admin
+2026-07-26 10:43:56 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=True
+2026-07-26 10:43:56 [INFO] ============================================================
+2026-07-26 10:43:56 [INFO] dry-run 模式：跳过登录 / 上传 / 轮询
+2026-07-26 10:43:56 [INFO] 前 3 条示例：[{"内部备注": "!!!000025-杨晓玥", "微信原始ID": "yangzhaofei1114", "微信号": "tj89art", "总微信号": "tj89art"}, {"内部备注": "!!!000031-吕泽", "微信原始ID": "daling915", "微信号": "", "总微信号": "daling915"}, {"内部备注": "!!!000082-陈琛", "微信原始ID": "AOXUE_001", "微信号": "", "总微信号": "AOXUE_001"}]
+2026-07-26 10:44:45 [INFO] ============================================================
+2026-07-26 10:44:45 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:44:45 [INFO] host=http://localhost:8080, account=admin
+2026-07-26 10:44:45 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=True
+2026-07-26 10:44:45 [INFO] ============================================================
+2026-07-26 10:44:45 [INFO] dry-run 模式：跳过登录 / 上传 / 轮询
+2026-07-26 10:44:45 [INFO] 前 3 条示例：[{"内部备注": "!!!000025-杨晓玥", "微信原始ID": "yangzhaofei1114", "微信号": "tj89art", "总微信号": "tj89art"}, {"内部备注": "!!!000031-吕泽", "微信原始ID": "daling915", "微信号": "", "总微信号": "daling915"}, {"内部备注": "!!!000082-陈琛", "微信原始ID": "AOXUE_001", "微信号": "", "总微信号": "AOXUE_001"}]
+2026-07-26 10:45:11 [INFO] ============================================================
+2026-07-26 10:45:11 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:45:11 [INFO] host=http://localhost:8080, account=admin
+2026-07-26 10:45:11 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 10:45:11 [INFO] ============================================================
+2026-07-26 10:45:11 [INFO] 登录目标后端：http://localhost:8080
+2026-07-26 10:45:11 [INFO] 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 10:45:11 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 10:45:11 [ERROR] [批次 1/1] 上传失败：HTTP 200 / body={"code": 403, "message": "意向通讯录功能已下线", "data": null}
+2026-07-26 10:45:11 [INFO] [批次 1/1] 完成 status=FAILED inserted=0 updated=0 skipped=0 failed=0 taskId=None
+2026-07-26 10:45:11 [INFO] ============================================================
+2026-07-26 10:45:11 [INFO] 全部完成：耗时 0.2s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-07-26 10:45:11 [INFO]   - 批次 1/1：size=11469 status=FAILED inserted=0 updated=0 skipped=0 taskId=None
+2026-07-26 10:45:11 [INFO] ============================================================
+2026-07-26 10:45:11 [INFO] 已保存跳过/失败明细：D:\git\mygit\manjike-tools\internal\logs\upload_internal_skipped_20260726_104511.json（1 条）
+2026-07-26 10:45:11 [WARN] === 部分批次未成功，详见 D:\git\mygit\manjike-tools\internal\logs\upload_internal.log ===
+2026-07-26 10:48:18 [INFO] ============================================================
+2026-07-26 10:48:18 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:48:18 [INFO] host=http://localhost, account=15648230994
+2026-07-26 10:48:18 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 10:48:18 [INFO] ============================================================
+2026-07-26 10:48:18 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 10:48:19 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 10:48:19 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 10:48:19 [ERROR] [批次 1/1] 上传失败：HTTP 400 / body={"code": 1001, "message": "type 只能是 STUDENTS_IMPORT、INTERNAL_IMPORT 或 USERS_IMPORT", "data": null}
+2026-07-26 10:48:19 [INFO] [批次 1/1] 完成 status=FAILED inserted=0 updated=0 skipped=0 failed=0 taskId=None
+2026-07-26 10:48:19 [INFO] ============================================================
+2026-07-26 10:48:19 [INFO] 全部完成：耗时 0.3s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-07-26 10:48:19 [INFO]   - 批次 1/1：size=11469 status=FAILED inserted=0 updated=0 skipped=0 taskId=None
+2026-07-26 10:48:19 [INFO] ============================================================
+2026-07-26 10:48:19 [INFO] 已保存跳过/失败明细：D:\git\mygit\manjike-tools\internal\logs\upload_internal_skipped_20260726_104819.json（1 条）
+2026-07-26 10:48:19 [WARN] === 部分批次未成功，详见 D:\git\mygit\manjike-tools\internal\logs\upload_internal.log ===
+2026-07-26 10:49:57 [INFO] ============================================================
+2026-07-26 10:49:57 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:49:57 [INFO] host=http://localhost, account=15648230994
+2026-07-26 10:49:57 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 10:49:57 [INFO] ============================================================
+2026-07-26 10:49:57 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 10:49:57 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 10:49:57 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 10:49:57 [ERROR] [批次 1/1] 上传失败：HTTP 400 / body={"code": 1001, "message": "type 只能是 STUDENTS_IMPORT、INTERNAL_IMPORT 或 USERS_IMPORT", "data": null}
+2026-07-26 10:49:57 [INFO] [批次 1/1] 完成 status=FAILED inserted=0 updated=0 skipped=0 failed=0 taskId=None
+2026-07-26 10:49:57 [INFO] ============================================================
+2026-07-26 10:49:57 [INFO] 全部完成：耗时 0.2s，批次=1/1，累计 inserted=0 updated=0 skipped=0 failed=0
+2026-07-26 10:49:57 [INFO]   - 批次 1/1：size=11469 status=FAILED inserted=0 updated=0 skipped=0 taskId=None
+2026-07-26 10:49:57 [INFO] ============================================================
+2026-07-26 10:49:57 [INFO] 已保存跳过/失败明细：D:\git\mygit\manjike-tools\internal\logs\upload_internal_skipped_20260726_104957.json（1 条）
+2026-07-26 10:49:57 [WARN] === 部分批次未成功，详见 D:\git\mygit\manjike-tools\internal\logs\upload_internal.log ===
+2026-07-26 10:58:00 [INFO] ============================================================
+2026-07-26 10:58:00 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 10:58:00 [INFO] host=http://localhost, account=15648230994
+2026-07-26 10:58:00 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 10:58:00 [INFO] ============================================================
+2026-07-26 10:58:00 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 10:58:00 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 10:58:00 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 11:01:02 [INFO] ============================================================
+2026-07-26 11:01:02 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 11:01:02 [INFO] host=http://localhost, account=15648230994
+2026-07-26 11:01:02 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 11:01:02 [INFO] ============================================================
+2026-07-26 11:01:02 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 11:01:02 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 11:01:02 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 11:01:02 [INFO] [批次 1/1] taskId = 9ad1068d-48c0-4803-9857-09cb8b047359
+2026-07-26 11:01:02 [INFO] [批次 1/1] 轮询进度：taskId=9ad1068d-48c0-4803-9857-09cb8b047359（最长 3600s）
+2026-07-26 11:01:02 [INFO] [批次 1/1] 进度：status=RUNNING processed=0/11469 ok=0 error=0 msg=
+2026-07-26 11:01:05 [INFO] [批次 1/1] 进度：status=RUNNING processed=700/11469 ok=700 error=0 msg=
+2026-07-26 11:01:07 [INFO] [批次 1/1] 进度：status=RUNNING processed=1700/11469 ok=1700 error=0 msg=
+2026-07-26 11:01:09 [INFO] [批次 1/1] 进度：status=RUNNING processed=2500/11469 ok=2500 error=0 msg=
+2026-07-26 11:01:11 [INFO] [批次 1/1] 进度：status=RUNNING processed=3300/11469 ok=3300 error=0 msg=
+2026-07-26 11:01:13 [INFO] [批次 1/1] 进度：status=RUNNING processed=4100/11469 ok=4100 error=0 msg=
+2026-07-26 11:01:15 [INFO] [批次 1/1] 进度：status=RUNNING processed=4900/11469 ok=4900 error=0 msg=
+2026-07-26 11:01:17 [INFO] [批次 1/1] 进度：status=RUNNING processed=5900/11469 ok=5900 error=0 msg=
+2026-07-26 11:01:19 [INFO] [批次 1/1] 进度：status=RUNNING processed=6700/11469 ok=6700 error=0 msg=
+2026-07-26 11:01:21 [INFO] [批次 1/1] 进度：status=RUNNING processed=7500/11469 ok=7500 error=0 msg=
+2026-07-26 11:01:23 [INFO] [批次 1/1] 进度：status=RUNNING processed=8300/11469 ok=8300 error=0 msg=
+2026-07-26 11:01:25 [INFO] [批次 1/1] 进度：status=RUNNING processed=9100/11469 ok=9100 error=0 msg=
+2026-07-26 11:01:27 [INFO] [批次 1/1] 进度：status=RUNNING processed=10100/11469 ok=10100 error=0 msg=
+2026-07-26 11:01:29 [INFO] [批次 1/1] 进度：status=RUNNING processed=10900/11469 ok=10900 error=0 msg=
+2026-07-26 11:01:31 [INFO] [批次 1/1] 进度：status=SUCCESS processed=11469/11469 ok=11469 error=0 inserted=11469 updated=0 skipped=0 msg=
+2026-07-26 11:01:31 [INFO] [批次 1/1] 完成 status=SUCCESS inserted=11469 updated=0 skipped=0 failed=0 taskId=9ad1068d-48c0-4803-9857-09cb8b047359
+2026-07-26 11:01:31 [INFO] ============================================================
+2026-07-26 11:01:31 [INFO] 全部完成：耗时 28.8s，批次=1/1，累计 inserted=11469 updated=0 skipped=0 failed=0
+2026-07-26 11:01:31 [INFO]   - 批次 1/1：size=11469 status=SUCCESS inserted=11469 updated=0 skipped=0 taskId=9ad1068d-48c0-4803-9857-09cb8b047359
+2026-07-26 11:01:31 [INFO] ============================================================
+2026-07-26 11:01:31 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 11:01:38 [INFO] ============================================================
+2026-07-26 11:01:38 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 11:01:38 [INFO] host=http://localhost, account=15648230994
+2026-07-26 11:01:38 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 11:01:38 [INFO] ============================================================
+2026-07-26 11:01:38 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 11:01:38 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 11:01:38 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 11:01:38 [INFO] [批次 1/1] taskId = ede95650-83b0-4554-890c-09e33e715645
+2026-07-26 11:01:38 [INFO] [批次 1/1] 轮询进度：taskId=ede95650-83b0-4554-890c-09e33e715645（最长 3600s）
+2026-07-26 11:01:38 [INFO] [批次 1/1] 进度：status=RUNNING processed=0/11469 ok=0 error=0 msg=
+2026-07-26 11:01:40 [INFO] [批次 1/1] 进度：status=SUCCESS processed=11469/11469 ok=11469 error=0 inserted=0 updated=0 skipped=11469 msg=
+2026-07-26 11:01:40 [INFO] [批次 1/1] 完成 status=SUCCESS inserted=0 updated=0 skipped=11469 failed=0 taskId=ede95650-83b0-4554-890c-09e33e715645
+2026-07-26 11:01:40 [INFO] ============================================================
+2026-07-26 11:01:40 [INFO] 全部完成：耗时 2.2s，批次=1/1，累计 inserted=0 updated=0 skipped=11469 failed=0
+2026-07-26 11:01:40 [INFO]   - 批次 1/1：size=11469 status=SUCCESS inserted=0 updated=0 skipped=11469 taskId=ede95650-83b0-4554-890c-09e33e715645
+2026-07-26 11:01:40 [INFO] ============================================================
+2026-07-26 11:01:40 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 11:04:22 [INFO] ============================================================
+2026-07-26 11:04:22 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 11:04:22 [INFO] host=http://localhost, account=15648230994
+2026-07-26 11:04:22 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 11:04:22 [INFO] ============================================================
+2026-07-26 11:04:22 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 11:04:22 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 11:04:22 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 11:04:23 [INFO] [批次 1/1] taskId = 18b68983-0f77-44d1-a9bf-74c4bc264859
+2026-07-26 11:04:23 [INFO] [批次 1/1] 轮询进度：taskId=18b68983-0f77-44d1-a9bf-74c4bc264859（最长 3600s）
+2026-07-26 11:04:23 [INFO] [批次 1/1] 进度：status=RUNNING processed=0/11469 ok=0 error=0 msg=
+2026-07-26 11:04:25 [INFO] [批次 1/1] 进度：status=SUCCESS processed=11469/11469 ok=11469 error=0 inserted=0 updated=0 skipped=11469 msg=
+2026-07-26 11:04:25 [INFO] [批次 1/1] 完成 status=SUCCESS inserted=0 updated=0 skipped=11469 failed=0 taskId=18b68983-0f77-44d1-a9bf-74c4bc264859
+2026-07-26 11:04:25 [INFO] ============================================================
+2026-07-26 11:04:25 [INFO] 全部完成：耗时 2.2s，批次=1/1，累计 inserted=0 updated=0 skipped=11469 failed=0
+2026-07-26 11:04:25 [INFO]   - 批次 1/1：size=11469 status=SUCCESS inserted=0 updated=0 skipped=11469 taskId=18b68983-0f77-44d1-a9bf-74c4bc264859
+2026-07-26 11:04:25 [INFO] ============================================================
+2026-07-26 11:04:25 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 11:06:26 [INFO] ============================================================
+2026-07-26 11:06:26 [INFO] 查询系统：内部通讯录上传开始
+2026-07-26 11:06:26 [INFO] host=http://localhost, account=15648230994
+2026-07-26 11:06:26 [INFO] source_file=D:\git\mygit\manjike-tools\internal\内部通讯录.json, 条数=11469, 上传批次=1（batch_size=整文件一次上传）, type=INTERNAL_IMPORT, mode=CONTACT_INCREMENTAL, dry_run=False
+2026-07-26 11:06:26 [INFO] ============================================================
+2026-07-26 11:06:26 [INFO] 登录 Prospect 独立后端：http://localhost
+2026-07-26 11:06:26 [INFO] Prospect 登录成功，token=eyJhbGciOiJI...（已截断）
+2026-07-26 11:06:26 [INFO] [批次 1/1] 上传文件：内部通讯录.json（1916863B），type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 11:06:27 [INFO] [批次 1/1] taskId = beb01fa1-f90c-4863-acbf-0248f5aa3da2
+2026-07-26 11:06:27 [INFO] [批次 1/1] 轮询进度：taskId=beb01fa1-f90c-4863-acbf-0248f5aa3da2（最长 3600s）
+2026-07-26 11:06:27 [INFO] [批次 1/1] 进度：status=RUNNING processed=100/11469 ok=100 error=0 msg=
+2026-07-26 11:06:29 [INFO] [批次 1/1] 进度：status=RUNNING processed=900/11469 ok=900 error=0 msg=
+2026-07-26 11:06:31 [INFO] [批次 1/1] 进度：status=RUNNING processed=1900/11469 ok=1900 error=0 msg=
+2026-07-26 11:06:33 [INFO] [批次 1/1] 进度：status=RUNNING processed=2700/11469 ok=2700 error=0 msg=
+2026-07-26 11:06:35 [INFO] [批次 1/1] 进度：status=RUNNING processed=3700/11469 ok=3700 error=0 msg=
+2026-07-26 11:06:37 [INFO] [批次 1/1] 进度：status=RUNNING processed=4500/11469 ok=4500 error=0 msg=
+2026-07-26 11:06:39 [INFO] [批次 1/1] 进度：status=RUNNING processed=5300/11469 ok=5300 error=0 msg=
+2026-07-26 11:06:41 [INFO] [批次 1/1] 进度：status=RUNNING processed=6300/11469 ok=6300 error=0 msg=
+2026-07-26 11:06:43 [INFO] [批次 1/1] 进度：status=RUNNING processed=7100/11469 ok=7100 error=0 msg=
+2026-07-26 11:06:45 [INFO] [批次 1/1] 进度：status=RUNNING processed=8100/11469 ok=8100 error=0 msg=
+2026-07-26 11:06:47 [INFO] [批次 1/1] 进度：status=RUNNING processed=8900/11469 ok=8900 error=0 msg=
+2026-07-26 11:06:49 [INFO] [批次 1/1] 进度：status=RUNNING processed=9900/11469 ok=9900 error=0 msg=
+2026-07-26 11:06:51 [INFO] [批次 1/1] 进度：status=RUNNING processed=10700/11469 ok=10700 error=0 msg=
+2026-07-26 11:06:53 [INFO] [批次 1/1] 进度：status=SUCCESS processed=11469/11469 ok=11469 error=0 inserted=11469 updated=0 skipped=0 msg=
+2026-07-26 11:06:53 [INFO] [批次 1/1] 完成 status=SUCCESS inserted=11469 updated=0 skipped=0 failed=0 taskId=beb01fa1-f90c-4863-acbf-0248f5aa3da2
+2026-07-26 11:06:53 [INFO] ============================================================
+2026-07-26 11:06:53 [INFO] 全部完成：耗时 27.0s，批次=1/1，累计 inserted=11469 updated=0 skipped=0 failed=0
+2026-07-26 11:06:53 [INFO]   - 批次 1/1：size=11469 status=SUCCESS inserted=11469 updated=0 skipped=0 taskId=beb01fa1-f90c-4863-acbf-0248f5aa3da2
+2026-07-26 11:06:53 [INFO] ============================================================
+2026-07-26 11:06:53 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 14:18:58 [INFO] ============================================================
+2026-07-26 14:18:58 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:18:58 [INFO] host=http://localhost account=15648230994
+2026-07-26 14:18:58 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11469 批次=1
+2026-07-26 14:18:58 [INFO] ============================================================
+2026-07-26 14:18:58 [INFO] dry-run：跳过登录与上传
+2026-07-26 14:18:58 [INFO] 前 3 条：[{"内部备注": "!!!000025-杨晓玥", "微信原始ID": "yangzhaofei1114", "微信号": "tj89art", "总微信号": "tj89art"}, {"内部备注": "!!!000031-吕泽", "微信原始ID": "daling915", "微信号": "", "总微信号": "daling915"}, {"内部备注": "!!!000082-陈琛", "微信原始ID": "AOXUE_001", "微信号": "", "总微信号": "AOXUE_001"}]
+2026-07-26 14:19:36 [INFO] ============================================================
+2026-07-26 14:19:36 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:19:36 [INFO] host=http://localhost account=15648230994
+2026-07-26 14:19:36 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11469 批次=1
+2026-07-26 14:19:36 [INFO] ============================================================
+2026-07-26 14:19:36 [INFO] dry-run：跳过登录与上传
+2026-07-26 14:19:36 [INFO] 前 3 条：[{"内部备注": "!!!000025-杨晓玥", "微信原始ID": "yangzhaofei1114", "微信号": "tj89art", "总微信号": "tj89art"}, {"内部备注": "!!!000031-吕泽", "微信原始ID": "daling915", "微信号": "", "总微信号": "daling915"}, {"内部备注": "!!!000082-陈琛", "微信原始ID": "AOXUE_001", "微信号": "", "总微信号": "AOXUE_001"}]
+2026-07-26 14:19:44 [INFO] ============================================================
+2026-07-26 14:19:44 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:19:44 [INFO] host=http://localhost account=15648230994
+2026-07-26 14:19:44 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11469 批次=1
+2026-07-26 14:19:44 [INFO] ============================================================
+2026-07-26 14:19:44 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-26 14:19:44 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-26 14:19:44 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1916863B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:19:45 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=477a2f09-42c2-49a4-9255-19f618b76e38
+2026-07-26 14:19:45 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=477a2f09-42c2-49a4-9255-19f618b76e38（最长 3600s）
+2026-07-26 14:19:45 [INFO] [批次 1/1] [IMPORT] taskId=477a2f09-42c2-49a4-9255-19f618b76e38 status=RUNNING total=11469 processed=0 ok=0 error=0
+2026-07-26 14:19:47 [INFO] [批次 1/1] [IMPORT] taskId=477a2f09-42c2-49a4-9255-19f618b76e38 status=SUCCESS total=11469 processed=11469 ok=11469 error=0 inserted=0 updated=0 skipped=11469
+2026-07-26 14:19:47 [INFO] [IMPORT] 完成 inserted=0 updated=0 skipped=11469 failed=0
+2026-07-26 14:19:47 [INFO] === 内部通讯录上传成功 ===
+2026-07-26 14:21:11 [INFO] ============================================================
+2026-07-26 14:21:11 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:21:11 [INFO] host=http://localhost account=15648230994
+2026-07-26 14:21:11 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11469 批次=1
+2026-07-26 14:21:11 [INFO] ============================================================
+2026-07-26 14:21:11 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-26 14:21:11 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-26 14:21:11 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1916863B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-26 14:21:11 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=9513605e-00e1-46a4-944e-27c1a60818eb
+2026-07-26 14:21:11 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=9513605e-00e1-46a4-944e-27c1a60818eb（最长 3600s）
+2026-07-26 14:21:11 [INFO] [批次 1/1] [IMPORT] taskId=9513605e-00e1-46a4-944e-27c1a60818eb status=RUNNING total=11469 processed=0 ok=0 error=0
+2026-07-26 14:21:13 [INFO] [批次 1/1] [IMPORT] taskId=9513605e-00e1-46a4-944e-27c1a60818eb status=SUCCESS total=11469 processed=11469 ok=11469 error=0 inserted=0 updated=0 skipped=11469
+2026-07-26 14:21:13 [INFO] [IMPORT] 完成 inserted=0 updated=0 skipped=11469 failed=0
+2026-07-26 14:21:13 [INFO] === 内部通讯录上传成功 ===
+2026-07-29 17:32:15 [INFO] ============================================================
+2026-07-29 17:32:15 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 17:32:15 [INFO] host=http://localhost account=15648230994
+2026-07-29 17:32:15 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11615 批次=1
+2026-07-29 17:32:15 [INFO] ============================================================
+2026-07-29 17:32:15 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 17:32:15 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 17:32:15 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1941408B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 17:32:15 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=a9923945-5290-403a-8414-f0f1fd35de35
+2026-07-29 17:32:15 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=a9923945-5290-403a-8414-f0f1fd35de35（最长 3600s）
+2026-07-29 17:32:15 [INFO] [批次 1/1] [IMPORT] taskId=a9923945-5290-403a-8414-f0f1fd35de35 status=RUNNING total=11615 processed=0 ok=0 error=0
+2026-07-29 17:32:17 [INFO] [批次 1/1] [IMPORT] taskId=a9923945-5290-403a-8414-f0f1fd35de35 status=SUCCESS total=11615 processed=11615 ok=11615 error=0 inserted=11615 updated=0 skipped=0
+2026-07-29 17:32:17 [INFO] [IMPORT] 完成 inserted=11615 updated=0 skipped=0 failed=0
+2026-07-29 17:32:17 [INFO] === 内部通讯录上传成功 ===
+2026-07-29 18:17:34 [INFO] ============================================================
+2026-07-29 18:17:34 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 18:17:34 [INFO] host=http://localhost account=15648230994
+2026-07-29 18:17:34 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11615 批次=1
+2026-07-29 18:17:34 [INFO] ============================================================
+2026-07-29 18:17:34 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 18:17:35 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 18:17:35 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1941408B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 18:17:35 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=bb7901ca-1f7e-4b0b-a4a2-f6f68171988c
+2026-07-29 18:17:35 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=bb7901ca-1f7e-4b0b-a4a2-f6f68171988c（最长 3600s）
+2026-07-29 18:17:35 [INFO] [批次 1/1] [IMPORT] taskId=bb7901ca-1f7e-4b0b-a4a2-f6f68171988c status=RUNNING total=11615 processed=0 ok=0 error=0
+2026-07-29 18:17:37 [INFO] [批次 1/1] [IMPORT] taskId=bb7901ca-1f7e-4b0b-a4a2-f6f68171988c status=SUCCESS total=11615 processed=11615 ok=11615 error=0 inserted=0 updated=0 skipped=11615
+2026-07-29 18:17:37 [INFO] [IMPORT] 完成 inserted=0 updated=0 skipped=11615 failed=0
+2026-07-29 18:17:37 [INFO] === 内部通讯录上传成功 ===
+2026-07-29 19:10:39 [INFO] ============================================================
+2026-07-29 19:10:39 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 19:10:39 [INFO] host=http://localhost account=15648230994
+2026-07-29 19:10:39 [INFO] file=D:\git\mygit\manjike-tools\internal\内部通讯录.json 条数=11615 批次=1
+2026-07-29 19:10:39 [INFO] ============================================================
+2026-07-29 19:10:39 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:10:39 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:10:39 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1941408B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-07-29 19:10:40 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=df4cb4a3-52ad-4743-8604-9d20c22b23c2
+2026-07-29 19:10:40 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=df4cb4a3-52ad-4743-8604-9d20c22b23c2（最长 3600s）
+2026-07-29 19:10:40 [INFO] [批次 1/1] [IMPORT] taskId=df4cb4a3-52ad-4743-8604-9d20c22b23c2 status=RUNNING total=11615 processed=0 ok=0 error=0
+2026-07-29 19:10:42 [INFO] [批次 1/1] [IMPORT] taskId=df4cb4a3-52ad-4743-8604-9d20c22b23c2 status=SUCCESS total=11615 processed=11615 ok=11615 error=0 inserted=0 updated=0 skipped=11615
+2026-07-29 19:10:42 [INFO] [IMPORT] 完成 inserted=0 updated=0 skipped=11615 failed=0
+2026-07-29 19:10:42 [INFO] === 内部通讯录上传成功 ===
+2026-08-03 14:19:59 [INFO] ============================================================
+2026-08-03 14:19:59 [INFO] [IMPORT] 内部通讯录上传 type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-08-03 14:19:59 [INFO] host=http://localhost account=15648230994
+2026-08-03 14:19:59 [INFO] file=内部通讯录.json 条数=11615 批次=1
+2026-08-03 14:19:59 [INFO] ============================================================
+2026-08-03 14:19:59 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-08-03 14:19:59 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-08-03 14:19:59 [INFO] [批次 1/1] [IMPORT] 上传 file=内部通讯录.json size=1941408B type=INTERNAL_IMPORT mode=CONTACT_INCREMENTAL
+2026-08-03 14:19:59 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=f93a7e31-95b2-4c2f-84a8-89ffc76fdb33
+2026-08-03 14:19:59 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=f93a7e31-95b2-4c2f-84a8-89ffc76fdb33（最长 3600s）
+2026-08-03 14:20:00 [INFO] [批次 1/1] [IMPORT] taskId=f93a7e31-95b2-4c2f-84a8-89ffc76fdb33 status=RUNNING total=11615 processed=0 ok=0 error=0
+2026-08-03 14:20:02 [INFO] [批次 1/1] [IMPORT] taskId=f93a7e31-95b2-4c2f-84a8-89ffc76fdb33 status=RUNNING total=11615 processed=11500 ok=11500 error=0
+2026-08-03 14:20:04 [INFO] [批次 1/1] [IMPORT] taskId=f93a7e31-95b2-4c2f-84a8-89ffc76fdb33 status=SUCCESS total=11615 processed=11615 ok=11615 error=0 inserted=11615 updated=0 skipped=0
+2026-08-03 14:20:04 [INFO] [IMPORT] 完成 inserted=11615 updated=0 skipped=0 failed=0
+2026-08-03 14:20:04 [INFO] === 内部通讯录上传成功 ===

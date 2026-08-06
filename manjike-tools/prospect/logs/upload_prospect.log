@@ -2438,3 +2438,1027 @@
 2026-06-10 15:15:48 [INFO]   - 批次 24/24：size=979 status=success success=972 failed=0 taskId=e3d84d6c-9c5b-4e5b-bd4e-6e76586aad46
 2026-06-10 15:15:48 [INFO] ============================================================
 2026-06-10 15:15:48 [INFO] === 上传成功 ===
+2026-07-27 10:12:13 [INFO] ============================================================
+2026-07-27 10:12:13 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:12:13 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:12:13 [INFO] ============================================================
+2026-07-27 10:12:13 [INFO] dry-run：前 3 条示例
+2026-07-27 10:12:13 [INFO] [{"意向学员微信号": "M13075053891", "意向学员微信原始ID": "", "是否报名": "未报名", "来源": [{"来源微信号": "wangyaoyao1984", "来源微信原始ID": "wxid_0pns7bz9of2222", "绑定日期": "20260610", "解绑日期": "20260710", "绑定状态": "有绑定"}]}, {"意向学员微信号": "cxl1261057860", "意向学员微信原始ID": "", "是否报名": "未报名", "来源": [{"来源微信号": "yun1219L", "来源微信原始ID": "xiaoyunyun1990", "绑定日期": "20260610", "解绑日期": "20260710", "绑定状态": "有绑定"}]}, {"意向学员微信号": "wxid_hwlcve3oc5gw21", "意向学员微信原始ID": "", "是否报名": "未报名", "来源": [{"来源微信号": "mj7507", "来源微信原始ID": "liuyajuan1990", "绑定日期": "20260610", "解绑日期": "20260710", "绑定状态": "有绑定"}]}]
+2026-07-27 10:12:23 [INFO] ============================================================
+2026-07-27 10:12:23 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:12:23 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:12:23 [INFO] ============================================================
+2026-07-27 10:12:23 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:12:23 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:12:23 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:12:23 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e
+2026-07-27 10:12:23 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e（最长 3600s）
+2026-07-27 10:12:23 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:12:25 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=117 ok=117 error=0
+2026-07-27 10:12:27 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=242 ok=242 error=0
+2026-07-27 10:12:29 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=367 ok=367 error=0
+2026-07-27 10:12:31 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=492 ok=492 error=0
+2026-07-27 10:12:33 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=618 ok=618 error=0
+2026-07-27 10:12:35 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=745 ok=745 error=0
+2026-07-27 10:12:37 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=878 ok=878 error=0
+2026-07-27 10:12:39 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=990 ok=990 error=0
+2026-07-27 10:12:41 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1108 ok=1108 error=0
+2026-07-27 10:12:43 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1236 ok=1236 error=0
+2026-07-27 10:12:45 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1339 ok=1339 error=0
+2026-07-27 10:12:47 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1470 ok=1470 error=0
+2026-07-27 10:12:49 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1586 ok=1586 error=0
+2026-07-27 10:12:51 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1709 ok=1709 error=0
+2026-07-27 10:12:53 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1823 ok=1823 error=0
+2026-07-27 10:12:55 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=1943 ok=1943 error=0
+2026-07-27 10:12:57 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2074 ok=2074 error=0
+2026-07-27 10:13:00 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2198 ok=2198 error=0
+2026-07-27 10:13:02 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2322 ok=2322 error=0
+2026-07-27 10:13:04 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2448 ok=2448 error=0
+2026-07-27 10:13:06 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2558 ok=2558 error=0
+2026-07-27 10:13:08 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2678 ok=2678 error=0
+2026-07-27 10:13:10 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2783 ok=2783 error=0
+2026-07-27 10:13:12 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2892 ok=2892 error=0
+2026-07-27 10:13:14 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=2984 ok=2984 error=0
+2026-07-27 10:13:16 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3081 ok=3081 error=0
+2026-07-27 10:13:18 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3177 ok=3177 error=0
+2026-07-27 10:13:20 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3259 ok=3259 error=0
+2026-07-27 10:13:22 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3346 ok=3346 error=0
+2026-07-27 10:13:24 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3437 ok=3437 error=0
+2026-07-27 10:13:26 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3537 ok=3537 error=0
+2026-07-27 10:13:28 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3630 ok=3630 error=0
+2026-07-27 10:13:30 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3728 ok=3728 error=0
+2026-07-27 10:13:32 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3830 ok=3830 error=0
+2026-07-27 10:13:34 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=3926 ok=3926 error=0
+2026-07-27 10:13:36 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4019 ok=4019 error=0
+2026-07-27 10:13:38 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4118 ok=4118 error=0
+2026-07-27 10:13:40 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4216 ok=4216 error=0
+2026-07-27 10:13:42 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4307 ok=4307 error=0
+2026-07-27 10:13:44 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4414 ok=4414 error=0
+2026-07-27 10:13:46 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4526 ok=4526 error=0
+2026-07-27 10:13:48 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4643 ok=4643 error=0
+2026-07-27 10:13:50 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4752 ok=4752 error=0
+2026-07-27 10:13:52 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4874 ok=4874 error=0
+2026-07-27 10:13:54 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=4983 ok=4983 error=0
+2026-07-27 10:13:56 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5104 ok=5104 error=0
+2026-07-27 10:13:58 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5228 ok=5228 error=0
+2026-07-27 10:14:00 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5344 ok=5344 error=0
+2026-07-27 10:14:02 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5469 ok=5469 error=0
+2026-07-27 10:14:04 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5584 ok=5584 error=0
+2026-07-27 10:14:06 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5713 ok=5713 error=0
+2026-07-27 10:14:08 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5832 ok=5832 error=0
+2026-07-27 10:14:10 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=5935 ok=5935 error=0
+2026-07-27 10:14:12 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6059 ok=6059 error=0
+2026-07-27 10:14:14 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6177 ok=6177 error=0
+2026-07-27 10:14:16 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6287 ok=6287 error=0
+2026-07-27 10:14:19 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6401 ok=6401 error=0
+2026-07-27 10:14:21 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6500 ok=6500 error=0
+2026-07-27 10:14:23 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6615 ok=6615 error=0
+2026-07-27 10:14:25 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6727 ok=6727 error=0
+2026-07-27 10:14:27 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6840 ok=6840 error=0
+2026-07-27 10:14:29 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=6954 ok=6954 error=0
+2026-07-27 10:14:31 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7059 ok=7059 error=0
+2026-07-27 10:14:33 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7170 ok=7170 error=0
+2026-07-27 10:14:35 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7280 ok=7280 error=0
+2026-07-27 10:14:37 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7349 ok=7349 error=0
+2026-07-27 10:14:39 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7464 ok=7464 error=0
+2026-07-27 10:14:41 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7562 ok=7562 error=0
+2026-07-27 10:14:43 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7656 ok=7656 error=0
+2026-07-27 10:14:45 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7777 ok=7777 error=0
+2026-07-27 10:14:47 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=7900 ok=7900 error=0
+2026-07-27 10:14:49 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8015 ok=8015 error=0
+2026-07-27 10:14:51 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8126 ok=8126 error=0
+2026-07-27 10:14:53 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8222 ok=8222 error=0
+2026-07-27 10:14:55 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8334 ok=8334 error=0
+2026-07-27 10:14:57 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8451 ok=8451 error=0
+2026-07-27 10:14:59 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8546 ok=8546 error=0
+2026-07-27 10:15:01 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8659 ok=8659 error=0
+2026-07-27 10:15:03 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8770 ok=8770 error=0
+2026-07-27 10:15:05 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=8890 ok=8890 error=0
+2026-07-27 10:15:07 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9011 ok=9011 error=0
+2026-07-27 10:15:09 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9110 ok=9110 error=0
+2026-07-27 10:15:11 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9163 ok=9163 error=0
+2026-07-27 10:15:13 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9212 ok=9212 error=0
+2026-07-27 10:15:15 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9310 ok=9310 error=0
+2026-07-27 10:15:17 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9423 ok=9423 error=0
+2026-07-27 10:15:19 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9539 ok=9539 error=0
+2026-07-27 10:15:21 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9655 ok=9655 error=0
+2026-07-27 10:15:23 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9769 ok=9769 error=0
+2026-07-27 10:15:25 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=9877 ok=9877 error=0
+2026-07-27 10:15:27 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10000 ok=10000 error=0
+2026-07-27 10:15:29 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10107 ok=10107 error=0
+2026-07-27 10:15:31 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10222 ok=10222 error=0
+2026-07-27 10:15:33 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10337 ok=10337 error=0
+2026-07-27 10:15:35 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10448 ok=10448 error=0
+2026-07-27 10:15:37 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10567 ok=10567 error=0
+2026-07-27 10:15:39 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10670 ok=10670 error=0
+2026-07-27 10:15:41 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10778 ok=10778 error=0
+2026-07-27 10:15:44 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10891 ok=10891 error=0
+2026-07-27 10:15:46 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=10988 ok=10988 error=0
+2026-07-27 10:15:48 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11082 ok=11082 error=0
+2026-07-27 10:15:50 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11199 ok=11199 error=0
+2026-07-27 10:15:52 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11313 ok=11313 error=0
+2026-07-27 10:15:54 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11434 ok=11434 error=0
+2026-07-27 10:15:56 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11553 ok=11553 error=0
+2026-07-27 10:15:58 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11684 ok=11684 error=0
+2026-07-27 10:16:00 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11807 ok=11807 error=0
+2026-07-27 10:16:02 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=11931 ok=11931 error=0
+2026-07-27 10:16:04 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12059 ok=12059 error=0
+2026-07-27 10:16:06 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12191 ok=12191 error=0
+2026-07-27 10:16:08 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12320 ok=12320 error=0
+2026-07-27 10:16:10 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12447 ok=12447 error=0
+2026-07-27 10:16:12 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12576 ok=12576 error=0
+2026-07-27 10:16:14 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12705 ok=12705 error=0
+2026-07-27 10:16:16 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12838 ok=12838 error=0
+2026-07-27 10:16:18 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=12951 ok=12951 error=0
+2026-07-27 10:16:20 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13074 ok=13074 error=0
+2026-07-27 10:16:22 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13200 ok=13200 error=0
+2026-07-27 10:16:24 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13324 ok=13324 error=0
+2026-07-27 10:16:26 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13450 ok=13450 error=0
+2026-07-27 10:16:28 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13579 ok=13579 error=0
+2026-07-27 10:16:30 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13706 ok=13706 error=0
+2026-07-27 10:16:32 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13830 ok=13830 error=0
+2026-07-27 10:16:34 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=13944 ok=13944 error=0
+2026-07-27 10:16:36 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14070 ok=14070 error=0
+2026-07-27 10:16:38 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14194 ok=14194 error=0
+2026-07-27 10:16:40 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14318 ok=14318 error=0
+2026-07-27 10:16:42 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14447 ok=14447 error=0
+2026-07-27 10:16:44 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14566 ok=14566 error=0
+2026-07-27 10:16:46 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14682 ok=14682 error=0
+2026-07-27 10:16:48 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14805 ok=14805 error=0
+2026-07-27 10:16:50 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=14929 ok=14929 error=0
+2026-07-27 10:16:52 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15059 ok=15059 error=0
+2026-07-27 10:16:54 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15177 ok=15177 error=0
+2026-07-27 10:16:56 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15294 ok=15294 error=0
+2026-07-27 10:16:58 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15418 ok=15418 error=0
+2026-07-27 10:17:00 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15534 ok=15534 error=0
+2026-07-27 10:17:02 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15663 ok=15663 error=0
+2026-07-27 10:17:04 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15784 ok=15784 error=0
+2026-07-27 10:17:06 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=15918 ok=15918 error=0
+2026-07-27 10:17:08 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16025 ok=16025 error=0
+2026-07-27 10:17:10 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16145 ok=16145 error=0
+2026-07-27 10:17:13 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16274 ok=16274 error=0
+2026-07-27 10:17:15 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16397 ok=16397 error=0
+2026-07-27 10:17:17 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16527 ok=16527 error=0
+2026-07-27 10:17:19 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16658 ok=16658 error=0
+2026-07-27 10:17:21 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16785 ok=16785 error=0
+2026-07-27 10:17:23 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=16914 ok=16914 error=0
+2026-07-27 10:17:25 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17040 ok=17040 error=0
+2026-07-27 10:17:27 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17169 ok=17169 error=0
+2026-07-27 10:17:29 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17296 ok=17296 error=0
+2026-07-27 10:17:31 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17421 ok=17421 error=0
+2026-07-27 10:17:33 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17554 ok=17554 error=0
+2026-07-27 10:17:35 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17662 ok=17662 error=0
+2026-07-27 10:17:37 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17789 ok=17789 error=0
+2026-07-27 10:17:39 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=17923 ok=17923 error=0
+2026-07-27 10:17:41 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18049 ok=18049 error=0
+2026-07-27 10:17:43 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18179 ok=18179 error=0
+2026-07-27 10:17:45 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18300 ok=18300 error=0
+2026-07-27 10:17:47 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18429 ok=18429 error=0
+2026-07-27 10:17:49 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18564 ok=18564 error=0
+2026-07-27 10:17:51 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18683 ok=18683 error=0
+2026-07-27 10:17:53 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18813 ok=18813 error=0
+2026-07-27 10:17:55 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=18939 ok=18939 error=0
+2026-07-27 10:17:57 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19072 ok=19072 error=0
+2026-07-27 10:17:59 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19205 ok=19205 error=0
+2026-07-27 10:18:01 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19336 ok=19336 error=0
+2026-07-27 10:18:03 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19459 ok=19459 error=0
+2026-07-27 10:18:05 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19588 ok=19588 error=0
+2026-07-27 10:18:07 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19722 ok=19722 error=0
+2026-07-27 10:18:09 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19857 ok=19857 error=0
+2026-07-27 10:18:11 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=19984 ok=19984 error=0
+2026-07-27 10:18:13 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20087 ok=20087 error=0
+2026-07-27 10:18:15 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20215 ok=20215 error=0
+2026-07-27 10:18:17 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20336 ok=20336 error=0
+2026-07-27 10:18:19 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20469 ok=20469 error=0
+2026-07-27 10:18:21 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20596 ok=20596 error=0
+2026-07-27 10:18:23 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20724 ok=20724 error=0
+2026-07-27 10:18:25 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20854 ok=20854 error=0
+2026-07-27 10:18:27 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=20988 ok=20988 error=0
+2026-07-27 10:18:29 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21117 ok=21117 error=0
+2026-07-27 10:18:31 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21248 ok=21248 error=0
+2026-07-27 10:18:33 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21382 ok=21382 error=0
+2026-07-27 10:18:35 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21499 ok=21499 error=0
+2026-07-27 10:18:37 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21614 ok=21614 error=0
+2026-07-27 10:18:39 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21721 ok=21721 error=0
+2026-07-27 10:18:41 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21843 ok=21843 error=0
+2026-07-27 10:18:43 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=21959 ok=21959 error=0
+2026-07-27 10:18:45 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22069 ok=22069 error=0
+2026-07-27 10:18:47 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22191 ok=22191 error=0
+2026-07-27 10:18:50 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22302 ok=22302 error=0
+2026-07-27 10:18:52 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22423 ok=22423 error=0
+2026-07-27 10:18:54 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22533 ok=22533 error=0
+2026-07-27 10:18:56 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22635 ok=22635 error=0
+2026-07-27 10:18:58 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22760 ok=22760 error=0
+2026-07-27 10:19:00 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22872 ok=22872 error=0
+2026-07-27 10:19:02 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=22992 ok=22992 error=0
+2026-07-27 10:19:04 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23117 ok=23117 error=0
+2026-07-27 10:19:06 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23231 ok=23231 error=0
+2026-07-27 10:19:08 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23354 ok=23354 error=0
+2026-07-27 10:19:10 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23472 ok=23472 error=0
+2026-07-27 10:19:12 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23567 ok=23567 error=0
+2026-07-27 10:19:14 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23692 ok=23692 error=0
+2026-07-27 10:19:16 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23815 ok=23815 error=0
+2026-07-27 10:19:18 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=23948 ok=23948 error=0
+2026-07-27 10:19:20 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24080 ok=24080 error=0
+2026-07-27 10:19:22 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24208 ok=24208 error=0
+2026-07-27 10:19:24 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24340 ok=24340 error=0
+2026-07-27 10:19:26 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24469 ok=24469 error=0
+2026-07-27 10:19:28 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24598 ok=24598 error=0
+2026-07-27 10:19:30 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24729 ok=24729 error=0
+2026-07-27 10:19:32 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24852 ok=24852 error=0
+2026-07-27 10:19:34 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=24979 ok=24979 error=0
+2026-07-27 10:19:36 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=25088 ok=25088 error=0
+2026-07-27 10:19:38 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=25214 ok=25214 error=0
+2026-07-27 10:19:40 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=25338 ok=25338 error=0
+2026-07-27 10:19:42 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=25468 ok=25468 error=0
+2026-07-27 10:19:44 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=RUNNING total=25623 processed=25601 ok=25601 error=0
+2026-07-27 10:19:46 [INFO] [批次 1/1] [IMPORT] taskId=8921b73e-8b56-42a6-9c1a-4d0e74c20c8e status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=1717 skipped=0
+2026-07-27 10:19:46 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-27 10:19:46 [INFO] === 意向学员上传成功 ===
+2026-07-27 10:21:50 [INFO] ============================================================
+2026-07-27 10:21:50 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:21:50 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:21:50 [INFO] ============================================================
+2026-07-27 10:21:50 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:21:50 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:21:50 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:21:50 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e
+2026-07-27 10:21:50 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e（最长 3600s）
+2026-07-27 10:21:50 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:21:52 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=346 ok=346 error=0
+2026-07-27 10:21:54 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=666 ok=666 error=0
+2026-07-27 10:21:56 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=993 ok=993 error=0
+2026-07-27 10:21:58 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=1335 ok=1335 error=0
+2026-07-27 10:22:00 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=1674 ok=1674 error=0
+2026-07-27 10:22:02 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=1982 ok=1982 error=0
+2026-07-27 10:22:04 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=2312 ok=2312 error=0
+2026-07-27 10:22:06 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=2649 ok=2649 error=0
+2026-07-27 10:22:08 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=2949 ok=2949 error=0
+2026-07-27 10:22:10 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=3257 ok=3257 error=0
+2026-07-27 10:22:12 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=3590 ok=3590 error=0
+2026-07-27 10:22:14 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=3908 ok=3908 error=0
+2026-07-27 10:22:16 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=4231 ok=4231 error=0
+2026-07-27 10:22:18 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=4529 ok=4529 error=0
+2026-07-27 10:22:20 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=4844 ok=4844 error=0
+2026-07-27 10:22:22 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=5187 ok=5187 error=0
+2026-07-27 10:22:24 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=5515 ok=5515 error=0
+2026-07-27 10:22:26 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=5861 ok=5861 error=0
+2026-07-27 10:22:28 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=6108 ok=6108 error=0
+2026-07-27 10:22:30 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=6415 ok=6415 error=0
+2026-07-27 10:22:32 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=6724 ok=6724 error=0
+2026-07-27 10:22:34 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=7015 ok=7015 error=0
+2026-07-27 10:22:36 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=7315 ok=7315 error=0
+2026-07-27 10:22:39 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=7627 ok=7627 error=0
+2026-07-27 10:22:41 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=7920 ok=7920 error=0
+2026-07-27 10:22:43 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=8236 ok=8236 error=0
+2026-07-27 10:22:45 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=8537 ok=8537 error=0
+2026-07-27 10:22:47 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=8825 ok=8825 error=0
+2026-07-27 10:22:49 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=9150 ok=9150 error=0
+2026-07-27 10:22:51 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=9431 ok=9431 error=0
+2026-07-27 10:22:53 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=9747 ok=9747 error=0
+2026-07-27 10:22:55 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=10072 ok=10072 error=0
+2026-07-27 10:22:57 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=10392 ok=10392 error=0
+2026-07-27 10:22:59 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=10730 ok=10730 error=0
+2026-07-27 10:23:01 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=11024 ok=11024 error=0
+2026-07-27 10:23:03 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=11309 ok=11309 error=0
+2026-07-27 10:23:05 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=11591 ok=11591 error=0
+2026-07-27 10:23:07 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=11902 ok=11902 error=0
+2026-07-27 10:23:09 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=12226 ok=12226 error=0
+2026-07-27 10:23:11 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=12527 ok=12527 error=0
+2026-07-27 10:23:13 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=12837 ok=12837 error=0
+2026-07-27 10:23:15 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=13171 ok=13171 error=0
+2026-07-27 10:23:17 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=13467 ok=13467 error=0
+2026-07-27 10:23:19 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=13776 ok=13776 error=0
+2026-07-27 10:23:21 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=14073 ok=14073 error=0
+2026-07-27 10:23:23 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=14367 ok=14367 error=0
+2026-07-27 10:23:25 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=14667 ok=14667 error=0
+2026-07-27 10:23:27 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=14960 ok=14960 error=0
+2026-07-27 10:23:29 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=15269 ok=15269 error=0
+2026-07-27 10:23:31 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=15566 ok=15566 error=0
+2026-07-27 10:23:33 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=15878 ok=15878 error=0
+2026-07-27 10:23:35 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=16167 ok=16167 error=0
+2026-07-27 10:23:37 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=16451 ok=16451 error=0
+2026-07-27 10:23:39 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=16690 ok=16690 error=0
+2026-07-27 10:23:41 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=16946 ok=16946 error=0
+2026-07-27 10:23:43 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=17213 ok=17213 error=0
+2026-07-27 10:23:45 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=17489 ok=17489 error=0
+2026-07-27 10:23:47 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=17733 ok=17733 error=0
+2026-07-27 10:23:49 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=17975 ok=17975 error=0
+2026-07-27 10:23:51 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=18227 ok=18227 error=0
+2026-07-27 10:23:53 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=18529 ok=18529 error=0
+2026-07-27 10:23:55 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=18816 ok=18816 error=0
+2026-07-27 10:23:57 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=19092 ok=19092 error=0
+2026-07-27 10:23:59 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=19341 ok=19341 error=0
+2026-07-27 10:24:01 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=19638 ok=19638 error=0
+2026-07-27 10:24:03 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=19940 ok=19940 error=0
+2026-07-27 10:24:05 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=20185 ok=20185 error=0
+2026-07-27 10:24:08 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=20422 ok=20422 error=0
+2026-07-27 10:24:10 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=20687 ok=20687 error=0
+2026-07-27 10:24:12 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=20962 ok=20962 error=0
+2026-07-27 10:24:14 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=21279 ok=21279 error=0
+2026-07-27 10:24:16 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=21544 ok=21544 error=0
+2026-07-27 10:24:18 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=21844 ok=21844 error=0
+2026-07-27 10:24:20 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=22148 ok=22148 error=0
+2026-07-27 10:24:22 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=22474 ok=22474 error=0
+2026-07-27 10:24:24 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=22798 ok=22798 error=0
+2026-07-27 10:24:26 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=23104 ok=23104 error=0
+2026-07-27 10:24:28 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=23376 ok=23376 error=0
+2026-07-27 10:24:30 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=23678 ok=23678 error=0
+2026-07-27 10:24:32 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=23941 ok=23941 error=0
+2026-07-27 10:24:34 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=24214 ok=24214 error=0
+2026-07-27 10:24:36 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=24478 ok=24478 error=0
+2026-07-27 10:24:38 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=24744 ok=24744 error=0
+2026-07-27 10:24:40 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=25004 ok=25004 error=0
+2026-07-27 10:24:42 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=25277 ok=25277 error=0
+2026-07-27 10:24:44 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=RUNNING total=25623 processed=25568 ok=25568 error=0
+2026-07-27 10:24:46 [INFO] [批次 1/1] [IMPORT] taskId=c23dd672-a575-4a1c-9ad6-b1c04659226e status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=25623 skipped=0
+2026-07-27 10:24:46 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-27 10:24:46 [INFO] === 意向学员上传成功 ===
+2026-07-27 10:31:41 [INFO] ============================================================
+2026-07-27 10:31:41 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:31:41 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:31:41 [INFO] ============================================================
+2026-07-27 10:31:41 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:31:41 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:31:41 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:31:41 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=23247517-081a-4ab1-8606-31aa428c6d31
+2026-07-27 10:31:41 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=23247517-081a-4ab1-8606-31aa428c6d31（最长 3600s）
+2026-07-27 10:31:41 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:31:43 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=371 ok=371 error=0
+2026-07-27 10:31:45 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=688 ok=688 error=0
+2026-07-27 10:31:47 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=1040 ok=1040 error=0
+2026-07-27 10:31:49 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=1384 ok=1384 error=0
+2026-07-27 10:31:51 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=1700 ok=1700 error=0
+2026-07-27 10:31:53 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=2035 ok=2035 error=0
+2026-07-27 10:31:55 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=2369 ok=2369 error=0
+2026-07-27 10:31:57 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=2710 ok=2710 error=0
+2026-07-27 10:31:59 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=3013 ok=3013 error=0
+2026-07-27 10:32:01 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=3350 ok=3350 error=0
+2026-07-27 10:32:03 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=3699 ok=3699 error=0
+2026-07-27 10:32:05 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=4003 ok=4003 error=0
+2026-07-27 10:32:07 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=4316 ok=4316 error=0
+2026-07-27 10:32:09 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=4584 ok=4584 error=0
+2026-07-27 10:32:11 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=4916 ok=4916 error=0
+2026-07-27 10:32:13 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=5259 ok=5259 error=0
+2026-07-27 10:32:15 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=5598 ok=5598 error=0
+2026-07-27 10:32:17 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=5951 ok=5951 error=0
+2026-07-27 10:32:19 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=6317 ok=6317 error=0
+2026-07-27 10:32:21 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=6647 ok=6647 error=0
+2026-07-27 10:32:23 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=6991 ok=6991 error=0
+2026-07-27 10:32:25 [INFO] [批次 1/1] [IMPORT] taskId=23247517-081a-4ab1-8606-31aa428c6d31 status=RUNNING total=25623 processed=7327 ok=7327 error=0
+2026-07-27 10:32:57 [INFO] ============================================================
+2026-07-27 10:32:57 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:32:57 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:32:57 [INFO] ============================================================
+2026-07-27 10:32:57 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:32:57 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:32:57 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:32:57 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=dea85f92-6310-432e-afb8-88a095497404
+2026-07-27 10:32:57 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=dea85f92-6310-432e-afb8-88a095497404（最长 7200s）
+2026-07-27 10:32:57 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=PENDING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:32:59 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=246 ok=246 error=0
+2026-07-27 10:33:01 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=488 ok=488 error=0
+2026-07-27 10:33:03 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=741 ok=741 error=0
+2026-07-27 10:33:05 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=986 ok=986 error=0
+2026-07-27 10:33:07 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=1242 ok=1242 error=0
+2026-07-27 10:33:09 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=1486 ok=1486 error=0
+2026-07-27 10:33:12 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=1737 ok=1737 error=0
+2026-07-27 10:33:14 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=2002 ok=2002 error=0
+2026-07-27 10:33:16 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=2258 ok=2258 error=0
+2026-07-27 10:33:18 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=2506 ok=2506 error=0
+2026-07-27 10:33:20 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=2759 ok=2759 error=0
+2026-07-27 10:33:22 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=3014 ok=3014 error=0
+2026-07-27 10:33:24 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=3275 ok=3275 error=0
+2026-07-27 10:33:26 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=3489 ok=3489 error=0
+2026-07-27 10:33:28 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=3713 ok=3713 error=0
+2026-07-27 10:33:30 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=3956 ok=3956 error=0
+2026-07-27 10:33:32 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=4206 ok=4206 error=0
+2026-07-27 10:33:34 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=4462 ok=4462 error=0
+2026-07-27 10:33:36 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=4702 ok=4702 error=0
+2026-07-27 10:33:38 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=4960 ok=4960 error=0
+2026-07-27 10:33:40 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=5212 ok=5212 error=0
+2026-07-27 10:33:42 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=5461 ok=5461 error=0
+2026-07-27 10:33:44 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=5699 ok=5699 error=0
+2026-07-27 10:33:46 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=5901 ok=5901 error=0
+2026-07-27 10:33:48 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=6098 ok=6098 error=0
+2026-07-27 10:33:50 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=6295 ok=6295 error=0
+2026-07-27 10:33:52 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=6493 ok=6493 error=0
+2026-07-27 10:33:54 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=6672 ok=6672 error=0
+2026-07-27 10:33:56 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=6863 ok=6863 error=0
+2026-07-27 10:33:58 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=7077 ok=7077 error=0
+2026-07-27 10:34:00 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=7284 ok=7284 error=0
+2026-07-27 10:34:02 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=7488 ok=7488 error=0
+2026-07-27 10:34:04 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=7721 ok=7721 error=0
+2026-07-27 10:34:06 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=7938 ok=7938 error=0
+2026-07-27 10:34:08 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=8172 ok=8172 error=0
+2026-07-27 10:34:10 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=8392 ok=8392 error=0
+2026-07-27 10:34:12 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=8587 ok=8587 error=0
+2026-07-27 10:34:14 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=8793 ok=8793 error=0
+2026-07-27 10:34:16 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=9013 ok=9013 error=0
+2026-07-27 10:34:18 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=9233 ok=9233 error=0
+2026-07-27 10:34:20 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=9409 ok=9409 error=0
+2026-07-27 10:34:22 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=9613 ok=9613 error=0
+2026-07-27 10:34:24 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=9843 ok=9843 error=0
+2026-07-27 10:34:26 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=10066 ok=10066 error=0
+2026-07-27 10:34:28 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=10304 ok=10304 error=0
+2026-07-27 10:34:30 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=10532 ok=10532 error=0
+2026-07-27 10:34:32 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=10760 ok=10760 error=0
+2026-07-27 10:34:34 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=11000 ok=11000 error=0
+2026-07-27 10:34:36 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=11206 ok=11206 error=0
+2026-07-27 10:34:39 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=11417 ok=11417 error=0
+2026-07-27 10:34:41 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=11648 ok=11648 error=0
+2026-07-27 10:34:43 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=11885 ok=11885 error=0
+2026-07-27 10:34:45 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=12126 ok=12126 error=0
+2026-07-27 10:34:47 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=12349 ok=12349 error=0
+2026-07-27 10:34:49 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=12539 ok=12539 error=0
+2026-07-27 10:34:51 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=12776 ok=12776 error=0
+2026-07-27 10:34:53 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=13027 ok=13027 error=0
+2026-07-27 10:34:55 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=13261 ok=13261 error=0
+2026-07-27 10:34:57 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=13565 ok=13565 error=0
+2026-07-27 10:34:59 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=13870 ok=13870 error=0
+2026-07-27 10:35:01 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=14136 ok=14136 error=0
+2026-07-27 10:35:03 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=14462 ok=14462 error=0
+2026-07-27 10:35:05 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=14801 ok=14801 error=0
+2026-07-27 10:35:07 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=15127 ok=15127 error=0
+2026-07-27 10:35:09 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=15469 ok=15469 error=0
+2026-07-27 10:35:11 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=15799 ok=15799 error=0
+2026-07-27 10:35:13 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=16142 ok=16142 error=0
+2026-07-27 10:35:15 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=16489 ok=16489 error=0
+2026-07-27 10:35:17 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=16800 ok=16800 error=0
+2026-07-27 10:35:19 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=17119 ok=17119 error=0
+2026-07-27 10:35:21 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=17435 ok=17435 error=0
+2026-07-27 10:35:23 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=17750 ok=17750 error=0
+2026-07-27 10:35:25 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=18070 ok=18070 error=0
+2026-07-27 10:35:27 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=18392 ok=18392 error=0
+2026-07-27 10:35:29 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=18742 ok=18742 error=0
+2026-07-27 10:35:31 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=19075 ok=19075 error=0
+2026-07-27 10:35:33 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=19423 ok=19423 error=0
+2026-07-27 10:35:35 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=19777 ok=19777 error=0
+2026-07-27 10:35:37 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=20115 ok=20115 error=0
+2026-07-27 10:35:39 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=20454 ok=20454 error=0
+2026-07-27 10:35:41 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=20789 ok=20789 error=0
+2026-07-27 10:35:43 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=21143 ok=21143 error=0
+2026-07-27 10:35:45 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=21453 ok=21453 error=0
+2026-07-27 10:35:47 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=21793 ok=21793 error=0
+2026-07-27 10:35:49 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=22122 ok=22122 error=0
+2026-07-27 10:35:51 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=22434 ok=22434 error=0
+2026-07-27 10:35:53 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=22776 ok=22776 error=0
+2026-07-27 10:35:55 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=23117 ok=23117 error=0
+2026-07-27 10:35:57 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=23450 ok=23450 error=0
+2026-07-27 10:35:59 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=23783 ok=23783 error=0
+2026-07-27 10:36:01 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=24026 ok=24026 error=0
+2026-07-27 10:36:03 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=24354 ok=24354 error=0
+2026-07-27 10:36:05 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=24683 ok=24683 error=0
+2026-07-27 10:36:07 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=24990 ok=24990 error=0
+2026-07-27 10:36:10 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=25320 ok=25320 error=0
+2026-07-27 10:36:12 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=RUNNING total=25623 processed=25565 ok=25565 error=0
+2026-07-27 10:36:14 [INFO] [批次 1/1] [IMPORT] taskId=dea85f92-6310-432e-afb8-88a095497404 status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=25623 skipped=0
+2026-07-27 10:36:14 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-27 10:36:14 [INFO] === 意向学员上传成功 ===
+2026-07-27 10:37:14 [INFO] ============================================================
+2026-07-27 10:37:14 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:37:14 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:37:14 [INFO] ============================================================
+2026-07-27 10:37:14 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:37:14 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:37:14 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:37:15 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2
+2026-07-27 10:37:15 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2（最长 7200s）
+2026-07-27 10:37:15 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:37:17 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=309 ok=309 error=0
+2026-07-27 10:37:19 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=666 ok=666 error=0
+2026-07-27 10:37:21 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=1020 ok=1020 error=0
+2026-07-27 10:37:23 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=1380 ok=1380 error=0
+2026-07-27 10:37:25 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=1743 ok=1743 error=0
+2026-07-27 10:37:27 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2062 ok=2062 error=0
+2026-07-27 10:37:29 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2166 ok=2166 error=0
+2026-07-27 10:37:31 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2229 ok=2229 error=0
+2026-07-27 10:37:33 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2272 ok=2272 error=0
+2026-07-27 10:37:35 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2323 ok=2323 error=0
+2026-07-27 10:37:37 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2526 ok=2526 error=0
+2026-07-27 10:37:39 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=2827 ok=2827 error=0
+2026-07-27 10:37:41 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=3151 ok=3151 error=0
+2026-07-27 10:37:43 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=3496 ok=3496 error=0
+2026-07-27 10:37:45 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=3758 ok=3758 error=0
+2026-07-27 10:37:47 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=4055 ok=4055 error=0
+2026-07-27 10:37:49 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=4329 ok=4329 error=0
+2026-07-27 10:37:51 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=4621 ok=4621 error=0
+2026-07-27 10:37:53 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=4929 ok=4929 error=0
+2026-07-27 10:37:55 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=5228 ok=5228 error=0
+2026-07-27 10:37:57 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=5512 ok=5512 error=0
+2026-07-27 10:37:59 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=5836 ok=5836 error=0
+2026-07-27 10:38:01 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=6144 ok=6144 error=0
+2026-07-27 10:38:03 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=6445 ok=6445 error=0
+2026-07-27 10:38:05 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=6774 ok=6774 error=0
+2026-07-27 10:38:07 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=7115 ok=7115 error=0
+2026-07-27 10:38:09 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=7472 ok=7472 error=0
+2026-07-27 10:38:11 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=7826 ok=7826 error=0
+2026-07-27 10:38:13 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=8187 ok=8187 error=0
+2026-07-27 10:38:15 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=8531 ok=8531 error=0
+2026-07-27 10:38:17 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=8882 ok=8882 error=0
+2026-07-27 10:38:19 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=9251 ok=9251 error=0
+2026-07-27 10:38:21 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=9608 ok=9608 error=0
+2026-07-27 10:38:23 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=9972 ok=9972 error=0
+2026-07-27 10:38:25 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=10338 ok=10338 error=0
+2026-07-27 10:38:28 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=10671 ok=10671 error=0
+2026-07-27 10:38:30 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=10989 ok=10989 error=0
+2026-07-27 10:38:32 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=11331 ok=11331 error=0
+2026-07-27 10:38:34 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=11683 ok=11683 error=0
+2026-07-27 10:38:36 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=12033 ok=12033 error=0
+2026-07-27 10:38:38 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=12369 ok=12369 error=0
+2026-07-27 10:38:40 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=12716 ok=12716 error=0
+2026-07-27 10:38:42 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=13052 ok=13052 error=0
+2026-07-27 10:38:44 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=13395 ok=13395 error=0
+2026-07-27 10:38:46 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=13705 ok=13705 error=0
+2026-07-27 10:38:48 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=14018 ok=14018 error=0
+2026-07-27 10:38:50 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=14362 ok=14362 error=0
+2026-07-27 10:38:52 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=14701 ok=14701 error=0
+2026-07-27 10:38:54 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=15050 ok=15050 error=0
+2026-07-27 10:38:56 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=15386 ok=15386 error=0
+2026-07-27 10:38:58 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=15733 ok=15733 error=0
+2026-07-27 10:39:00 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=16081 ok=16081 error=0
+2026-07-27 10:39:02 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=16431 ok=16431 error=0
+2026-07-27 10:39:04 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=16794 ok=16794 error=0
+2026-07-27 10:39:06 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=17163 ok=17163 error=0
+2026-07-27 10:39:08 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=17532 ok=17532 error=0
+2026-07-27 10:39:10 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=17897 ok=17897 error=0
+2026-07-27 10:39:12 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=18214 ok=18214 error=0
+2026-07-27 10:39:14 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=18577 ok=18577 error=0
+2026-07-27 10:39:16 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=18936 ok=18936 error=0
+2026-07-27 10:39:18 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=19296 ok=19296 error=0
+2026-07-27 10:39:20 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=19660 ok=19660 error=0
+2026-07-27 10:39:22 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=20001 ok=20001 error=0
+2026-07-27 10:39:24 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=20353 ok=20353 error=0
+2026-07-27 10:39:26 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=20711 ok=20711 error=0
+2026-07-27 10:39:28 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=21051 ok=21051 error=0
+2026-07-27 10:39:30 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=21413 ok=21413 error=0
+2026-07-27 10:39:32 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=21765 ok=21765 error=0
+2026-07-27 10:39:34 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=22133 ok=22133 error=0
+2026-07-27 10:39:36 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=22493 ok=22493 error=0
+2026-07-27 10:39:38 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=22838 ok=22838 error=0
+2026-07-27 10:39:40 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=23202 ok=23202 error=0
+2026-07-27 10:39:42 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=23545 ok=23545 error=0
+2026-07-27 10:39:44 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=23890 ok=23890 error=0
+2026-07-27 10:39:46 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=24230 ok=24230 error=0
+2026-07-27 10:39:48 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=24566 ok=24566 error=0
+2026-07-27 10:39:51 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=24929 ok=24929 error=0
+2026-07-27 10:39:53 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=25284 ok=25284 error=0
+2026-07-27 10:39:55 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=RUNNING total=25623 processed=25606 ok=25606 error=0
+2026-07-27 10:39:57 [INFO] [批次 1/1] [IMPORT] taskId=a8b16bb6-854b-4565-9e2e-1986aac016d2 status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=25623 skipped=0
+2026-07-27 10:39:57 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-27 10:39:57 [INFO] === 意向学员上传成功 ===
+2026-07-27 10:49:53 [INFO] ============================================================
+2026-07-27 10:49:53 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:49:53 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-27 10:49:53 [INFO] ============================================================
+2026-07-27 10:49:53 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-27 10:49:53 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-27 10:49:53 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-27 10:49:53 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=6ebd018d-20a9-4dd9-9658-f701a7397227
+2026-07-27 10:49:53 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=6ebd018d-20a9-4dd9-9658-f701a7397227（最长 7200s）
+2026-07-27 10:49:53 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-27 10:49:55 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=133 ok=133 error=0
+2026-07-27 10:49:57 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=241 ok=241 error=0
+2026-07-27 10:49:59 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=360 ok=360 error=0
+2026-07-27 10:50:01 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=476 ok=476 error=0
+2026-07-27 10:50:03 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=587 ok=587 error=0
+2026-07-27 10:50:05 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=708 ok=708 error=0
+2026-07-27 10:50:07 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=824 ok=824 error=0
+2026-07-27 10:50:09 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=922 ok=922 error=0
+2026-07-27 10:50:11 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1021 ok=1021 error=0
+2026-07-27 10:50:13 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1135 ok=1135 error=0
+2026-07-27 10:50:15 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1253 ok=1253 error=0
+2026-07-27 10:50:17 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1371 ok=1371 error=0
+2026-07-27 10:50:19 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1471 ok=1471 error=0
+2026-07-27 10:50:21 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1591 ok=1591 error=0
+2026-07-27 10:50:23 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1716 ok=1716 error=0
+2026-07-27 10:50:25 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1842 ok=1842 error=0
+2026-07-27 10:50:27 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=1958 ok=1958 error=0
+2026-07-27 10:50:29 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2062 ok=2062 error=0
+2026-07-27 10:50:31 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2163 ok=2163 error=0
+2026-07-27 10:50:33 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2269 ok=2269 error=0
+2026-07-27 10:50:35 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2387 ok=2387 error=0
+2026-07-27 10:50:37 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2504 ok=2504 error=0
+2026-07-27 10:50:39 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2615 ok=2615 error=0
+2026-07-27 10:50:41 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2732 ok=2732 error=0
+2026-07-27 10:50:43 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2839 ok=2839 error=0
+2026-07-27 10:50:45 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=2945 ok=2945 error=0
+2026-07-27 10:50:48 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3049 ok=3049 error=0
+2026-07-27 10:50:50 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3138 ok=3138 error=0
+2026-07-27 10:50:52 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3232 ok=3232 error=0
+2026-07-27 10:50:54 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3322 ok=3322 error=0
+2026-07-27 10:50:56 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3424 ok=3424 error=0
+2026-07-27 10:50:58 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3524 ok=3524 error=0
+2026-07-27 10:51:00 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3625 ok=3625 error=0
+2026-07-27 10:51:02 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3723 ok=3723 error=0
+2026-07-27 10:51:04 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3827 ok=3827 error=0
+2026-07-27 10:51:06 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=3941 ok=3941 error=0
+2026-07-27 10:51:08 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4045 ok=4045 error=0
+2026-07-27 10:51:10 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4150 ok=4150 error=0
+2026-07-27 10:51:12 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4253 ok=4253 error=0
+2026-07-27 10:51:14 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4366 ok=4366 error=0
+2026-07-27 10:51:16 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4494 ok=4494 error=0
+2026-07-27 10:51:18 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4616 ok=4616 error=0
+2026-07-27 10:51:20 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4722 ok=4722 error=0
+2026-07-27 10:51:22 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4838 ok=4838 error=0
+2026-07-27 10:51:24 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=4960 ok=4960 error=0
+2026-07-27 10:51:26 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5082 ok=5082 error=0
+2026-07-27 10:51:28 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5206 ok=5206 error=0
+2026-07-27 10:51:30 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5333 ok=5333 error=0
+2026-07-27 10:51:32 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5447 ok=5447 error=0
+2026-07-27 10:51:34 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5572 ok=5572 error=0
+2026-07-27 10:51:36 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5699 ok=5699 error=0
+2026-07-27 10:51:38 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5818 ok=5818 error=0
+2026-07-27 10:51:40 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=5946 ok=5946 error=0
+2026-07-27 10:51:42 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6073 ok=6073 error=0
+2026-07-27 10:51:44 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6198 ok=6198 error=0
+2026-07-27 10:51:46 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6318 ok=6318 error=0
+2026-07-27 10:51:48 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6433 ok=6433 error=0
+2026-07-27 10:51:50 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6547 ok=6547 error=0
+2026-07-27 10:51:52 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6654 ok=6654 error=0
+2026-07-27 10:51:54 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6775 ok=6775 error=0
+2026-07-27 10:51:56 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=6900 ok=6900 error=0
+2026-07-27 10:51:58 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7023 ok=7023 error=0
+2026-07-27 10:52:00 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7150 ok=7150 error=0
+2026-07-27 10:52:02 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7255 ok=7255 error=0
+2026-07-27 10:52:04 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7372 ok=7372 error=0
+2026-07-27 10:52:06 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7497 ok=7497 error=0
+2026-07-27 10:52:08 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7623 ok=7623 error=0
+2026-07-27 10:52:10 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7732 ok=7732 error=0
+2026-07-27 10:52:12 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7855 ok=7855 error=0
+2026-07-27 10:52:14 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=7975 ok=7975 error=0
+2026-07-27 10:52:16 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8097 ok=8097 error=0
+2026-07-27 10:52:19 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8190 ok=8190 error=0
+2026-07-27 10:52:21 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8311 ok=8311 error=0
+2026-07-27 10:52:23 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8425 ok=8425 error=0
+2026-07-27 10:52:25 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8545 ok=8545 error=0
+2026-07-27 10:52:27 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8663 ok=8663 error=0
+2026-07-27 10:52:29 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8769 ok=8769 error=0
+2026-07-27 10:52:31 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=8896 ok=8896 error=0
+2026-07-27 10:52:33 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9007 ok=9007 error=0
+2026-07-27 10:52:35 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9137 ok=9137 error=0
+2026-07-27 10:52:37 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9262 ok=9262 error=0
+2026-07-27 10:52:39 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9385 ok=9385 error=0
+2026-07-27 10:52:41 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9512 ok=9512 error=0
+2026-07-27 10:52:43 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9635 ok=9635 error=0
+2026-07-27 10:52:45 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9740 ok=9740 error=0
+2026-07-27 10:52:47 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9853 ok=9853 error=0
+2026-07-27 10:52:49 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=9957 ok=9957 error=0
+2026-07-27 10:52:51 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10076 ok=10076 error=0
+2026-07-27 10:52:53 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10194 ok=10194 error=0
+2026-07-27 10:52:55 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10315 ok=10315 error=0
+2026-07-27 10:52:57 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10440 ok=10440 error=0
+2026-07-27 10:52:59 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10565 ok=10565 error=0
+2026-07-27 10:53:01 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10688 ok=10688 error=0
+2026-07-27 10:53:03 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10802 ok=10802 error=0
+2026-07-27 10:53:05 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=10921 ok=10921 error=0
+2026-07-27 10:53:07 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11034 ok=11034 error=0
+2026-07-27 10:53:09 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11081 ok=11081 error=0
+2026-07-27 10:53:11 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11125 ok=11125 error=0
+2026-07-27 10:53:13 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11160 ok=11160 error=0
+2026-07-27 10:53:15 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11271 ok=11271 error=0
+2026-07-27 10:53:18 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11390 ok=11390 error=0
+2026-07-27 10:53:20 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11523 ok=11523 error=0
+2026-07-27 10:53:22 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11648 ok=11648 error=0
+2026-07-27 10:53:24 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11763 ok=11763 error=0
+2026-07-27 10:53:26 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11883 ok=11883 error=0
+2026-07-27 10:53:28 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=11984 ok=11984 error=0
+2026-07-27 10:53:30 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12114 ok=12114 error=0
+2026-07-27 10:53:32 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12242 ok=12242 error=0
+2026-07-27 10:53:34 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12366 ok=12366 error=0
+2026-07-27 10:53:36 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12495 ok=12495 error=0
+2026-07-27 10:53:38 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12612 ok=12612 error=0
+2026-07-27 10:53:40 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12738 ok=12738 error=0
+2026-07-27 10:53:42 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12862 ok=12862 error=0
+2026-07-27 10:53:44 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=12990 ok=12990 error=0
+2026-07-27 10:53:46 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13107 ok=13107 error=0
+2026-07-27 10:53:48 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13227 ok=13227 error=0
+2026-07-27 10:53:50 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13348 ok=13348 error=0
+2026-07-27 10:53:52 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13472 ok=13472 error=0
+2026-07-27 10:53:54 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13605 ok=13605 error=0
+2026-07-27 10:53:56 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13737 ok=13737 error=0
+2026-07-27 10:53:58 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13863 ok=13863 error=0
+2026-07-27 10:54:00 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=13989 ok=13989 error=0
+2026-07-27 10:54:02 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14113 ok=14113 error=0
+2026-07-27 10:54:04 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14237 ok=14237 error=0
+2026-07-27 10:54:06 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14362 ok=14362 error=0
+2026-07-27 10:54:08 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14485 ok=14485 error=0
+2026-07-27 10:54:10 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14592 ok=14592 error=0
+2026-07-27 10:54:12 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14719 ok=14719 error=0
+2026-07-27 10:54:14 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14843 ok=14843 error=0
+2026-07-27 10:54:16 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=14968 ok=14968 error=0
+2026-07-27 10:54:18 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15094 ok=15094 error=0
+2026-07-27 10:54:20 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15179 ok=15179 error=0
+2026-07-27 10:54:22 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15287 ok=15287 error=0
+2026-07-27 10:54:24 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15400 ok=15400 error=0
+2026-07-27 10:54:26 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15508 ok=15508 error=0
+2026-07-27 10:54:28 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15623 ok=15623 error=0
+2026-07-27 10:54:30 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15749 ok=15749 error=0
+2026-07-27 10:54:32 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15873 ok=15873 error=0
+2026-07-27 10:54:34 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=15994 ok=15994 error=0
+2026-07-27 10:54:36 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16123 ok=16123 error=0
+2026-07-27 10:54:38 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16244 ok=16244 error=0
+2026-07-27 10:54:40 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16367 ok=16367 error=0
+2026-07-27 10:54:42 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16494 ok=16494 error=0
+2026-07-27 10:54:44 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16618 ok=16618 error=0
+2026-07-27 10:54:46 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16745 ok=16745 error=0
+2026-07-27 10:54:48 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16865 ok=16865 error=0
+2026-07-27 10:54:50 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=16988 ok=16988 error=0
+2026-07-27 10:54:52 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17104 ok=17104 error=0
+2026-07-27 10:54:55 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17221 ok=17221 error=0
+2026-07-27 10:54:57 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17350 ok=17350 error=0
+2026-07-27 10:54:59 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17477 ok=17477 error=0
+2026-07-27 10:55:01 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17606 ok=17606 error=0
+2026-07-27 10:55:03 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17739 ok=17739 error=0
+2026-07-27 10:55:05 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17853 ok=17853 error=0
+2026-07-27 10:55:07 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=17982 ok=17982 error=0
+2026-07-27 10:55:09 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18104 ok=18104 error=0
+2026-07-27 10:55:11 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18235 ok=18235 error=0
+2026-07-27 10:55:13 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18357 ok=18357 error=0
+2026-07-27 10:55:15 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18493 ok=18493 error=0
+2026-07-27 10:55:17 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18631 ok=18631 error=0
+2026-07-27 10:55:19 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18758 ok=18758 error=0
+2026-07-27 10:55:21 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=18884 ok=18884 error=0
+2026-07-27 10:55:23 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19012 ok=19012 error=0
+2026-07-27 10:55:25 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19141 ok=19141 error=0
+2026-07-27 10:55:27 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19267 ok=19267 error=0
+2026-07-27 10:55:29 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19389 ok=19389 error=0
+2026-07-27 10:55:31 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19513 ok=19513 error=0
+2026-07-27 10:55:33 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19648 ok=19648 error=0
+2026-07-27 10:55:35 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19774 ok=19774 error=0
+2026-07-27 10:55:37 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=19889 ok=19889 error=0
+2026-07-27 10:55:39 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20012 ok=20012 error=0
+2026-07-27 10:55:41 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20137 ok=20137 error=0
+2026-07-27 10:55:43 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20261 ok=20261 error=0
+2026-07-27 10:55:45 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20380 ok=20380 error=0
+2026-07-27 10:55:47 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20502 ok=20502 error=0
+2026-07-27 10:55:49 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20621 ok=20621 error=0
+2026-07-27 10:55:51 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20742 ok=20742 error=0
+2026-07-27 10:55:53 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20857 ok=20857 error=0
+2026-07-27 10:55:55 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=20977 ok=20977 error=0
+2026-07-27 10:55:57 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21093 ok=21093 error=0
+2026-07-27 10:55:59 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21206 ok=21206 error=0
+2026-07-27 10:56:01 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21320 ok=21320 error=0
+2026-07-27 10:56:03 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21427 ok=21427 error=0
+2026-07-27 10:56:05 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21549 ok=21549 error=0
+2026-07-27 10:56:07 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21673 ok=21673 error=0
+2026-07-27 10:56:09 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21789 ok=21789 error=0
+2026-07-27 10:56:11 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=21913 ok=21913 error=0
+2026-07-27 10:56:13 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22029 ok=22029 error=0
+2026-07-27 10:56:15 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22151 ok=22151 error=0
+2026-07-27 10:56:17 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22278 ok=22278 error=0
+2026-07-27 10:56:19 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22384 ok=22384 error=0
+2026-07-27 10:56:21 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22515 ok=22515 error=0
+2026-07-27 10:56:23 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22641 ok=22641 error=0
+2026-07-27 10:56:25 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22767 ok=22767 error=0
+2026-07-27 10:56:27 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=22892 ok=22892 error=0
+2026-07-27 10:56:30 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23017 ok=23017 error=0
+2026-07-27 10:56:32 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23141 ok=23141 error=0
+2026-07-27 10:56:34 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23267 ok=23267 error=0
+2026-07-27 10:56:36 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23383 ok=23383 error=0
+2026-07-27 10:56:38 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23507 ok=23507 error=0
+2026-07-27 10:56:40 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23626 ok=23626 error=0
+2026-07-27 10:56:42 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23755 ok=23755 error=0
+2026-07-27 10:56:44 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23880 ok=23880 error=0
+2026-07-27 10:56:46 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=23999 ok=23999 error=0
+2026-07-27 10:56:48 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24120 ok=24120 error=0
+2026-07-27 10:56:50 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24243 ok=24243 error=0
+2026-07-27 10:56:52 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24360 ok=24360 error=0
+2026-07-27 10:56:54 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24473 ok=24473 error=0
+2026-07-27 10:56:56 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24592 ok=24592 error=0
+2026-07-27 10:56:58 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24713 ok=24713 error=0
+2026-07-27 10:57:00 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24838 ok=24838 error=0
+2026-07-27 10:57:02 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=24948 ok=24948 error=0
+2026-07-27 10:57:04 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=25061 ok=25061 error=0
+2026-07-27 10:57:06 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=25187 ok=25187 error=0
+2026-07-27 10:57:08 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=25315 ok=25315 error=0
+2026-07-27 10:57:10 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=25439 ok=25439 error=0
+2026-07-27 10:57:12 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=RUNNING total=25623 processed=25557 ok=25557 error=0
+2026-07-27 10:57:14 [INFO] [批次 1/1] [IMPORT] taskId=6ebd018d-20a9-4dd9-9658-f701a7397227 status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=1717 skipped=0
+2026-07-27 10:57:14 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-27 10:57:14 [INFO] === 意向学员上传成功 ===
+2026-07-29 15:54:37 [INFO] ============================================================
+2026-07-29 15:54:37 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 15:54:37 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-29 15:54:37 [INFO] ============================================================
+2026-07-29 15:54:37 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 15:54:37 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 15:54:37 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 15:54:38 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=97e01c39-f715-4c76-9333-04bcc6c6459e
+2026-07-29 15:54:38 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=97e01c39-f715-4c76-9333-04bcc6c6459e（最长 7200s）
+2026-07-29 15:54:38 [INFO] [批次 1/1] [IMPORT] taskId=97e01c39-f715-4c76-9333-04bcc6c6459e status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-29 15:54:40 [INFO] [批次 1/1] [IMPORT] taskId=97e01c39-f715-4c76-9333-04bcc6c6459e status=SUCCESS total=25623 processed=25623 ok=25615 error=8 inserted=0 updated=25614 skipped=0
+2026-07-29 15:54:40 [INFO] [IMPORT] 完成 ok=25615 error=8
+2026-07-29 15:54:40 [INFO] === 意向学员上传成功 ===
+2026-07-29 16:00:28 [INFO] ============================================================
+2026-07-29 16:00:28 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:00:28 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=23979
+2026-07-29 16:00:28 [INFO] ============================================================
+2026-07-29 16:00:28 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 16:00:28 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 16:00:28 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=9303904B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:00:29 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c
+2026-07-29 16:00:29 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c（最长 7200s）
+2026-07-29 16:00:29 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=0 ok=0 error=0
+2026-07-29 16:00:31 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=1900 ok=1900 error=0
+2026-07-29 16:00:33 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=5900 ok=5900 error=0
+2026-07-29 16:00:35 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=10400 ok=10400 error=0
+2026-07-29 16:00:37 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=14400 ok=14400 error=0
+2026-07-29 16:00:39 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=18900 ok=18900 error=0
+2026-07-29 16:00:41 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=22400 ok=22400 error=0
+2026-07-29 16:00:43 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=RUNNING total=25623 processed=24900 ok=24900 error=0
+2026-07-29 16:00:45 [INFO] [批次 1/1] [IMPORT] taskId=44cacf4f-7603-44c3-b4d8-ff305e85631c status=SUCCESS total=25623 processed=25623 ok=25623 error=0 inserted=0 updated=1715 skipped=0
+2026-07-29 16:00:45 [INFO] [IMPORT] 完成 ok=25623 error=0
+2026-07-29 16:00:45 [INFO] === 意向学员上传成功 ===
+2026-07-29 16:17:31 [INFO] ============================================================
+2026-07-29 16:17:31 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:17:31 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 16:17:31 [INFO] ============================================================
+2026-07-29 16:17:31 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 16:17:31 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 16:17:31 [INFO] [批次 1/1] [IMPORT] 上传 file=意向通讯录.json size=7490337B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:17:32 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=20463e19-569c-42e3-97c8-79f8f876b8ce
+2026-07-29 16:17:32 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=20463e19-569c-42e3-97c8-79f8f876b8ce（最长 7200s）
+2026-07-29 16:17:32 [INFO] [批次 1/1] [IMPORT] taskId=20463e19-569c-42e3-97c8-79f8f876b8ce status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 16:17:34 [INFO] [批次 1/1] [IMPORT] taskId=20463e19-569c-42e3-97c8-79f8f876b8ce status=RUNNING total=24822 processed=17400 ok=17349 error=51
+2026-07-29 16:17:36 [INFO] [批次 1/1] [IMPORT] taskId=20463e19-569c-42e3-97c8-79f8f876b8ce status=SUCCESS total=24822 processed=24822 ok=24745 error=77 inserted=0 updated=19926 skipped=0
+2026-07-29 16:17:36 [INFO] [IMPORT] 完成 ok=24745 error=77
+2026-07-29 16:17:36 [INFO] === 意向学员上传成功 ===
+2026-07-29 16:23:25 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 16:23:25 [INFO] ============================================================
+2026-07-29 16:23:25 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:23:25 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 16:23:25 [INFO] ============================================================
+2026-07-29 16:23:25 [INFO] dry-run：前 3 条示例
+2026-07-29 16:23:25 [INFO] [{"意向学员微信号": "cartoonabc_J", "意向学员微信原始ID": "wxid_h6on7oc80vat11", "是否报名": "", "来源": [{"来源微信原始ID": "dan_super", "绑定日期": "20250829"}]}, {"意向学员微信号": "reallyeasyenough", "意向学员微信原始ID": "wxid_82zwmmpey0il21", "是否报名": "", "来源": [{"来源微信号": "dttxtt1921", "来源微信原始ID": "wxid_anvzdm2p9sg922", "绑定日期": "20250908"}]}, {"意向学员微信号": "", "意向学员微信原始ID": "Y433808", "是否报名": "", "来源": [{"来源微信原始ID": "wxid_gu3l5yuqdtbm31", "绑定日期": "20250908"}]}]
+2026-07-29 16:24:42 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 16:24:42 [INFO] ============================================================
+2026-07-29 16:24:42 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:24:42 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 16:24:42 [INFO] ============================================================
+2026-07-29 16:24:42 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 16:24:42 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 16:24:42 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_zgy8_6oa.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 16:24:42 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=ab780b82-b07b-41f0-a023-ee7234a126ed
+2026-07-29 16:24:42 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=ab780b82-b07b-41f0-a023-ee7234a126ed（最长 7200s）
+2026-07-29 16:24:42 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 16:24:44 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=3400 ok=3400 error=0
+2026-07-29 16:24:46 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=6900 ok=6900 error=0
+2026-07-29 16:24:48 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=11900 ok=11900 error=0
+2026-07-29 16:24:50 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=15900 ok=15900 error=0
+2026-07-29 16:24:52 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=19400 ok=19400 error=0
+2026-07-29 16:24:54 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=23900 ok=23900 error=0
+2026-07-29 16:24:56 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=RUNNING total=24822 processed=24822 ok=24822 error=0
+2026-07-29 16:25:15 [INFO] [批次 1/1] [IMPORT] taskId=ab780b82-b07b-41f0-a023-ee7234a126ed status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=0 skipped=0
+2026-07-29 16:25:15 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 16:25:15 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:11:04 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:11:05 [INFO] ============================================================
+2026-07-29 19:11:05 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:11:05 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 19:11:05 [INFO] ============================================================
+2026-07-29 19:11:05 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:11:05 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:11:05 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_hicbnnuz.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:11:05 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=fb74e978-e9f0-444a-8842-9d5f9d90eeb8
+2026-07-29 19:11:05 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=fb74e978-e9f0-444a-8842-9d5f9d90eeb8（最长 7200s）
+2026-07-29 19:11:05 [INFO] [批次 1/1] [IMPORT] taskId=fb74e978-e9f0-444a-8842-9d5f9d90eeb8 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 19:11:07 [INFO] [批次 1/1] [IMPORT] taskId=fb74e978-e9f0-444a-8842-9d5f9d90eeb8 status=RUNNING total=24822 processed=13400 ok=13400 error=0
+2026-07-29 19:11:09 [INFO] [批次 1/1] [IMPORT] taskId=fb74e978-e9f0-444a-8842-9d5f9d90eeb8 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=24822 skipped=0
+2026-07-29 19:11:09 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 19:11:09 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:12:10 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:12:10 [INFO] ============================================================
+2026-07-29 19:12:10 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:12:10 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 19:12:10 [INFO] ============================================================
+2026-07-29 19:12:10 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:12:10 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:12:10 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_08pjxblb.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:12:10 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942
+2026-07-29 19:12:10 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942（最长 7200s）
+2026-07-29 19:12:11 [INFO] [批次 1/1] [IMPORT] taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 19:12:13 [INFO] [批次 1/1] [IMPORT] taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942 status=RUNNING total=24822 processed=14400 ok=14400 error=0
+2026-07-29 19:12:15 [INFO] [批次 1/1] [IMPORT] taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942 status=RUNNING total=24822 processed=24822 ok=24822 error=0
+2026-07-29 19:12:35 [INFO] [批次 1/1] [IMPORT] taskId=3b21a2f5-659d-4db4-8b1f-bcdebcb6f942 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=0 skipped=0
+2026-07-29 19:12:35 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 19:12:35 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:21:13 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:21:14 [INFO] ============================================================
+2026-07-29 19:21:14 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:21:14 [INFO] host=http://localhost file=意向通讯录.json 条数=24822
+2026-07-29 19:21:14 [INFO] ============================================================
+2026-07-29 19:21:14 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:21:14 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:21:14 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_30rpj0p0.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:21:14 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=7268950e-ea9f-41d1-8ff3-3b029bac5a75
+2026-07-29 19:21:14 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=7268950e-ea9f-41d1-8ff3-3b029bac5a75（最长 7200s）
+2026-07-29 19:21:14 [INFO] [批次 1/1] [IMPORT] taskId=7268950e-ea9f-41d1-8ff3-3b029bac5a75 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 19:21:16 [INFO] [批次 1/1] [IMPORT] taskId=7268950e-ea9f-41d1-8ff3-3b029bac5a75 status=RUNNING total=24822 processed=19400 ok=19400 error=0
+2026-07-29 19:21:18 [INFO] [批次 1/1] [IMPORT] taskId=7268950e-ea9f-41d1-8ff3-3b029bac5a75 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=24822 skipped=0
+2026-07-29 19:21:18 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 19:21:18 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:24:50 [INFO] 已识别 25000 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:24:50 [INFO] ============================================================
+2026-07-29 19:24:50 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=FULL
+2026-07-29 19:24:50 [INFO] host=http://localhost file=C:\Users\LENOVO\Desktop\manjike\docs\performance\perf_full_25000.json 条数=25000
+2026-07-29 19:24:50 [INFO] ============================================================
+2026-07-29 19:24:50 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:24:50 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:24:50 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_9_b_yvhi.json size=6700005B type=STUDENTS_IMPORT mode=FULL
+2026-07-29 19:24:50 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7
+2026-07-29 19:24:50 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7（最长 7200s）
+2026-07-29 19:24:50 [INFO] [批次 1/1] [IMPORT] taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7 status=RUNNING total=25000 processed=0 ok=0 error=0
+2026-07-29 19:24:53 [INFO] [批次 1/1] [IMPORT] taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7 status=RUNNING total=25000 processed=9400 ok=9400 error=0
+2026-07-29 19:24:55 [INFO] [批次 1/1] [IMPORT] taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7 status=RUNNING total=25000 processed=25000 ok=25000 error=0
+2026-07-29 19:24:57 [INFO] [批次 1/1] [IMPORT] taskId=497f190c-7f03-4e3e-9e57-9a6bbe0730f7 status=SUCCESS total=25000 processed=25000 ok=25000 error=0 inserted=0 updated=0 skipped=0
+2026-07-29 19:24:57 [INFO] [IMPORT] 完成 ok=25000 error=0
+2026-07-29 19:24:57 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:37:09 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:37:10 [INFO] ============================================================
+2026-07-29 19:37:10 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:37:10 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 19:37:10 [INFO] ============================================================
+2026-07-29 19:37:10 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:37:10 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:37:10 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_w31zutys.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:37:10 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=1711135c-12b3-409d-af34-2084cec07b13
+2026-07-29 19:37:10 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=1711135c-12b3-409d-af34-2084cec07b13（最长 7200s）
+2026-07-29 19:37:10 [INFO] [批次 1/1] [IMPORT] taskId=1711135c-12b3-409d-af34-2084cec07b13 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 19:37:12 [INFO] [批次 1/1] [IMPORT] taskId=1711135c-12b3-409d-af34-2084cec07b13 status=RUNNING total=24822 processed=14900 ok=14900 error=0
+2026-07-29 19:37:14 [INFO] [批次 1/1] [IMPORT] taskId=1711135c-12b3-409d-af34-2084cec07b13 status=RUNNING total=24822 processed=24822 ok=24822 error=0
+2026-07-29 19:37:34 [INFO] [批次 1/1] [IMPORT] taskId=1711135c-12b3-409d-af34-2084cec07b13 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=0 skipped=0
+2026-07-29 19:37:34 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 19:37:34 [INFO] === 意向学员上传成功 ===
+2026-07-29 19:41:49 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-07-29 19:41:49 [INFO] ============================================================
+2026-07-29 19:41:49 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:41:49 [INFO] host=http://localhost file=D:\git\mygit\manjike-tools\prospect\意向通讯录.json 条数=24822
+2026-07-29 19:41:49 [INFO] ============================================================
+2026-07-29 19:41:49 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-07-29 19:41:49 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-07-29 19:41:49 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_5dc6t1qv.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-07-29 19:41:49 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=7ff296ea-77eb-4aae-818f-69a72dbd46e1
+2026-07-29 19:41:49 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=7ff296ea-77eb-4aae-818f-69a72dbd46e1（最长 7200s）
+2026-07-29 19:41:49 [INFO] [批次 1/1] [IMPORT] taskId=7ff296ea-77eb-4aae-818f-69a72dbd46e1 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-07-29 19:41:51 [INFO] [批次 1/1] [IMPORT] taskId=7ff296ea-77eb-4aae-818f-69a72dbd46e1 status=RUNNING total=24822 processed=24822 ok=24822 error=0
+2026-07-29 19:41:53 [INFO] [批次 1/1] [IMPORT] taskId=7ff296ea-77eb-4aae-818f-69a72dbd46e1 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=24822 skipped=0
+2026-07-29 19:41:53 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-07-29 19:41:53 [INFO] === 意向学员上传成功 ===
+2026-08-03 14:29:55 [INFO] 已识别 100 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-08-03 14:29:55 [INFO] ============================================================
+2026-08-03 14:29:55 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:29:55 [INFO] host=http://localhost file=test_phase3_students.json 条数=100
+2026-08-03 14:29:55 [INFO] ============================================================
+2026-08-03 14:29:55 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-08-03 14:29:55 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-08-03 14:29:55 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_4f0rn3fz.json size=16875B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:29:55 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=781625d8-f2ad-41ad-a1e6-f36ea46fa471
+2026-08-03 14:29:55 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=781625d8-f2ad-41ad-a1e6-f36ea46fa471（最长 7200s）
+2026-08-03 14:29:55 [INFO] [批次 1/1] [IMPORT] taskId=781625d8-f2ad-41ad-a1e6-f36ea46fa471 status=RUNNING total=100 processed=0 ok=0 error=0
+2026-08-03 14:29:57 [INFO] [批次 1/1] [IMPORT] taskId=781625d8-f2ad-41ad-a1e6-f36ea46fa471 status=SUCCESS total=100 processed=100 ok=100 error=0 inserted=0 updated=10 skipped=0
+2026-08-03 14:29:57 [INFO] [IMPORT] 完成 ok=100 error=0
+2026-08-03 14:29:57 [INFO] === 意向学员上传成功 ===
+2026-08-03 14:30:26 [INFO] 已识别 100 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-08-03 14:30:26 [INFO] ============================================================
+2026-08-03 14:30:26 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:30:26 [INFO] host=http://localhost file=test_phase3_students.json 条数=100
+2026-08-03 14:30:26 [INFO] ============================================================
+2026-08-03 14:30:26 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-08-03 14:30:26 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-08-03 14:30:26 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_hcs1j0z_.json size=16875B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:30:26 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=bed499a4-cb9f-46ba-80da-4488be3b3409
+2026-08-03 14:30:26 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=bed499a4-cb9f-46ba-80da-4488be3b3409（最长 7200s）
+2026-08-03 14:30:26 [INFO] [批次 1/1] [IMPORT] taskId=bed499a4-cb9f-46ba-80da-4488be3b3409 status=RUNNING total=100 processed=0 ok=0 error=0
+2026-08-03 14:30:28 [INFO] [批次 1/1] [IMPORT] taskId=bed499a4-cb9f-46ba-80da-4488be3b3409 status=SUCCESS total=100 processed=100 ok=100 error=0 inserted=0 updated=100 skipped=0
+2026-08-03 14:30:28 [INFO] [IMPORT] 完成 ok=100 error=0
+2026-08-03 14:30:28 [INFO] === 意向学员上传成功 ===
+2026-08-03 14:31:13 [INFO] 已识别 100 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-08-03 14:31:13 [INFO] ============================================================
+2026-08-03 14:31:13 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:31:13 [INFO] host=http://localhost file=test_phase3_students.json 条数=100
+2026-08-03 14:31:13 [INFO] ============================================================
+2026-08-03 14:31:13 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-08-03 14:31:13 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-08-03 14:31:13 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_bqmkr3sc.json size=16875B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:31:13 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=dc3d1120-3775-4d0c-bbc5-a61a1d2df81b
+2026-08-03 14:31:13 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=dc3d1120-3775-4d0c-bbc5-a61a1d2df81b（最长 7200s）
+2026-08-03 14:31:13 [INFO] [批次 1/1] [IMPORT] taskId=dc3d1120-3775-4d0c-bbc5-a61a1d2df81b status=RUNNING total=100 processed=0 ok=0 error=0
+2026-08-03 14:31:15 [INFO] [批次 1/1] [IMPORT] taskId=dc3d1120-3775-4d0c-bbc5-a61a1d2df81b status=SUCCESS total=100 processed=100 ok=100 error=0 inserted=0 updated=100 skipped=0
+2026-08-03 14:31:15 [INFO] [IMPORT] 完成 ok=100 error=0
+2026-08-03 14:31:15 [INFO] === 意向学员上传成功 ===
+2026-08-03 14:42:17 [INFO] 已识别 24822 条「推荐人」格式记录，上传前转换为后端「来源」格式
+2026-08-03 14:42:17 [INFO] ============================================================
+2026-08-03 14:42:17 [INFO] [IMPORT] 意向学员上传 type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:42:17 [INFO] host=http://localhost file=意向通讯录.json 条数=24822
+2026-08-03 14:42:17 [INFO] ============================================================
+2026-08-03 14:42:17 [INFO] [AUTH] 登录 Prospect：http://localhost
+2026-08-03 14:42:17 [INFO] [AUTH] 登录成功 user=15648230994 token=eyJhbGciOiJI...
+2026-08-03 14:42:17 [INFO] [批次 1/1] [IMPORT] 上传 file=prospect_import_egru19de.json size=7415270B type=STUDENTS_IMPORT mode=INCREMENTAL
+2026-08-03 14:42:18 [INFO] [批次 1/1] [IMPORT] 已创建 taskId=ed5105da-1722-4b4d-b08c-ffb2b29f63c3
+2026-08-03 14:42:18 [INFO] [批次 1/1] [IMPORT] 轮询 taskId=ed5105da-1722-4b4d-b08c-ffb2b29f63c3（最长 7200s）
+2026-08-03 14:42:18 [INFO] [批次 1/1] [IMPORT] taskId=ed5105da-1722-4b4d-b08c-ffb2b29f63c3 status=RUNNING total=24822 processed=0 ok=0 error=0
+2026-08-03 14:42:20 [INFO] [批次 1/1] [IMPORT] taskId=ed5105da-1722-4b4d-b08c-ffb2b29f63c3 status=RUNNING total=24822 processed=10900 ok=10900 error=0
+2026-08-03 14:42:22 [INFO] [批次 1/1] [IMPORT] taskId=ed5105da-1722-4b4d-b08c-ffb2b29f63c3 status=SUCCESS total=24822 processed=24822 ok=24822 error=0 inserted=0 updated=0 skipped=0
+2026-08-03 14:42:22 [INFO] [IMPORT] 完成 ok=24822 error=0
+2026-08-03 14:42:22 [INFO] === 意向学员上传成功 ===
