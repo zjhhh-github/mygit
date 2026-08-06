@@ -1,0 +1,15 @@
+{
+  "DB_PATH": "C:/Users/LENOVO/Desktop/contact_内部专用.db;C:/Users/LENOVO/Desktop/contact_内部专用2.db",
+  "OUT_JSON": "C:/Users/LENOVO/Desktop/contact_result.json",
+  "UPLOAD": false,
+  "UPLOAD_MODE": "postgrest",
+  "SUPABASE_URL": "https://backend.appmiaoda.com/projects/supabase293970823448936448",
+  "ANON_KEY": "",
+  "TOKEN": "",
+  "BATCH_SIZE": 100,
+  "BATCH_INTERVAL": 0.3,
+  "REQUEST_TIMEOUT": 120,
+  "TABLE_NAME": "internal_notes",
+  "CONFLICT_COLUMN": "wechat_id",
+  "IMPORT_FUNCTION": "import-internal-notes"
+}
