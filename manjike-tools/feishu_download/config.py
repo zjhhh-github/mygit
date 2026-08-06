@@ -28,26 +28,31 @@ APP_SECRET: str = os.environ.get("FEISHU_APP_SECRET", "0XiTHVpP9zbnXJWPSwM8DdxXp
 
 # 需要批量下载的 table_id 列表（按此顺序依次下载）
 DOWNLOAD_TABLES: List[str] = [
-    "tblNIWZ1EsDyZ1ug",  # 意向学员
-    # "tblzUayWLgynug56",  # 推荐记录
+    "tblNIWZ1EsDyZ1ug",  # 意向通讯录
+    # "tblzUayWLgynug56",  # 推荐人更换
     "tblfoJucuZkeL9L1",  # 内部通讯录
     "tblKa8wryhV4d7F4",  # 合伙宝妈
+    "tblCYxTgp87U0Y4x", # 固定渠道B带领B
+    "tblWCSOwwmykQrbp", # 通用更换带领B
+    "tblkdS7RKI9xV4dO", # 个性更换带领B
 ]
 
 # table_id -> app_token / table_name / fields（行尾注释标明表格中文名）
 TABLE_MAPPING: Dict[str, TableConfig] = {
     "tblNIWZ1EsDyZ1ug": {
         "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
-        "table_name": "意向学员",
-        "fields": [
-            "意向学员总微信号",
-            "意向学员微信原始ID",
-            "报名状态",
-            "绑定日期",
-            "绑定状态",
-            "推荐人总微信号",
-        ],
-    },  # 意向学员
+        "table_name": "意向通讯录",
+        "fields": 
+        None,
+        # [
+        #     "意向学员总微信号",
+        #     "意向学员微信原始ID",
+        #     "报名状态",
+        #     "绑定日期",
+        #     "绑定状态",
+        #     "推荐人总微信号",
+        # ],
+    },  # 意向通讯录
     "tblzUayWLgynug56": {
         "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
         "table_name": "推荐记录",
@@ -71,9 +76,55 @@ TABLE_MAPPING: Dict[str, TableConfig] = {
         "fields": [
             "编号",
             "孩子中文全名",
+            "学员1编号",
+            "学员1孩子中文全名",
+            "学员2编号",
+            "学员2孩子中文全名",
+            "学员3编号",
+            "学员3孩子中文全名",
+            "学员4编号",
+            "学员4孩子中文全名",
+            "学员5编号",
+            "学员5孩子中文全名",
+            "带领B编号",
+            "带领B孩子中文全名",
             "意向通讯录密码",
+            "合伙宝妈总微信号",
+            "合伙宝妈微信原始ID"
         ],  # None = 下载全部字段
     },  # 合伙宝妈
+    "tblCYxTgp87U0Y4x": {
+        "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+        "table_name": "固定渠道B带领B",
+        "fields": 
+        # None,  # None = 下载全部字段
+        [
+            "编号",
+            "孩子中文全名",
+            "渠道B编号",
+            "渠道B孩子中文全名",
+            "带领B编号",
+            "带领B孩子中文全名",
+            "备注",
+        ]
+    },  # 固定渠道B带领B
+    "tblWCSOwwmykQrbp": {
+        "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+        "table_name": "通用更换带领B",
+        "fields": None,  # None = 下载全部字段
+    },  # 通用更换带领B
+    "tblkdS7RKI9xV4dO": {
+        "app_token": "Zk05bwki2abD8XsBBOccaFsPn8e",
+        "table_name": "个性更换带领B",
+        "fields": 
+        # None,  # None = 下载全部字段
+        [
+            "编号",
+            "孩子中文全名",
+            "新带领B编号",
+            "新带领B孩子中文全名",
+        ]
+    },  # 个性更换带领B
 }
 
 # CSV 输出目录（相对 feishu_download/ 目录）

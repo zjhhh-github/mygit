@@ -95,8 +95,8 @@ def load_from_db(db_path: str) -> list:
         alias_val = (alias or "").strip()
         results.append({
             "内部备注": remark_clean,
-            "微信ID": alias_val,
-            "微信号": username_val,
+            "微信原始ID": username_val,
+            "微信号": alias_val,
             "总微信号": resolve_total_wx(username_val, alias_val),
         })
     return results
@@ -114,18 +114,18 @@ def to_en_rows(items: list) -> list:
     """中文键 → 英文蛇形键。
 
     注意：internal_notes.wechat_id 在库里是 NOT NULL UNIQUE，
-    当 alias（微信ID）为空时，回退用 username（微信号）作为 wechat_id，
+    当 alias（微信号）为空时，回退用 username（微信原始ID）作为 wechat_id，
     与业务侧"总微信号 = alias or username"的回退逻辑保持一致，避免漏导入。
     """
     rows = []
     for r in items:
-        alias = (r.get("微信ID") or "").strip()
-        username = (r.get("微信号") or "").strip()
+        username = (r.get("微信原始ID") or "").strip()
+        alias = (r.get("微信号") or "").strip()
         wechat_id_effective = alias if alias else username
         rows.append({
             "internal_note": (r.get("内部备注") or "").strip(),
             "wechat_id": wechat_id_effective,
-            "wechat_number": username,
+            "wechat_number": alias,
             "total_wechat_number": (r.get("总微信号") or "").strip(),
         })
     return rows

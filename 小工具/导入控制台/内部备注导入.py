@@ -230,18 +230,19 @@ def _load_single_db(db_path: str) -> list:
         remark_clean = _clean_remark(remark or "")
         username_val = (username or "").strip()
         alias_val = (alias or "").strip()
-        # alias（微信ID）优先；alias 为空时退回 username（微信号）
+        # contact.db 字段：username=微信原始ID，alias=微信号
+        # 总微信号 / UPSERT 键：alias 优先，alias 为空时退回 username
         total = alias_val if alias_val else username_val
         wechat_id_effective = alias_val if alias_val else username_val
         items.append({
             "internal_note": remark_clean,
             "wechat_id": wechat_id_effective,
-            "wechat_number": username_val,
+            "wechat_number": alias_val,
             "total_wechat_number": total,
             "_zh": {
                 "内部备注": remark_clean,
-                "微信ID": alias_val,
-                "微信号": username_val,
+                "微信原始ID": username_val,
+                "微信号": alias_val,
                 "总微信号": total,
             },
         })
@@ -266,8 +267,8 @@ def load_from_db(db_path: Union[str, list[str]], *, log=None) -> list:
         list[dict]，每条形如：
         {
             "internal_note":       清洗后的备注本体,
-            "wechat_id":           上传用的微信 ID（alias 优先，没有则 username）,
-            "wechat_number":       微信号（username 原值），
+            "wechat_id":           上传用的总微信号（alias 优先，没有则 username）,
+            "wechat_number":       微信号（alias 原值），
             "total_wechat_number": 总微信号（同 wechat_id 兜底逻辑），
             "_zh": { 中文键的副本，仅用于导出 JSON 给人看 }
         }
