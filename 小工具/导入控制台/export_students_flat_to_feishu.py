@@ -32,6 +32,8 @@ REQUEST_TIMEOUT = 30
 DEFAULT_LIMIT = 500
 DEFAULT_FEISHU_DELETE_BATCH_SIZE = 1000
 DEFAULT_FEISHU_INSERT_BATCH_SIZE = 1000
+# 拉取 record_id 时只请求 1 个业务字段，减小分页响应体积（record_id 仍在 item 根上返回）
+FEISHU_LIST_ID_FIELD_NAMES = ["意向学员总微信号"]
 
 # 与现有脚本保持一致：默认导出接口与密钥（环境变量可覆盖）
 DEFAULT_SUPABASE_EXPORT_URL = (
@@ -538,15 +540,52 @@ def _to_feishu_record(row: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     return {"fields": fields}
 
 
-def _feishu_token(api_base: str, app_id: str, app_secret: str) -> str:
+def _feishu_token(
+    api_base: str,
+    app_id: str,
+    app_secret: str,
+    session: Optional[requests.Session] = None,
+) -> str:
     url = f"{api_base}/auth/v3/tenant_access_token/internal"
     body = _post_json(url, {"Content-Type": "application/json"}, {"app_id": app_id, "app_secret": app_secret})
+    _ = session
     if body.get("code") != 0:
         raise RuntimeError(f"获取飞书 tenant_access_token 失败：{body}")
     token = str(body.get("tenant_access_token") or "").strip()
     if not token:
         raise RuntimeError("飞书 tenant_access_token 为空")
     return token
+
+
+def _format_feishu_field_names(field_names: List[str]) -> str:
+    """飞书 GET records 要求 field_names 为 JSON 数组字符串。"""
+    return "[" + ",".join(['"{0}"'.format(name) for name in field_names]) + "]"
+
+
+def _extract_record_ids_from_items(items: Any) -> List[str]:
+    """从飞书 records 分页 items 中提取 record_id 列表。"""
+    ids: List[str] = []
+    if not isinstance(items, list):
+        return ids
+    for item in items:
+        if isinstance(item, dict):
+            rid = str(item.get("record_id") or "").strip()
+            if rid:
+                ids.append(rid)
+    return ids
+
+
+def _emit_record_id_list_progress(loaded: int, total: int, page_num: int) -> None:
+    """打印拉取 record_id 的分页进度，避免长时间无输出。"""
+    if total > 0:
+        percent = min(100.0, loaded * 100.0 / total)
+        _emit(
+            "飞书拉取 record_id 进度：{0}/{1}（第 {2} 页，{3:.1f}%）".format(
+                loaded, total, page_num, percent
+            )
+        )
+    else:
+        _emit("飞书拉取 record_id 进度：已读取 {0} 条（第 {1} 页）".format(loaded, page_num))
 
 
 def _feishu_request(
@@ -556,12 +595,16 @@ def _feishu_request(
     *,
     params: Optional[Dict[str, Any]] = None,
     payload: Optional[Dict[str, Any]] = None,
+    session: Optional[requests.Session] = None,
 ) -> Dict[str, Any]:
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json; charset=utf-8",
     }
-    resp = requests.request(method, url, headers=headers, params=params, json=payload, timeout=REQUEST_TIMEOUT)
+    requester = session if session is not None else requests
+    resp = requester.request(
+        method, url, headers=headers, params=params, json=payload, timeout=REQUEST_TIMEOUT
+    )
     try:
         body = resp.json()
     except ValueError as exc:
@@ -575,14 +618,21 @@ def _feishu_request(
     return body
 
 
-def _list_all_record_ids(api_base: str, app_token: str, table_id: str, token: str) -> List[str]:
-    """分页读取当前表全部 record_id。"""
+def _list_all_record_ids(
+    api_base: str,
+    app_token: str,
+    table_id: str,
+    token: str,
+    session: Optional[requests.Session] = None,
+) -> List[str]:
+    """分页读取当前表全部 record_id（轻量模式 + 进度日志）。"""
     url = f"{api_base}/bitable/v1/apps/{app_token}/tables/{table_id}/records"
     ids: List[str] = []
     page_token = ""
     page_size_candidates = [500, 200, 100, 50]
     current_page_size = 500
-    lightweight_mode = False
+    page_num = 0
+    total_hint = 0
 
     def _next_smaller_page_size(size: int) -> Optional[int]:
         for candidate in page_size_candidates:
@@ -590,15 +640,21 @@ def _list_all_record_ids(api_base: str, app_token: str, table_id: str, token: st
                 return candidate
         return None
 
-    while True:
-        params: Dict[str, Any] = {"page_size": current_page_size}
-        if lightweight_mode:
-            # 轻量模式：尽量减少返回字段体积，降低触发 RecordExceedLimit 的概率。
-            params["automatic_fields"] = False
+    def _build_list_params() -> Dict[str, Any]:
+        params: Dict[str, Any] = {
+            "page_size": current_page_size,
+            # 从第一页开始就启用轻量模式，减少返回字段体积。
+            "automatic_fields": False,
+            "field_names": _format_feishu_field_names(FEISHU_LIST_ID_FIELD_NAMES),
+        }
         if page_token:
             params["page_token"] = page_token
+        return params
+
+    while True:
+        page_num += 1
         try:
-            body = _feishu_request("GET", url, token, params=params)
+            body = _feishu_request("GET", url, token, params=_build_list_params(), session=session)
         except RuntimeError as exc:
             err_text = str(exc)
             # 飞书在数据量较大时可能返回 RecordExceedLimit（1254103），此时自动降级 page_size 重试。
@@ -612,22 +668,15 @@ def _list_all_record_ids(api_base: str, app_token: str, table_id: str, token: st
                     )
                     current_page_size = next_size
                     continue
-                if not lightweight_mode:
-                    lightweight_mode = True
-                    current_page_size = 500
-                    _emit("飞书分页触发 RecordExceedLimit，切换轻量模式后重试。")
-                    continue
                 _emit("飞书分页在最小分页仍超限，自动切换到 records/search 兜底读取 record_id。")
-                return _list_all_record_ids_via_search(api_base, app_token, table_id, token)
+                return _list_all_record_ids_via_search(api_base, app_token, table_id, token, session=session)
             raise
         data = body.get("data") or {}
-        items = data.get("items") or []
-        if isinstance(items, list):
-            for item in items:
-                if isinstance(item, dict):
-                    rid = str(item.get("record_id") or "").strip()
-                    if rid:
-                        ids.append(rid)
+        if not total_hint:
+            total_hint = int(data.get("total") or 0)
+        page_ids = _extract_record_ids_from_items(data.get("items"))
+        ids.extend(page_ids)
+        _emit_record_id_list_progress(len(ids), total_hint, page_num)
         has_more = bool(data.get("has_more"))
         page_token = str(data.get("page_token") or "").strip()
         if not has_more:
@@ -637,7 +686,13 @@ def _list_all_record_ids(api_base: str, app_token: str, table_id: str, token: st
     return ids
 
 
-def _list_all_record_ids_via_search(api_base: str, app_token: str, table_id: str, token: str) -> List[str]:
+def _list_all_record_ids_via_search(
+    api_base: str,
+    app_token: str,
+    table_id: str,
+    token: str,
+    session: Optional[requests.Session] = None,
+) -> List[str]:
     """
     兜底方案：使用 records/search 分页拉取 record_id。
     当 records GET 接口持续触发 RecordExceedLimit 时，切换到该方案。
@@ -647,6 +702,8 @@ def _list_all_record_ids_via_search(api_base: str, app_token: str, table_id: str
     page_token = ""
     page_size_candidates = [500, 200, 100, 50]
     current_page_size = 500
+    page_num = 0
+    total_hint = 0
 
     def _next_smaller_page_size(size: int) -> Optional[int]:
         for candidate in page_size_candidates:
@@ -655,13 +712,17 @@ def _list_all_record_ids_via_search(api_base: str, app_token: str, table_id: str
         return None
 
     while True:
+        page_num += 1
         params: Dict[str, Any] = {"page_size": current_page_size}
         if page_token:
             params["page_token"] = page_token
-        # search 接口用 body 传 automatic_fields，尽量降低返回体积。
-        payload: Dict[str, Any] = {"automatic_fields": False}
+        # search 接口用 body 传 automatic_fields / field_names，尽量降低返回体积。
+        payload: Dict[str, Any] = {
+            "automatic_fields": False,
+            "field_names": FEISHU_LIST_ID_FIELD_NAMES,
+        }
         try:
-            body = _feishu_request("POST", url, token, params=params, payload=payload)
+            body = _feishu_request("POST", url, token, params=params, payload=payload, session=session)
         except RuntimeError as exc:
             err_text = str(exc)
             if "RecordExceedLimit" in err_text or "1254103" in err_text:
@@ -680,13 +741,11 @@ def _list_all_record_ids_via_search(api_base: str, app_token: str, table_id: str
             raise
 
         data = body.get("data") or {}
-        items = data.get("items") or []
-        if isinstance(items, list):
-            for item in items:
-                if isinstance(item, dict):
-                    rid = str(item.get("record_id") or "").strip()
-                    if rid:
-                        ids.append(rid)
+        if not total_hint:
+            total_hint = int(data.get("total") or 0)
+        page_ids = _extract_record_ids_from_items(data.get("items"))
+        ids.extend(page_ids)
+        _emit_record_id_list_progress(len(ids), total_hint, page_num)
         has_more = bool(data.get("has_more"))
         page_token = str(data.get("page_token") or "").strip()
         if not has_more:
@@ -703,6 +762,7 @@ def _batch_delete(
     token: str,
     record_ids: List[str],
     batch_size: int,
+    session: Optional[requests.Session] = None,
 ) -> int:
     """按批次删除旧记录。"""
     if not record_ids:
@@ -711,7 +771,7 @@ def _batch_delete(
     deleted = 0
     for i in range(0, len(record_ids), batch_size):
         chunk = record_ids[i : i + batch_size]
-        _feishu_request("POST", url, token, payload={"records": chunk})
+        _feishu_request("POST", url, token, payload={"records": chunk}, session=session)
         deleted += len(chunk)
         _emit("飞书删除进度：{0}/{1}".format(deleted, len(record_ids)))
     return deleted
@@ -724,6 +784,7 @@ def _batch_insert(
     token: str,
     records: List[Dict[str, Any]],
     batch_size: int,
+    session: Optional[requests.Session] = None,
 ) -> int:
     """按批次写入新记录。"""
     if not records:
@@ -732,10 +793,59 @@ def _batch_insert(
     inserted = 0
     for i in range(0, len(records), batch_size):
         chunk = records[i : i + batch_size]
-        _feishu_request("POST", url, token, payload={"records": chunk})
+        _feishu_request("POST", url, token, payload={"records": chunk}, session=session)
         inserted += len(chunk)
         _emit("飞书写入进度：{0}/{1}".format(inserted, len(records)))
     return inserted
+
+
+def _sync_records_to_feishu_table(
+    cfg: Dict[str, str],
+    token: str,
+    records: List[Dict[str, Any]],
+    *,
+    should_clear_existing: bool,
+    delete_batch_size: int,
+    insert_batch_size: int,
+) -> Tuple[int, int]:
+    """
+    使用同一个 requests.Session 完成拉 ID / 删除 / 写入，复用 TCP 连接。
+    返回：(deleted, inserted)
+    """
+    session = requests.Session()
+    deleted = 0
+    try:
+        if should_clear_existing:
+            _emit("开始轻量拉取飞书旧 record_id（仅请求 1 个业务字段）...")
+            existing_ids = _list_all_record_ids(
+                cfg["api_base"],
+                cfg["app_token"],
+                cfg["table_id"],
+                token,
+                session=session,
+            )
+            _emit("飞书旧 record_id 拉取完成，共 {0} 条，开始批量删除。".format(len(existing_ids)))
+            deleted = _batch_delete(
+                cfg["api_base"],
+                cfg["app_token"],
+                cfg["table_id"],
+                token,
+                existing_ids,
+                batch_size=delete_batch_size,
+                session=session,
+            )
+        inserted = _batch_insert(
+            cfg["api_base"],
+            cfg["app_token"],
+            cfg["table_id"],
+            token,
+            records,
+            batch_size=insert_batch_size,
+            session=session,
+        )
+        return deleted, inserted
+    finally:
+        session.close()
 
 
 def _load_runtime_config() -> Dict[str, str]:
@@ -814,25 +924,15 @@ def sync_to_feishu(rows: Any) -> Dict[str, int]:
     token = _feishu_token(cfg["api_base"], cfg["app_id"], cfg["app_secret"])
     if bool(SYNC_CLEAR_EXISTING_DEFAULT):
         _emit("导入控制台模式：默认先删除飞书旧数据。")
-        existing_ids = _list_all_record_ids(cfg["api_base"], cfg["app_token"], cfg["table_id"], token)
-        deleted = _batch_delete(
-            cfg["api_base"],
-            cfg["app_token"],
-            cfg["table_id"],
-            token,
-            existing_ids,
-            batch_size=DEFAULT_FEISHU_DELETE_BATCH_SIZE,
-        )
     else:
         _emit("导入控制台模式：已关闭默认删除，仅追加写入。")
-        deleted = 0
-    inserted = _batch_insert(
-        cfg["api_base"],
-        cfg["app_token"],
-        cfg["table_id"],
+    deleted, inserted = _sync_records_to_feishu_table(
+        cfg,
         token,
         records,
-        batch_size=DEFAULT_FEISHU_INSERT_BATCH_SIZE,
+        should_clear_existing=bool(SYNC_CLEAR_EXISTING_DEFAULT),
+        delete_batch_size=DEFAULT_FEISHU_DELETE_BATCH_SIZE,
+        insert_batch_size=DEFAULT_FEISHU_INSERT_BATCH_SIZE,
     )
     failed = max(prepared - inserted, 0)
     return {
@@ -912,27 +1012,17 @@ def main() -> int:
 
     token = _feishu_token(cfg["api_base"], cfg["app_id"], cfg["app_secret"])
     should_clear_existing = not bool(args.no_clear_existing)
-    deleted = 0
     if should_clear_existing:
         _emit("默认策略：写入前先清空飞书旧数据。")
-        existing_ids = _list_all_record_ids(cfg["api_base"], cfg["app_token"], cfg["table_id"], token)
-        deleted = _batch_delete(
-            cfg["api_base"],
-            cfg["app_token"],
-            cfg["table_id"],
-            token,
-            existing_ids,
-            batch_size=args.delete_batch_size,
-        )
     else:
         _emit("已按参数关闭清空：本次将直接追加写入。")
-    inserted = _batch_insert(
-        cfg["api_base"],
-        cfg["app_token"],
-        cfg["table_id"],
+    deleted, inserted = _sync_records_to_feishu_table(
+        cfg,
         token,
         records,
-        batch_size=args.insert_batch_size,
+        should_clear_existing=should_clear_existing,
+        delete_batch_size=args.delete_batch_size,
+        insert_batch_size=args.insert_batch_size,
     )
     _emit("执行完成：")
     _emit("- 删除旧记录：{0}".format(deleted))
