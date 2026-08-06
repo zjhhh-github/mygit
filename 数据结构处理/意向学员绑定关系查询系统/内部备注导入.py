@@ -4,8 +4,14 @@
 ==========================
 
 职责：
-    从本机微信 contact.db 读取符合规则的「内部备注」，按 wechat_id 做 UPSERT
-    写入 Supabase 的 internal_notes 表。
+    从本机微信 contact.db 读取符合规则的「内部备注」，写入 Supabase 的
+    internal_notes 表。
+
+字段语义（与库表 chk_wechat_id_not_equal_number 一致）：
+    - wechat_id           = 微信原始 ID（username，永久身份）
+    - wechat_number       = 微信号（alias，可变化）
+    - total_wechat_number = alias 存在时用 alias，否则用 username
+    - 禁止 wechat_id 与 wechat_number 非空且相等（字段污染，不允许导入）
 
 为什么独立成一个脚本？
     - 让"导入控制台" exe 不再内嵌这套逻辑，**修改这个脚本不需要重新打包 exe**。
@@ -20,13 +26,14 @@
     且尾段（去空白后）不能是「空」或「删除」。
     Python 层会额外把备注尾部的「(非)/（非）」清洗掉。
 
-上传规则：
-    - postgrest（默认，推荐）：
-        POST /rest/v1/internal_notes?on_conflict=wechat_id
-        Prefer: resolution=merge-duplicates,return=minimal
-        → wechat_id 不存在 → INSERT；存在 → UPDATE 全部字段（含 internal_note）。
-    - edge：
-        走 /functions/v1/import-internal-notes（Edge Function 模式，备用通路）。
+上传规则（postgrest，默认）：
+    匹配优先级：
+        1. wechat_id（微信原始 ID）→ POST upsert on_conflict=wechat_id
+        2. wechat_number（微信号）  → PATCH 按远端行 id 更新（纠正历史脏数据）
+        3. 均未命中               → INSERT
+    禁止用微信号覆盖微信原始 ID；payload 中 wechat_id 始终来自 username。
+
+    edge 模式：走 /functions/v1/import-internal-notes（备用通路）。
 
 调用方负责注入：
     - supabase_url / anon_key ：Supabase 服务地址与匿名 key
@@ -66,6 +73,18 @@ def _clean_remark(s: str) -> str:
     if not s:
         return s
     return _NON_SUFFIX_RE.sub("", s).rstrip()
+
+
+def _is_field_polluted(wechat_id: str, wechat_number: str) -> bool:
+    """字段污染：wechat_id 与 wechat_number 均非空且相等（违反库表 CHECK 约束）。
+
+    不做 wxid_ 前缀等格式猜测；仅比较两字段是否非空且相同（大小写不敏感）。
+    """
+    wx = (wechat_id or "").strip()
+    num = (wechat_number or "").strip()
+    if not wx or not num:
+        return False
+    return wx.lower() == num.lower()
 
 
 def _build_session() -> requests.Session:
@@ -147,10 +166,10 @@ def _normalize_db_paths(db_path: Union[str, list[str]]) -> list[str]:
     return paths
 
 
-def _deduplicate_items(items: list, *, log=None) -> list:
+def _deduplicate_items(items: list, *, log=None) -> tuple[list, dict]:
     """多库读取合并后去重：先按 internal_note，再按 wechat_id（不区分大小写）。
 
-    与上传阶段 _sync_increment 的规则一致（first-wins），避免双库重复记录进入 JSON 与 UPSERT。
+    返回 (去重后列表, 统计 dict)，统计含 duplicate / dropped 供汇总日志使用。
     """
     log = _get_logger(log)
     dropped = 0
@@ -191,7 +210,8 @@ def _deduplicate_items(items: list, *, log=None) -> list:
     if dup_wxid:
         log.info(f"[内部备注] 合并去重：相同 wechat_id 去掉 {dup_wxid} 条")
 
-    return sorted(candidates, key=lambda r: r.get("internal_note") or "")
+    stats = {"duplicate": dup_note + dup_wxid, "dropped": dropped}
+    return sorted(candidates, key=lambda r: r.get("internal_note") or ""), stats
 
 
 def _load_single_db(db_path: str) -> list:
@@ -230,13 +250,12 @@ def _load_single_db(db_path: str) -> list:
         remark_clean = _clean_remark(remark or "")
         username_val = (username or "").strip()
         alias_val = (alias or "").strip()
-        # contact.db 字段：username=微信原始ID，alias=微信号
-        # 总微信号 / UPSERT 键：alias 优先，alias 为空时退回 username
+        # contact.db：username=微信原始ID，alias=微信号
+        # wechat_id 必须用 username，禁止把 alias 写入 wechat_id
         total = alias_val if alias_val else username_val
-        wechat_id_effective = alias_val if alias_val else username_val
         items.append({
             "internal_note": remark_clean,
-            "wechat_id": wechat_id_effective,
+            "wechat_id": username_val,
             "wechat_number": alias_val,
             "total_wechat_number": total,
             "_zh": {
@@ -249,29 +268,14 @@ def _load_single_db(db_path: str) -> list:
     return items
 
 
-def load_from_db(db_path: Union[str, list[str]], *, log=None) -> list:
+def load_from_db(db_path: Union[str, list[str]], *, log=None) -> tuple[list, dict]:
     """
     从一个或多个 contact.db 读取符合规则的内部备注，合并后先去重再返回。
 
-    去重顺序：
-        1. 跳过 internal_note / wechat_id / total_wechat_number 为空的记录
-        2. 按 internal_note 去重（first-wins）
-        3. 再按 wechat_id 去重（不区分大小写，first-wins）
-
-    db_path 支持：
-        - 单个路径字符串
-        - 分号/竖线分隔的多路径字符串（如 "a.db;b.db"）
-        - 路径列表
-
     返回值：
-        list[dict]，每条形如：
-        {
-            "internal_note":       清洗后的备注本体,
-            "wechat_id":           上传用的总微信号（alias 优先，没有则 username）,
-            "wechat_number":       微信号（alias 原值），
-            "total_wechat_number": 总微信号（同 wechat_id 兜底逻辑），
-            "_zh": { 中文键的副本，仅用于导出 JSON 给人看 }
-        }
+        (items, stats)
+        items: list[dict]，字段映射见 _load_single_db
+        stats: {"duplicate": int, "dropped": int} 合并去重统计
     """
     paths = _normalize_db_paths(db_path)
     if not paths:
@@ -295,7 +299,7 @@ def dump_json(items: list, out_path: str) -> None:
 
 # ─────────────────────────────── 上传 payload 工厂 ───────────────────────────────
 def _insert_payload(r: dict) -> dict:
-    """生成发给 PostgREST 的标准记录（UPSERT 用这一份）。"""
+    """生成发给 PostgREST 的标准记录；wechat_id 必须为微信原始 ID（username）。"""
     return {
         "internal_note": r["internal_note"],
         "wechat_id": r["wechat_id"],
@@ -313,27 +317,24 @@ def _pull_existing(
     table_name: str,
     request_timeout: int,
     log,
-) -> tuple:
-    """分页拉取远端 internal_notes，构建两个索引：
+) -> tuple[dict, dict]:
+    """分页拉取远端 internal_notes，构建两个匹配索引（值均为远端行 id）：
 
-    - by_note  : { internal_note: [id, ...] }   # 按备注命中
-    - by_wxid  : { wechat_id_lower: id }        # 按微信 ID 命中（小写归一）
-                 表上有 internal_notes_wechat_id_key 唯一约束，
-                 一个 wechat_id 最多对应一条记录，直接存单值。
-
-    用于事前估算「本次会触发多少条 INSERT / UPDATE」，不影响实际请求。
+    - by_wxid   : { wechat_id_lower: id }      第一优先匹配键
+    - by_number : { wechat_number_lower: id }  第二优先匹配键（微信号）
     """
     base = f"{supabase_url}/rest/v1/{table_name}"
-    url = f"{base}?select=id,internal_note,wechat_id&order=id.asc"
+    url = f"{base}?select=id,wechat_id,wechat_number&order=id.asc"
     headers = {
         "apikey": anon_key,
         "Authorization": f"Bearer {token}",
         "Accept": "application/json",
     }
     page_size = 1000
-    by_note: dict = {}
     by_wxid: dict = {}
+    by_number: dict = {}
     offset = 0
+    total_rows = 0
     while True:
         h = dict(headers)
         h["Range-Unit"] = "items"
@@ -348,23 +349,109 @@ def _pull_existing(
         if not batch:
             break
         for item in batch:
-            note_key = item.get("internal_note") or ""
-            wxid = (item.get("wechat_id") or "").strip()
             rid = item.get("id")
-            by_note.setdefault(note_key, []).append(rid)
-            if wxid and rid is not None:
-                # 唯一约束保证不会重复；以防万一只保留首条 id
+            if rid is None:
+                continue
+            total_rows += 1
+            wxid = (item.get("wechat_id") or "").strip()
+            num = (item.get("wechat_number") or "").strip()
+            if wxid:
                 by_wxid.setdefault(wxid.lower(), rid)
+            if num:
+                by_number.setdefault(num.lower(), rid)
         if len(batch) < page_size:
             break
         offset += page_size
 
-    total = sum(len(v) for v in by_note.values())
     log.info(
-        f"[内部备注] 远端已有 {total} 条，internal_note 去重种数 {len(by_note)}，"
-        f"wechat_id 索引 {len(by_wxid)}"
+        f"[内部备注] 远端已有 {total_rows} 条，"
+        f"wechat_id 索引 {len(by_wxid)}，wechat_number 索引 {len(by_number)}"
     )
-    return by_note, by_wxid
+    return by_wxid, by_number
+
+
+def _resolve_remote_match(
+    r: dict,
+    by_wxid: dict,
+    by_number: dict,
+) -> tuple[str, object]:
+    """决定本条记录的远端匹配方式。
+
+    返回 (mode, remote_id)：
+        - ("upsert", None)       按 wechat_id 命中或全新插入 → POST upsert
+        - ("patch",  remote_id)  仅按 wechat_number 命中     → PATCH 按 id 更新
+    """
+    wxid_lc = (r.get("wechat_id") or "").strip().lower()
+    num_lc = (r.get("wechat_number") or "").strip().lower()
+
+    if wxid_lc and wxid_lc in by_wxid:
+        return "upsert", None
+    if num_lc and num_lc in by_number:
+        return "patch", by_number[num_lc]
+    return "upsert", None
+
+
+def _prepare_upload_candidates(
+    rows: list,
+    *,
+    log,
+) -> tuple[list, dict]:
+    """上传前本地去重 + 字段污染校验。
+
+    返回 (candidates, stats)，stats 含 duplicate / polluted / dropped。
+    """
+    local_by_note: dict = {}
+    local_dropped = 0
+    local_dup_note = 0
+    polluted = 0
+
+    for r in rows:
+        wxid = (r.get("wechat_id") or "").strip()
+        total = (r.get("total_wechat_number") or "").strip()
+        note = (r.get("internal_note") or "").strip()
+        number = (r.get("wechat_number") or "").strip()
+
+        if not note or not wxid or not total:
+            local_dropped += 1
+            continue
+        if _is_field_polluted(wxid, number):
+            polluted += 1
+            log.warning(
+                f"[内部备注][字段污染] internal_note='{note}' "
+                f"wechat_id='{wxid}' wechat_number='{number}' "
+                f"两者非空且相等，已跳过"
+            )
+            continue
+        if note in local_by_note:
+            local_dup_note += 1
+            continue
+        local_by_note[note] = r
+
+    candidates: list = []
+    seen_wxid: set[str] = set()
+    local_dup_wxid = 0
+    for note in sorted(local_by_note.keys()):
+        r = local_by_note[note]
+        wxid_lc = (r.get("wechat_id") or "").strip().lower()
+        if not wxid_lc:
+            local_dropped += 1
+            continue
+        if wxid_lc in seen_wxid:
+            local_dup_wxid += 1
+            continue
+        seen_wxid.add(wxid_lc)
+        candidates.append(r)
+
+    if local_dropped:
+        log.warning(f"[内部备注] 上传前跳过 {local_dropped} 条（关键字段为空）")
+    if local_dup_note:
+        log.info(f"[内部备注] 上传前相同 internal_note 去重 {local_dup_note} 条")
+    if local_dup_wxid:
+        log.info(f"[内部备注] 上传前相同 wechat_id 去重 {local_dup_wxid} 条")
+
+    duplicate = local_dup_note + local_dup_wxid
+    stats = {"duplicate": duplicate, "polluted": polluted, "dropped": local_dropped}
+    return candidates, stats
 
 
 # ─────────────────────────────── 增量 UPSERT 主流程 ───────────────────────────────
@@ -380,19 +467,13 @@ def _sync_increment(
     batch_interval: float,
     request_timeout: int,
     log,
+    merge_duplicate: int = 0,
 ) -> dict:
-    """批量 UPSERT 写入 internal_notes。
+    """按 wechat_id 优先、wechat_number 次之写入 internal_notes。
 
-    核心写法：
-        POST /rest/v1/internal_notes?on_conflict=wechat_id
-        Prefer: resolution=merge-duplicates,return=minimal
-        body  : [_insert_payload(r), ...]   # 一次最多 batch_size 条
-
-    服务端语义：
-        - wechat_id 不存在 → INSERT
-        - wechat_id 已存在 → UPDATE 该行所有字段（含 internal_note 一并覆盖）
-                             这同时覆盖了"按 internal_note 命中"和"按 wechat_id
-                             兜底命中"两类场景，且彻底规避 23505 duplicate key。
+    - 第一优先 wechat_id：POST upsert（on_conflict=wechat_id）
+    - 第二优先 wechat_number：PATCH 按远端 id（payload 中 wechat_id 仍为 username）
+    - 导入前拦截字段污染（wechat_id == wechat_number 且均非空）
     """
     base = f"{supabase_url}/rest/v1/{table_name}"
     common_headers = {
@@ -402,8 +483,22 @@ def _sync_increment(
     }
     session = _build_session()
 
+    candidates, prep_stats = _prepare_upload_candidates(rows, log=log)
+    polluted = prep_stats["polluted"]
+    duplicate = merge_duplicate + prep_stats["duplicate"]
+
+    if not candidates:
+        log.info("[内部备注] 无可上传记录")
+        _log_import_summary(log, success=0, failed=0, polluted=polluted, duplicate=duplicate)
+        return {
+            "success": 0,
+            "failed": 0,
+            "polluted": polluted,
+            "duplicate": duplicate,
+        }
+
     try:
-        existing_by_note, existing_by_wxid = _pull_existing(
+        by_wxid, by_number = _pull_existing(
             token,
             supabase_url=supabase_url,
             anon_key=anon_key,
@@ -412,82 +507,48 @@ def _sync_increment(
             log=log,
         )
     except Exception as e:
-        # 远端拉不下来时不阻断，仍允许尝试 UPSERT（merge 行为不依赖 existing 索引）
-        log.warning(f"[内部备注] 拉取远端索引失败，将盲跑批量 UPSERT：{e}")
-        existing_by_note, existing_by_wxid = {}, {}
+        log.warning(f"[内部备注] 拉取远端索引失败，将盲跑 upsert（无法按微信号兜底）：{e}")
+        by_wxid, by_number = {}, {}
 
-    # ── 本地按 internal_note 去重（first-wins，与历史行为一致）──────
-    local_by_note: dict = {}
-    local_dropped = 0
-    local_dup_note = 0
-    for r in rows:
-        if not r.get("internal_note") or not r.get("wechat_id") or not r.get("total_wechat_number"):
-            local_dropped += 1
-            continue
-        k = r["internal_note"]
-        if k in local_by_note:
-            local_dup_note += 1
-            continue
-        local_by_note[k] = r
-    if local_dropped:
-        log.warning(f"[内部备注] 本地跳过 {local_dropped} 条（关键字段为空）")
-    if local_dup_note:
-        log.info(f"[内部备注] 本地相同 internal_note 合并去重 {local_dup_note} 条")
-
-    # ── 再按 wechat_id 去重 ────────────────────────────────────────
-    # 原因：UPSERT 同批不能含相同 conflict 列，否则 PostgREST 会整批 23505 失败
-    candidates: list = []
-    seen_wxid: set = set()
-    local_dup_wxid = 0
+    upsert_rows: list = []
+    patch_rows: list = []
+    plan_upsert = 0
+    plan_patch = 0
     plan_insert = 0
-    plan_update_note = 0
-    plan_update_wxid = 0
-    for note, r in local_by_note.items():
-        wxid = (r.get("wechat_id") or "").strip()
-        wxid_lc = wxid.lower()
-        if not wxid:
-            local_dropped += 1
-            continue
-        if wxid_lc in seen_wxid:
-            local_dup_wxid += 1
-            continue
-        seen_wxid.add(wxid_lc)
-        candidates.append(r)
 
-        # 仅日志估算，不影响实际请求
-        ids = existing_by_note.get(note)
-        if ids and len(ids) == 1:
-            plan_update_note += 1
-        elif wxid_lc in existing_by_wxid:
-            plan_update_wxid += 1
+    for r in candidates:
+        mode, remote_id = _resolve_remote_match(r, by_wxid, by_number)
+        if mode == "patch" and remote_id is not None:
+            patch_rows.append((remote_id, r))
+            plan_patch += 1
         else:
-            plan_insert += 1
-    if local_dup_wxid:
-        log.info(f"[内部备注] 本地相同 wechat_id 合并去重 {local_dup_wxid} 条")
+            upsert_rows.append(r)
+            wxid_lc = (r.get("wechat_id") or "").strip().lower()
+            if wxid_lc in by_wxid:
+                plan_upsert += 1
+            else:
+                plan_insert += 1
 
     log.info(
-        f"[内部备注] 计划（基于远端索引估算）：新增 {plan_insert}，"
-        f"按备注更新 {plan_update_note}，按微信ID兜底更新 {plan_update_wxid}，"
-        f"待处理总数 {len(candidates)}"
+        f"[内部备注] 计划：新增 {plan_insert}，按 wechat_id 更新 {plan_upsert}，"
+        f"按 wechat_number 兜底 PATCH {plan_patch}，待处理 {len(candidates)} 条"
     )
 
-    if not candidates:
-        log.info("[内部备注] 无可处理记录")
-        return {"inserted": 0, "updated": 0, "failed": 0, "skipped": 0}
-
-    # ── 批量 UPSERT ────────────────────────────────────────────────
     upsert_url = f"{base}?on_conflict={conflict_column}"
     headers_upsert = dict(common_headers)
     headers_upsert["Prefer"] = "resolution=merge-duplicates,return=minimal"
+    headers_patch = dict(common_headers)
+    headers_patch["Prefer"] = "return=minimal"
 
-    def _upsert_one_by_one(batch: list) -> tuple:
-        """整批失败时降级为逐条 UPSERT，定位是哪几条出错。"""
+    def _upsert_one_by_one(batch: list) -> tuple[int, int]:
         ok = 0
         fail = 0
         for r in batch:
             try:
                 resp = session.post(
-                    upsert_url, json=[_insert_payload(r)], headers=headers_upsert,
+                    upsert_url,
+                    json=[_insert_payload(r)],
+                    headers=headers_upsert,
                     timeout=request_timeout,
                 )
                 if 200 <= resp.status_code < 300:
@@ -506,15 +567,40 @@ def _sync_increment(
                 )
         return ok, fail
 
-    size = max(1, int(batch_size))
-    total = len(candidates)
-    total_batches = max(1, math.ceil(total / size))
-    log.info(f"[内部备注] 批量 UPSERT 开始：共 {total} 条 / {total_batches} 批")
+    def _patch_one(remote_id, r: dict) -> bool:
+        """按微信号命中远端行时 PATCH；wechat_id 写 username，禁止写入 alias。"""
+        url = f"{base}?id=eq.{remote_id}"
+        try:
+            resp = session.patch(
+                url,
+                json=_insert_payload(r),
+                headers=headers_patch,
+                timeout=request_timeout,
+            )
+            if 200 <= resp.status_code < 300:
+                return True
+            log.warning(
+                f"[内部备注][PATCH 单条] id={remote_id} internal_note='{r.get('internal_note','')}' "
+                f"wechat_id='{r.get('wechat_id','')}' wechat_number='{r.get('wechat_number','')}' "
+                f"HTTP {resp.status_code}: {(resp.text or '')[:200]}"
+            )
+        except requests.RequestException as e:
+            log.warning(
+                f"[内部备注][PATCH 单条] id={remote_id} internal_note='{r.get('internal_note','')}' 异常 {e}"
+            )
+        return False
 
-    ok = 0
-    fail = 0
+    success = 0
+    failed = 0
+
+    # ── 批量 POST upsert（新增 + 按 wechat_id 更新）────────────────
+    size = max(1, int(batch_size))
+    total_upsert = len(upsert_rows)
+    total_batches = max(1, math.ceil(total_upsert / size)) if total_upsert else 0
+    if total_upsert:
+        log.info(f"[内部备注] 批量 UPSERT 开始：共 {total_upsert} 条 / {total_batches} 批")
     for i in range(total_batches):
-        batch = candidates[i * size : (i + 1) * size]
+        batch = upsert_rows[i * size : (i + 1) * size]
         try:
             t0 = time.time()
             resp = session.post(
@@ -525,7 +611,7 @@ def _sync_increment(
             )
             elapsed = time.time() - t0
             if 200 <= resp.status_code < 300:
-                ok += len(batch)
+                success += len(batch)
                 log.info(
                     f"[内部备注][UPSERT 批 {i+1}/{total_batches}] OK {len(batch)} 条，{elapsed:.2f}s"
                 )
@@ -536,25 +622,48 @@ def _sync_increment(
                     f"HTTP {resp.status_code}: {body}，逐条重试"
                 )
                 s, f = _upsert_one_by_one(batch)
-                ok += s
-                fail += f
+                success += s
+                failed += f
         except requests.RequestException as e:
             log.warning(f"[内部备注][UPSERT 批 {i+1}] 异常 {e}，逐条重试")
             s, f = _upsert_one_by_one(batch)
-            ok += s
-            fail += f
+            success += s
+            failed += f
         if i < total_batches - 1:
             time.sleep(batch_interval)
 
-    log.info(
-        f"[内部备注] 完成：UPSERT 成功 {ok} / 失败 {fail}（合并 INSERT 与 UPDATE）"
-    )
+    # ── 逐条 PATCH（第二优先：按 wechat_number 命中）──────────────
+    if patch_rows:
+        log.info(f"[内部备注] 按 wechat_number 兜底 PATCH 开始：共 {len(patch_rows)} 条")
+    for remote_id, r in patch_rows:
+        if _patch_one(remote_id, r):
+            success += 1
+        else:
+            failed += 1
+        time.sleep(batch_interval)
+
+    _log_import_summary(log, success=success, failed=failed, polluted=polluted, duplicate=duplicate)
     return {
-        "inserted": ok,    # UPSERT 不区分新增 vs 更新，一并计入 inserted（保持旧字段语义）
-        "updated": 0,
-        "failed": fail,
-        "skipped": local_dup_wxid,
+        "success": success,
+        "failed": failed,
+        "polluted": polluted,
+        "duplicate": duplicate,
     }
+
+
+def _log_import_summary(
+    log,
+    *,
+    success: int,
+    failed: int,
+    polluted: int,
+    duplicate: int,
+) -> None:
+    """每次导入结束输出统一汇总行。"""
+    log.info(
+        f"[内部备注] 导入汇总：成功 {success}，失败 {failed}，"
+        f"字段污染 {polluted}，重复 {duplicate}"
+    )
 
 
 # ─────────────────────────────── Edge Function 上传（备用）───────────────────────────────
@@ -569,54 +678,62 @@ def _edge_upload(
     batch_interval: float,
     request_timeout: int,
     log,
+    merge_duplicate: int = 0,
 ) -> dict:
-    """走 /functions/v1/import-internal-notes，规则由 Edge Function 决定。"""
+    """走 /functions/v1/import-internal-notes；上传前同样做字段污染拦截。"""
+    candidates, prep_stats = _prepare_upload_candidates(rows, log=log)
+    polluted = prep_stats["polluted"]
+    duplicate = merge_duplicate + prep_stats["duplicate"]
+
+    if not candidates:
+        _log_import_summary(log, success=0, failed=0, polluted=polluted, duplicate=duplicate)
+        return {"success": 0, "failed": 0, "polluted": polluted, "duplicate": duplicate}
+
     url = f"{supabase_url}/functions/v1/{import_function}"
     headers = {
         "Authorization": f"Bearer {token}",
         "apikey": anon_key,
         "Content-Type": "application/json",
     }
-    total = len(rows)
+    payload_rows = [_insert_payload(r) for r in candidates]
+    total = len(payload_rows)
     total_batches = max(1, math.ceil(total / batch_size))
     log.info(f"[内部备注] Edge Function → {url}，共 {total} / {total_batches} 批")
 
-    ok_batches = 0
-    fail_batches = 0
-    added_sum = 0
+    success = 0
+    failed = 0
     for i in range(total_batches):
-        batch = rows[i * batch_size : (i + 1) * batch_size]
+        batch = payload_rows[i * batch_size : (i + 1) * batch_size]
         try:
             t0 = time.time()
             resp = requests.post(url, json=batch, headers=headers, timeout=request_timeout)
             elapsed = time.time() - t0
             body = (resp.text or "")[:300]
             if 200 <= resp.status_code < 300:
-                ok_batches += 1
-                try:
-                    added_sum += int((resp.json() or {}).get("added", 0) or 0)
-                except Exception:
-                    pass
+                success += len(batch)
                 log.info(
-                    f"[内部备注][批 {i+1}/{total_batches}] OK {resp.status_code} "
+                    f"[内部备注][Edge 批 {i+1}/{total_batches}] OK {len(batch)} 条 "
                     f"耗时 {elapsed:.2f}s body={body}"
                 )
             else:
-                fail_batches += 1
+                failed += len(batch)
                 log.warning(
-                    f"[内部备注][批 {i+1}/{total_batches}] HTTP {resp.status_code}：{body}"
+                    f"[内部备注][Edge 批 {i+1}/{total_batches}] HTTP {resp.status_code}：{body}"
                 )
         except requests.RequestException as e:
-            fail_batches += 1
-            log.warning(f"[内部备注][批 {i+1}] 异常 {e}")
+            failed += len(batch)
+            log.warning(f"[内部备注][Edge 批 {i+1}] 异常 {e}")
 
         if i < total_batches - 1:
             time.sleep(batch_interval)
 
-    log.info(
-        f"[内部备注] Edge 完成：ok_batches={ok_batches} fail_batches={fail_batches} added={added_sum}"
-    )
-    return {"ok_batches": ok_batches, "fail_batches": fail_batches, "added": added_sum}
+    _log_import_summary(log, success=success, failed=failed, polluted=polluted, duplicate=duplicate)
+    return {
+        "success": success,
+        "failed": failed,
+        "polluted": polluted,
+        "duplicate": duplicate,
+    }
 
 
 # ─────────────────────────────── 对外入口 ───────────────────────────────
@@ -656,8 +773,9 @@ def run_pipeline(
         log.info(f"[内部备注] 数据源：{len(db_paths)} 个数据库")
         for p in db_paths:
             log.info(f"  - {p}")
-        items = load_from_db(db_paths, log=log)
-        log.info(f"[内部备注] 双库读取合并去重后 {len(items)} 条")
+        items, load_stats = load_from_db(db_paths, log=log)
+        merge_duplicate = load_stats.get("duplicate", 0)
+        log.info(f"[内部备注] 双库读取合并去重后 {len(items)} 条（合并阶段重复 {merge_duplicate} 条）")
         dump_json(items, out_json)
         log.info(f"[内部备注] JSON 已导出：{out_json}")
 
@@ -682,6 +800,7 @@ def run_pipeline(
                 import_function=import_function,
                 batch_size=batch_size, batch_interval=batch_interval,
                 request_timeout=request_timeout, log=log,
+                merge_duplicate=merge_duplicate,
             )
         else:
             _sync_increment(
@@ -690,6 +809,7 @@ def run_pipeline(
                 table_name=table_name, conflict_column=conflict_column,
                 batch_size=batch_size, batch_interval=batch_interval,
                 request_timeout=request_timeout, log=log,
+                merge_duplicate=merge_duplicate,
             )
         return True
     except Exception as e:

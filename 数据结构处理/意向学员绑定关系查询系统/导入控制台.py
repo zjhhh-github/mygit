@@ -2,7 +2,7 @@
 """
 导入控制台 —— 集成两条流水线的统一 GUI：
   1) 增量导入（来自 增量导入.py，Excel → Supabase incremental-import）
-  2) 内部备注导入（来自 export_contact.py，contact.db → internal_notes upsert）
+  2) 内部备注导入（来自 内部备注导入.py，contact.db → internal_notes upsert）
 
 依赖：requests（已被 增量导入.py 依赖），无新增。
 运行：python 导入控制台.py
