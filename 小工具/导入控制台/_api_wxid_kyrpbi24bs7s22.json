@@ -1,0 +1,22 @@
+{
+  "target": "wxid_kyrpbi24bs7s22",
+  "total_scanned": 38580,
+  "match_count": 1,
+  "matches": [
+    {
+      "student_id": "947f82c7-0ab2-40a2-871b-76e4a6d41fac",
+      "student_wechat_id": "wxid_kyrpbi24bs7s22",
+      "student_wechat_original_id": "wxid_kyrpbi24bs7s22",
+      "student_enrollment_status": "已报名",
+      "student_created_at": "2026-07-31T11:16:20.047958+08:00",
+      "source_id": "8f26ecd6-39b5-4f71-848a-fdb8c85cbcb6",
+      "source_wechat_id": null,
+      "source_wechat_original_id": "hlelain",
+      "source_internal_note": "",
+      "bind_date": "2026-07-31",
+      "unbind_date": "2026-08-30",
+      "bind_status": "有绑定",
+      "referrer_total_wechat_no": "hlelain"
+    }
+  ]
+}

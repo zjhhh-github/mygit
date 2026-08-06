@@ -162,6 +162,33 @@ def _build_referrer_rewrite_mapping() -> Tuple[Dict[str, str], Dict[str, str]]:
     return source_to_marker, marker_to_target
 
 
+def _resolve_referrer_wechat(row: Dict[str, Any]) -> str:
+    """
+    从 export-students-flat 一行数据中解析推荐人总微信号。
+
+    API 常见情况：source_wechat_id 为空，但 referrer_total_wechat_no
+    或 source_wechat_original_id 仍有值，需按优先级兜底读取。
+    """
+    return str(
+        row.get("referrer_total_wechat_no")
+        or row.get("source_wechat_id")
+        or row.get("source_wechat_original_id")
+        or row.get("来源微信号")
+        or row.get("推荐人总微信号")
+        or ""
+    ).strip()
+
+
+def _set_referrer_wechat(row: Dict[str, Any], value: str) -> None:
+    """改写推荐人微信号后，同步写入 API 标准字段，避免后续映射仍读到旧值。"""
+    row["referrer_total_wechat_no"] = value
+    row["source_wechat_id"] = value
+    if "来源微信号" in row:
+        row["来源微信号"] = value
+    if "推荐人总微信号" in row:
+        row["推荐人总微信号"] = value
+
+
 def _apply_referrer_wechat_rewrite(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     对 flat 导出行做来源微信号改写（小号替换大号）：
@@ -187,12 +214,7 @@ def _apply_referrer_wechat_rewrite(rows: List[Dict[str, Any]]) -> List[Dict[str,
             or new_row.get("wechat_id")
             or ""
         ).strip()
-        old_ref = str(
-            new_row.get("source_wechat_id")
-            or new_row.get("来源微信号")
-            or new_row.get("推荐人总微信号")
-            or ""
-        ).strip()
+        old_ref = _resolve_referrer_wechat(new_row)
         if not old_ref:
             rewritten.append(new_row)
             continue
@@ -216,15 +238,7 @@ def _apply_referrer_wechat_rewrite(rows: List[Dict[str, Any]]) -> List[Dict[str,
             continue
 
         if new_ref != old_ref:
-            if "source_wechat_id" in new_row:
-                new_row["source_wechat_id"] = new_ref
-            elif "来源微信号" in new_row:
-                new_row["来源微信号"] = new_ref
-            elif "推荐人总微信号" in new_row:
-                new_row["推荐人总微信号"] = new_ref
-            else:
-                # 兜底写入标准字段，确保后续映射优先使用改写后的来源微信号。
-                new_row["source_wechat_id"] = new_ref
+            _set_referrer_wechat(new_row, new_ref)
             changed.append(
                 {
                     "意向学员微信号": student_wechat,
@@ -502,12 +516,7 @@ def _to_feishu_record(row: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         "意向学员总微信号": student_wechat,
     }
 
-    source_wechat = str(
-        row.get("source_wechat_id")
-        or row.get("来源微信号")
-        or row.get("推荐人总微信号")
-        or ""
-    ).strip()
+    source_wechat = _resolve_referrer_wechat(row)
     bind_date = str(row.get("bind_date") or row.get("绑定日期") or "").strip()
     unbind_date = str(row.get("unbind_date") or row.get("解绑日期") or "").strip()
     bind_status = str(
