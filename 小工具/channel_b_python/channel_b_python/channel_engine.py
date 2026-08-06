@@ -16,6 +16,22 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from utils import 是合法编号
 
+import config
+
+# 合伙宝妈计算跳过名单（标准化为 6 位编号字符串，便于快速比对）
+合伙宝妈跳过编号集合 = {
+    str(编号).strip()
+    for 编号 in getattr(config, "合伙宝妈计算跳过编号集合", set())
+    if 是合法编号(编号)
+}
+
+
+def 编号在合伙宝妈跳过名单(编号: Any) -> bool:
+    """判断编号是否在合伙宝妈跳过名单中；名单内编号不参与合伙宝妈相关计算。"""
+    if not 是合法编号(编号):
+        return False
+    return str(编号).strip() in 合伙宝妈跳过编号集合
+
 
 @dataclass
 class ChannelContext:
@@ -71,8 +87,19 @@ def 初始化运行态(ctx: ChannelContext):
     if not isinstance(ctx.特殊渠道带领指定学员编号映射_渠道B_带领B, dict):
         ctx.特殊渠道带领指定学员编号映射_渠道B_带领B = {}
 
+    # 飞书合伙宝妈数据中剔除跳过名单编号，后续上溯与动态晋升均不再视为合伙宝妈
+    if isinstance(ctx.宝妈前五学员映射, dict) and 合伙宝妈跳过编号集合:
+        for _跳过编号 in list(ctx.宝妈前五学员映射.keys()):
+            if 编号在合伙宝妈跳过名单(_跳过编号):
+                del ctx.宝妈前五学员映射[_跳过编号]
+                ctx.log("[合伙宝妈-跳过] 飞书数据忽略编号={}".format(str(_跳过编号).strip()))
+
     ctx.飞书学员编号列表 = list(ctx.学员编号映射推荐人编号.keys()) if isinstance(ctx.学员编号映射推荐人编号, dict) else []
-    ctx.合伙宝妈编号列表 = list(ctx.宝妈前五学员映射.keys()) if isinstance(ctx.宝妈前五学员映射, dict) else []
+    ctx.合伙宝妈编号列表 = [
+        编号
+        for 编号 in (list(ctx.宝妈前五学员映射.keys()) if isinstance(ctx.宝妈前五学员映射, dict) else [])
+        if not 编号在合伙宝妈跳过名单(编号)
+    ]
 
     已记录新增学员编号 = set()
     飞书学员编号集合 = set()
@@ -105,6 +132,8 @@ def 初始化运行态(ctx: ChannelContext):
         if not 是合法编号(_推荐人编号):
             continue
         _推荐人编号 = str(_推荐人编号).strip()
+        if 编号在合伙宝妈跳过名单(_推荐人编号):
+            continue
         if _推荐人编号 in ctx.宝妈前五学员映射:
             continue
         if not isinstance(_原推荐学员列表, list):
@@ -305,6 +334,8 @@ def 查找推荐人和渠道B(ctx: ChannelContext, 报名学员编号: Any):
             ctx.log("[查找渠道B-轮次] 第{}轮 当前报名学员编号={}，上一级推荐人编号={}，是否首次写入推荐人={}".format(_轮次, 当前报名学员编号, 上一级推荐人编号, _首次写入推荐人))
 
         前五学员编号列表 = ctx.宝妈前五学员映射.get(上一级推荐人编号)
+        if 编号在合伙宝妈跳过名单(上一级推荐人编号):
+            前五学员编号列表 = None
 
         if 前五学员编号列表 is None:
             if ctx.调试日志_查找推荐人和渠道B:
@@ -391,6 +422,8 @@ def 查找上层合伙宝妈编号(ctx: ChannelContext, 起始报名学员编号
         上一级推荐人编号 = str(上一级推荐人编号).strip()
 
         前五学员编号列表 = ctx.宝妈前五学员映射.get(上一级推荐人编号)
+        if 编号在合伙宝妈跳过名单(上一级推荐人编号):
+            前五学员编号列表 = None
         if 前五学员编号列表 is None:
             当前报名学员编号 = 上一级推荐人编号
             continue
@@ -499,6 +532,9 @@ def 尝试动态晋升合伙宝妈(ctx: ChannelContext, 报名学员编号: Any)
     if not 是合法编号(推荐人编号):
         return
     推荐人编号 = str(推荐人编号).strip()
+
+    if 编号在合伙宝妈跳过名单(推荐人编号):
+        return
 
     if 推荐人编号 in ctx.宝妈前五学员映射:
         return
