@@ -22,7 +22,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -47,8 +47,8 @@ MAX_RETRY = 3
 # 控制台输出锁：多线程日志不交错
 _print_lock = threading.Lock()
 
-# 日志函数类型：worker_id + 消息行列表
-LogFn = Callable[[int, List[str]], None]
+# 线程本地日志上下文：同一线程内所有日志自动带上表名、任务序号等信息
+_log_context = threading.local()
 
 
 @dataclass
@@ -73,13 +73,73 @@ def _ensure_utf8_stdio() -> None:
         pass
 
 
-def thread_log(worker_id: int, *lines: str) -> None:
-    """线程安全日志：首行带 [线程N] 前缀，后续行正常缩进输出。"""
+@dataclass
+class ThreadLogContext:
+    """单线程下载任务的日志上下文，供 thread_log 统一格式化输出。"""
+
+    worker_id: int = 0
+    table_id: str = ""
+    table_name: str = "-"
+    task_index: int = 0
+    total_tasks: int = 0
+    task_start_time: float = 0.0
+
+
+def set_thread_log_context(**kwargs: Any) -> None:
+    """设置当前线程的日志上下文（任务开始时调用一次即可）。"""
+    current = getattr(_log_context, "data", None)
+    if current is None:
+        current = ThreadLogContext()
+    for key, value in kwargs.items():
+        if hasattr(current, key):
+            setattr(current, key, value)
+    _log_context.data = current
+
+
+def get_thread_log_context() -> ThreadLogContext:
+    """读取当前线程日志上下文；未设置时返回默认空上下文。"""
+    current = getattr(_log_context, "data", None)
+    if current is None:
+        return ThreadLogContext()
+    return current
+
+
+def _format_log_prefix(ctx: ThreadLogContext) -> str:
+    """组装日志前缀：时间 + 线程 + 任务进度 + 表名。"""
+    time_text = time.strftime("%H:%M:%S")
+    thread_text = f"线程{ctx.worker_id}" if ctx.worker_id else "线程?"
+    if ctx.task_index and ctx.total_tasks:
+        task_text = f"任务{ctx.task_index}/{ctx.total_tasks}"
+    else:
+        task_text = "任务-/-"
+    table_text = ctx.table_name or ctx.table_id or "-"
+    return f"[{time_text}] [{thread_text}] [{task_text}] [{table_text}]"
+
+
+def thread_log(*lines: str, worker_id: Optional[int] = None) -> None:
+    """线程安全日志：每行带时间、线程号、任务进度、表名前缀。"""
+    ctx = get_thread_log_context()
+    if worker_id is not None:
+        ctx = ThreadLogContext(
+            worker_id=worker_id,
+            table_id=ctx.table_id,
+            table_name=ctx.table_name,
+            task_index=ctx.task_index,
+            total_tasks=ctx.total_tasks,
+            task_start_time=ctx.task_start_time,
+        )
+    prefix = _format_log_prefix(ctx)
     with _print_lock:
-        for index, line in enumerate(lines):
-            if index == 0:
-                print(f"[线程{worker_id}]", flush=True)
-            print(line, flush=True)
+        for line in lines:
+            print(f"{prefix} {line}", flush=True)
+
+
+def _elapsed_since_task_start() -> str:
+    """返回当前任务已耗时（秒），用于完成/失败日志。"""
+    ctx = get_thread_log_context()
+    if ctx.task_start_time <= 0:
+        return "-"
+    return f"{time.time() - ctx.task_start_time:.1f}秒"
 
 
 def http_json(
@@ -142,9 +202,9 @@ def request_with_retry(
                 wait_sec = RATE_LIMIT_WAIT_SECONDS[wait_idx]
                 if worker_id is not None:
                     thread_log(
-                        worker_id,
-                        f"  [限流] 飞书返回 {FEISHU_RATE_LIMIT_CODE} TooManyRequest，"
+                        f"[限流] 飞书返回 {FEISHU_RATE_LIMIT_CODE} TooManyRequest，"
                         f"第 {attempt} 次重试，等待 {wait_sec} 秒 ...",
+                        worker_id=worker_id,
                     )
                 time.sleep(wait_sec)
                 continue
@@ -159,7 +219,10 @@ def request_with_retry(
             is_rate_limit = str(FEISHU_RATE_LIMIT_CODE) in msg
             if attempt < MAX_RETRY and not is_rate_limit:
                 if worker_id is not None:
-                    thread_log(worker_id, f"  [重试] 第 {attempt} 次失败：{exc}，即将重试 ...")
+                    thread_log(
+                        f"[重试] 第 {attempt} 次失败：{exc}，即将重试 ...",
+                        worker_id=worker_id,
+                    )
                 time.sleep(1.0 * attempt)
                 continue
             if attempt >= MAX_RETRY:
@@ -298,8 +361,12 @@ def fetch_all_records(
         data = resp.get("data") or {}
         items = data.get("items") or []
         all_records.extend(items)
+        total_count = len(all_records)
 
-        thread_log(worker_id, f"  第{page_index}页 {len(items)}条")
+        thread_log(
+            f"[分页] 第 {page_index} 页 +{len(items)} 条，累计 {total_count} 条",
+            worker_id=worker_id,
+        )
 
         has_more = bool(data.get("has_more"))
         page_token = data.get("page_token")
@@ -335,32 +402,31 @@ def download_one_table(
 ) -> DownloadResult:
     """下载单张表并保存 CSV（在线程池中执行，异常不向外抛出）。"""
     try:
-        thread_log(worker_id, f"开始下载 {table_name}")
+        thread_log(f"[开始] table_id={table_id}，分页大小={page_size}")
 
         if fields is not None:
-            thread_log(worker_id, *format_download_fields(fields, fields))
+            thread_log(*format_download_fields(fields, fields))
 
+        thread_log("[拉取] 开始分页请求飞书接口 ...")
         records = fetch_all_records(
             token, app_token, table_id, page_size, worker_id
         )
         columns, rows, missing_fields = records_to_rows(records, fields)
 
         if fields is None:
-            thread_log(worker_id, *format_download_fields(None, columns))
+            thread_log(*format_download_fields(None, columns))
 
         if missing_fields:
-            missing_lines = ["字段不存在:"] + missing_fields
-            thread_log(worker_id, *missing_lines)
+            missing_lines = ["[警告] 字段不存在:"] + missing_fields
+            thread_log(*missing_lines)
 
         csv_name = f"{table_name}.csv"
         output_path = output_dir / csv_name
+        thread_log(f"[写入] 保存 CSV：{output_path.name}")
         save_csv(output_path, columns, rows)
 
         thread_log(
-            worker_id,
-            f"完成: {csv_name}",
-            f"字段数:{len(columns)}",
-            f"数据量:{len(rows)}条",
+            f"[完成] {csv_name} | 字段数 {len(columns)} | 数据量 {len(rows)} 条 | 耗时 {_elapsed_since_task_start()}",
         )
         return DownloadResult(
             table_id=table_id,
@@ -372,7 +438,9 @@ def download_one_table(
         )
     except Exception as exc:
         err_msg = str(exc)
-        thread_log(worker_id, f"[失败] {table_id} ({table_name})：{err_msg}")
+        thread_log(
+            f"[失败] table_id={table_id} | 耗时 {_elapsed_since_task_start()} | 原因：{err_msg}",
+        )
         return DownloadResult(
             table_id=table_id,
             table_name=table_name,
@@ -387,12 +455,24 @@ def download_table_task(
     table_id: str,
     token: str,
     output_dir: Path,
+    task_index: int,
+    total_tasks: int,
 ) -> DownloadResult:
     """线程池任务包装：根据 table_id 查配置并下载，保证异常不中断线程池。"""
     mapping = config.TABLE_MAPPING.get(table_id)
+    table_name = mapping["table_name"] if mapping else "未配置"
+    set_thread_log_context(
+        worker_id=worker_id,
+        table_id=table_id,
+        table_name=table_name,
+        task_index=task_index,
+        total_tasks=total_tasks,
+        task_start_time=time.time(),
+    )
+
     if not mapping:
         msg = f"TABLE_MAPPING 中未配置 table_id「{table_id}」"
-        thread_log(worker_id, f"[跳过] {msg}")
+        thread_log(f"[跳过] {msg}")
         return DownloadResult(
             table_id=table_id,
             table_name="未配置",
@@ -425,29 +505,36 @@ def main() -> int:
         name = config.TABLE_MAPPING.get(tid, {}).get("table_name", "未配置")
         pending_labels.append(f"{tid} ({name})")
 
+    total_tasks = len(config.DOWNLOAD_TABLES)
+    run_start_text = time.strftime("%Y-%m-%d %H:%M:%S")
+
     print("=" * 60)
     print("飞书多维表格批量下载 → CSV（多表并发）")
+    print(f"开始时间：{run_start_text}")
     print(f"输出目录：{output_dir}")
-    print(f"待下载表：{', '.join(pending_labels)}")
+    print(f"待下载表（共 {total_tasks} 张）：{', '.join(pending_labels)}")
     print(f"并发线程数：{config.MAX_WORKERS}")
+    print("日志格式：[时间] [线程N] [任务i/总数] [表名] 消息")
     print("=" * 60)
 
-    print("[认证] 获取 tenant_access_token ...")
+    print(f"[{time.strftime('%H:%M:%S')}] [主线程] [认证] 获取 tenant_access_token ...")
     token = get_tenant_access_token(config.APP_ID, config.APP_SECRET)
-    print(f"[认证] 成功，token=***{token[-6:]}")
+    print(f"[{time.strftime('%H:%M:%S')}] [主线程] [认证] 成功，token=***{token[-6:]}")
 
     start_time = time.time()
     results: List[DownloadResult] = []
 
-    # 每个 table_id 提交为一个任务；worker_id 与 DOWNLOAD_TABLES 序号对应（1 起）
+    # 每个 table_id 提交为一个任务；worker_id 循环复用 1..MAX_WORKERS（便于对照线程池）
     with ThreadPoolExecutor(max_workers=config.MAX_WORKERS) as executor:
         future_map = {
             executor.submit(
                 download_table_task,
-                worker_id=idx + 1,
+                worker_id=(idx % config.MAX_WORKERS) + 1,
                 table_id=table_id,
                 token=token,
                 output_dir=output_dir,
+                task_index=idx + 1,
+                total_tasks=total_tasks,
             ): table_id
             for idx, table_id in enumerate(config.DOWNLOAD_TABLES)
         }
@@ -489,13 +576,12 @@ def main() -> int:
                 f"  ✗ {result.table_id} ({result.table_name})：{result.error}"
             )
 
+    end_text = time.strftime("%Y-%m-%d %H:%M:%S")
     print("=" * 60)
-    print("下载完成:")
-    print(f"成功:\n{success_count}个")
-    print(f"失败:\n{fail_count}个")
-    print(f"总耗时:\n{elapsed:.1f}秒")
+    print(f"[{time.strftime('%H:%M:%S')}] [主线程] 下载完成（结束时间 {end_text}）")
+    print(f"成功：{success_count} 个 | 失败：{fail_count} 个 | 总耗时：{elapsed:.1f} 秒")
     if detail_lines:
-        print("明细:")
+        print("明细（按 DOWNLOAD_TABLES 顺序）：")
         for line in detail_lines:
             print(line)
     print("=" * 60)
