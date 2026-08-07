@@ -671,7 +671,7 @@ NOTE_CONFIG = {
     "BATCH_INTERVAL": 0.3,
     "REQUEST_TIMEOUT": 120,
     "TABLE_NAME": "internal_notes",
-    "CONFLICT_COLUMN": "wechat_id",
+    "CONFLICT_COLUMN": "wechat_original_id",
     "IMPORT_FUNCTION": "import-internal-notes",
 }
 
@@ -752,7 +752,7 @@ def run_note_pipeline_external(do_upload: bool, log) -> bool:
         batch_interval=float(NOTE_CONFIG.get("BATCH_INTERVAL", 0.3)),
         request_timeout=int(NOTE_CONFIG.get("REQUEST_TIMEOUT", 120)),
         table_name=NOTE_CONFIG.get("TABLE_NAME", "internal_notes"),
-        conflict_column=NOTE_CONFIG.get("CONFLICT_COLUMN", "wechat_id"),
+        conflict_column=NOTE_CONFIG.get("CONFLICT_COLUMN", "wechat_original_id"),
         import_function=NOTE_CONFIG.get("IMPORT_FUNCTION", "import-internal-notes"),
         log=log,
     )
