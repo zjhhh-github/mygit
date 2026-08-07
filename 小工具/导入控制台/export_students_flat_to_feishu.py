@@ -755,6 +755,135 @@ def _list_all_record_ids_via_search(
     return ids
 
 
+def _list_record_ids_batch(
+    api_base: str,
+    app_token: str,
+    table_id: str,
+    token: str,
+    *,
+    batch_size: int = 1000,
+    session: Optional[requests.Session] = None,
+) -> List[str]:
+    """
+    只读取飞书表第一页 record_id，最多 batch_size 条。
+    用于「读一批删一批」循环清空：每次删完后再读第一页，无需 page_token。
+    """
+    url = f"{api_base}/bitable/v1/apps/{app_token}/tables/{table_id}/records"
+    page_size_candidates: List[int] = []
+    seen: set[int] = set()
+    for size in (batch_size, 500, 200, 100, 50):
+        if size <= batch_size and size not in seen:
+            seen.add(size)
+            page_size_candidates.append(size)
+
+    for current_page_size in page_size_candidates:
+        params: Dict[str, Any] = {
+            "page_size": current_page_size,
+            "automatic_fields": False,
+            "field_names": _format_feishu_field_names(FEISHU_LIST_ID_FIELD_NAMES),
+        }
+        try:
+            body = _feishu_request("GET", url, token, params=params, session=session)
+            data = body.get("data") or {}
+            return _extract_record_ids_from_items(data.get("items"))
+        except RuntimeError as exc:
+            err_text = str(exc)
+            if "RecordExceedLimit" in err_text or "1254103" in err_text:
+                _emit(
+                    "飞书读批次触发 RecordExceedLimit，降级 page_size：{0}".format(current_page_size)
+                )
+                continue
+            raise
+
+    # GET 仍失败时，用 search 只读第一页。
+    search_url = f"{api_base}/bitable/v1/apps/{app_token}/tables/{table_id}/records/search"
+    search_payload: Dict[str, Any] = {
+        "automatic_fields": False,
+        "field_names": FEISHU_LIST_ID_FIELD_NAMES,
+    }
+    search_candidates: List[int] = []
+    search_seen: set[int] = set()
+    for size in (min(batch_size, 500), 200, 100, 50):
+        if size not in search_seen:
+            search_seen.add(size)
+            search_candidates.append(size)
+    for current_page_size in search_candidates:
+        try:
+            body = _feishu_request(
+                "POST",
+                search_url,
+                token,
+                params={"page_size": current_page_size},
+                payload=search_payload,
+                session=session,
+            )
+            data = body.get("data") or {}
+            return _extract_record_ids_from_items(data.get("items"))
+        except RuntimeError as exc:
+            err_text = str(exc)
+            if "RecordExceedLimit" in err_text or "1254103" in err_text:
+                _emit(
+                    "飞书 search 读批次触发 RecordExceedLimit，降级 page_size：{0}".format(
+                        current_page_size
+                    )
+                )
+                continue
+            raise
+
+    raise RuntimeError("飞书读批次 record_id 失败：page_size 已降到最小仍失败。")
+
+
+def _clear_all_records_in_batches(
+    api_base: str,
+    app_token: str,
+    table_id: str,
+    token: str,
+    *,
+    read_batch_size: int = 1000,
+    session: Optional[requests.Session] = None,
+) -> int:
+    """
+    循环清空飞书表：先读最多 read_batch_size 条 record_id，够 1000 删 1000，不够有几条删几条，
+    重复直到表内无记录。始终读第一页，避免全量拉 ID 与删后翻页 token 失效。
+    """
+    deleted = 0
+    round_num = 0
+    delete_url = (
+        f"{api_base}/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_delete"
+    )
+
+    while True:
+        round_num += 1
+        batch_ids = _list_record_ids_batch(
+            api_base,
+            app_token,
+            table_id,
+            token,
+            batch_size=read_batch_size,
+            session=session,
+        )
+        if not batch_ids:
+            if deleted > 0:
+                _emit("飞书表已清空，共删除 {0} 条。".format(deleted))
+            break
+
+        _feishu_request(
+            "POST",
+            delete_url,
+            token,
+            payload={"records": batch_ids},
+            session=session,
+        )
+        deleted += len(batch_ids)
+        _emit(
+            "飞书删除进度：第 {0} 轮，本轮删除 {1} 条，累计 {2} 条".format(
+                round_num, len(batch_ids), deleted
+            )
+        )
+
+    return deleted
+
+
 def _batch_delete(
     api_base: str,
     app_token: str,
@@ -809,29 +938,25 @@ def _sync_records_to_feishu_table(
     insert_batch_size: int,
 ) -> Tuple[int, int]:
     """
-    使用同一个 requests.Session 完成拉 ID / 删除 / 写入，复用 TCP 连接。
+    使用同一个 requests.Session 完成读删循环 / 写入，复用 TCP 连接。
+    清空时采用「读一批删一批」循环，不先全量拉 record_id。
     返回：(deleted, inserted)
     """
     session = requests.Session()
     deleted = 0
     try:
         if should_clear_existing:
-            _emit("开始轻量拉取飞书旧 record_id（仅请求 1 个业务字段）...")
-            existing_ids = _list_all_record_ids(
-                cfg["api_base"],
-                cfg["app_token"],
-                cfg["table_id"],
-                token,
-                session=session,
+            _emit(
+                "开始循环清空飞书旧数据（每轮最多读 {0} 条，有几条删几条）...".format(
+                    delete_batch_size
+                )
             )
-            _emit("飞书旧 record_id 拉取完成，共 {0} 条，开始批量删除。".format(len(existing_ids)))
-            deleted = _batch_delete(
+            deleted = _clear_all_records_in_batches(
                 cfg["api_base"],
                 cfg["app_token"],
                 cfg["table_id"],
                 token,
-                existing_ids,
-                batch_size=delete_batch_size,
+                read_batch_size=delete_batch_size,
                 session=session,
             )
         inserted = _batch_insert(
