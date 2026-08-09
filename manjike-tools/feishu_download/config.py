@@ -28,7 +28,7 @@ APP_SECRET: str = os.environ.get("FEISHU_APP_SECRET", "0XiTHVpP9zbnXJWPSwM8DdxXp
 
 # 需要批量下载的 table_id 列表（按此顺序依次下载）
 DOWNLOAD_TABLES: List[str] = [
-    "tblNIWZ1EsDyZ1ug",  # 意向通讯录
+    # "tblNIWZ1EsDyZ1ug",  # 意向通讯录
     # "tblzUayWLgynug56",  # 推荐人更换
     "tblfoJucuZkeL9L1",  # 内部通讯录
     "tblKa8wryhV4d7F4",  # 合伙宝妈
