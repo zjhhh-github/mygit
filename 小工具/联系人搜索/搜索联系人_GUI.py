@@ -7,11 +7,11 @@ r"""
   - 搜索：输入关键词跨多个 contact.db 模糊搜索联系人
   - 数据库面板：可折叠，支持选中删除、双击就地编辑、文件选择添加、恢复默认
   - 拷贝任务面板：可折叠，配置"源文件 → 目标文件"的拷贝任务列表
-  - 设备选择：内部专用 / 意向专用 / 其他，自动切换拷贝任务源路径盘符
+  - 设备选择：内部专用 / 意向专用 / 其他电脑使用，自动切换拷贝任务源路径盘符
   - 界面配置持久化：设备、拷贝任务、数据库列表写入 Windows 注册表（不生成额外文件）
   - 刷新数据库按钮：执行全部拷贝任务后自动重新搜索，刷新结果
   - Canvas 表格：像素级平滑滚动，单击单元格复制内容
-  - 群信息列：根据内部专用库 chatroom_member，显示联系人所在内部直播群 / 专属带领群
+  - 群信息列：根据内部专用库 chatroom_member，显示联系人所在内部直播群 / 专属带领群 / 外教群（群名含 CT 或 XXJ）
 """
 
 import hashlib
@@ -75,8 +75,8 @@ from typing import Dict, List, Optional, Tuple
 # 设备选择：切换后自动改写拷贝任务「源路径」中的盘符前缀
 # - 内部专用：Z: → 设备本地路径根
 # - 意向专用：Y: → 设备本地路径根
-# - 其他：保持 默认拷贝任务列表 原样（Z: / Y: 不变）
-设备选项列表 = ("内部专用", "意向专用", "其他")
+# - 其他电脑使用：保持 默认拷贝任务列表 原样（Z: / Y: 不变）
+设备选项列表 = ("内部专用", "意向专用", "其他电脑使用")
 设备本地路径根 = r"C:\Users\LENOVO"
 设备盘符映射 = {
     "内部专用": "Z:",
@@ -94,6 +94,7 @@ from typing import Dict, List, Optional, Tuple
 # 单列可覆盖正文字号：key = 表格列定义中的字段 key
 列内容字号: Dict[str, int] = {
     "_exclusive_lead_group": 8,   # 专属带领群：群名较长，用小号字完整显示
+    "_foreign_teacher_group": 8,  # 外教群：群名较长，用小号字完整显示
 }
 
 # 每次向表格追加的批次大小（首次加载 + 每次滚动到底部追加）
@@ -120,6 +121,7 @@ from typing import Dict, List, Optional, Tuple
     ("nick_name",  "昵称",       360),
     ("alias",      "微信号",     500),
     ("username",   "微信原始ID", 500),
+    ("_foreign_teacher_group", "外教群",      360),
     ("_internal_live_group",  "内部直播群",   320),
     ("_exclusive_lead_group", "专属带领群",   360),
     ("_db_source", "来源数据库", 500),
@@ -441,6 +443,14 @@ def _数据库含群成员表(db文件路径: str) -> bool:
         return False
 
 
+def _是外教群名(群名: str) -> bool:
+    """
+    判断群昵称是否为外教群：群名中必须包含大写 CT 或 XXJ。
+    不使用小写 ct / xxj，避免误匹配。
+    """
+    return "CT" in 群名 or "XXJ" in 群名
+
+
 def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List[str]]]:
     """
     从内部专用 contact.db 构建：微信原始ID(username) → 所在群名列表。
@@ -450,6 +460,7 @@ def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List
             "wxid_xxx": {
                 "internal_live": ["内部直播群⑰", ...],
                 "exclusive_lead": ["专属带领群-adisi-¡¡¡003719", ...],
+                "foreign_teacher": ["BA闫沣格 CT11829 Cici", ...],
             },
             ...
         }
@@ -458,7 +469,7 @@ def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List
     索引: Dict[str, Dict[str, set]] = {}
     群成员库列表 = _解析群成员数据库路径(db路径列表)
 
-    # 一次 SQL 拉出成员 wxid 与其所在内部直播群 / 专属带领群昵称
+    # 一次 SQL 拉出成员 wxid 与其所在群昵称，再在 Python 中按群类型分类
     _SQL = """
         SELECT
             c_member.username,
@@ -469,6 +480,8 @@ def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List
         JOIN contact c_member ON c_member.id = cm.member_id
         WHERE cg.nick_name LIKE '内部直播群%'
            OR cg.nick_name LIKE '专属带领群%'
+           OR cg.nick_name LIKE '%CT%'
+           OR cg.nick_name LIKE '%XXJ%'
     """
 
     for db路径 in 群成员库列表:
@@ -483,11 +496,16 @@ def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List
                 群名 = (群昵称 or "").strip()
                 if not wxid or not 群名:
                     continue
-                桶 = 索引.setdefault(wxid, {"internal_live": set(), "exclusive_lead": set()})
+                桶 = 索引.setdefault(
+                    wxid,
+                    {"internal_live": set(), "exclusive_lead": set(), "foreign_teacher": set()},
+                )
                 if 群名.startswith("内部直播群"):
                     桶["internal_live"].add(群名)
                 elif 群名.startswith("专属带领群"):
                     桶["exclusive_lead"].add(群名)
+                elif _是外教群名(群名):
+                    桶["foreign_teacher"].add(群名)
             conn.close()
         except sqlite3.Error:
             continue
@@ -498,6 +516,7 @@ def 构建群成员索引(db路径列表: List[str]) -> Dict[str, Dict[str, List
         结果[wxid] = {
             "internal_live": sorted(桶["internal_live"]),
             "exclusive_lead": sorted(桶["exclusive_lead"]),
+            "foreign_teacher": sorted(桶["foreign_teacher"]),
         }
     return 结果
 
@@ -507,7 +526,7 @@ def 填充联系人群信息(
     群索引: Dict[str, Dict[str, List[str]]],
 ) -> None:
     """
-    就地给每条搜索结果补充 _internal_live_group / _exclusive_lead_group 字段。
+    就地给每条搜索结果补充 _internal_live_group / _exclusive_lead_group / _foreign_teacher_group 字段。
     通过联系人的 username（微信原始ID）在群索引中查找；未加入任何群则留空。
     """
     for 条目 in 结果列表:
@@ -515,6 +534,7 @@ def 填充联系人群信息(
         群信息 = 群索引.get(wxid) or {}
         条目["_internal_live_group"] = "、".join(群信息.get("internal_live") or [])
         条目["_exclusive_lead_group"] = "、".join(群信息.get("exclusive_lead") or [])
+        条目["_foreign_teacher_group"] = "、".join(群信息.get("foreign_teacher") or [])
 
 
 # ============================================================
@@ -693,10 +713,13 @@ def 保存界面配置(配置: Dict) -> None:
 
 
 def 从配置解析设备(配置: Dict) -> str:
-    """读取并校验设备选项，非法值回退为「其他」。"""
-    设备 = str(配置.get("设备", "其他")).strip()
+    """读取并校验设备选项，非法值回退为「其他电脑使用」。"""
+    设备 = str(配置.get("设备", "其他电脑使用")).strip()
+    # 兼容旧版配置里保存的「其他」
+    if 设备 == "其他":
+        设备 = "其他电脑使用"
     if 设备 not in 设备选项列表:
-        return "其他"
+        return "其他电脑使用"
     return 设备
 
 
@@ -936,6 +959,15 @@ class 搜索联系人界面:
         self.关键词输入.bind("<Return>", lambda e: self._触发搜索(立即=True))
         self.关键词输入.bind("<KeyRelease>", lambda e: self._触发搜索(立即=False))
         self.关键词输入.focus()
+
+        tk.Button(
+            搜索框, text="清除",
+            font=("微软雅黑", 字号), width=5,
+            bg="#EEEEEE", fg="#333",
+            activebackground="#E0E0E0", activeforeground="#111",
+            relief="flat", cursor="hand2",
+            command=self._清除筛选,
+        ).pack(side="left", padx=(0, 6))
 
         tk.Button(
             搜索框, text="搜 索",
@@ -1203,13 +1235,13 @@ class 搜索联系人界面:
         切换设备选项时，按规则改写拷贝任务源路径并刷新面板：
           - 内部专用：Z: → 设备本地路径根
           - 意向专用：Y: → 设备本地路径根
-          - 其他：恢复默认 Z:/Y: 路径
+          - 其他电脑使用：恢复默认 Z:/Y: 路径
         """
         设备 = self._设备选择.get()
         self._拷贝重建任务列表()
 
-        if 设备 == "其他":
-            提示 = "已切换为「其他」：拷贝任务保持 Z:/Y: 原路径"
+        if 设备 == "其他电脑使用":
+            提示 = "已切换为「其他电脑使用」：拷贝任务保持 Z:/Y: 原路径"
         else:
             盘符 = 设备盘符映射.get(设备, "")
             提示 = f"已切换为「{设备}」：拷贝源路径 {盘符} 已改为 {设备本地路径根}"
@@ -1425,6 +1457,21 @@ class 搜索联系人界面:
         """模式切换时：更新搜索列显示状态，并立即重新搜索。"""
         self._更新搜索列显示()
         self._触发搜索(立即=True)
+
+    def _清除筛选(self):
+        """清空搜索关键词，并重置表格为初始空状态。"""
+        if self._防抖计时器 is not None:
+            self.root.after_cancel(self._防抖计时器)
+            self._防抖计时器 = None
+
+        self.关键词输入.delete(0, tk.END)
+        self._全部结果 = []
+        self._已加载数量 = 0
+        self._canvas清空表格()
+        self._头像缓存.clear()
+        self._username头像url.clear()
+        self.状态变量.set("请输入关键词后按回车或点击搜索")
+        self.关键词输入.focus()
 
     def _触发搜索(self, 立即: bool = False):
         """

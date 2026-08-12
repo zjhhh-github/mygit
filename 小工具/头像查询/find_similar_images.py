@@ -241,19 +241,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # 简化的硬编码路径使用
-    input_image_path = r"C:\Users\LENOVO\Desktop\微信图片_20260105164106_9_270.png"  # 输入图像路径
-    folder_path = r"C:\Users\LENOVO\Desktop\临时"       # 待搜索的文件夹路径
-    threshold = 0.3  # 相似度阈值
-    top_n = 10       # 返回最相似的图片数量
-    
-    print(f"处理输入图像: {input_image_path}")
-    print(f"与文件夹中的图像进行比较: {folder_path}")
-    print(f"相似度阈值: {threshold}")
-    
-    # 查找相似图像
-    similar_images = find_similar_images(input_image_path, folder_path, threshold=threshold, top_n=top_n)
-    
-    print(f"\n最相似的 {top_n} 张图像:")
-    for image_path, similarity in similar_images:
-        print(f"{image_path}: {similarity:.4f}")
+    # 程序入口：调用 main()，使用命令行传入的参数（输入图片路径、比较文件夹、阈值、top-n）
+    # 之前这里写了一段硬编码路径的代码，导致命令行参数完全被忽略，
+    # 无论传什么参数都会去读写死的路径，因此报 FileNotFoundError，现已修正为调用 main()
+    main()
