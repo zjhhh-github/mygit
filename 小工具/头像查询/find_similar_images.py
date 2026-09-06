@@ -105,7 +105,13 @@ def calculate_image_similarity(img1, img2):
     return max(0, min(1, similarity))
 
 
-def find_similar_images(input_image_path, folder_path, threshold=0.7, top_n=None):
+def find_similar_images(
+    input_image_path,
+    folder_path,
+    threshold=0.7,
+    top_n=None,
+    progress_callback=None,
+):
     """
     在文件夹中查找与输入图像相似的图像
     
@@ -114,6 +120,8 @@ def find_similar_images(input_image_path, folder_path, threshold=0.7, top_n=None
         folder_path: 包含待比较图像的文件夹路径
         threshold: 相似度阈值（0-1），只返回高于此阈值的图像
         top_n: 返回最相似图像的数量（None表示返回所有高于阈值的图像）
+        progress_callback: 可选进度回调，签名：
+            progress_callback(当前序号, 总数量, 当前文件路径, 相似度或None, 错误信息=None)
     
     返回:
         包含(图像路径, 相似度分数)元组的列表，按相似度分数降序排列
@@ -197,12 +205,19 @@ def find_similar_images(input_image_path, folder_path, threshold=0.7, top_n=None
             
             if similarity >= threshold:
                 similarities.append((image_file, similarity))
-                
-            # 打印处理进度
-            print(f"已处理 {idx+1}/{total_files} 张图片...")
+
+            # 进度回调优先于 print，方便 GUI 在后台线程里更新界面
+            if progress_callback is not None:
+                progress_callback(idx + 1, total_files, image_file, similarity)
+            else:
+                print(f"已处理 {idx+1}/{total_files} 张图片...")
             
         except Exception as e:
-            print(f"处理 {image_file} 时出错: {str(e)}")
+            错误信息 = f"处理 {image_file} 时出错: {str(e)}"
+            if progress_callback is not None:
+                progress_callback(idx + 1, total_files, image_file, None, 错误信息)
+            else:
+                print(错误信息)
             continue
     
     # 按相似度分数排序（降序）

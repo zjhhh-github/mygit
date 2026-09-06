@@ -97,18 +97,24 @@ def 读取数据库中的联系人列表(db_path: str):
         连接.close()
 
 
-def 主流程():
+def 执行导出(db_paths=None, output_path=None):
     """
-    主流程：
-    1. 依次读取两个数据库的 (username, alias, remark, nick_name) 列表；
-    2. 对每个 username 计算 md5；
-    3. 按 username 去重（同一个 username 只保留第一次出现的那条记录）；
-    4. 写入 CSV 文件。
+    导出 username -> md5 映射到 CSV。
+
+    参数:
+        db_paths: 要读取的 SQLite 数据库路径列表；留空则使用 DB_PATHS 默认值
+        output_path: CSV 输出路径；留空则输出到脚本/exe 所在目录的 username_md5_mapping.csv
+
+    返回:
+        (output_path, 写入条数) 元组
     """
+    实际数据库路径列表 = db_paths if db_paths else DB_PATHS
+    实际输出路径 = output_path if output_path else OUTPUT_PATH
+
     所有映射行 = []
     已出现的username集合 = set()
 
-    for db_path in DB_PATHS:
+    for db_path in 实际数据库路径列表:
         print(f"正在读取数据库: {db_path}")
         try:
             联系人列表 = 读取数据库中的联系人列表(db_path)
@@ -135,13 +141,19 @@ def 主流程():
         print(f"  共读取 {len(联系人列表)} 条，新增 {新增数量} 条唯一 username")
 
     # 写入 CSV，使用 utf-8-sig 编码，方便 Excel 直接打开不乱码
-    with open(OUTPUT_PATH, "w", newline="", encoding="utf-8-sig") as 文件:
+    with open(实际输出路径, "w", newline="", encoding="utf-8-sig") as 文件:
         写入器 = csv.DictWriter(文件, fieldnames=["来源数据库", "username", "alias", "remark", "nick_name", "md5"])
         写入器.writeheader()
         写入器.writerows(所有映射行)
 
     print(f"完成！共写入 {len(所有映射行)} 条映射记录。")
-    print(f"输出文件路径: {OUTPUT_PATH}")
+    print(f"输出文件路径: {实际输出路径}")
+    return 实际输出路径, len(所有映射行)
+
+
+def 主流程():
+    """命令行入口：使用脚本顶部 DB_PATHS 与 OUTPUT_PATH 默认值执行导出。"""
+    执行导出()
 
 
 if __name__ == "__main__":

@@ -37,4 +37,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['D:\\git\\mygit\\小工具\\外教\\spec\\外教建群_icon.ico'],
 )

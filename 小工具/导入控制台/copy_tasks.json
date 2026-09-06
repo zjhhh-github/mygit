@@ -1,0 +1,15 @@
+[
+  {
+    "id": "0ef551e8-a07a-4ce8-972d-1687784261be",
+    "name": "contact.db 同步",
+    "src": "X:\\chatlog_backup",
+    "dst": "C:\\Users\\LENOVO\\Desktop\\contact.db",
+    "interval_min": 30,
+    "enabled": true,
+    "find_contact_db": true,
+    "contact_prefixes": "",
+    "start_time": "",
+    "last_run_ts": 1786519377.292818,
+    "last_result": "成功 15:22:57"
+  }
+]

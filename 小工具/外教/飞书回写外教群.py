@@ -8,7 +8,10 @@ r"""
     https://ipcjg02m9k.feishu.cn/base/Zk05bwki2abD8XsBBOccaFsPn8e?table=tbljyq4wU1jONHGC&view=vewWwgXYys
     app_token = Zk05bwki2abD8XsBBOccaFsPn8e
     table_id  = tbljyq4wU1jONHGC
-    view_id   = vewWwgXYys（只拉取这个视图下的记录，视图的筛选/排序会生效）
+    view_id   = vewWwgXYys（默认批量处理模式用这个视图；只拉取这个视图下的记录，视图的筛选/排序会生效）
+
+    全量核对更新模式（--recheck-only）默认用另一个视图 view_id = vewtEfMDuj，
+    不是上面批量处理模式的默认视图；也可以用 --view-url 临时指定任意视图，见下方说明。
 
 【为什么用「¿¿¿编号」而不是「孩子中文全名」搜索】
     微信内部专用备注格式固定为「¿¿¿编号-孩子中文全名」（例如 ¿¿¿005411-亓书琦），
@@ -41,9 +44,20 @@ r"""
     5. 「充值课时」列：数字字段，只在「是否有外教群 = 否」且该字段当前为空时，
        补默认值 144（判定为「是」/「不唯一」都不补）；已经手动填过的记录不会被覆盖。
 
+【全量核对更新模式（--recheck-only）】
+    这是另一种运行模式，跟上面默认模式的区别：
+    - 默认模式：每条记录都会强制写入「是否有外教群」「外教群名」（哪怕算出来的结果和表里现有的一样），
+      同时还会顺带给「开始材料」「充值课时」补默认值。
+    - 全量核对更新模式：只核对/更新「是否有外教群」「外教群名」这两列，不涉及「开始材料」「充值课时」；
+      重新计算一次结果后，跟飞书表格里已有的值逐字比较——完全一样就跳过（不调用写入接口），
+      不一样才真正更新。适合表格里已经有一批历史数据（不管是之前跑本脚本写的，还是人工改过的），
+      想做一次全量核对纠错，同时不影响已经人工处理好的「开始材料」「充值课时」等字段。
+    - 支持用 --view-url 传一个完整的飞书视图链接，临时核对「另一张表 / 另一个视图」，
+      不用改代码里写死的 APP_TOKEN / TABLE_ID / VIEW_ID；不传则用默认表格/视图。
+
 【安全机制】
-    默认是「预览模式」（不会真正写入飞书），只在控制台打印将要写入的内容；
-    确认无误后加 --apply 参数才会真正调用飞书接口写入，避免误改线上数据。
+    默认是「写入模式」：每次运行都会真正调用飞书接口写入计算结果。
+    如果想先看看计算结果、不真正写入飞书，加 --preview 参数即可（只打印、不调用写入接口）。
 
 【依赖】
     - 仅使用 Python 标准库（urllib / sqlite3 等），无需 pip install。
@@ -52,26 +66,30 @@ r"""
     - 需要能访问本机的微信 contact.db（默认路径见 查询外教群.py 里的说明）。
 
 【关于自动拷贝数据库】
-    每次运行都会先自动从微信同步盘拷贝最新的「内部专用」「内部专用2」两个数据库到
+    每次运行都会先自动从本机 chatlog 存储目录拷贝最新的「内部专用」「内部专用2」两个数据库到
     本地（复用 查询外教群.py 的拷贝逻辑），保证外教群判断用的是最新数据，无需手动
     先跑一遍 查询外教群.py --copy-db。如果本机连不上同步盘，或想跳过这一步直接用
     本地已有的数据库文件，加 --skip-copy-db 参数即可。
 
 【用法示例】
-    # 预览模式：只打印计算结果，不写入飞书（会先自动拷贝最新数据库，强烈建议先跑一次预览确认结果）
+    # 默认「写入模式」：直接真正写入飞书（会先自动拷贝最新数据库）
     python 飞书回写外教群.py
 
-    # 预览模式 + 只处理前 5 条，方便快速验证逻辑是否正确
-    python 飞书回写外教群.py --limit 5
-
-    # 确认结果无误后，真正写入飞书
-    python 飞书回写外教群.py --apply
+    # 预览模式 + 只处理前 5 条，方便快速验证逻辑是否正确（不会真正写入飞书）
+    python 飞书回写外教群.py --limit 5 --preview
 
     # 自定义微信数据库路径（多个用分号分隔）
-    python 飞书回写外教群.py --db "C:\a.db;C:\b.db" --apply
+    python 飞书回写外教群.py --db "C:\a.db;C:\b.db"
 
     # 跳过自动拷贝数据库这一步，直接用本地已有的数据库文件
-    python 飞书回写外教群.py --skip-copy-db --apply
+    python 飞书回写外教群.py --skip-copy-db
+
+    # 全量核对更新模式：只核对/更新「是否有外教群」「外教群名」，一致则跳过，不动其他字段
+    python 飞书回写外教群.py --recheck-only --preview   # 先预览有多少条不一致
+    python 飞书回写外教群.py --recheck-only             # 确认无误后正式更新不一致的记录
+
+    # 全量核对更新 + 自定义飞书视图（核对默认表格之外的另一张表/另一个视图）
+    python 飞书回写外教群.py --recheck-only --preview --view-url "https://xxx.feishu.cn/base/xxx?table=yyy&view=zzz"
 """
 
 from __future__ import annotations
@@ -84,7 +102,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode, urlparse
 from urllib.request import Request, urlopen
 
 # 让本脚本可以直接 import 同目录下的 查询外教群.py，复用其中的联系人搜索、
@@ -106,8 +124,12 @@ APP_SECRET: str = os.environ.get("FEISHU_APP_SECRET", "0XiTHVpP9zbnXJWPSwM8DdxXp
 FEISHU_HOST = "https://open.feishu.cn"
 APP_TOKEN = "Zk05bwki2abD8XsBBOccaFsPn8e"
 TABLE_ID = "tbljyq4wU1jONHGC"
-# 只读取这个视图里的记录（视图里如果设置了筛选/排序，拉取结果会按视图的筛选结果来）
+# 默认批量处理模式（执行批量处理，即不加 --recheck-only 时）只读取这个视图里的记录
+# （视图里如果设置了筛选/排序，拉取结果会按视图的筛选结果来）
 VIEW_ID = "vewWwgXYys"
+# 全量核对更新模式（--recheck-only）默认读取的视图，跟上面批量处理模式的默认视图不是同一个；
+# 不传 --view-url / GUI 不填「自定义飞书视图」时，就用这个视图的记录范围做核对
+全量核对更新默认视图ID = "vewtEfMDuj"
 
 # 飞书表格里涉及的字段名（必须与飞书后台字段名完全一致）
 字段_孩子中文全名 = "孩子中文全名"
@@ -230,13 +252,58 @@ def 获取租户访问令牌() -> str:
     return str(token)
 
 
-def 拉取全部记录(token: str) -> List[Dict[str, Any]]:
+def 解析飞书视图地址(飞书视图地址: str) -> Tuple[str, str, str]:
     """
-    分页拉取飞书多维表格里「VIEW_ID 指定视图」下的全部记录。
+    把类似
+      https://ipcjg02m9k.feishu.cn/base/Zk05bwki2abD8XsBBOccaFsPn8e?table=tbljyq4wU1jONHGC&view=vewWwgXYys
+    这样从浏览器地址栏复制出来的完整飞书多维表格视图链接，解析成
+    (app_token, table_id, view_id) 三元组，用于「全量核对更新」支持自定义目标表格/视图，
+    不用每次都改代码里写死的 APP_TOKEN / TABLE_ID / VIEW_ID。
+
+    链接里 view 参数可以省略（不省略 table 参数），省略时 view_id 返回空字符串，
+    表示不限定视图，拉取整张表的全部记录。
+    """
+    地址 = (飞书视图地址 or "").strip()
+    if not 地址:
+        raise ValueError("飞书视图地址不能为空")
+
+    解析结果 = urlparse(地址)
+    路径分段 = [段 for 段 in 解析结果.path.split("/") if 段]
+    if "base" not in 路径分段:
+        raise ValueError(f"链接格式不正确，没有找到 /base/ 部分（示例：.../base/xxx?table=yyy&view=zzz）：{地址}")
+
+    base所在下标 = 路径分段.index("base")
+    if base所在下标 + 1 >= len(路径分段):
+        raise ValueError(f"链接格式不正确，/base/ 后面缺少 app_token：{地址}")
+    app_token = 路径分段[base所在下标 + 1]
+
+    查询参数 = parse_qs(解析结果.query)
+    table_id_候选 = 查询参数.get("table") or []
+    if not table_id_候选:
+        raise ValueError(f"链接里缺少 table 参数（示例：.../base/xxx?table=yyy&view=zzz）：{地址}")
+    table_id = table_id_候选[0]
+
+    view_id_候选 = 查询参数.get("view") or []
+    view_id = view_id_候选[0] if view_id_候选 else ""
+
+    return app_token, table_id, view_id
+
+
+def 拉取全部记录(
+    token: str,
+    app_token: str = APP_TOKEN,
+    table_id: str = TABLE_ID,
+    view_id: str = VIEW_ID,
+) -> List[Dict[str, Any]]:
+    """
+    分页拉取飞书多维表格里「view_id 指定视图」下的全部记录。
     只传 view_id 不会改变返回的字段结构，只是记录范围/顺序按该视图的
     筛选、排序规则来（视图里如果设置了筛选条件，拉取结果也只包含筛选后的记录）。
+
+    app_token / table_id / view_id 默认用模块顶部写死的常量（原有调用方式完全不变）；
+    「全量核对更新」支持自定义飞书视图时，会传入解析出来的自定义值覆盖默认值。
     """
-    base_url = FEISHU_HOST + f"/open-apis/bitable/v1/apps/{APP_TOKEN}/tables/{TABLE_ID}/records"
+    base_url = FEISHU_HOST + f"/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records"
     headers = {"Authorization": f"Bearer {token}"}
 
     全部记录: List[Dict[str, Any]] = []
@@ -246,8 +313,8 @@ def 拉取全部记录(token: str) -> List[Dict[str, Any]]:
     while True:
         页码 += 1
         params: Dict[str, Any] = {"page_size": PAGE_SIZE}
-        if VIEW_ID:
-            params["view_id"] = VIEW_ID
+        if view_id:
+            params["view_id"] = view_id
         if page_token:
             params["page_token"] = page_token
         url = base_url + "?" + urlencode(params)
@@ -274,15 +341,18 @@ def 更新单条记录(
     外教群名: str,
     开始材料: Optional[str] = None,
     充值课时: Optional[int] = None,
+    app_token: str = APP_TOKEN,
+    table_id: str = TABLE_ID,
 ) -> None:
     """
     把结果写回飞书指定记录：
       - 「是否有外教群」「外教群名」两个字段每次都会写入；
       - 「开始材料」「充值课时」都只在传入非 None 时才写入
         （由调用方决定：仅当该字段原本为空、且满足对应补默认值条件时才传值，
-        避免覆盖已有数据）。
+        避免覆盖已有数据）；
+      - app_token / table_id 默认用模块顶部写死的常量，自定义飞书视图时由调用方传入覆盖。
     """
-    url = FEISHU_HOST + f"/open-apis/bitable/v1/apps/{APP_TOKEN}/tables/{TABLE_ID}/records/{record_id}"
+    url = FEISHU_HOST + f"/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}"
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     写入字段: Dict[str, Any] = {
         字段_是否有外教群: 是否有外教群,
@@ -326,26 +396,33 @@ def 查询某个编号对应的外教群集合(
     编号: str,
     db路径列表: List[str],
     外教群索引: Dict[str, List[str]],
-) -> set:
+) -> Tuple[set, bool]:
     """
     用「¿¿¿ + 编号」在微信联系人库中搜索（精确匹配微信备注的固定格式
     「¿¿¿编号-孩子中文全名」），汇总所有命中联系人的外教群名，
-    返回去重后的群名集合（可能为空、1 个或多个）。
+    返回 (去重后的群名集合, 是否发生数据库读取失败)。
 
-    若编号为空，直接返回空集合（不发起搜索）。
+    若编号为空，直接返回 (空集合, False)（不发起搜索，这种情况不算读取失败）。
+
+    「是否发生数据库读取失败」很关键：数据库文件如果正好被别的进程覆写、
+    或者本身损坏，读取会报错（比如 "database disk image is malformed"）。
+    以前这种情况会被静默当成「没查到任何联系人」，跟「确实没有外教群」完全一样，
+    结果就是把「读取失败」误判成「否，没有外教群」写进飞书——这是错的。
+    现在改成把这个信号往上传，调用方（计算是否有外教群与群名）看到读取失败时
+    应该跳过这条记录、不要写入飞书，而不是当作「没有外教群」处理。
     """
     if not 编号:
-        return set()
+        return set(), False
 
     搜索关键词 = f"{编号搜索前缀}{编号}"
-    命中联系人列表 = 外教群工具.跨库搜索联系人(db路径列表, 搜索关键词)
+    命中联系人列表, 读取失败列表 = 外教群工具.跨库搜索联系人(db路径列表, 搜索关键词)
 
     群名集合: set = set()
     for 联系人 in 命中联系人列表:
         wxid = (联系人.get("username") or "").strip()
         for 群名 in (外教群索引.get(wxid) or []):
             群名集合.add(群名)
-    return 群名集合
+    return 群名集合, bool(读取失败列表)
 
 
 # 「是否有外教群」三种结果对应的取值
@@ -365,7 +442,7 @@ def 计算是否有外教群与群名(
     外教平台: str,
     db路径列表: List[str],
     外教群索引: Dict[str, List[str]],
-) -> Tuple[str, str]:
+) -> Tuple[str, str, bool]:
     """
     核心判定规则（搜索用「¿¿¿+编号」，兜底群名仍用「孩子中文全名+外教平台」）：
 
@@ -382,8 +459,14 @@ def 计算是否有外教群与群名(
     举例：某学员搜到「Sw彭思予 CT」和「彭思予Siri ... XXJ」两个群，
     但飞书「外教平台」登记的是 XXJ，那么只看 XXJ 群 —— 只有 1 个 XXJ 群，
     判定为 (是, 彭思予Siri ... XXJ)；CT 群会被忽略，不影响结果。
+
+    返回值第三项「是否发生数据库读取失败」：为 True 时，前两项的结果不可信
+    （很可能是数据库文件读取报错导致「查到 0 个群」，而不是真的没有外教群），
+    调用方必须跳过这条记录、不能当作正常结果写入飞书。
     """
-    全部群名集合 = 查询某个编号对应的外教群集合(编号, db路径列表, 外教群索引)
+    全部群名集合, 读取失败 = 查询某个编号对应的外教群集合(编号, db路径列表, 外教群索引)
+    if 读取失败:
+        return "", "", True
 
     # 「外教平台」已登记具体平台时，只保留属于该平台的群；未登记时维持原样（不过滤）
     if 外教平台:
@@ -393,15 +476,15 @@ def 计算是否有外教群与群名(
 
     if len(目标群名集合) == 0:
         if not 外教平台:
-            return 结果_否, ""
-        return 结果_否, f"{孩子中文全名} {外教平台}"
+            return 结果_否, "", False
+        return 结果_否, f"{孩子中文全名} {外教平台}", False
 
     if len(目标群名集合) == 1:
         唯一群名 = next(iter(目标群名集合))
-        return 结果_是, 唯一群名
+        return 结果_是, 唯一群名, False
 
     全部群名 = "、".join(sorted(目标群名集合))
-    return 结果_不唯一, 全部群名
+    return 结果_不唯一, 全部群名, False
 
 
 # ============================================================
@@ -414,11 +497,13 @@ def 解析命令行参数() -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例：
-  python 飞书回写外教群.py                  （预览模式，不写入飞书；默认会先拷贝最新数据库）
-  python 飞书回写外教群.py --limit 5        （只预览前 5 条，快速验证）
-  python 飞书回写外教群.py --apply          （确认无误后真正写入飞书）
-  python 飞书回写外教群.py --db "C:\\a.db;C:\\b.db" --apply
-  python 飞书回写外教群.py --skip-copy-db --apply  （跳过拷贝，直接用本地已有数据库）
+  python 飞书回写外教群.py                  （默认写入模式，直接真正写入飞书；会先拷贝最新数据库）
+  python 飞书回写外教群.py --limit 5 --preview  （只预览前 5 条，不写入飞书，快速验证）
+  python 飞书回写外教群.py --db "C:\\a.db;C:\\b.db"
+  python 飞书回写外教群.py --skip-copy-db  （跳过拷贝，直接用本地已有数据库）
+  python 飞书回写外教群.py --recheck-only --preview  （全量核对，先看有多少条不一致）
+  python 飞书回写外教群.py --recheck-only            （全量核对，正式更新不一致的记录）
+  python 飞书回写外教群.py --recheck-only --preview --view-url "https://xxx.feishu.cn/base/xxx?table=yyy&view=zzz"
         """,
     )
     解析器.add_argument(
@@ -441,24 +526,54 @@ def 解析命令行参数() -> argparse.Namespace:
         help="只处理前 N 条记录，便于先小范围验证效果（默认 0 表示处理全部记录）",
     )
     解析器.add_argument(
-        "--apply",
+        "--preview",
         action="store_true",
-        help="真正写入飞书。不加此参数时为预览模式，只打印结果、不修改飞书数据",
+        help="预览模式：只打印计算结果，不真正调用飞书接口写入（默认不加此参数时会直接写入飞书）",
+    )
+    解析器.add_argument(
+        "--recheck-only",
+        action="store_true",
+        help=(
+            "全量核对更新模式：只核对/更新「是否有外教群」「外教群名」两列，一致则跳过、"
+            "不一致才更新，不涉及「开始材料」「充值课时」（默认不加此参数走原来的批量处理模式）"
+        ),
+    )
+    解析器.add_argument(
+        "--view-url",
+        type=str,
+        default=None,
+        metavar="飞书视图链接",
+        help=(
+            "仅在 --recheck-only 模式下生效：自定义要核对的飞书多维表格视图链接"
+            "（浏览器地址栏直接复制，例如 https://xxx.feishu.cn/base/xxx?table=yyy&view=zzz），"
+            "不填则使用脚本里写死的默认表格/视图"
+        ),
     )
     return 解析器.parse_args()
 
 
-def main() -> int:
-    确保控制台UTF8输出()
-    参数 = 解析命令行参数()
-
-    db路径列表 = 外教群工具.解析数据库路径列表(参数.db)
-    模式说明 = "【真正写入飞书】" if 参数.apply else "【预览模式，不会写入飞书】"
+def 执行批量处理(
+    db参数: Optional[str] = None,
+    skip_copy_db: bool = False,
+    limit: int = 0,
+    preview: bool = False,
+) -> int:
+    """
+    核心批量处理逻辑：拷贝数据库 → 拉取飞书记录 → 逐条计算 → （非预览时）写回飞书。
+    通过 print() 输出全部日志，供两种入口复用：
+      - CLI 入口 main()：从命令行参数解析出这几个值后调用本函数；
+      - GUI 入口（外教群工具箱_GUI.py）：直接传参调用，在后台线程运行，
+        并把 sys.stdout 重定向到界面的日志框，日志显示逻辑不需要重复实现。
+    返回 0 表示全部成功（或预览模式），非 0 表示有记录写入失败。
+    """
+    db路径列表 = 外教群工具.解析数据库路径列表(db参数)
+    写入模式 = not preview
+    模式说明 = "【写入模式：将真正写入飞书】" if 写入模式 else "【预览模式，不会写入飞书】"
 
     print("=" * 60)
     print("飞书「外教群」批量查询回写工具")
     print(模式说明)
-    if not 参数.skip_copy_db:
+    if not skip_copy_db:
         print("正在拷贝内部专用数据库 ...")
         for 结果 in 外教群工具.拷贝内部专用数据库():
             print(f"  {结果}")
@@ -476,13 +591,16 @@ def main() -> int:
     全部记录 = 拉取全部记录(token)
     print(f"  共 {len(全部记录)} 条记录。")
 
-    if 参数.limit > 0:
-        全部记录 = 全部记录[: 参数.limit]
+    if limit > 0:
+        全部记录 = 全部记录[:limit]
         print(f"  [--limit] 仅处理前 {len(全部记录)} 条。")
 
     print("\n[步骤3/4] 构建外教群成员索引（微信内部专用库）...")
-    外教群索引 = 外教群工具.构建外教群成员索引(db路径列表)
+    外教群索引, 索引读取失败列表 = 外教群工具.构建外教群成员索引(db路径列表)
     print(f"  索引覆盖 {len(外教群索引)} 个微信ID。")
+    if 索引读取失败列表:
+        print(f"  [警告] 以下数据库读取失败，本次索引可能不完整：{'、'.join(索引读取失败列表)}")
+        print("  建议本次运行结束后重新跑一次，确认结果稳定（比如两次结果完全一致）后再放心使用。")
 
     print("\n[步骤4/4] 逐条计算并回写 ...")
     print("-" * 60)
@@ -493,6 +611,7 @@ def main() -> int:
     成功数 = 0
     跳过数 = 0
     失败数 = 0
+    读取失败跳过数 = 0
     是的数量 = 0
     否的数量 = 0
     不唯一数量 = 0
@@ -521,7 +640,12 @@ def main() -> int:
         if 缓存key in 结果缓存:
             是否有外教群, 外教群名 = 结果缓存[缓存key]
         else:
-            是否有外教群, 外教群名 = 计算是否有外教群与群名(孩子中文全名, 编号, 外教平台, db路径列表, 外教群索引)
+            是否有外教群, 外教群名, 读取失败 = 计算是否有外教群与群名(孩子中文全名, 编号, 外教平台, db路径列表, 外教群索引)
+            if 读取失败:
+                # 数据库读取失败，结果不可信：跳过这条记录，绝不当作「没有外教群」写入飞书
+                读取失败跳过数 += 1
+                print(f"[{序号}/{len(全部记录)}] [跳过-数据库读取失败] {孩子中文全名}（编号={编号 or '空'}）：本次结果不可信，未写入飞书，建议重跑")
+                continue
             结果缓存[缓存key] = (是否有外教群, 外教群名)
 
         if 是否有外教群 == 结果_是:
@@ -555,7 +679,7 @@ def main() -> int:
             f"是否有外教群={是否有外教群}，外教群名={外教群名}{材料提示}{课时提示}"
         )
 
-        if 参数.apply:
+        if 写入模式:
             try:
                 更新单条记录(token, record_id, 是否有外教群, 外教群名, 待写入开始材料, 待写入充值课时)
                 成功数 += 1
@@ -567,18 +691,179 @@ def main() -> int:
     print("=" * 60)
     print("处理完成。")
     print(f"总记录数：{len(全部记录)}｜跳过（姓名为空）：{跳过数}")
+    if 读取失败跳过数:
+        print(f"[警告] 因数据库读取失败而跳过（未写入飞书）：{读取失败跳过数} 条，建议重新运行一次覆盖这些记录")
     print(f"判定为「是」（唯一确定外教群）：{是的数量} 条")
     print(f"判定为「否」（没有外教群）：{否的数量} 条")
     print(f"判定为「不唯一」（查到多个不同外教群，需要人工核实）：{不唯一数量} 条")
     print(f"「开始材料」为空、将补默认值「{开始材料默认值}」：{开始材料补默认值数量} 条")
     print(f"「充值课时」为空、将补默认值「{充值课时默认值}」：{充值课时补默认值数量} 条")
-    if 参数.apply:
+    if 写入模式:
         print(f"实际写入飞书：成功 {成功数} 条，失败 {失败数} 条")
     else:
-        print("当前为预览模式，未写入飞书。确认结果无误后，请加 --apply 参数正式写入。")
+        print("当前为预览模式，未写入飞书。去掉 --preview 参数重新运行即可正式写入。")
     print("=" * 60)
 
-    return 0 if 失败数 == 0 else 1
+    return 0 if (失败数 == 0 and 读取失败跳过数 == 0) else 1
+
+
+def 执行全量核对更新(
+    db参数: Optional[str] = None,
+    skip_copy_db: bool = False,
+    limit: int = 0,
+    preview: bool = False,
+    飞书视图地址: Optional[str] = None,
+) -> int:
+    """
+    全量核对更新模式：只核对/更新「是否有外教群」「外教群名」两列，不涉及「开始材料」「充值课时」。
+
+    对每条记录重新计算一次结果，跟飞书表格里已有的值逐字比较：
+      - 完全一致 → 跳过，不调用写入接口（减少不必要的接口调用，也不会碰到人工填写过的内容）；
+      - 不一致   → （非预览模式下）只更新这两个字段，写回飞书，其他字段保持原样不动。
+
+    与 执行批量处理() 共用「拷贝数据库 → 拉取记录 → 构建外教群索引 → 判定是否有外教群」这套逻辑，
+    区别只在于「是否要强制写入」和「是否顺带补开始材料/充值课时默认值」，所以单独写成一个函数，
+    避免为了共用几行代码而让 执行批量处理() 变得难懂。
+
+    参数「飞书视图地址」：可以传一个完整的飞书多维表格视图链接（浏览器地址栏直接复制），
+    用来临时核对「另一张表 / 另一个视图」，不用改代码里写死的 APP_TOKEN / TABLE_ID / VIEW_ID；
+    不传（None 或空字符串）时，沿用模块顶部写死的默认表格/视图。
+
+    返回 0 表示没有更新失败（或预览模式），非 0 表示有记录更新失败。
+    """
+    db路径列表 = 外教群工具.解析数据库路径列表(db参数)
+    写入模式 = not preview
+    模式说明 = "【写入模式：核对到不一致的记录将真正写入飞书】" if 写入模式 else "【预览模式，只打印核对结果，不会写入飞书】"
+
+    if 飞书视图地址 and 飞书视图地址.strip():
+        目标app_token, 目标table_id, 目标view_id = 解析飞书视图地址(飞书视图地址)
+    else:
+        # 不传自定义视图时，全量核对更新用自己的默认视图（跟批量处理模式的默认视图 VIEW_ID 不是同一个）
+        目标app_token, 目标table_id, 目标view_id = APP_TOKEN, TABLE_ID, 全量核对更新默认视图ID
+
+    print("=" * 60)
+    print("飞书「外教群」全量核对更新工具（只核对/更新「是否有外教群」「外教群名」两列）")
+    print(模式说明)
+    if not skip_copy_db:
+        print("正在拷贝内部专用数据库 ...")
+        for 结果 in 外教群工具.拷贝内部专用数据库():
+            print(f"  {结果}")
+    print(f"目标表格：app_token={目标app_token}, table_id={目标table_id}, view_id={目标view_id or '（未指定，拉取整张表）'}")
+    print(f"微信联系人数据库：{len(db路径列表)} 个")
+    for 路径 in db路径列表:
+        print(f"  - {路径}")
+    print("=" * 60)
+
+    print("\n[步骤1/4] 获取飞书访问令牌 ...")
+    token = 获取租户访问令牌()
+    print("  成功。")
+
+    print("\n[步骤2/4] 拉取飞书表格全部记录 ...")
+    全部记录 = 拉取全部记录(token, 目标app_token, 目标table_id, 目标view_id)
+    print(f"  共 {len(全部记录)} 条记录。")
+
+    if limit > 0:
+        全部记录 = 全部记录[:limit]
+        print(f"  [--limit] 仅处理前 {len(全部记录)} 条。")
+
+    print("\n[步骤3/4] 构建外教群成员索引（微信内部专用库）...")
+    外教群索引, 索引读取失败列表 = 外教群工具.构建外教群成员索引(db路径列表)
+    print(f"  索引覆盖 {len(外教群索引)} 个微信ID。")
+    if 索引读取失败列表:
+        print(f"  [警告] 以下数据库读取失败，本次索引可能不完整：{'、'.join(索引读取失败列表)}")
+        print("  建议本次运行结束后重新跑一次，确认结果稳定（比如两次结果完全一致）后再放心使用。")
+
+    print("\n[步骤4/4] 逐条核对，只有不一致才更新 ...")
+    print("-" * 60)
+
+    # 同一个编号只会对应一条记录，但仍做个缓存兜底，避免异常情况下重复搜索微信库
+    结果缓存: Dict[Tuple[str, str, str], Tuple[str, str]] = {}
+
+    跳过数 = 0
+    读取失败跳过数 = 0
+    一致跳过数 = 0
+    需要更新数 = 0
+    更新成功数 = 0
+    更新失败数 = 0
+
+    for 序号, 记录 in enumerate(全部记录, start=1):
+        record_id = 记录.get("record_id") or 记录.get("id")
+        字段值 = 记录.get("fields") or {}
+
+        孩子中文全名 = 提取字段文本(字段值.get(字段_孩子中文全名))
+        编号 = 提取字段文本(字段值.get(字段_编号))
+        外教平台 = 提取字段文本(字段值.get(字段_外教平台))
+        现有是否有外教群 = 提取字段文本(字段值.get(字段_是否有外教群))
+        现有外教群名 = 提取字段文本(字段值.get(字段_外教群名))
+
+        if not 孩子中文全名:
+            跳过数 += 1
+            print(f"[{序号}/{len(全部记录)}] [跳过] record_id={record_id}：「孩子中文全名」为空")
+            continue
+
+        缓存key = (编号, 孩子中文全名, 外教平台)
+        if 缓存key in 结果缓存:
+            新是否有外教群, 新外教群名 = 结果缓存[缓存key]
+        else:
+            新是否有外教群, 新外教群名, 读取失败 = 计算是否有外教群与群名(孩子中文全名, 编号, 外教平台, db路径列表, 外教群索引)
+            if 读取失败:
+                # 数据库读取失败，结果不可信：跳过这条记录，绝不当作「没有外教群」写入飞书
+                读取失败跳过数 += 1
+                print(f"[{序号}/{len(全部记录)}] [跳过-数据库读取失败] {孩子中文全名}（编号={编号 or '空'}）：本次结果不可信，未核对，建议重跑")
+                continue
+            结果缓存[缓存key] = (新是否有外教群, 新外教群名)
+
+        # 核心判断：新算出来的结果和飞书表里现有的值完全一样，就跳过，不调用写入接口
+        if 新是否有外教群 == 现有是否有外教群 and 新外教群名 == 现有外教群名:
+            一致跳过数 += 1
+            continue
+
+        需要更新数 += 1
+        print(
+            f"[{序号}/{len(全部记录)}] {孩子中文全名}（编号={编号 or '空'}） → 核对不一致，需要更新："
+            f"是否有外教群「{现有是否有外教群 or '空'}」→「{新是否有外教群}」，"
+            f"外教群名「{现有外教群名 or '空'}」→「{新外教群名 or '空'}」"
+        )
+
+        if 写入模式:
+            try:
+                更新单条记录(
+                    token,
+                    record_id,
+                    新是否有外教群,
+                    新外教群名,
+                    app_token=目标app_token,
+                    table_id=目标table_id,
+                )
+                更新成功数 += 1
+            except Exception as ex:
+                更新失败数 += 1
+                print(f"    [失败] 写入飞书出错：{ex}", file=sys.stderr)
+
+    print("-" * 60)
+    print("=" * 60)
+    print("核对完成。")
+    print(f"总记录数：{len(全部记录)}｜跳过（姓名为空）：{跳过数}")
+    if 读取失败跳过数:
+        print(f"[警告] 因数据库读取失败而跳过（未核对/未更新）：{读取失败跳过数} 条，建议重新运行一次覆盖这些记录")
+    print(f"核对结果一致、无需更新：{一致跳过数} 条")
+    print(f"核对结果不一致、需要更新：{需要更新数} 条")
+    if 写入模式:
+        print(f"实际写入飞书：成功 {更新成功数} 条，失败 {更新失败数} 条")
+    else:
+        print("当前为预览模式，未写入飞书。去掉 --preview 参数重新运行即可正式更新不一致的记录。")
+    print("=" * 60)
+
+    return 0 if (更新失败数 == 0 and 读取失败跳过数 == 0) else 1
+
+
+def main() -> int:
+    """CLI 入口：解析命令行参数后调用 执行批量处理() 或 执行全量核对更新()。"""
+    确保控制台UTF8输出()
+    参数 = 解析命令行参数()
+    if 参数.recheck_only:
+        return 执行全量核对更新(参数.db, 参数.skip_copy_db, 参数.limit, 参数.preview, 参数.view_url)
+    return 执行批量处理(参数.db, 参数.skip_copy_db, 参数.limit, 参数.preview)
 
 
 if __name__ == "__main__":

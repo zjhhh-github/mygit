@@ -35,13 +35,20 @@ r"""
     # 交互式模式（不传关键词，进入循环输入）
     python 查询外教群.py
 
-    # 默认每次查询前都会先从微信同步盘（Z:）自动拷贝最新的两个内部专用数据库，
+    # 默认每次查询前都会先从本机 chatlog 存储目录自动拷贝最新的两个内部专用数据库，
     # 保证查到的是最新数据，无需再手动加参数。
-    # 如果连不上同步盘，或者只想用本地已有的数据库文件，加 --skip-copy-db 跳过拷贝：
+    # 如果源文件不存在，或者只想用本地已有的数据库文件，加 --skip-copy-db 跳过拷贝：
     python 查询外教群.py 张三 --skip-copy-db
+
+【拷贝源路径怎么改】
+    拷贝任务的源路径（上面的 内部专用拷贝任务列表）默认是本机路径；
+    如果要换电脑运行、或者源路径变成了挂载盘，不用改这个文件，
+    用同目录下的可视化工具修改并保存即可（保存后本脚本会自动读取）：
+        python 拷贝路径设置_GUI.py
 """
 
 import argparse
+import json
 import os
 import shutil
 import sqlite3
@@ -70,20 +77,26 @@ from typing import Dict, List, Optional, Tuple
     r"C:\Users\LENOVO\Desktop\contact_内部专用2.db",
 ]
 
-# 拷贝数据库任务：只拷贝「内部专用」「内部专用2」这两个库（不涉及意向专用等其他库），
-# 源路径与 搜索联系人_GUI.py 里的「拷贝任务面板」默认配置保持一致（微信同步盘 Z: 盘）。
+# 拷贝数据库任务：只拷贝「内部专用」「内部专用2」这两个库（不涉及意向专用等其他库）。
+# 源路径是本机 chatlog 工具的本地存储目录（C: 盘 Documents 下），不是网络同步盘；
+# 若源路径改成挂载盘（如 Z: 盘），把下面两个源路径换成对应盘符路径即可。
 # 每项为 (源文件路径, 目标文件路径)。
 内部专用拷贝任务列表: List[Tuple[str, str]] = [
     (
-        r"Z:\Documents\chatlog\wxid_42272spv9uq522_6ded\db_storage\contact\contact.db",
+        r"C:\Users\LENOVO\Documents\chatlog\wxid_42272spv9uq522_6ded\db_storage\contact\contact.db",
         r"C:\Users\LENOVO\Desktop\contact_内部专用.db",
     ),
     (
-        r"Z:\Documents\chatlog\wxid_7u0rihcbbpbz12_ec5a\db_storage\contact\contact.db",
+        r"C:\Users\LENOVO\Documents\chatlog\wxid_7u0rihcbbpbz12_ec5a\db_storage\contact\contact.db",
         r"C:\Users\LENOVO\Desktop\contact_内部专用2.db",
     ),
 ]
 
+# 拷贝任务的「自定义路径」持久化位置：Windows 注册表（不产生额外配置文件）。
+# 通过 拷贝路径设置_GUI.py 保存后，本脚本 / 飞书回写外教群.py 下次运行会自动读取这里保存的路径；
+# 没有保存过自定义路径时，仍然使用上面写死的 内部专用拷贝任务列表（本机默认路径）。
+拷贝任务注册表根路径 = r"Software\ForeignTeacherGroupTool"
+拷贝任务注册表配置项名 = "CopyTasks"
 
 # ============================================================
 # 二、工具函数
@@ -125,6 +138,12 @@ def 从单个数据库搜索联系人(db文件路径: str, 关键词: str) -> Li
     """
     在单个 contact.db 的 contact 表中按关键词搜索联系人基本信息。
     搜索字段：username、alias、remark、nick_name，任意一个包含关键词即命中。
+
+    读取数据库出错（比如文件正被另一个进程覆写、或者确实损坏）时，
+    不会再悄悄返回空列表——那样会被上层误当成「这个库里查不到人」，
+    而实际情况是「这个库根本没读成功，结果不可信」。这里改成先打印错误，
+    再抛出 RuntimeError，调用方（跨库搜索联系人）会捕获它、记录成「读取失败的库」，
+    不会把它和「真的查不到」混为一谈。
     """
     db路径 = Path(db文件路径)
     if not db路径.is_file():
@@ -143,6 +162,7 @@ def 从单个数据库搜索联系人(db文件路径: str, 关键词: str) -> Li
     """
     like关键词 = f"%{关键词}%"
 
+    conn: Optional[sqlite3.Connection] = None
     try:
         conn = sqlite3.connect(str(db路径))
         conn.text_factory = str
@@ -151,9 +171,10 @@ def 从单个数据库搜索联系人(db文件路径: str, 关键词: str) -> Li
         行列表 = cur.fetchall()
     except sqlite3.Error as ex:
         print(f"  [错误] 读取 {db文件路径} 时出错：{ex}", file=sys.stderr)
-        return []
+        raise RuntimeError(f"读取 {db文件路径} 失败：{ex}") from ex
     finally:
-        conn.close()
+        if conn is not None:
+            conn.close()
 
     结果 = []
     for username, alias, remark, nick_name in 行列表:
@@ -167,15 +188,24 @@ def 从单个数据库搜索联系人(db文件路径: str, 关键词: str) -> Li
     return 结果
 
 
-def 跨库搜索联系人(db路径列表: List[str], 关键词: str) -> List[Dict[str, str]]:
+def 跨库搜索联系人(db路径列表: List[str], 关键词: str) -> Tuple[List[Dict[str, str]], List[str]]:
     """
-    遍历所有数据库搜索联系人，按 username 去重，
-    冲突时保留 remark 更完整（更长）的那条。
+    遍历所有数据库搜索联系人，按 username 去重，冲突时保留 remark 更完整（更长）的那条。
+
+    返回 (结果列表, 读取失败的数据库路径列表)：
+    某个库读取失败时不会中断整个查询（继续查其他库，保留原来的容错行为），
+    但会把失败的库记下来一起返回；调用方（尤其是「飞书回写外教群.py」批量写入场景）
+    看到有读取失败时，应该跳过这条记录、不要写入飞书，避免把「读取失败」误当成「没有外教群」。
     """
     已合并: Dict[str, Dict[str, str]] = {}
+    读取失败的数据库列表: List[str] = []
 
     for db路径 in db路径列表:
-        条目列表 = 从单个数据库搜索联系人(db路径, 关键词)
+        try:
+            条目列表 = 从单个数据库搜索联系人(db路径, 关键词)
+        except RuntimeError:
+            读取失败的数据库列表.append(db路径)
+            continue
         for 条目 in 条目列表:
             key = 条目["username"] or 条目["alias"]
             if not key:
@@ -188,7 +218,7 @@ def 跨库搜索联系人(db路径列表: List[str], 关键词: str) -> List[Dic
                 if len(条目.get("remark") or "") > len(已有.get("remark") or ""):
                     已合并[key] = 条目
 
-    return list(已合并.values())
+    return list(已合并.values()), 读取失败的数据库列表
 
 
 def _是外教群名(群名: str) -> bool:
@@ -258,11 +288,20 @@ def _等待源文件稳定(文件路径: str, 检查间隔秒: float = 1.0, 最�
 
 def _执行单个拷贝任务(源文件路径: str, 目标文件路径: str) -> str:
     """
-    执行一次数据库文件拷贝（逻辑与 搜索联系人_GUI.py 的拷贝任务完全一致）：
+    执行一次数据库文件拷贝：
       1. 检查源文件是否存在
       2. 等待源文件稳定（避免拷贝到写了一半的文件）
       3. 确保目标目录存在
-      4. 拷贝文件，并校验拷贝前后文件大小是否一致
+      4. 先拷贝到一个临时文件，校验大小无误后，再用 os.replace() 原子替换成目标文件
+
+    第 4 步为什么不直接 shutil.copyfile 覆盖目标文件：
+      如果同时有另一个查询/核对进程正在读取目标文件（比如同时开着「查询外教群.py」
+      交互模式、或者「全量核对更新」正在跑到一半），直接原地覆写会让那个进程读到
+      「一部分是旧内容、一部分是新内容」的半成品文件，SQLite 会报
+      "database disk image is malformed"（曾经真实发生过：全量核对更新跑到一半，
+      期间又手动跑了一次拷贝，导致读取报错）。先写临时文件、最后原子替换，
+      能保证任何时刻其他进程读到的都是「完整的旧文件」或「完整的新文件」，不会读到半成品。
+
     返回描述结果的字符串（成功 / 跳过 / 失败 / 警告）。
     """
     if not os.path.exists(源文件路径):
@@ -279,29 +318,90 @@ def _执行单个拷贝任务(源文件路径: str, 目标文件路径: str) -> 
     if 目标目录 and not os.path.exists(目标目录):
         os.makedirs(目标目录, exist_ok=True)
 
+    临时目标路径 = f"{目标文件路径}.tmp_{os.getpid()}"
     try:
-        shutil.copyfile(源文件路径, 目标文件路径)
+        shutil.copyfile(源文件路径, 临时目标路径)
     except OSError as ex:
         return f"[失败] 拷贝出错：{ex} — {源文件路径} → {目标文件路径}"
 
-    目标信息 = _获取文件信息(目标文件路径)
-    if 源信息["size"] != 目标信息["size"]:
+    临时目标信息 = _获取文件信息(临时目标路径)
+    if 源信息["size"] != 临时目标信息["size"]:
+        try:
+            os.remove(临时目标路径)
+        except OSError:
+            pass
         return (
-            f"[警告] 大小不一致：源={源信息['size']}字节，"
-            f"目标={目标信息['size']}字节 — {目标文件路径}"
+            f"[警告] 大小不一致，已放弃本次更新（目标文件保持原样）：源={源信息['size']}字节，"
+            f"拷贝出的临时文件={临时目标信息['size']}字节 — {目标文件路径}"
         )
 
+    try:
+        os.replace(临时目标路径, 目标文件路径)
+    except OSError as ex:
+        try:
+            os.remove(临时目标路径)
+        except OSError:
+            pass
+        return f"[失败] 替换目标文件出错：{ex} — {目标文件路径}"
+
     return f"[成功] {Path(源文件路径).name} → {目标文件路径}"
+
+
+def 读取自定义拷贝任务() -> Optional[List[Tuple[str, str]]]:
+    """
+    从 Windows 注册表读取用户通过「拷贝路径设置_GUI.py」保存的自定义拷贝任务。
+    没有保存过、或保存内容不合法时，返回 None（调用方应回退到默认路径）。
+    """
+    try:
+        import winreg
+
+        with winreg.OpenKey(
+            winreg.HKEY_CURRENT_USER,
+            拷贝任务注册表根路径,
+            0,
+            winreg.KEY_READ,
+        ) as key:
+            原始, _ = winreg.QueryValueEx(key, 拷贝任务注册表配置项名)
+        if not isinstance(原始, str) or not 原始.strip():
+            return None
+
+        解析结果 = json.loads(原始)
+        if not isinstance(解析结果, list):
+            return None
+
+        任务列表: List[Tuple[str, str]] = []
+        for 条目 in 解析结果:
+            if isinstance(条目, (list, tuple)) and len(条目) >= 2:
+                源 = str(条目[0]).strip()
+                目标 = str(条目[1]).strip()
+                if 源 and 目标:
+                    任务列表.append((源, 目标))
+        return 任务列表 or None
+    except Exception:
+        return None
+
+
+def 写入自定义拷贝任务(任务列表: List[Tuple[str, str]]) -> None:
+    """把拷贝任务写入 Windows 注册表，供下次运行时自动读取（由 拷贝路径设置_GUI.py 调用）。"""
+    try:
+        import winreg
+
+        内容 = json.dumps(list(任务列表), ensure_ascii=False)
+        with winreg.CreateKey(winreg.HKEY_CURRENT_USER, 拷贝任务注册表根路径) as key:
+            winreg.SetValueEx(key, 拷贝任务注册表配置项名, 0, winreg.REG_SZ, 内容)
+    except Exception:
+        pass
 
 
 def 拷贝内部专用数据库(任务列表: Optional[List[Tuple[str, str]]] = None) -> List[str]:
     """
     只拷贝「内部专用」「内部专用2」这两个微信 contact.db（不涉及意向专用等其他库）。
-    默认从微信同步盘 Z: 盘拷贝到本机 Desktop，覆盖已有的本地库文件。
+    源路径优先使用「拷贝路径设置_GUI.py」保存过的自定义路径（读注册表）；
+    没有保存过自定义路径时，回退到本机默认路径（Documents 下的 chatlog 文件夹）。
     返回每个任务的结果描述，供调用方打印。
     """
     if 任务列表 is None:
-        任务列表 = 内部专用拷贝任务列表
+        任务列表 = 读取自定义拷贝任务() or 内部专用拷贝任务列表
 
     结果列表: List[str] = []
     for 源路径, 目标路径 in 任务列表:
@@ -309,14 +409,21 @@ def 拷贝内部专用数据库(任务列表: Optional[List[Tuple[str, str]]] = 
     return 结果列表
 
 
-def 构建外教群成员索引(db路径列表: List[str]) -> Dict[str, List[str]]:
+def 构建外教群成员索引(db路径列表: List[str]) -> Tuple[Dict[str, List[str]], List[str]]:
     """
     从内部专用 contact.db 构建：微信原始ID(username) → 所在外教群名列表。
     外教群判定：群昵称中包含大写 CT 或 XXJ。
     同一 wxid 在多个内部库中出现时，群名去重合并。
+
+    返回 (索引字典, 读取失败的数据库路径列表)：
+    原来这里读取出错会完全静默跳过（既不打印、也没有任何痕迹），
+    导致索引悄悄缺失一部分群成员数据，外教群判断可能因此出错却完全看不出来；
+    现在改成打印错误并记录失败的库，调用方可以判断本次索引是否完整，
+    需要时可以提示用户「本次结果可能不完整，建议重跑一次」。
     """
     索引: Dict[str, set] = {}
     群成员库列表 = _解析群成员数据库路径(db路径列表)
+    读取失败的数据库列表: List[str] = []
 
     _SQL = """
         SELECT
@@ -333,6 +440,7 @@ def 构建外教群成员索引(db路径列表: List[str]) -> Dict[str, List[str
     for db路径 in 群成员库列表:
         if not _数据库含群成员表(db路径):
             continue
+        conn: Optional[sqlite3.Connection] = None
         try:
             conn = sqlite3.connect(db路径)
             conn.text_factory = str
@@ -345,11 +453,14 @@ def 构建外教群成员索引(db路径列表: List[str]) -> Dict[str, List[str
                 if not _是外教群名(群名):
                     continue
                 索引.setdefault(wxid, set()).add(群名)
-            conn.close()
-        except sqlite3.Error:
-            continue
+        except sqlite3.Error as ex:
+            print(f"  [错误] 构建外教群索引时读取 {db路径} 出错：{ex}", file=sys.stderr)
+            读取失败的数据库列表.append(db路径)
+        finally:
+            if conn is not None:
+                conn.close()
 
-    return {wxid: sorted(群名集合) for wxid, 群名集合 in 索引.items()}
+    return {wxid: sorted(群名集合) for wxid, 群名集合 in 索引.items()}, 读取失败的数据库列表
 
 
 # ============================================================
@@ -414,7 +525,7 @@ def 解析命令行参数() -> argparse.Namespace:
         "--skip-copy-db",
         action="store_true",
         help="跳过自动拷贝数据库这一步，直接使用本地已有的数据库文件"
-             "（默认每次查询前都会先从微信同步盘拷贝最新的「内部专用」「内部专用2」两个数据库）",
+             "（默认每次查询前都会先从本机 chatlog 存储目录拷贝最新的「内部专用」「内部专用2」两个数据库）",
     )
     return 解析器.parse_args()
 
@@ -432,10 +543,14 @@ def 执行一次查询(关键词: str, db路径列表: List[str]) -> None:
         print(f"  - {路径}")
     print("-" * 60)
 
-    结果列表 = 跨库搜索联系人(db路径列表, 关键词)
+    结果列表, 联系人读取失败列表 = 跨库搜索联系人(db路径列表, 关键词)
+    if 联系人读取失败列表:
+        print(f"  [警告] 以下数据库读取失败，本次结果可能不完整：{'、'.join(联系人读取失败列表)}")
 
     if 结果列表:
-        群索引 = 构建外教群成员索引(db路径列表)
+        群索引, 索引读取失败列表 = 构建外教群成员索引(db路径列表)
+        if 索引读取失败列表:
+            print(f"  [警告] 构建外教群索引时以下数据库读取失败，外教群信息可能不完整：{'、'.join(索引读取失败列表)}")
         for 条目 in 结果列表:
             wxid = (条目.get("username") or "").strip()
             群名列表 = 群索引.get(wxid) or []

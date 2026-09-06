@@ -139,6 +139,13 @@ LOCAL_TO_RPC_KEYS = {
     "角色":   "p_role",
     "微信号": "p_wechat_id",
 }
+# upsert_user_by_admin 当前要求 6 个形参（PostgREST 按参数集合匹配，缺任何一个都会 404）
+UPSERT_EXTRA_RPC_KEYS = {
+    "手机号":       "p_phone",
+    "微信号原始ID": "p_wechat_original_id",
+}
+# create_user_by_admin 存在 3/4 参数重载，必须带 p_wechat_id 才能消歧
+CREATE_RPC_KEYS = ("p_username", "p_password", "p_role", "p_wechat_id")
 
 
 # ────────────────────────── 通用：带重试的请求 ──────────────────────────
@@ -343,15 +350,24 @@ def _normalize_role(角色: str) -> str:
 
 def _抽取上传载荷(条目: Dict[str, str]) -> Dict[str, str]:
     """
-    把本地中文键转换成 RPC 形参（p_username / p_password / p_role / p_wechat_id）。
+    把本地中文键转换成 upsert_user_by_admin 所需的 6 个 RPC 形参。
     必须使用英文形参名，传中文键 PostgREST 会报 "could not find function ... in schema"。
-    密码以明文发送，由数据库 RPC 内部自己处理，避免依赖失效的 gen_salt。
+    密码以明文发送，由数据库 RPC 内部自己处理；p_password 传空字符串表示不更新密码。
     """
     payload: Dict[str, str] = {}
     for 本地键, rpc键 in LOCAL_TO_RPC_KEYS.items():
         payload[rpc键] = 条目.get(本地键, "") or ""
+    for 本地键, rpc键 in UPSERT_EXTRA_RPC_KEYS.items():
+        payload[rpc键] = 条目.get(本地键, "") or ""
     payload["p_role"] = _normalize_role(payload.get("p_role", ""))
     return payload
+
+
+def _抽取新建载荷(upsert载荷: Dict[str, str]) -> Dict[str, str]:
+    """
+    create_user_by_admin 只接受 4 个形参；且库内存在 3/4 参数重载，必须带 p_wechat_id 消歧。
+    """
+    return {键: upsert载荷.get(键, "") or "" for 键 in CREATE_RPC_KEYS}
 
 
 def _rpc_error_message(resp: requests.Response) -> str:
@@ -426,8 +442,9 @@ def 秒哒上传用户(
     设计要点：
         - 已存在用户：POST upsert_user_by_admin（更新）
         - 新建用户：upsert 会误写非法角色「业务员」，故改走 create_user_by_admin
-        - 形参必须是英文 p_username / p_password / p_role / p_wechat_id
-        - 密码明文发送，数据库 RPC 内部自行处理
+        - upsert 形参：p_username / p_password / p_role / p_wechat_id / p_phone / p_wechat_original_id
+        - create 形参：p_username / p_password / p_role / p_wechat_id（必须带 p_wechat_id 消歧重载）
+        - 密码明文发送，数据库 RPC 内部自行处理；密码未变时 p_password 传空字符串
         - 单条失败不阻断后续；汇总里记录失败明细
 
     返回汇总：
@@ -476,9 +493,9 @@ def 秒哒上传用户(
         账号 = 条目.get("账号", "") or 原始载荷.get("p_username", "")
         本次密码 = 原始载荷.get("p_password", "") or ""
 
-        # 本地缓存命中且密码未变化：不传 p_password，避免无效更新密码
+        # 本地缓存命中且密码未变化：p_password 传空字符串（PostgREST 不能省略该形参）
         if 账号 and 本次密码 and 密码缓存.get(账号) == 本次密码:
-            载荷.pop("p_password", None)
+            载荷["p_password"] = ""
             汇总["password_unchanged"] += 1
 
         try:
@@ -495,8 +512,8 @@ def 秒哒上传用户(
             err_msg = _rpc_error_message(resp)
             if _upsert_create_role_bug(err_msg):
                 try:
-                    # 新建时必须传完整载荷（含 p_password）
-                    resp = _调用用户_rpc(token, RPC_CREATE_FUNCTION, 原始载荷)
+                    # 新建走 4 参数 create_user_by_admin（必须含 p_wechat_id 以消歧重载）
+                    resp = _调用用户_rpc(token, RPC_CREATE_FUNCTION, _抽取新建载荷(原始载荷))
                 except Exception as e:
                     汇总["errors"].append({
                         "账号": 账号,
