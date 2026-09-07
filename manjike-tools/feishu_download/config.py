@@ -31,10 +31,10 @@ DOWNLOAD_TABLES: List[str] = [
     # "tblNIWZ1EsDyZ1ug",  # 意向通讯录
     # "tblzUayWLgynug56",  # 推荐人更换
     "tblfoJucuZkeL9L1",  # 内部通讯录
-    "tblKa8wryhV4d7F4",  # 合伙宝妈
-    "tblCYxTgp87U0Y4x", # 固定渠道B带领B
-    "tblWCSOwwmykQrbp", # 通用更换带领B
-    "tblkdS7RKI9xV4dO", # 个性更换带领B
+    # "tblKa8wryhV4d7F4",  # 合伙宝妈
+    # "tblCYxTgp87U0Y4x", # 固定渠道B带领B
+    # "tblWCSOwwmykQrbp", # 通用更换带领B
+    # "tblkdS7RKI9xV4dO", # 个性更换带领B
 ]
 
 # table_id -> app_token / table_name / fields（行尾注释标明表格中文名）
